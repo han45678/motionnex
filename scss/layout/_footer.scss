@@ -1,0 +1,116 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins';
+
+.site-footer {
+  background: $color-navy-950;
+  color: rgba(255, 255, 255, 0.65);
+  padding: 80px 0 32px;
+
+  @include mixins.mq(mobile) {
+    padding: 56px 0 24px;
+  }
+
+  .logo {
+    margin-bottom: 56px;
+    display: inline-block;
+
+    @include mixins.mq(mobile) {
+      margin-bottom: 40px;
+    }
+  }
+
+  h4 {
+    color: $color-white;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  a {
+    transition: color $transition-base;
+
+    &:hover { color: $color-white; }
+  }
+}
+
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: 1.6fr repeat(5, 1fr);
+  gap: 32px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+  @include mixins.mq(tablet) {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 40px;
+  }
+
+  @include mixins.mq(mobile) {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 32px;
+  }
+
+  ul li {
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+}
+
+.footer-col--follow {
+  grid-column: span 1;
+
+  @include mixins.mq(tablet) {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 64px;
+
+    h4 { margin-bottom: 16px; }
+  }
+
+  @include mixins.mq(mobile) {
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
+.social-list {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 36px;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: $color-white;
+    color: $color-navy-950;
+
+    &:hover { background: $color-pink; color: $color-white; }
+  }
+}
+
+.contact-list li {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  max-width: 260px;
+}
+
+.site-footer__bottom {
+  padding-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+
+  p {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  @include mixins.mq(mobile) {
+    justify-content: flex-start;
+  }
+}

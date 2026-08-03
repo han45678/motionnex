@@ -1,0 +1,53 @@
+// ============================================================
+// Colors
+// ============================================================
+$color-navy-950:   #060821; // footer / darkest navy
+$color-navy-900:   #0a0b2e; // proven section / dark hero panels
+$color-navy-800:   #10135c; // capability card navy / inactive tab
+$color-navy-heading: #0b2036; // heading text on light sections
+$color-blue:       #1e3aeb; // accent blue (stats banner, active tab, links)
+$color-blue-dark:  #142ac4;
+$color-pink:       #e9134c; // primary CTA / accent pink-red
+$color-pink-dark:  #c50f3f;
+$color-dark:       #17181a; // header pill / near-black hero overlay
+$color-bg-light:   #f6f8fc; // light section background
+$color-white:      #ffffff;
+$color-text-body:  #5b6472; // paragraph gray on light sections
+$color-text-muted: #8a93a3;
+$color-border:     #e3e7f0;
+
+// ============================================================
+// Typography
+// ============================================================
+$font-heading: 'Maven Pro', sans-serif;
+$font-body: 'Montserrat', sans-serif;
+
+// ============================================================
+// Layout
+// ============================================================
+$container-max-width: 1472px;
+$container-padding: 24px;
+
+$header-height: 96px;
+$header-height-mobile: 72px;
+
+// ============================================================
+// Breakpoints (max-width based, desktop-first)
+// ============================================================
+$bp-desktop-lg: 1440px;
+$bp-desktop: 1280px;
+$bp-tablet: 1024px;
+$bp-mobile: 768px;
+$bp-mobile-sm: 480px;
+
+// ============================================================
+// Misc
+// ============================================================
+$radius-sm: 8px;
+$radius-md: 16px;
+$radius-lg: 32px;
+$radius-xl: 60px;
+$radius-pill: 999px;
+
+$shadow-card: 0 20px 40px rgba(10, 11, 46, 0.08);
+$transition-base: 0.25s ease;

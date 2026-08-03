@@ -1,0 +1,62 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins';
+
+.btn {
+  @include mixins.button-base;
+  background: $color-white;
+  color: $color-navy-heading;
+
+  &--pink {
+    background: $color-pink;
+    color: $color-white;
+
+    &:hover { background: $color-pink-dark; }
+  }
+
+  &--sm {
+    padding: 12px 22px;
+    font-size: 0.9rem;
+  }
+
+  svg { flex-shrink: 0; }
+}
+
+.brand-mark {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 16px;
+
+  span {
+    display: block;
+    width: 26px;
+    height: 6px;
+    background: $color-pink;
+    transform: skewX(-30deg);
+
+    &:nth-child(2) { width: 20px; }
+    &:nth-child(3) { width: 12px; }
+  }
+}
+
+.visually-hidden {
+  @include mixins.visually-hidden;
+}
+
+.skip-link {
+  @include mixins.visually-hidden;
+
+  &:focus {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    width: auto;
+    height: auto;
+    padding: 12px 20px;
+    background: $color-white;
+    color: $color-navy-heading;
+    border-radius: $radius-sm;
+    z-index: 1000;
+    clip: auto;
+  }
+}
