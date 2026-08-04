@@ -1,13 +1,14 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins';
+@use '../abstracts/function' as *;
 
 .site-header {
   position: fixed;
-  top: 20px;
+  top: size(20);
   left: 0;
   right: 0;
   z-index: 200;
-  padding-inline: 24px;
+  padding-inline: size(24);
 
   @include mixins.mq(mobile) {
     top: 0;
@@ -16,34 +17,30 @@
 }
 
 .site-header__inner {
-  max-width: 1800px;
+  max-width: size(1800);
   margin-inline: auto;
   height: $header-height;
-  padding-inline: 40px;
+  padding-inline: size(40);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: size(24);
   background: rgba(23, 24, 26, 0.88);
   border-radius: $radius-pill;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
-
-  @include mixins.mq(tablet) {
-    padding-inline: 24px;
-  }
+  box-shadow: 0 size(12) size(30) rgba(0, 0, 0, 0.18);
 
   @include mixins.mq(mobile) {
     height: $header-height-mobile;
     border-radius: 0;
-    padding-inline: 20px;
+    padding-inline: size-m(20);
   }
 }
 
 .logo {
   font-family: $font-heading;
   font-weight: 800;
-  font-size: 1.4rem;
-  letter-spacing: 0.01em;
+  font-size: size(22.4);
+  letter-spacing: size(0.16);
   color: $color-white;
   flex-shrink: 0;
 
@@ -60,7 +57,7 @@
   &__list {
     display: flex;
     align-items: center;
-    gap: 34px;
+    gap: size(34);
   }
 
   &__item {
@@ -69,11 +66,11 @@
     > a {
       display: flex;
       align-items: center;
-      gap: 6px;
-      font-size: 0.95rem;
+      gap: size(6);
+      font-size: size(15.2);
       font-weight: 500;
       color: $color-white;
-      padding: 8px 0;
+      padding: size(8) 0;
       transition: color $transition-base;
 
       .chevron { transition: transform $transition-base; }
@@ -93,14 +90,14 @@
 
 .dropdown {
   position: absolute;
-  top: calc(100% + 18px);
+  top: calc(100% + #{size(18)});
   left: 50%;
-  transform: translateX(-50%) translateY(8px);
-  min-width: 200px;
+  transform: translateX(-50%) translateY(size(8));
+  min-width: size(200);
   background: $color-dark;
   border-radius: $radius-sm;
-  padding: 10px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
+  padding: size(10);
+  box-shadow: 0 size(20) size(40) rgba(0, 0, 0, 0.28);
   opacity: 0;
   visibility: hidden;
   transition: opacity $transition-base, transform $transition-base, visibility $transition-base;
@@ -114,9 +111,9 @@
 
   li a {
     display: block;
-    padding: 10px 14px;
+    padding: size(10) size(14);
     border-radius: $radius-sm;
-    font-size: 0.9rem;
+    font-size: size(14.4);
     color: rgba(255, 255, 255, 0.85);
     white-space: nowrap;
 
@@ -130,7 +127,7 @@
 .site-header__actions {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: size(22);
   flex-shrink: 0;
 }
 
@@ -140,9 +137,9 @@
   &__toggle {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: size(6);
     color: $color-white;
-    font-size: 0.9rem;
+    font-size: size(14.4);
     cursor: pointer;
   }
 
@@ -160,7 +157,7 @@
 .lang-dropdown {
   left: auto;
   right: 0;
-  transform: translateY(8px);
+  transform: translateY(size(8));
 
   .lang-switch:hover &,
   .lang-switch:focus-within & {
@@ -178,23 +175,23 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 5px;
-  width: 40px;
-  height: 40px;
+  gap: size(5);
+  width: size(40);
+  height: size(40);
   flex-shrink: 0;
 
   span {
-    width: 22px;
-    height: 2px;
+    width: size(22);
+    height: size(2);
     background: $color-white;
-    border-radius: 2px;
+    border-radius: size(2);
     transition: transform $transition-base, opacity $transition-base;
   }
 
   &[aria-expanded="true"] {
-    span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    span:nth-child(1) { transform: translateY(size(7)) rotate(45deg); }
     span:nth-child(2) { opacity: 0; }
-    span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    span:nth-child(3) { transform: translateY(size(-7)) rotate(-45deg); }
   }
 }
 
@@ -213,13 +210,13 @@
   }
 }
 
-/* ---------------- Mobile / tablet nav panel ---------------- */
-@include mixins.mq(desktop) {
+/* ---------------- Mobile nav panel ---------------- */
+@include mixins.mq(mobile) {
   .main-nav,
   .site-header__actions {
     position: fixed;
     right: 0;
-    width: min(340px, 86vw);
+    width: min(#{size(340)}, 86vw);
     background: $color-dark;
     z-index: 199;
     transform: translateX(100%);
@@ -230,28 +227,28 @@
 
   .main-nav {
     top: 0;
-    bottom: 128px;
+    bottom: size(128);
     display: flex;
-    padding: 110px 32px 24px;
+    padding: size(110) size(32) size(24);
     overflow-y: auto;
-    box-shadow: -8px 0 30px rgba(0, 0, 0, 0.2);
+    box-shadow: size(-8) 0 size(30) rgba(0, 0, 0, 0.2);
 
     &__list {
       flex-direction: column;
       align-items: stretch;
-      gap: 4px;
+      gap: size(4);
       width: 100%;
     }
 
     &__item {
       width: 100%;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: size(1) solid rgba(255, 255, 255, 0.08);
 
       > a {
         width: 100%;
         justify-content: space-between;
-        padding: 16px 4px;
-        font-size: 1.05rem;
+        padding: size(16) size(4);
+        font-size: size(16.8);
       }
     }
   }
@@ -269,13 +266,13 @@
     transition: max-height 0.3s ease, padding 0.3s ease;
 
     .has-dropdown.is-open & {
-      max-height: 400px;
-      padding: 0 0 12px 12px;
+      max-height: size(400);
+      padding: 0 0 size(12) size(12);
     }
 
     li a {
       color: rgba(255, 255, 255, 0.7);
-      padding: 8px 10px;
+      padding: size(8) size(10);
     }
   }
 
@@ -286,13 +283,13 @@
 
   .site-header__actions {
     bottom: 0;
-    height: 128px;
+    height: size(128);
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    gap: 16px;
-    padding-inline: 32px;
-    box-shadow: -8px 0 30px rgba(0, 0, 0, 0.2);
+    gap: size(16);
+    padding-inline: size(32);
+    box-shadow: size(-8) 0 size(30) rgba(0, 0, 0, 0.2);
 
     .lang-switch {
       width: 100%;
@@ -305,14 +302,14 @@
       .dropdown {
         position: absolute;
         top: auto;
-        bottom: calc(100% + 12px);
+        bottom: calc(100% + #{size(12)});
         left: auto;
         right: 0;
         max-height: none;
         overflow: visible;
         opacity: 0;
         visibility: hidden;
-        padding: 8px;
+        padding: size(8);
         transition: opacity $transition-base, visibility $transition-base;
       }
 

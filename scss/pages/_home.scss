@@ -69,6 +69,21 @@
         width: size(1320);
       }
     }
+    .swiper-pagination {
+      z-index: 2;
+      bottom: size(40);
+    }
+    .swiper-pagination-bullet {
+      width: size(12);
+      height: size(12);
+      background: rgba(255, 255, 255, 0.4);
+      opacity: 1;
+      margin: 0 size(6) !important;
+      transition: background-color 0.3s ease;
+    }
+    .swiper-pagination-bullet-active {
+      background: #ea0044;
+    }
   }
 
  #about {

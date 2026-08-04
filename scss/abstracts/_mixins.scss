@@ -1,16 +1,11 @@
 @use 'variables' as *;
+@use 'function' as *;
 
 @mixin mq($bp) {
-  @if $bp == desktop-lg {
-    @media (max-width: $bp-desktop-lg) { @content; }
+  @if $bp == mobile {
+    @media (max-width: $bp-desktop - 1) { @content; }
   } @else if $bp == desktop {
-    @media (max-width: $bp-desktop) { @content; }
-  } @else if $bp == tablet {
-    @media (max-width: $bp-tablet) { @content; }
-  } @else if $bp == mobile {
-    @media (max-width: $bp-mobile) { @content; }
-  } @else if $bp == mobile-sm {
-    @media (max-width: $bp-mobile-sm) { @content; }
+    @media (min-width: $bp-desktop) { @content; }
   }
 }
 
@@ -28,47 +23,43 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: size(10);
   font-family: $font-body;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: size(16);
   white-space: nowrap;
   border-radius: $radius-pill;
   border: none;
   cursor: pointer;
-  padding: 16px 28px;
+  padding: size(16) size(28);
   transition: transform $transition-base, box-shadow $transition-base, background-color $transition-base;
 
   &:hover {
-    transform: translateY(-2px);
+    transform: translateY(size(-2));
   }
 }
 
 @mixin heading-font {
   font-family: $font-heading;
   font-weight: 700;
-  letter-spacing: 0.01em;
+  letter-spacing: size(0.16);
   line-height: 1.15;
 }
 
 @mixin section-padding {
-  padding: 120px 0;
-
-  @include mq(tablet) {
-    padding: 80px 0;
-  }
+  padding: size(120) 0;
 
   @include mq(mobile) {
-    padding: 56px 0;
+    padding: size-m(56) 0;
   }
 }
 
 @mixin visually-hidden {
   position: absolute;
-  width: 1px;
-  height: 1px;
+  width: size(1);
+  height: size(1);
   padding: 0;
-  margin: -1px;
+  margin: size(-1);
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;

@@ -1,3 +1,5 @@
+@use 'function' as *;
+
 // ============================================================
 // Colors
 // ============================================================
@@ -25,29 +27,25 @@ $font-body: 'Montserrat', sans-serif;
 // ============================================================
 // Layout
 // ============================================================
-$container-max-width: 1472px;
-$container-padding: 24px;
+$container-max-width: size(1472);
+$container-padding: size(24);
 
-$header-height: 96px;
-$header-height-mobile: 72px;
+$header-height: size(96);
+$header-height-mobile: size-m(72);
 
 // ============================================================
-// Breakpoints (max-width based, desktop-first)
+// Breakpoint (single split: mobile < 1024px, desktop >= 1024px)
 // ============================================================
-$bp-desktop-lg: 1440px;
-$bp-desktop: 1280px;
-$bp-tablet: 1024px;
-$bp-mobile: 768px;
-$bp-mobile-sm: 480px;
+$bp-desktop: 1024px;
 
 // ============================================================
 // Misc
 // ============================================================
-$radius-sm: 8px;
-$radius-md: 16px;
-$radius-lg: 32px;
-$radius-xl: 60px;
-$radius-pill: 999px;
+$radius-sm: size(8);
+$radius-md: size(16);
+$radius-lg: size(32);
+$radius-xl: size(60);
+$radius-pill: size(999);
 
-$shadow-card: 0 20px 40px rgba(10, 11, 46, 0.08);
+$shadow-card: 0 size(20) size(40) rgba(10, 11, 46, 0.08);
 $transition-base: 0.25s ease;

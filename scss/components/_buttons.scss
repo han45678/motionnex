@@ -1,5 +1,6 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins';
+@use '../abstracts/function' as *;
 
 .btn {
   @include mixins.button-base;
@@ -14,8 +15,8 @@
   }
 
   &--sm {
-    padding: 12px 22px;
-    font-size: 0.9rem;
+    padding: size(12) size(22);
+    font-size: size(14.4);
   }
 
   svg { flex-shrink: 0; }
@@ -24,18 +25,18 @@
 .brand-mark {
   display: flex;
   align-items: flex-end;
-  gap: 5px;
-  height: 16px;
+  gap: size(5);
+  height: size(16);
 
   span {
     display: block;
-    width: 26px;
-    height: 6px;
+    width: size(26);
+    height: size(6);
     background: $color-pink;
     transform: skewX(-30deg);
 
-    &:nth-child(2) { width: 20px; }
-    &:nth-child(3) { width: 12px; }
+    &:nth-child(2) { width: size(20); }
+    &:nth-child(3) { width: size(12); }
   }
 }
 
@@ -48,11 +49,11 @@
 
   &:focus {
     position: fixed;
-    top: 12px;
-    left: 12px;
+    top: size(12);
+    left: size(12);
     width: auto;
     height: auto;
-    padding: 12px 20px;
+    padding: size(12) size(20);
     background: $color-white;
     color: $color-navy-heading;
     border-radius: $radius-sm;
