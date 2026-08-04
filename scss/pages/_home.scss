@@ -1,3 +1,4 @@
+@use '../abstracts/mixins';
 @use '../abstracts/function' as *;
 
 #home {
@@ -83,6 +84,65 @@
     }
     .swiper-pagination-bullet-active {
       background: #ea0044;
+    }
+
+    @include mixins.mq(mobile) {
+      border-bottom-right-radius: size-m(60);
+
+      .item {
+        &::before {
+          height: 45%;
+        }
+
+        .text {
+          top: auto;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: auto;
+          padding: size-m(64) size-m(24) size-m(48);
+          background: linear-gradient(to top, #000 30%, transparent);
+          justify-content: flex-start;
+          align-content: flex-end;
+
+          h2 {
+            font-size: size-m(32);
+          }
+
+          .line {
+            width: size-m(50);
+            margin-top: size-m(24);
+            margin-bottom: size-m(24);
+          }
+
+          p {
+            font-size: size-m(14);
+          }
+
+          .btn {
+            margin-top: size-m(28);
+          }
+        }
+
+        .pic {
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: right center;
+        }
+      }
+
+      .swiper-pagination {
+        bottom: size-m(20);
+      }
+
+      .swiper-pagination-bullet {
+        width: size-m(8);
+        height: size-m(8);
+        margin: 0 size-m(4) !important;
+      }
     }
   }
 
@@ -183,6 +243,74 @@
       font-weight: 400;
       margin: 0 auto;
       max-width: size(900);
+    }
+  }
+
+  @include mixins.mq(mobile) {
+    .title {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: size-m(20);
+      margin-top: size-m(48);
+      margin-bottom: size-m(40);
+
+      h2 {
+        font-size: size-m(28);
+      }
+
+      a.btn {
+        border-radius: size-m(10);
+        padding: size-m(14) size-m(28);
+        font-size: size-m(14);
+
+        &::after {
+          margin-left: size-m(10);
+          font-size: size-m(16);
+        }
+      }
+    }
+
+    .content {
+      ul {
+        flex-direction: column;
+        border-radius: size-m(24);
+        padding: size-m(32) size-m(24);
+        margin-bottom: size-m(32);
+
+        li {
+          width: 100%;
+          border-right: none;
+          border-bottom: size-m(1) solid rgba(255, 255, 255, 0.4);
+          padding: size-m(20) 0;
+
+          &:first-child {
+            padding-top: 0;
+          }
+
+          &:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+          }
+
+          h3 {
+            font-size: size-m(40);
+
+            span {
+              font-size: size-m(36);
+            }
+          }
+
+          p {
+            font-size: size-m(14);
+          }
+        }
+      }
+
+      > p {
+        font-size: size-m(14);
+        line-height: 1.7;
+        max-width: 100%;
+      }
     }
   }
 }

@@ -723,6 +723,55 @@ img.is-loading {
 #home #banner .swiper-pagination-bullet-active {
   background: #ea0044;
 }
+@media (max-width: 1023px) {
+  #home #banner {
+    border-bottom-right-radius: 16vw;
+  }
+  #home #banner .item::before {
+    height: 45%;
+  }
+  #home #banner .item .text {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    padding: 17.0666666667vw 6.4vw 12.8vw;
+    background: linear-gradient(to top, #000 30%, transparent);
+    justify-content: flex-start;
+    align-content: flex-end;
+  }
+  #home #banner .item .text h2 {
+    font-size: 8.5333333333vw;
+  }
+  #home #banner .item .text .line {
+    width: 13.3333333333vw;
+    margin-top: 6.4vw;
+    margin-bottom: 6.4vw;
+  }
+  #home #banner .item .text p {
+    font-size: 3.7333333333vw;
+  }
+  #home #banner .item .text .btn {
+    margin-top: 7.4666666667vw;
+  }
+  #home #banner .item .pic {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+  }
+  #home #banner .swiper-pagination {
+    bottom: 5.3333333333vw;
+  }
+  #home #banner .swiper-pagination-bullet {
+    width: 2.1333333333vw;
+    height: 2.1333333333vw;
+    margin: 0 1.0666666667vw !important;
+  }
+}
 #home #about .title {
   display: flex;
   align-items: center;
@@ -805,6 +854,60 @@ img.is-loading {
   font-weight: 400;
   margin: 0 auto;
   max-width: 46.875vw;
+}
+@media (max-width: 1023px) {
+  #home #about .title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5.3333333333vw;
+    margin-top: 12.8vw;
+    margin-bottom: 10.6666666667vw;
+  }
+  #home #about .title h2 {
+    font-size: 7.4666666667vw;
+  }
+  #home #about .title a.btn {
+    border-radius: 2.6666666667vw;
+    padding: 3.7333333333vw 7.4666666667vw;
+    font-size: 3.7333333333vw;
+  }
+  #home #about .title a.btn::after {
+    margin-left: 2.6666666667vw;
+    font-size: 4.2666666667vw;
+  }
+  #home #about .content ul {
+    flex-direction: column;
+    border-radius: 6.4vw;
+    padding: 8.5333333333vw 6.4vw;
+    margin-bottom: 8.5333333333vw;
+  }
+  #home #about .content ul li {
+    width: 100%;
+    border-right: none;
+    border-bottom: 0.2666666667vw solid rgba(255, 255, 255, 0.4);
+    padding: 5.3333333333vw 0;
+  }
+  #home #about .content ul li:first-child {
+    padding-top: 0;
+  }
+  #home #about .content ul li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  #home #about .content ul li h3 {
+    font-size: 10.6666666667vw;
+  }
+  #home #about .content ul li h3 span {
+    font-size: 9.6vw;
+  }
+  #home #about .content ul li p {
+    font-size: 3.7333333333vw;
+  }
+  #home #about .content > p {
+    font-size: 3.7333333333vw;
+    line-height: 1.7;
+    max-width: 100%;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
