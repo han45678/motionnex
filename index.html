@@ -23,7 +23,7 @@
         <span class="logo__strong">MOTION</span><span class="logo__light">NEX</span>
       </a>
 
-      <nav class="main-nav" id="main-nav">
+      <nav class="main-nav" id="main-nav" data-mobile-class="is-mobile">
         <ul class="main-nav__list">
           <li class="main-nav__item has-dropdown">
             <a href="solutions.html">Solutions
@@ -121,7 +121,7 @@
   <div class="nav-backdrop" id="nav-backdrop"></div>
 
   <main id="main">
-    <div id="banner" class="swiper">
+    <section id="banner" class="swiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide item">
           <div class="text">
@@ -182,9 +182,9 @@
         </div>
       </div>
       <div class="swiper-pagination"></div>
-    </div>
+    </section>
 
-    <div id="about">
+    <section id="about">
       <div class="container">
         <div class="title">
           <h2>ABOUT MOTIONNEX</h2>
@@ -223,14 +223,200 @@
           </ul>
 
           <p>
-            In a world of growing complexity,traditional operations are no longer enough.Motionnex combines robotics, autonomy, <br>
+            In a world of growing complexity,traditional operations are no longer enough.Motionnex combines robotics,
+            autonomy, <br>
             and multi-sensor intelligenceto build systems that operate where humans can’t or shouldn’t. <br>
             Motion Redeﬁned.<br>
             A new approach to how machines move, operate, and extend human capability.
           </p>
         </div>
       </div>
-    </div>
+    </section>
+
+    <section id="solutions">
+      <div class="container">
+        <div class="title-area">
+          <h2>SOLUTIONS</h2>
+          <p>Mission-Critical Applications</p>
+        </div>
+
+        <div class="content-wrapper">
+          <!-- 左側頁籤 -->
+          <div class="tabs">
+            <button class="tab-btn active" data-target="firefighting">
+              <span class="num">01</span>
+              <span class="text">FIREFIGHTING</span>
+              <span class="icon">→</span>
+            </button>
+            <button class="tab-btn" data-target="security">
+              <span class="num">02</span>
+              <span class="text">SECURITY</span>
+              <span class="icon">→</span>
+            </button>
+            <button class="tab-btn" data-target="defense">
+              <span class="num">03</span>
+              <span class="text">DEFENSE</span>
+              <span class="icon">→</span>
+            </button>
+            <button class="tab-btn" data-target="logistics">
+              <span class="num">04</span>
+              <span class="text">LOGISTICS</span>
+              <span class="icon">→</span>
+            </button>
+            <button class="tab-btn" data-target="agriculture">
+              <span class="num">05</span>
+              <span class="text">AGRICULTURE</span>
+              <span class="icon">→</span>
+            </button>
+          </div>
+
+          <!-- 右側內容區塊 -->
+          <div class="tab-content">
+            <div class="content-item active" id="firefighting">
+              <div class="info-overlay">
+                <p>
+                  Proven performance in extreme<br>
+                  fire environments<br>
+                  Over 300 real-world missions
+                </p>
+              </div>
+              <img src="https://placehold.jp/500x500.png" alt="Firefighting">
+            </div>
+
+            <div class="content-item" id="security">
+              <div class="info-overlay">
+                <p>Security solutions description...</p>
+              </div>
+              <img src="https://placehold.jp/500x500.png" alt="Security">
+            </div>
+
+            <div class="content-item" id="defense">
+              <div class="info-overlay">
+                <p>Defense solutions description...</p>
+              </div>
+              <img src="https://placehold.jp/500x500.png" alt="Defense">
+            </div>
+
+            <div class="content-item" id="logistics">
+              <div class="info-overlay">
+                <p>Logistics solutions description...</p>
+              </div>
+              <img src="https://placehold.jp/500x500.png" alt="Logistics">
+            </div>
+
+            <div class="content-item" id="agriculture">
+              <div class="info-overlay">
+                <p>Agriculture solutions description...</p>
+              </div>
+              <img src="https://placehold.jp/500x500.png" alt="Agriculture">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="core-capabilities">
+      <div class="container">
+        <div class="title-area">
+          <h2>CORE &<br>SYSTEM CAPABILITIES</h2>
+          <p>Technology &times; Experience &times; System Integration</p>
+        </div>
+
+        <div class="cards-wrapper">
+          <!-- 左側卡片 -->
+          <div class="card dark left-card">
+            <div class="icon">
+              <img src="./assets/images/home/csc02.svg" alt="icon">
+            </div>
+            <h3>Multi-Sensor Fusion</h3>
+            <p>Thermal, visual, acoustic,<br>and gas detection<br>integration</p>
+          </div>
+
+          <!-- 中間高亮卡片 -->
+          <div class="card highlight">
+            <div class="icon">
+              <img src="./assets/images/home/csc01.svg" alt="icon">
+            </div>
+            <h3>AI Edge Computing</h3>
+            <p>Real-time analysis with<br>reduced communication<br>dependency</p>
+          </div>
+
+          <!-- 右側卡片 -->
+          <div class="card dark right-card">
+            <div class="icon">
+              <img src="./assets/images/home/csc03.svg" alt="icon">
+            </div>
+            <h3>High-Reliability Platform</h3>
+            <p>60 years of mobility and chassis<br>expertise for<br>harsh environments</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proven-section">
+      <div class="container">
+        <!-- 左側圖片區塊 -->
+        <div class="image-wrapper">
+          <img src="https://placehold.jp/500x500.png" alt="Robots in chemical plant fire">
+        </div>
+
+        <!-- 右側內容區塊 -->
+        <div class="content-wrapper">
+          <div class="red-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <h2>PROVEN</h2>
+          <p>
+            During a chemical plant fire in Kaohsiung,<br>
+            robots operated continuously for over 19 hours,<br>
+            supporting firefighting while reducing human risk.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="partners-section">
+      <div class="container">
+
+        <!-- 頂部標題區塊 -->
+        <div class="title-area">
+          <h2>PARTNERS</h2>
+          <p>
+            Collaborating with governments, enterprises, and global partners to advance intelligent risk<br
+              class="desktop-only">
+            management.
+          </p>
+        </div>
+
+        <!-- 合作夥伴 Logo 列表 -->
+        <div class="logos-wrapper">
+          <div class="logo-item">
+            <!-- 佔位圖片，請替換為實際的 Qualcomm logo -->
+            <img src="https://placehold.jp/ffffff/0b192c/200x80.png?text=Qualcomm" alt="Qualcomm">
+          </div>
+          <div class="logo-item">
+            <!-- 佔位圖片，請替換為實際的 SPE3D logo -->
+            <img src="https://placehold.jp/ffffff/0b192c/200x80.png?text=SPE3D" alt="SPE3D">
+          </div>
+          <div class="logo-item">
+            <!-- 佔位圖片，請替換為實際的 VicOne logo -->
+            <img src="https://placehold.jp/ffffff/0b192c/200x80.png?text=VicOne" alt="VicOne">
+          </div>
+          <div class="logo-item">
+            <!-- 佔位圖片，請替換為實際的 SPE3D logo -->
+            <img src="https://placehold.jp/ffffff/0b192c/200x80.png?text=SPE3D" alt="SPE3D">
+          </div>
+        </div>
+
+        <!-- 底部說明文字 -->
+        <div class="footer-text">
+          <p>Trusted by industry leaders across safety, mobility, and infrastructure.</p>
+        </div>
+
+      </div>
+    </section>
   </main>
 
   <!-- ============ FOOTER ============ -->

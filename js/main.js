@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initSiteHeader();
 
+  initSolutionsTabs();
+  
   // Initialize Hero Swiper
   const heroSwiper = new Swiper('#banner', {
     loop: true,
@@ -109,3 +111,34 @@ function initSiteHeader() {
     });
   });
 }
+
+function initSolutionsTabs() {
+  const solutionsSection = document.getElementById('solutions');
+  
+  // 判斷頁面上是否有 #solutions，若無則提早結束，避免報錯
+  if (!solutionsSection) return;
+
+  // 將選取範圍限制在 solutionsSection 內，效能更好也避免干擾其他區塊
+  const tabBtns = solutionsSection.querySelectorAll('.tab-btn');
+  const contentItems = solutionsSection.querySelectorAll('.content-item');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // 移除所有按鈕的 active 狀態
+      tabBtns.forEach(b => b.classList.remove('active'));
+      // 移除所有內容區塊的 active 狀態
+      contentItems.forEach(item => item.classList.remove('active'));
+
+      // 為當前點擊的按鈕加上 active
+      btn.classList.add('active');
+
+      // 取得對應的目標 ID 並加上 active 顯示內容
+      const targetId = btn.getAttribute('data-target');
+      const targetContent = document.getElementById(targetId);
+      if (targetContent) {
+        targetContent.classList.add('active');
+      }
+    });
+  });
+}
+
