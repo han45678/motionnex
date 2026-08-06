@@ -26,6 +26,10 @@
     letter-spacing: size(0.48);
     text-transform: uppercase;
     margin-bottom: size(20);
+
+    @include mixins.mq(mobile) {
+      font-size: size-m(12);
+    }
   }
 
   a {
@@ -43,13 +47,17 @@
   border-bottom: size(1) solid rgba(255, 255, 255, 0.12);
 
   @include mixins.mq(mobile) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     row-gap: size-m(32);
   }
 
   ul li {
     margin-bottom: size(12);
     font-size: size(14.4);
+
+    @include mixins.mq(mobile) {
+      font-size: size-m(13);
+    }
   }
 }
 
@@ -60,9 +68,7 @@
     grid-column: 1 / -1;
     display: flex;
     flex-direction: column;
-    gap: size-m(32);
-
-    h4 { margin-bottom: size-m(16); }
+    gap: size-m(20);
   }
 }
 
@@ -70,6 +76,11 @@
   display: flex;
   gap: size(12);
   margin-bottom: size(36);
+
+  @include mixins.mq(mobile) {
+    gap: size-m(12);
+    margin-bottom: size-m(20);
+  }
 
   a {
     display: flex;
@@ -81,6 +92,11 @@
     background: $color-white;
     color: $color-navy-950;
 
+    @include mixins.mq(mobile) {
+      width: size-m(34);
+      height: size-m(34);
+    }
+
     &:hover { background: $color-pink; color: $color-white; }
   }
 }
@@ -90,6 +106,11 @@
   line-height: 1.5;
   margin-bottom: size(10);
   max-width: size(260);
+
+  @include mixins.mq(mobile) {
+    font-size: size-m(13);
+    max-width: none;
+  }
 }
 
 .site-footer__bottom {
@@ -100,6 +121,10 @@
   p {
     font-size: size(12.8);
     color: rgba(255, 255, 255, 0.45);
+
+    @include mixins.mq(mobile) {
+      font-size: size-m(11);
+    }
   }
 
   @include mixins.mq(mobile) {

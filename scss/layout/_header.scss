@@ -30,9 +30,12 @@
   box-shadow: 0 size(12) size(30) rgba(0, 0, 0, 0.18);
 
   @include mixins.mq(mobile) {
+    max-width: none;
     height: $header-height-mobile;
-    border-radius: 0;
     padding-inline: size-m(20);
+    gap: size-m(24);
+    border-radius: 0;
+    box-shadow: 0 size-m(12) size-m(30) rgba(0, 0, 0, 0.18);
   }
 }
 
@@ -114,11 +117,13 @@
     transform $transition-base,
     visibility $transition-base;
 
-  .has-dropdown:hover &,
-  .has-dropdown:focus-within & {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
+  @include mixins.mq(desktop) {
+    .has-dropdown:hover &,
+    .has-dropdown:focus-within & {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
   }
 
   li a {
@@ -184,6 +189,8 @@
 /* ---------------- Mobile nav toggle ---------------- */
 .nav-toggle {
   display: none;
+  position: relative;
+  z-index: 201;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -221,6 +228,15 @@
     }
     span:nth-child(3) {
       transform: translateY(size(-7)) rotate(-45deg);
+    }
+
+    @include mixins.mq(mobile) {
+      span:nth-child(1) {
+        transform: translateY(size-m(7)) rotate(45deg);
+      }
+      span:nth-child(3) {
+        transform: translateY(size-m(-7)) rotate(-45deg);
+      }
     }
   }
 }
@@ -261,27 +277,28 @@
 
   .main-nav {
     top: 0;
-    bottom: size(128);
+    bottom: size-m(128);
     display: flex;
-    padding: size(110) size(32) size(24);
+    padding: size-m(50) size-m(32) size-m(24);
     overflow-y: auto;
-    box-shadow: size(-8) 0 size(30) rgba(0, 0, 0, 0.2);
+    box-shadow: size-m(-8) 0 size-m(30) rgba(0, 0, 0, 0.2);
 
     &__list {
       flex-direction: column;
       align-items: stretch;
-      gap: size(4);
+      gap: size-m(4);
       width: 100%;
     }
 
     &__item {
       width: 100%;
-      border-bottom: size(1) solid rgba(255, 255, 255, 0.08);
+      border-bottom: size-m(1) solid rgba(255, 255, 255, 0.08);
 
       > a {
         width: 100%;
         justify-content: space-between;
-        padding: size(16); // 這裡的 padding 數值可以維持 size()，因為它會根據父層的寬度計算，但如果希望更精確地控制手機版內距，也可以改為 size-m()
+        gap: size-m(6);
+        padding: size-m(16);
         font-size: size-m(16.8);
       }
     }
@@ -301,7 +318,7 @@
       max-height 0.3s ease,
       padding 0.3s ease;
     .has-dropdown.is-open & {
-      max-height: size(400);
+      max-height: size-m(400);
       padding: size-m(4) 0 size-m(12) size-m(24);
     }
 
@@ -319,17 +336,21 @@
 
   .site-header__actions {
     bottom: 0;
-    height: size(128);
+    height: size-m(128);
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    gap: size(16);
-    padding-inline: size(32);
-    box-shadow: size(-8) 0 size(30) rgba(0, 0, 0, 0.2);
+    gap: size-m(16);
+    padding-inline: size-m(32);
+    box-shadow: size-m(-8) 0 size-m(30) rgba(0, 0, 0, 0.2);
 
     .lang-switch__toggle,
     .btn {
       font-size: size-m(14);
+    }
+
+    .btn {
+      padding: size-m(12) size-m(22);
     }
 
     .lang-switch {
@@ -338,19 +359,25 @@
       &__toggle {
         width: 100%;
         justify-content: space-between;
+        gap: size-m(6);
       }
 
       .dropdown {
         position: absolute;
         top: auto;
-        bottom: calc(100% + #{size(12)});
-        left: auto;
+        bottom: calc(100% + #{size-m(12)});
+        left: 0;
         right: 0;
+        width: auto;
+        min-width: 0;
         max-height: none;
         overflow: visible;
+        background: $color-dark;
+        border-radius: $radius-sm;
+        box-shadow: 0 size-m(12) size-m(24) rgba(0, 0, 0, 0.28);
         opacity: 0;
         visibility: hidden;
-        padding: size(8);
+        padding: size-m(8);
         transition:
           opacity $transition-base,
           visibility $transition-base;

@@ -83,19 +83,16 @@ function initSiteHeader() {
     if (e.matches) closeMenu();
   });
 
-  // Mobile accordion: tap a submenu's chevron to expand it in place instead
-  // of navigating away. Links without a dropdown, and taps outside the
-  // chevron on link items, keep their normal href behavior.
+  // Mobile accordion: tapping anywhere on a submenu trigger (label or
+  // chevron) expands it in place. It never navigates away on mobile —
+  // a mistap on the label used to fire the link's href and jump away
+  // instead of opening the submenu, which is what this avoids.
   dropdowns.forEach((item) => {
     const trigger = item.querySelector(':scope > a, :scope > button');
     if (!trigger) return;
 
     trigger.addEventListener('click', (e) => {
       if (desktopQuery.matches) return;
-
-      const isLink = trigger.tagName === 'A';
-      const hitChevron = Boolean(e.target.closest('.chevron'));
-      if (isLink && !hitChevron) return;
 
       e.preventDefault();
       const willOpen = !item.classList.contains('is-open');
@@ -108,6 +105,19 @@ function initSiteHeader() {
 
       item.classList.toggle('is-open', willOpen);
       trigger.setAttribute('aria-expanded', String(willOpen));
+    });
+  });
+
+  // Tapping anywhere outside an open submenu (e.g. elsewhere in the mobile
+  // menu) closes it, so the language popup and nav accordions are always
+  // dismissible without having to hit the exact trigger again.
+  document.addEventListener('click', (e) => {
+    if (desktopQuery.matches) return;
+
+    dropdowns.forEach((item) => {
+      if (item.classList.contains('is-open') && !item.contains(e.target)) {
+        closeDropdown(item);
+      }
     });
   });
 }
