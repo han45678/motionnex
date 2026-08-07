@@ -838,26 +838,33 @@ img.is-loading {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: right center;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: right center;
+       object-position: right center;
   }
 }
 #home #banner .swiper-pagination {
   z-index: 2;
   bottom: 2.0833333333vw;
+  width: 90%;
+  text-align: right;
 }
 @media (max-width: 1023px) {
   #home #banner .swiper-pagination {
     bottom: 5.3333333333vw;
+    width: 100%;
+    text-align: center;
   }
 }
 #home #banner .swiper-pagination-bullet {
   width: 0.625vw;
   height: 0.625vw;
-  background: rgba(255, 255, 255, 0.4);
+  background: #fff;
   opacity: 1;
   margin: 0 0.3125vw !important;
   transition: background-color 0.3s ease;
+  border-radius: 100%;
 }
 @media (max-width: 1023px) {
   #home #banner .swiper-pagination-bullet {
@@ -868,6 +875,20 @@ img.is-loading {
 }
 #home #banner .swiper-pagination-bullet-active {
   background: #ea0044;
+  border-radius: 5px;
+  width: 2.5vw;
+  position: relative;
+  overflow: hidden;
+}
+#home #banner .swiper-pagination-bullet-active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -25%;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 5px;
 }
 #home #about {
   margin-top: 5.2083333333vw;
@@ -936,7 +957,7 @@ img.is-loading {
   }
 }
 #home #about .title a.btn:hover {
-  background-color: rgb(71.7647058824%, 0%, 20.8547008547%);
+  background-color: rgb(183, 0, 53.1794871795);
 }
 #home #about .content ul {
   background-color: #1d44fa;
@@ -1158,7 +1179,7 @@ img.is-loading {
   color: #ea0044;
 }
 #home #solutions .tabs .tab-btn:hover:not(.active) {
-  background-color: rgb(4.9019607843%, 11.0294117647%, 24.5098039216%);
+  background-color: rgb(12.5, 28.125, 62.5);
 }
 #home #solutions .tab-content {
   flex-grow: 1;
@@ -1192,7 +1213,8 @@ img.is-loading {
 #home #solutions .tab-content .content-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 #home #solutions .tab-content .content-item .info-overlay {
   position: absolute;
@@ -1467,7 +1489,8 @@ img.is-loading {
 #home #proven-section .image-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
 }
 #home #proven-section .content-wrapper {
@@ -1479,11 +1502,13 @@ img.is-loading {
   flex-direction: column;
   align-items: flex-end;
   padding-right: 1.0416666667vw;
+  padding-top: 4.1666666667vw;
 }
 @media (max-width: 1023px) {
   #home #proven-section .content-wrapper {
     width: 100%;
     padding-right: 0;
+    padding-top: 0;
     align-items: flex-end; /* 手機版維持右對齊以符合排版調性 */
   }
 }
@@ -1491,43 +1516,15 @@ img.is-loading {
   /* 使用 CSS 繪製右上角傾斜的紅色三條線圖示 */
 }
 #home #proven-section .content-wrapper .red-icon {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.4166666667vw;
-  margin-bottom: 1.0416666667vw;
+  margin-left: auto;
+  margin-bottom: 0.5208333333vw;
+  width: 4.4270833333vw;
 }
 @media (max-width: 1023px) {
   #home #proven-section .content-wrapper .red-icon {
-    gap: 1.6vw;
-    margin-bottom: 4.2666666667vw;
+    margin-bottom: 2.6666666667vw;
+    width: 17.3333333333vw;
   }
-}
-#home #proven-section .content-wrapper .red-icon span {
-  display: block;
-  background-color: #ea0044;
-  height: 0.4166666667vw;
-  transform: skewX(-30deg); /* 產生傾斜效果 */
-  border-radius: 0.1041666667vw;
-}
-@media (max-width: 1023px) {
-  #home #proven-section .content-wrapper .red-icon span {
-    height: 1.6vw;
-    border-radius: 0.5333333333vw;
-  }
-}
-#home #proven-section .content-wrapper .red-icon span {
-  /* 根據視覺圖調整三條線的長短與排列 */
-}
-#home #proven-section .content-wrapper .red-icon span:nth-child(1) {
-  width: 3.125vw;
-  margin-right: 0.5208333333vw;
-}
-#home #proven-section .content-wrapper .red-icon span:nth-child(2) {
-  width: 4.1666666667vw;
-}
-#home #proven-section .content-wrapper .red-icon span:nth-child(3) {
-  width: 1.5625vw;
 }
 #home #proven-section .content-wrapper h2 {
   font-family: "Maven Pro", sans-serif;
@@ -1643,19 +1640,16 @@ img.is-loading {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 3.125vw; /* 統一 Logo 容器的高度以保持整齊 */
+  height: 2.0833333333vw;
 }
 @media (max-width: 1023px) {
   #home #partners-section .logos-wrapper .logo-item {
-    height: 12vw;
-    /* 手機版設定為兩欄排列 */
-    width: calc(50% - 4vw);
+    height: 16vw;
   }
 }
 #home #partners-section .logos-wrapper .logo-item img {
   max-height: 100%;
   max-width: 100%;
-  object-fit: contain; /* 確保圖片不變形 */
 }
 #home #partners-section .footer-text p {
   font-size: 0.8333333333vw;
@@ -1667,6 +1661,4 @@ img.is-loading {
   #home #partners-section .footer-text p {
     font-size: 3.7333333333vw;
   }
-}
-
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

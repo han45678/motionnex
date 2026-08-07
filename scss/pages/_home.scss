@@ -122,18 +122,23 @@
     .swiper-pagination {
       z-index: 2;
       bottom: size(40);
+      width: 90%;
+      text-align: right;
 
       @include mixins.mq(mobile) {
         bottom: size-m(20);
+        width: 100%;
+        text-align: center;
       }
     }
     .swiper-pagination-bullet {
       width: size(12);
       height: size(12);
-      background: rgba(255, 255, 255, 0.4);
+      background: #fff;
       opacity: 1;
       margin: 0 size(6) !important;
       transition: background-color 0.3s ease;
+      border-radius: 100%;
 
       @include mixins.mq(mobile) {
         width: size-m(8);
@@ -143,6 +148,20 @@
     }
     .swiper-pagination-bullet-active {
       background: #ea0044;
+      border-radius: 5px;
+      width: size(48);
+      position: relative;
+      overflow: hidden;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -25%;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        border-radius: 5px;
+      }
     }
   }
 
@@ -768,49 +787,24 @@
       flex-direction: column;
       align-items: flex-end;
       padding-right: size(20);
+      padding-top: size(80);
 
       @include mixins.mq(mobile) {
         width: 100%;
         padding-right: 0;
+        padding-top: 0;
         align-items: flex-end; /* 手機版維持右對齊以符合排版調性 */
       }
 
       /* 使用 CSS 繪製右上角傾斜的紅色三條線圖示 */
       .red-icon {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: size(8);
-        margin-bottom: size(20);
+        margin-left: auto;
+        margin-bottom: size(10);
+        width: size(85);
 
         @include mixins.mq(mobile) {
-          gap: size-m(6);
-          margin-bottom: size-m(16);
-        }
-
-        span {
-          display: block;
-          background-color: #ea0044;
-          height: size(8);
-          transform: skewX(-30deg); /* 產生傾斜效果 */
-          border-radius: size(2);
-
-          @include mixins.mq(mobile) {
-            height: size-m(6);
-            border-radius: size-m(2);
-          }
-
-          /* 根據視覺圖調整三條線的長短與排列 */
-          &:nth-child(1) {
-            width: size(60);
-            margin-right: size(10);
-          }
-          &:nth-child(2) {
-            width: size(80);
-          }
-          &:nth-child(3) {
-            width: size(30);
-          }
+          margin-bottom: size-m(10);
+          width: size-m(65);
         }
       }
 
@@ -926,18 +920,16 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        height: size(60); /* 統一 Logo 容器的高度以保持整齊 */
+        height: size(40);
 
         @include mixins.mq(mobile) {
-          height: size-m(45);
-          /* 手機版設定為兩欄排列 */
-          width: calc(50% - size-m(15));
+          height: size-m(60);
         }
 
         img {
           max-height: 100%;
           max-width: 100%;
-          object-fit: contain; /* 確保圖片不變形 */
+          // object-fit: contain; /* 確保圖片不變形 */
         }
       }
     }
