@@ -14,11 +14,11 @@
     }
 
     .hero-content {
-      width: 50%;
+      width: 45%;
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      padding: size(100) size(80) size(100) size(20);
+      padding: size(225) size(80) size(100) size(120);
 
       @include mixins.mq(mobile) {
         width: 100%;
@@ -27,8 +27,8 @@
       }
 
       &__inner {
-        max-width: size(600);
         color: #fff;
+        width: 100%;
 
         @include mixins.mq(mobile) {
           max-width: 100%;
@@ -51,7 +51,7 @@
         }
 
         img {
-          width: size(24);
+          width: size(48);
 
           @include mixins.mq(mobile) {
             width: size-m(20);
@@ -74,7 +74,7 @@
       }
 
       p {
-        font-size: size(16);
+        font-size: size(22);
         line-height: 1.8;
         color: rgba(255, 255, 255, 0.8);
         margin: 0;
@@ -82,11 +82,17 @@
         @include mixins.mq(mobile) {
           font-size: size-m(15);
         }
+
+        br {
+          @include mixins.mq(mobile) {
+            display: none;
+          }
+        }
       }
     }
 
     .hero-image {
-      width: 50%;
+      width: 55%;
 
       @include mixins.mq(mobile) {
         width: 100%;
@@ -110,16 +116,18 @@
      2. Missions Section
   ========================================= */
   .solutions-missions {
+    background-color: #f3f6fb;
     padding: size(120) 0;
 
+    position: relative;
+
     @include mixins.mq(mobile) {
-      padding: size-m(80) 0;
+      padding: size-m(80) 0 size-m(160) 0;
     }
 
     .missions-layout {
       display: flex;
       gap: size(60);
-      align-items: center;
 
       @include mixins.mq(mobile) {
         flex-direction: column;
@@ -145,19 +153,29 @@
         @include mixins.mq(mobile) {
           font-size: size-m(36);
           margin-bottom: size-m(24);
+
+          br {
+            display: none;
+          }
         }
       }
 
       .image-wrapper {
-        width: 100%;
+        width: size(750);
+        border-top-right-radius: size(120);
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        bottom: size(-50);
+
+        @include mixins.mq(mobile) {
+          border-top-right-radius: size-m(80);
+          width: size-m(250);
+          bottom: 0;
+        }
 
         img {
           width: 100%;
-          border-top-right-radius: size(120);
-
-          @include mixins.mq(mobile) {
-            border-top-right-radius: size-m(80);
-          }
         }
       }
     }
@@ -175,7 +193,7 @@
       }
 
       .mission-card {
-        background-color: #f7f8fa;
+        background-color: #fff;
         border-radius: size(24);
         padding: size(40);
         position: relative;
@@ -206,11 +224,12 @@
         }
 
         h3 {
-          font-size: size(22);
-          font-weight: 700;
+          font-size: size(36);
+          font-family: 'Maven Pro', sans-serif;
+          font-weight: 600;
           color: #1a4bc5;
           margin: 0 0 size(16) 0;
-          line-height: 1.4;
+          line-height: 1;
 
           @include mixins.mq(mobile) {
             font-size: size-m(20);
@@ -233,12 +252,14 @@
   }
 
   /* =========================================
-     3. Recommended Systems Section
+  3. Recommended Systems Section
   ========================================= */
   .solutions-systems {
+    padding-top: size(120);
     padding-bottom: size(120);
 
     @include mixins.mq(mobile) {
+      padding-top: size-m(80);
       padding-bottom: size-m(80);
     }
 
@@ -265,6 +286,10 @@
 
         @include mixins.mq(mobile) {
           font-size: size-m(32);
+
+          br {
+            display: none;
+          }
         }
       }
 
@@ -297,13 +322,32 @@
       background-color: #f4f6f9;
       border-radius: size(24);
       display: flex;
-      overflow: hidden;
       padding: size(40);
+      position: relative;
+      overflow: hidden;
+      transition: background-color 0.4s ease;
+      cursor: pointer;
 
       @include mixins.mq(mobile) {
         flex-direction: column;
         padding: size-m(32);
         border-radius: size-m(16);
+      }
+
+      &:hover {
+        background-color: #1a4bc5;
+
+        .card-info {
+          h3,
+          h4,
+          p {
+            color: #fff;
+          }
+        }
+
+        .card-image img {
+          transform: scale(1.5) translate(15%, 15%);
+        }
       }
 
       .card-info {
@@ -320,6 +364,7 @@
         h3 {
           font-size: size(24);
           font-weight: 700;
+          transition: color 0.4s ease;
           color: #0d1b2a;
           margin: 0 0 size(8) 0;
 
@@ -331,6 +376,7 @@
         h4 {
           font-size: size(16);
           font-weight: 600;
+          transition: color 0.4s ease;
           color: #333;
           margin: 0 0 size(16) 0;
           line-height: 1.4;
@@ -343,6 +389,7 @@
 
         p {
           font-size: size(14);
+          transition: color 0.4s ease;
           color: #666;
           line-height: 1.6;
           margin: 0;
@@ -368,23 +415,20 @@
 
         .bg-shape {
           position: absolute;
-          bottom: 0;
-          right: 0;
+          bottom: -100%;
+          right: -50%;
           width: 120%;
-          height: 60%;
+          height: 120%;
           background-color: #1a4bc5;
-          border-radius: size(100) 0 0 0;
           z-index: -1;
-
-          @include mixins.mq(mobile) {
-            border-radius: size-m(80) 0 0 0;
-          }
+          border-radius: 100%;
         }
 
         img {
           max-width: 100%;
           max-height: 100%;
           object-fit: contain;
+          transition: transform 0.4s ease;
         }
       }
     }
@@ -429,6 +473,9 @@
         font-size: size(48);
         font-family: 'Maven Pro', sans-serif;
         font-weight: 700;
+        font-size: size(72);
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
         margin: 0 0 size(16) 0;
         display: flex;
         align-items: center;
@@ -437,6 +484,7 @@
 
         @include mixins.mq(mobile) {
           font-size: size-m(32);
+          font-size: size-m(40);
           flex-direction: column;
           align-items: flex-start;
           gap: size-m(8);

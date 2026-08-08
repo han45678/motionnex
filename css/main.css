@@ -1679,11 +1679,11 @@ img.is-loading {
   }
 }
 #solutions .solutions-hero .hero-content {
-  width: 50%;
+  width: 45%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: 5.2083333333vw 4.1666666667vw 5.2083333333vw 1.0416666667vw;
+  padding: 11.71875vw 4.1666666667vw 5.2083333333vw 6.25vw;
 }
 @media (max-width: 1023px) {
   #solutions .solutions-hero .hero-content {
@@ -1693,8 +1693,8 @@ img.is-loading {
   }
 }
 #solutions .solutions-hero .hero-content__inner {
-  max-width: 31.25vw;
   color: #fff;
+  width: 100%;
 }
 @media (max-width: 1023px) {
   #solutions .solutions-hero .hero-content__inner {
@@ -1718,7 +1718,7 @@ img.is-loading {
   }
 }
 #solutions .solutions-hero .hero-content .tagline img {
-  width: 1.25vw;
+  width: 2.5vw;
 }
 @media (max-width: 1023px) {
   #solutions .solutions-hero .hero-content .tagline img {
@@ -1740,7 +1740,7 @@ img.is-loading {
   }
 }
 #solutions .solutions-hero .hero-content p {
-  font-size: 0.8333333333vw;
+  font-size: 1.1458333333vw;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.8);
   margin: 0;
@@ -1750,8 +1750,13 @@ img.is-loading {
     font-size: 4vw;
   }
 }
+@media (max-width: 1023px) {
+  #solutions .solutions-hero .hero-content p br {
+    display: none;
+  }
+}
 #solutions .solutions-hero .hero-image {
-  width: 50%;
+  width: 55%;
 }
 @media (max-width: 1023px) {
   #solutions .solutions-hero .hero-image {
@@ -1777,17 +1782,18 @@ img.is-loading {
   ========================================= */
 }
 #solutions .solutions-missions {
+  background-color: #f3f6fb;
   padding: 6.25vw 0;
+  position: relative;
 }
 @media (max-width: 1023px) {
   #solutions .solutions-missions {
-    padding: 21.3333333333vw 0;
+    padding: 21.3333333333vw 0 42.6666666667vw 0;
   }
 }
 #solutions .solutions-missions .missions-layout {
   display: flex;
   gap: 3.125vw;
-  align-items: center;
 }
 @media (max-width: 1023px) {
   #solutions .solutions-missions .missions-layout {
@@ -1816,18 +1822,27 @@ img.is-loading {
     font-size: 9.6vw;
     margin-bottom: 6.4vw;
   }
+  #solutions .solutions-missions .missions-left h2 br {
+    display: none;
+  }
 }
 #solutions .solutions-missions .missions-left .image-wrapper {
-  width: 100%;
+  width: 39.0625vw;
+  border-top-right-radius: 6.25vw;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  bottom: -2.6041666667vw;
+}
+@media (max-width: 1023px) {
+  #solutions .solutions-missions .missions-left .image-wrapper {
+    border-top-right-radius: 21.3333333333vw;
+    width: 66.6666666667vw;
+    bottom: 0;
+  }
 }
 #solutions .solutions-missions .missions-left .image-wrapper img {
   width: 100%;
-  border-top-right-radius: 6.25vw;
-}
-@media (max-width: 1023px) {
-  #solutions .solutions-missions .missions-left .image-wrapper img {
-    border-top-right-radius: 21.3333333333vw;
-  }
 }
 #solutions .solutions-missions .missions-right {
   width: 65%;
@@ -1843,7 +1858,7 @@ img.is-loading {
   }
 }
 #solutions .solutions-missions .missions-right .mission-card {
-  background-color: #f7f8fa;
+  background-color: #fff;
   border-radius: 1.25vw;
   padding: 2.0833333333vw;
   position: relative;
@@ -1874,11 +1889,12 @@ img.is-loading {
   height: auto;
 }
 #solutions .solutions-missions .missions-right .mission-card h3 {
-  font-size: 1.1458333333vw;
-  font-weight: 700;
+  font-size: 1.875vw;
+  font-family: "Maven Pro", sans-serif;
+  font-weight: 600;
   color: #1a4bc5;
   margin: 0 0 0.8333333333vw 0;
-  line-height: 1.4;
+  line-height: 1;
 }
 @media (max-width: 1023px) {
   #solutions .solutions-missions .missions-right .mission-card h3 {
@@ -1899,14 +1915,16 @@ img.is-loading {
 }
 #solutions {
   /* =========================================
-     3. Recommended Systems Section
+  3. Recommended Systems Section
   ========================================= */
 }
 #solutions .solutions-systems {
+  padding-top: 6.25vw;
   padding-bottom: 6.25vw;
 }
 @media (max-width: 1023px) {
   #solutions .solutions-systems {
+    padding-top: 21.3333333333vw;
     padding-bottom: 21.3333333333vw;
   }
 }
@@ -1935,6 +1953,9 @@ img.is-loading {
 @media (max-width: 1023px) {
   #solutions .solutions-systems .systems-header h2 {
     font-size: 8.5333333333vw;
+  }
+  #solutions .solutions-systems .systems-header h2 br {
+    display: none;
   }
 }
 #solutions .solutions-systems .systems-header p {
@@ -1965,8 +1986,11 @@ img.is-loading {
   background-color: #f4f6f9;
   border-radius: 1.25vw;
   display: flex;
-  overflow: hidden;
   padding: 2.0833333333vw;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.4s ease;
+  cursor: pointer;
 }
 @media (max-width: 1023px) {
   #solutions .solutions-systems .system-card {
@@ -1974,6 +1998,17 @@ img.is-loading {
     padding: 8.5333333333vw;
     border-radius: 4.2666666667vw;
   }
+}
+#solutions .solutions-systems .system-card:hover {
+  background-color: #1a4bc5;
+}
+#solutions .solutions-systems .system-card:hover .card-info h3,
+#solutions .solutions-systems .system-card:hover .card-info h4,
+#solutions .solutions-systems .system-card:hover .card-info p {
+  color: #fff;
+}
+#solutions .solutions-systems .system-card:hover .card-image img {
+  transform: scale(1.5) translate(15%, 15%);
 }
 #solutions .solutions-systems .system-card .card-info {
   width: 50%;
@@ -1990,6 +2025,7 @@ img.is-loading {
 #solutions .solutions-systems .system-card .card-info h3 {
   font-size: 1.25vw;
   font-weight: 700;
+  transition: color 0.4s ease;
   color: #0d1b2a;
   margin: 0 0 0.4166666667vw 0;
 }
@@ -2001,6 +2037,7 @@ img.is-loading {
 #solutions .solutions-systems .system-card .card-info h4 {
   font-size: 0.8333333333vw;
   font-weight: 600;
+  transition: color 0.4s ease;
   color: #333;
   margin: 0 0 0.8333333333vw 0;
   line-height: 1.4;
@@ -2013,6 +2050,7 @@ img.is-loading {
 }
 #solutions .solutions-systems .system-card .card-info p {
   font-size: 0.7291666667vw;
+  transition: color 0.4s ease;
   color: #666;
   line-height: 1.6;
   margin: 0;
@@ -2038,24 +2076,20 @@ img.is-loading {
 }
 #solutions .solutions-systems .system-card .card-image .bg-shape {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: -100%;
+  right: -50%;
   width: 120%;
-  height: 60%;
+  height: 120%;
   background-color: #1a4bc5;
-  border-radius: 5.2083333333vw 0 0 0;
   z-index: -1;
-}
-@media (max-width: 1023px) {
-  #solutions .solutions-systems .system-card .card-image .bg-shape {
-    border-radius: 21.3333333333vw 0 0 0;
-  }
+  border-radius: 100%;
 }
 #solutions .solutions-systems .system-card .card-image img {
   max-width: 100%;
   max-height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+  transition: transform 0.4s ease;
 }
 #solutions {
   /* =========================================
@@ -2100,6 +2134,9 @@ img.is-loading {
   font-size: 2.5vw;
   font-family: "Maven Pro", sans-serif;
   font-weight: 700;
+  font-size: 3.75vw;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
   margin: 0 0 0.8333333333vw 0;
   display: flex;
   align-items: center;
@@ -2109,6 +2146,7 @@ img.is-loading {
 @media (max-width: 1023px) {
   #solutions .solutions-cta .cta-content h2 {
     font-size: 8.5333333333vw;
+    font-size: 10.6666666667vw;
     flex-direction: column;
     align-items: flex-start;
     gap: 2.1333333333vw;
