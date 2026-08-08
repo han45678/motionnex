@@ -1731,6 +1731,7 @@ img.is-loading {
   font-weight: 400;
   line-height: 1.2;
   margin: 0 0 1.6666666667vw 0;
+  color: #fff;
 }
 @media (max-width: 1023px) {
   #solutions .solutions-hero .hero-content h1 {
@@ -2146,6 +2147,11 @@ img.is-loading {
     font-size: 3.7333333333vw;
   }
 }
+@media (max-width: 1023px) {
+  #solutions .solutions-cta .cta-action {
+    width: 100%;
+  }
+}
 #solutions .solutions-cta .cta-action .btn--red {
   background-color: #ea0044;
   color: #fff;
@@ -2162,6 +2168,8 @@ img.is-loading {
     padding: 4.2666666667vw 8.5333333333vw;
     border-radius: 2.6666666667vw;
     font-size: 4.2666666667vw;
+    width: 100%;
+    justify-content: center;
   }
 }
 #solutions .solutions-cta .cta-action .btn--red:hover {

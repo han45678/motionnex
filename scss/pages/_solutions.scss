@@ -65,6 +65,7 @@
         font-weight: 400;
         line-height: 1.2;
         margin: 0 0 size(32) 0;
+        color: #fff;
 
         @include mixins.mq(mobile) {
           font-size: size-m(40);
@@ -477,6 +478,10 @@
     }
 
     .cta-action {
+      @include mixins.mq(mobile) {
+        width: 100%;
+      }
+
       .btn--red {
         background-color: #ea0044;
         color: #fff;
@@ -492,6 +497,8 @@
           padding: size-m(16) size-m(32);
           border-radius: size-m(10);
           font-size: size-m(16);
+          width: 100%;
+          justify-content: center;
         }
 
         &:hover {
