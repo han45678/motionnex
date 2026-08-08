@@ -1170,6 +1170,7 @@ img.is-loading {
 @media (max-width: 1023px) {
   #home #solutions .tabs .tab-btn .icon {
     font-size: 5.3333333333vw;
+    transform: rotate(90deg);
   }
 }
 #home #solutions .tabs .tab-btn.active {

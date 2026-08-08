@@ -446,6 +446,7 @@
 
           @include mixins.mq(mobile) {
             font-size: size-m(20);
+            transform: rotate(90deg);
           }
         }
 

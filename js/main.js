@@ -31,12 +31,13 @@ function initSiteHeader() {
   const headerActions = document.getElementById('site-header-actions');
   const navBackdrop = document.getElementById('nav-backdrop');
 
+  // 確保所有需要的元素都存在
   if (!navToggle || !mainNav || !headerActions || !navBackdrop) return;
 
   const desktopQuery = window.matchMedia('(min-width: 1024px)');
   const dropdowns = document.querySelectorAll('.has-dropdown');
 
-  dropdowns.forEach((item) => {
+  dropdowns.forEach(item => {
     const trigger = item.querySelector(':scope > a, :scope > button');
     if (trigger) trigger.setAttribute('aria-expanded', 'false');
   });
@@ -88,7 +89,7 @@ function initSiteHeader() {
   // a mistap on the label used to fire the link's href and jump away
   // instead of opening the submenu, which is what this avoids.
   dropdowns.forEach((item) => {
-    const trigger = item.querySelector(':scope > a, :scope > button');
+    const trigger = item.querySelector(':scope > a, :scope > button'); 
     if (!trigger) return;
 
     trigger.addEventListener('click', (e) => {
@@ -103,7 +104,7 @@ function initSiteHeader() {
         }
       });
 
-      item.classList.toggle('is-open', willOpen);
+      item.classList.toggle('is-open');
       trigger.setAttribute('aria-expanded', String(willOpen));
     });
   });
@@ -124,31 +125,37 @@ function initSiteHeader() {
 
 function initSolutionsTabs() {
   const solutionsSection = document.getElementById('solutions');
-  
   // 判斷頁面上是否有 #solutions，若無則提早結束，避免報錯
   if (!solutionsSection) return;
 
   // 將選取範圍限制在 solutionsSection 內，效能更好也避免干擾其他區塊
-  const tabBtns = solutionsSection.querySelectorAll('.tab-btn');
+  const tabsContainer = solutionsSection.querySelector('.tabs');
   const contentItems = solutionsSection.querySelectorAll('.content-item');
 
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // 移除所有按鈕的 active 狀態
-      tabBtns.forEach(b => b.classList.remove('active'));
-      // 移除所有內容區塊的 active 狀態
-      contentItems.forEach(item => item.classList.remove('active'));
+  if (!tabsContainer || contentItems.length === 0) return;
 
-      // 為當前點擊的按鈕加上 active
-      btn.classList.add('active');
+  // 使用事件委派 (Event Delegation) 提升效能
+  tabsContainer.addEventListener('click', (e) => {
+    // 找到被點擊的按鈕，如果點擊的不是按鈕或其子元素，則不處理
+    const clickedBtn = e.target.closest('.tab-btn');
+    if (!clickedBtn) return;
 
-      // 取得對應的目標 ID 並加上 active 顯示內容
-      const targetId = btn.getAttribute('data-target');
-      const targetContent = document.getElementById(targetId);
-      if (targetContent) {
-        targetContent.classList.add('active');
-      }
-    });
+    // 如果點擊的按鈕已經是 active 狀態，則不需重複執行
+    if (clickedBtn.classList.contains('active')) return;
+
+    // 移除所有按鈕的 active 狀態
+    tabsContainer.querySelector('.tab-btn.active')?.classList.remove('active');
+    // 為當前點擊的按鈕加上 active
+    clickedBtn.classList.add('active');
+
+    // 移除所有內容區塊的 active 狀態
+    solutionsSection.querySelector('.content-item.active')?.classList.remove('active');
+
+    // 取得對應的目標 ID 並加上 active 顯示內容
+    const targetId = clickedBtn.dataset.target;
+    const targetContent = document.getElementById(targetId);
+    if (targetContent) {
+      targetContent.classList.add('active');
+    }
   });
 }
-
