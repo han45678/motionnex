@@ -1,0 +1,970 @@
+@use '../abstracts/mixins';
+@use '../abstracts/function' as *;
+
+/* =========================================
+   #products (產品總覽頁)
+========================================= */
+#products {
+  .products-hero {
+    display: flex;
+    background-color: #0b1156;
+    overflow: hidden;
+
+    @include mixins.mq(mobile) {
+      flex-direction: column;
+    }
+
+    .hero-content {
+      width: 45%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: size(180) size(80) size(180) size(120);
+
+      @include mixins.mq(mobile) {
+        width: 100%;
+        justify-content: center;
+        padding: size-m(80) size-m(24) size-m(40);
+      }
+
+      &__inner {
+        color: #fff;
+        width: 100%;
+        max-width: size(500);
+
+        @include mixins.mq(mobile) {
+          max-width: 100%;
+        }
+      }
+
+      .tagline {
+        display: flex;
+        align-items: center;
+        gap: size(16);
+        margin-bottom: size(24);
+        font-size: size(16);
+        font-weight: 500;
+        letter-spacing: size(1);
+
+        @include mixins.mq(mobile) {
+          gap: size-m(12);
+          margin-bottom: size-m(16);
+          font-size: size-m(14);
+        }
+
+        img {
+          width: size(24);
+          @include mixins.mq(mobile) {
+            width: size-m(20);
+          }
+        }
+      }
+
+      h1 {
+        font-size: size(48);
+        font-family: 'Maven Pro', sans-serif;
+        font-weight: 500;
+        line-height: 1.2;
+        margin: 0 0 size(32) 0;
+        color: #fff;
+        letter-spacing: size(2);
+
+        @include mixins.mq(mobile) {
+          font-size: size-m(32);
+          margin-bottom: size-m(20);
+        }
+      }
+
+      p {
+        font-size: size(15);
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.8);
+        margin: 0;
+
+        @include mixins.mq(mobile) {
+          font-size: size-m(14);
+          br { display: none; }
+        }
+      }
+    }
+
+    .hero-image {
+      width: 55%;
+      position: relative;
+
+      @include mixins.mq(mobile) {
+        width: 100%;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-bottom-left-radius: size(200);
+
+        @include mixins.mq(mobile) {
+          border-bottom-left-radius: size-m(80);
+          height: size-m(300);
+        }
+      }
+    }
+  }
+
+  .products-categories {
+    padding: size(100) 0;
+    background-color: #f7f9fc;
+
+    @include mixins.mq(mobile) {
+      padding: size-m(60) 0;
+    }
+
+    .category-swiper {
+      padding: size(20);
+      position: relative;
+    }
+
+    .category-card {
+      background-color: #fff;
+      border-radius: size(24);
+      padding: size(40) size(30);
+      text-align: center;
+      box-shadow: 0 size(10) size(30) rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      cursor: pointer;
+
+      @include mixins.mq(mobile) {
+        padding: size-m(30) size-m(20);
+        border-radius: size-m(16);
+      }
+
+      .img-box {
+        height: size(160);
+        margin-bottom: size(24);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include mixins.mq(mobile) {
+          height: size-m(120);
+          margin-bottom: size-m(16);
+        }
+
+        img {
+          max-height: 100%;
+          max-width: 100%;
+          object-fit: contain;
+        }
+      }
+
+      h3 {
+        font-size: size(24);
+        font-weight: 700;
+        color: #1a4bc5;
+        margin: 0 0 size(24) 0;
+
+        @include mixins.mq(mobile) {
+          font-size: size-m(20);
+          margin-bottom: size-m(16);
+        }
+      }
+
+      .arrow-btn {
+        width: size(40);
+        height: size(40);
+        background-color: #ea0044;
+        color: #fff;
+        border-radius: size(8);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        transition: background-color 0.3s;
+
+        @include mixins.mq(mobile) {
+          width: size-m(32);
+          height: size-m(32);
+          border-radius: size-m(6);
+        }
+      }
+
+      &.active, &:hover {
+        background-color: #1a4bc5;
+        h3 { color: #fff; }
+        .arrow-btn { background-color: #fff; color: #ea0044; }
+      }
+    }
+  }
+
+  .products-lineup {
+    padding-bottom: size(120);
+    background-color: #f7f9fc;
+
+    @include mixins.mq(mobile) {
+      padding-bottom: size-m(80);
+    }
+
+    .lineup-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: size(60);
+      border-bottom: size(1) solid #e5e7eb;
+      padding-bottom: size(20);
+
+      @include mixins.mq(mobile) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: size-m(24);
+        margin-bottom: size-m(40);
+      }
+
+      h2 {
+        font-size: size(40);
+        font-family: 'Maven Pro', sans-serif;
+        font-weight: 500;
+        color: #0d1b2a;
+        line-height: 1.1;
+        margin: 0;
+
+        @include mixins.mq(mobile) {
+          font-size: size-m(32);
+          br { display: none; }
+        }
+      }
+
+      .lineup-tabs {
+        display: flex;
+        align-items: center;
+        gap: size(32);
+
+        @include mixins.mq(mobile) {
+          gap: size-m(16);
+          overflow-x: auto;
+          width: 100%;
+          padding-bottom: size-m(8);
+        }
+
+        .tab {
+          font-size: size(16);
+          color: #666;
+          text-decoration: none;
+          font-weight: 500;
+          position: relative;
+          padding-bottom: size(8);
+
+          @include mixins.mq(mobile) {
+            font-size: size-m(15);
+            white-space: nowrap;
+          }
+
+          &.active {
+            color: #ea0044;
+            font-weight: 700;
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: size(-21); // 對齊 border-bottom
+              left: 0;
+              width: 100%;
+              height: size(3);
+              background-color: #ea0044;
+
+              @include mixins.mq(mobile) {
+                bottom: size-m(-9);
+              }
+            }
+          }
+        }
+
+        .tab-nav {
+          display: flex;
+          gap: size(12);
+          margin-left: size(20);
+
+          @include mixins.mq(mobile) {
+            display: none; // 手機版用滑動，隱藏箭頭
+          }
+
+          .nav-btn {
+            background: none;
+            border: none;
+            font-size: size(20);
+            color: #666;
+            cursor: pointer;
+            &:hover { color: #000; }
+          }
+        }
+      }
+    }
+
+    .lineup-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: size(30);
+
+      @include mixins.mq(mobile) {
+        grid-template-columns: 1fr;
+        gap: size-m(20);
+      }
+    }
+
+    .product-card {
+      background-color: #e8ecf4;
+      border-radius: size(24);
+      padding: size(40);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+
+      @include mixins.mq(mobile) {
+        padding: size-m(24);
+        border-radius: size-m(16);
+      }
+
+      &:hover {
+        transform: translateY(size(-5));
+        @include mixins.mq(mobile) { transform: translateY(size-m(-5)); }
+      }
+
+      .card-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: size(24);
+
+        @include mixins.mq(mobile) {
+          margin-bottom: size-m(16);
+        }
+
+        .category {
+          font-size: size(14);
+          font-weight: 600;
+          color: #333;
+
+          @include mixins.mq(mobile) {
+            font-size: size-m(13);
+          }
+        }
+
+        .link-icon {
+          width: size(32);
+          height: size(32);
+          background-color: #ea0044;
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: size(6);
+          font-size: size(16);
+
+          @include mixins.mq(mobile) {
+            width: size-m(28);
+            height: size-m(28);
+            border-radius: size-m(4);
+            font-size: size-m(14);
+          }
+        }
+      }
+
+      .card-body {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: size(20);
+
+        @include mixins.mq(mobile) {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .info {
+          width: 40%;
+          @include mixins.mq(mobile) { width: 100%; }
+
+          h3 {
+            font-size: size(32);
+            font-weight: 700;
+            color: #0d1b2a;
+            margin: 0 0 size(12) 0;
+
+            @include mixins.mq(mobile) {
+              font-size: size-m(24);
+              margin-bottom: size-m(8);
+            }
+          }
+
+          p {
+            font-size: size(14);
+            color: #555;
+            line-height: 1.5;
+            margin: 0;
+
+            @include mixins.mq(mobile) {
+              font-size: size-m(13);
+            }
+          }
+        }
+
+        .pic {
+          width: 55%;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          @include mixins.mq(mobile) {
+            width: 100%;
+            margin-top: size-m(20);
+          }
+
+          .bg-shape {
+            position: absolute;
+            bottom: size(-20);
+            right: size(-20);
+            width: 100%;
+            height: 80%;
+            background-color: #1a4bc5;
+            border-radius: size(60) 0 0 0;
+            z-index: 0;
+
+            @include mixins.mq(mobile) {
+              bottom: size-m(-10);
+              right: size-m(-10);
+              border-radius: size-m(40) 0 0 0;
+            }
+          }
+
+          img {
+            max-width: 100%;
+            height: auto;
+            position: relative;
+            z-index: 1;
+          }
+        }
+      }
+
+      // 高亮版本
+      &.highlight {
+        background-color: #1a4bc5;
+        
+        .card-head .category { color: #fff; }
+        .card-head .link-icon { background-color: #fff; color: #ea0044; }
+        .card-body .info h3, .card-body .info p { color: #fff; }
+        .card-body .pic .bg-shape { display: none; }
+      }
+    }
+  }
+
+  .products-cta {
+    padding-bottom: size(120);
+    background-color: #f7f9fc;
+
+    @include mixins.mq(mobile) {
+      padding-bottom: size-m(80);
+    }
+
+    .cta-box {
+      background-color: #070b28;
+      border-radius: size(40);
+      padding: size(80);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+
+      @include mixins.mq(mobile) {
+        flex-direction: column;
+        padding: size-m(40) size-m(24);
+        border-radius: size-m(24);
+        align-items: flex-start;
+        gap: size-m(32);
+      }
+
+      h2 {
+        font-size: size(40);
+        font-family: 'Maven Pro', sans-serif;
+        font-weight: 600;
+        margin: 0 0 size(24) 0;
+        line-height: 1.2;
+
+        @include mixins.mq(mobile) {
+          font-size: size-m(28);
+          margin-bottom: size-m(16);
+        }
+      }
+
+      p {
+        font-size: size(15);
+        line-height: 1.8;
+        opacity: 0.8;
+        margin: 0;
+
+        @include mixins.mq(mobile) {
+          font-size: size-m(14);
+        }
+      }
+
+      .btn--red {
+        background-color: #ea0044;
+        color: #fff;
+        padding: size(20) size(40);
+        border-radius: size(12);
+        text-decoration: none;
+        font-size: size(18);
+        font-weight: 600;
+        white-space: nowrap;
+
+        @include mixins.mq(mobile) {
+          padding: size-m(16) size-m(32);
+          border-radius: size-m(10);
+          font-size: size-m(16);
+        }
+      }
+    }
+  }
+}
+
+/* =========================================
+   #product-detail (產品詳細內頁)
+========================================= */
+#product-detail {
+  .detail-hero {
+    display: flex;
+    min-height: 80vh;
+    position: relative;
+    background-color: #f7f9fc;
+
+    @include mixins.mq(mobile) {
+      flex-direction: column;
+    }
+
+    .hero-left {
+      width: 35%;
+      background-color: #070b28;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: size(100) size(60) size(100) size(20);
+      position: relative;
+      overflow: hidden;
+
+      @include mixins.mq(mobile) {
+        width: 100%;
+        padding: size-m(60) size-m(24);
+        justify-content: flex-start;
+      }
+
+      &__content {
+        color: #fff;
+        width: 100%;
+        max-width: size(350);
+        position: relative;
+        z-index: 2;
+
+        @include mixins.mq(mobile) {
+          max-width: 100%;
+        }
+
+        .category {
+          display: flex;
+          align-items: center;
+          gap: size(12);
+          margin-bottom: size(24);
+          font-size: size(14);
+          color: #ea0044;
+          font-weight: 600;
+
+          @include mixins.mq(mobile) {
+            font-size: size-m(13);
+            margin-bottom: size-m(16);
+            gap: size-m(8);
+          }
+
+          img {
+            width: size(20);
+            @include mixins.mq(mobile) { width: size-m(16); }
+          }
+        }
+
+        h1 {
+          font-size: size(64);
+          font-family: 'Maven Pro', sans-serif;
+          font-weight: 600;
+          margin: 0 0 size(16) 0;
+
+          @include mixins.mq(mobile) {
+            font-size: size-m(48);
+            margin-bottom: size-m(8);
+          }
+        }
+
+        p {
+          font-size: size(20);
+          color: rgba(255,255,255,0.7);
+          line-height: 1.4;
+          margin: 0;
+
+          @include mixins.mq(mobile) {
+            font-size: size-m(16);
+          }
+        }
+      }
+
+      .deco-lines {
+        position: absolute;
+        bottom: size(40);
+        left: size(-40);
+        width: size(250);
+        opacity: 0.1;
+        z-index: 1;
+
+        @include mixins.mq(mobile) {
+          bottom: size-m(20);
+          width: size-m(150);
+        }
+      }
+    }
+
+    .hero-right {
+      width: 65%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: size(60);
+
+      @include mixins.mq(mobile) {
+        width: 100%;
+        padding: size-m(40) size-m(24);
+        flex-direction: column;
+      }
+
+      .main-image {
+        width: 70%;
+        text-align: center;
+        
+        @include mixins.mq(mobile) {
+          width: 100%;
+          margin-bottom: size-m(24);
+        }
+
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+      }
+
+      .thumbnails {
+        position: absolute;
+        right: size(60);
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: size(20);
+
+        @include mixins.mq(mobile) {
+          position: relative;
+          right: 0;
+          top: 0;
+          transform: none;
+          flex-direction: row;
+          justify-content: center;
+        }
+
+        .thumb {
+          width: size(100);
+          height: size(70);
+          background-color: #fff;
+          border: size(2) solid transparent;
+          border-radius: size(8);
+          padding: size(5);
+          cursor: pointer;
+          transition: border-color 0.3s;
+
+          @include mixins.mq(mobile) {
+            width: size-m(80);
+            height: size-m(60);
+            border-width: size-m(2);
+            border-radius: size-m(6);
+          }
+
+          &.active, &:hover {
+            border-color: #ea0044;
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+
+        .scroll-down {
+          width: size(40);
+          height: size(40);
+          border: size(1) solid #1a4bc5;
+          color: #1a4bc5;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: size(20) auto 0;
+          font-size: size(20);
+
+          @include mixins.mq(mobile) {
+            display: none; // 手機版隱藏下滑箭頭
+          }
+        }
+      }
+    }
+
+    .color-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: size(8);
+      background: linear-gradient(to right, #00d2ff 25%, #1a4bc5 25% 50%, #fbd500 50% 75%, #ea0044 75%);
+      z-index: 3;
+
+      @include mixins.mq(mobile) {
+        height: size-m(4);
+      }
+    }
+  }
+
+  .detail-specs {
+    padding: size(120) 0;
+    background-color: #fff;
+
+    @include mixins.mq(mobile) {
+      padding: size-m(60) 0;
+    }
+
+    .specs-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: size(60);
+
+      @include mixins.mq(mobile) {
+        margin-bottom: size-m(32);
+      }
+
+      h2 {
+        font-size: size(36);
+        font-family: 'Maven Pro', sans-serif;
+        color: #2b394a;
+        margin: 0;
+        line-height: 1.2;
+
+        @include mixins.mq(mobile) {
+          font-size: size-m(24);
+        }
+      }
+
+      .header-icon {
+        width: size(80);
+        @include mixins.mq(mobile) { width: size-m(50); }
+      }
+    }
+
+    .specs-table {
+      border-top: size(2) solid #1a4bc5;
+
+      @include mixins.mq(mobile) {
+        border-top-width: size-m(2);
+      }
+
+      .tr {
+        display: grid;
+        grid-template-columns: 20% 30% 50%;
+        border-bottom: size(1) solid #eaeaea;
+        padding: size(24) 0;
+
+        @include mixins.mq(mobile) {
+          grid-template-columns: 1fr;
+          gap: size-m(8);
+          padding: size-m(16) 0;
+          border-bottom-width: size-m(1);
+        }
+
+        &.thead {
+          font-weight: 700;
+          color: #000;
+          text-transform: uppercase;
+          
+          .col-model { color: #1a4bc5; }
+
+          @include mixins.mq(mobile) {
+            display: none; // 手機版隱藏表頭，或依需求調整
+          }
+        }
+
+        .td {
+          font-size: size(15);
+          color: #333;
+          line-height: 1.6;
+
+          @include mixins.mq(mobile) {
+            font-size: size-m(14);
+          }
+        }
+
+        .col-spec {
+          font-weight: 600;
+          color: #2b394a;
+          @include mixins.mq(mobile) { color: #1a4bc5; } // 手機版強調屬性名
+        }
+
+        .spec-list {
+          margin: 0;
+          padding-left: size(20);
+
+          @include mixins.mq(mobile) { padding-left: size-m(20); }
+
+          li {
+            margin-bottom: size(8);
+            position: relative;
+            list-style: none;
+
+            @include mixins.mq(mobile) { margin-bottom: size-m(6); }
+
+            &::before {
+              content: '•';
+              color: #ea0044;
+              position: absolute;
+              left: size(-15);
+              font-weight: bold;
+
+              @include mixins.mq(mobile) { left: size-m(-15); }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .detail-related {
+    padding-bottom: size(120);
+    background-color: #fff;
+    text-align: center;
+
+    @include mixins.mq(mobile) {
+      padding-bottom: size-m(80);
+    }
+
+    .related-swiper {
+      padding: size(40) 0;
+      position: relative;
+
+      @include mixins.mq(mobile) {
+        padding: size-m(20) 0;
+      }
+    }
+
+    .related-card {
+      background-color: #f4f6f9;
+      border-radius: size(24);
+      padding: size(30);
+      position: relative;
+      overflow: hidden;
+      text-align: left;
+      height: size(280);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      @include mixins.mq(mobile) {
+        border-radius: size-m(16);
+        padding: size-m(20);
+        height: size-m(220);
+      }
+
+      .category {
+        font-size: size(14);
+        font-weight: 600;
+        color: #333;
+        z-index: 2;
+        position: relative;
+
+        @include mixins.mq(mobile) {
+          font-size: size-m(13);
+        }
+      }
+
+      .robot-pic {
+        position: absolute;
+        bottom: size(20);
+        right: size(20);
+        width: 65%;
+        z-index: 2;
+
+        @include mixins.mq(mobile) {
+          bottom: size-m(10);
+          right: size-m(10);
+        }
+      }
+
+      h3 {
+        font-size: size(32);
+        font-weight: 700;
+        color: #0d1b2a;
+        margin: 0;
+        z-index: 2;
+        position: relative;
+
+        @include mixins.mq(mobile) {
+          font-size: size-m(24);
+        }
+      }
+
+      .bg-shape {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 80%;
+        height: 40%;
+        background-color: #1a4bc5;
+        border-radius: size(60) 0 0 0;
+        z-index: 1;
+
+        @include mixins.mq(mobile) {
+          border-radius: size-m(40) 0 0 0;
+        }
+      }
+    }
+
+    .action-wrap {
+      margin-top: size(60);
+      
+      @include mixins.mq(mobile) {
+        margin-top: size-m(40);
+      }
+
+      .btn--red {
+        background-color: #ea0044;
+        color: #fff;
+        padding: size(16) size(48);
+        border-radius: size(12);
+        text-decoration: none;
+        font-size: size(18);
+        font-weight: 600;
+        display: inline-flex;
+        transition: background-color 0.3s;
+
+        @include mixins.mq(mobile) {
+          padding: size-m(14) size-m(40);
+          border-radius: size-m(10);
+          font-size: size-m(16);
+        }
+
+        &:hover {
+          background-color: darken(#ea0044, 10%);
+        }
+      }
+    }
+  }
+}
