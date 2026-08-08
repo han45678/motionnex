@@ -1,0 +1,503 @@
+@use '../abstracts/mixins';
+@use '../abstracts/function' as *;
+
+#solutions {
+  /* =========================================
+     1. Hero Section
+  ========================================= */
+  .solutions-hero {
+    display: flex;
+    background-color: #0b1156;
+
+    @include mixins.mq(mobile) {
+      flex-direction: column;
+    }
+
+    .hero-content {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: size(100) size(80) size(100) size(20);
+
+      @include mixins.mq(mobile) {
+        width: 100%;
+        justify-content: center;
+        padding: size-m(60) size-m(24);
+      }
+
+      &__inner {
+        max-width: size(600);
+        color: #fff;
+
+        @include mixins.mq(mobile) {
+          max-width: 100%;
+        }
+      }
+
+      .tagline {
+        display: flex;
+        align-items: center;
+        gap: size(16);
+        margin-bottom: size(24);
+        font-size: size(16);
+        font-weight: 500;
+        letter-spacing: size(1);
+
+        @include mixins.mq(mobile) {
+          gap: size-m(12);
+          margin-bottom: size-m(16);
+          font-size: size-m(14);
+        }
+
+        img {
+          width: size(24);
+
+          @include mixins.mq(mobile) {
+            width: size-m(20);
+          }
+        }
+      }
+
+      h1 {
+        font-size: size(56);
+        font-family: 'Maven Pro', sans-serif;
+        font-weight: 400;
+        line-height: 1.2;
+        margin: 0 0 size(32) 0;
+
+        @include mixins.mq(mobile) {
+          font-size: size-m(40);
+          margin-bottom: size-m(24);
+        }
+      }
+
+      p {
+        font-size: size(16);
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.8);
+        margin: 0;
+
+        @include mixins.mq(mobile) {
+          font-size: size-m(15);
+        }
+      }
+    }
+
+    .hero-image {
+      width: 50%;
+
+      @include mixins.mq(mobile) {
+        width: 100%;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-bottom-left-radius: size(200);
+
+        @include mixins.mq(mobile) {
+          border-bottom-left-radius: size-m(100);
+          height: size-m(300);
+        }
+      }
+    }
+  }
+
+  /* =========================================
+     2. Missions Section
+  ========================================= */
+  .solutions-missions {
+    padding: size(120) 0;
+
+    @include mixins.mq(mobile) {
+      padding: size-m(80) 0;
+    }
+
+    .missions-layout {
+      display: flex;
+      gap: size(60);
+      align-items: center;
+
+      @include mixins.mq(mobile) {
+        flex-direction: column;
+        gap: size-m(40);
+      }
+    }
+
+    .missions-left {
+      width: 35%;
+
+      @include mixins.mq(mobile) {
+        width: 100%;
+      }
+
+      h2 {
+        font-size: size(48);
+        font-family: 'Maven Pro', sans-serif;
+        font-weight: 500;
+        color: #0d1b2a;
+        line-height: 1.2;
+        margin: 0 0 size(40) 0;
+
+        @include mixins.mq(mobile) {
+          font-size: size-m(36);
+          margin-bottom: size-m(24);
+        }
+      }
+
+      .image-wrapper {
+        width: 100%;
+
+        img {
+          width: 100%;
+          border-top-right-radius: size(120);
+
+          @include mixins.mq(mobile) {
+            border-top-right-radius: size-m(80);
+          }
+        }
+      }
+    }
+
+    .missions-right {
+      width: 65%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: size(30);
+
+      @include mixins.mq(mobile) {
+        width: 100%;
+        grid-template-columns: 1fr;
+        gap: size-m(20);
+      }
+
+      .mission-card {
+        background-color: #f7f8fa;
+        border-radius: size(24);
+        padding: size(40);
+        position: relative;
+
+        @include mixins.mq(mobile) {
+          padding: size-m(32);
+          border-radius: size-m(16);
+        }
+
+        .icon {
+          position: absolute;
+          top: size(40);
+          right: size(40);
+          width: size(40);
+          height: size(40);
+
+          @include mixins.mq(mobile) {
+            top: size-m(32);
+            right: size-m(32);
+            width: size-m(32);
+            height: size-m(32);
+          }
+
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+
+        h3 {
+          font-size: size(22);
+          font-weight: 700;
+          color: #1a4bc5;
+          margin: 0 0 size(16) 0;
+          line-height: 1.4;
+
+          @include mixins.mq(mobile) {
+            font-size: size-m(20);
+            margin-bottom: size-m(12);
+          }
+        }
+
+        p {
+          font-size: size(15);
+          color: #555;
+          line-height: 1.6;
+          margin: 0;
+
+          @include mixins.mq(mobile) {
+            font-size: size-m(14);
+          }
+        }
+      }
+    }
+  }
+
+  /* =========================================
+     3. Recommended Systems Section
+  ========================================= */
+  .solutions-systems {
+    padding-bottom: size(120);
+
+    @include mixins.mq(mobile) {
+      padding-bottom: size-m(80);
+    }
+
+    .systems-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: size(60);
+
+      @include mixins.mq(mobile) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: size-m(16);
+        margin-bottom: size-m(40);
+      }
+
+      h2 {
+        font-size: size(40);
+        font-family: 'Maven Pro', sans-serif;
+        font-weight: 500;
+        color: #0d1b2a;
+        line-height: 1.2;
+        margin: 0;
+
+        @include mixins.mq(mobile) {
+          font-size: size-m(32);
+        }
+      }
+
+      p {
+        max-width: size(500);
+        font-size: size(16);
+        color: #333;
+        margin: 0;
+        line-height: 1.6;
+
+        @include mixins.mq(mobile) {
+          max-width: 100%;
+          font-size: size-m(15);
+        }
+      }
+    }
+
+    .systems-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: size(30);
+
+      @include mixins.mq(mobile) {
+        grid-template-columns: 1fr;
+        gap: size-m(24);
+      }
+    }
+
+    .system-card {
+      background-color: #f4f6f9;
+      border-radius: size(24);
+      display: flex;
+      overflow: hidden;
+      padding: size(40);
+
+      @include mixins.mq(mobile) {
+        flex-direction: column;
+        padding: size-m(32);
+        border-radius: size-m(16);
+      }
+
+      .card-info {
+        width: 50%;
+        padding-right: size(20);
+        z-index: 2;
+
+        @include mixins.mq(mobile) {
+          width: 100%;
+          padding-right: 0;
+          margin-bottom: size-m(24);
+        }
+
+        h3 {
+          font-size: size(24);
+          font-weight: 700;
+          color: #0d1b2a;
+          margin: 0 0 size(8) 0;
+
+          @include mixins.mq(mobile) {
+            font-size: size-m(22);
+          }
+        }
+
+        h4 {
+          font-size: size(16);
+          font-weight: 600;
+          color: #333;
+          margin: 0 0 size(16) 0;
+          line-height: 1.4;
+
+          @include mixins.mq(mobile) {
+            font-size: size-m(15);
+            margin-bottom: size-m(12);
+          }
+        }
+
+        p {
+          font-size: size(14);
+          color: #666;
+          line-height: 1.6;
+          margin: 0;
+
+          @include mixins.mq(mobile) {
+            font-size: size-m(14);
+          }
+        }
+      }
+
+      .card-image {
+        width: 50%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+
+        @include mixins.mq(mobile) {
+          width: 100%;
+          height: size-m(200);
+        }
+
+        .bg-shape {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 120%;
+          height: 60%;
+          background-color: #1a4bc5;
+          border-radius: size(100) 0 0 0;
+          z-index: -1;
+
+          @include mixins.mq(mobile) {
+            border-radius: size-m(80) 0 0 0;
+          }
+        }
+
+        img {
+          max-width: 100%;
+          max-height: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+
+  /* =========================================
+     4. CTA Section
+  ========================================= */
+  .solutions-cta {
+    padding-bottom: size(120);
+
+    @include mixins.mq(mobile) {
+      padding-bottom: size-m(80);
+    }
+
+    .cta-box {
+      background-color: #070b28;
+      border-radius: size(40);
+      padding: size(80);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+
+      @include mixins.mq(mobile) {
+        flex-direction: column;
+        padding: size-m(40) size-m(24);
+        border-radius: size-m(24);
+        align-items: flex-start;
+        gap: size-m(32);
+      }
+    }
+
+    .cta-content {
+      width: 70%;
+
+      @include mixins.mq(mobile) {
+        width: 100%;
+      }
+
+      h2 {
+        font-size: size(48);
+        font-family: 'Maven Pro', sans-serif;
+        font-weight: 700;
+        margin: 0 0 size(16) 0;
+        display: flex;
+        align-items: center;
+        gap: size(16);
+        color: #fff;
+
+        @include mixins.mq(mobile) {
+          font-size: size-m(32);
+          flex-direction: column;
+          align-items: flex-start;
+          gap: size-m(8);
+          margin-bottom: size-m(12);
+        }
+
+        span {
+          font-size: size(32);
+          font-weight: 400;
+
+          @include mixins.mq(mobile) {
+            font-size: size-m(24);
+          }
+        }
+      }
+
+      h3 {
+        font-size: size(20);
+        font-weight: 600;
+        margin: 0 0 size(16) 0;
+        color: #ea0044;
+
+        @include mixins.mq(mobile) {
+          font-size: size-m(18);
+          margin-bottom: size-m(12);
+        }
+      }
+
+      p {
+        font-size: size(15);
+        line-height: 1.8;
+        opacity: 0.8;
+        margin: 0;
+
+        @include mixins.mq(mobile) {
+          font-size: size-m(14);
+        }
+      }
+    }
+
+    .cta-action {
+      .btn--red {
+        background-color: #ea0044;
+        color: #fff;
+        padding: size(20) size(40);
+        border-radius: size(12);
+        text-decoration: none;
+        font-size: size(18);
+        font-weight: 600;
+        display: inline-flex;
+        transition: background-color 0.3s;
+
+        @include mixins.mq(mobile) {
+          padding: size-m(16) size-m(32);
+          border-radius: size-m(10);
+          font-size: size-m(16);
+        }
+
+        &:hover {
+          background-color: darken(#ea0044, 10%);
+        }
+      }
+    }
+  }
+}
