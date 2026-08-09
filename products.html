@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Motionnex | Products</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./assets/vendor/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="./css/main.css">
 </head>
@@ -13,9 +14,110 @@
 
     <a href="#main" class="skip-link">Skip to content</a>
 
-    <!-- HEADER (請沿用首頁共用 Header) -->
     <header class="site-header" id="site-header">
-        <!-- ... Header 內容略 ... -->
+        <div class="site-header__inner container">
+
+            <a href="index.html" class="logo">
+                <span class="logo__strong">MOTION</span><span class="logo__light">NEX</span>
+            </a>
+
+            <nav class="main-nav" id="main-nav" data-mobile-class="is-mobile">
+                <ul class="main-nav__list">
+                    <li class="main-nav__item has-dropdown">
+                        <a href="solutions.html">Solutions
+                            <svg class="chevron" width="12" height="8" viewBox="0 0 12 8" fill="none"
+                                aria-hidden="true">
+                                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                        <ul class="dropdown">
+                            <li><a href="./solutions.html">Firefighting</a></li>
+                            <li><a href="./solutions.html">Security</a></li>
+                            <li><a href="./solutions.html">Defense</a></li>
+                            <li><a href="./solutions.html">Agriculture</a></li>
+                            <li><a href="./solutions.html">Logistics</a></li>
+                        </ul>
+                    </li>
+                    <li class="main-nav__item has-dropdown">
+                        <a href="./products.html">Products
+                            <svg class="chevron" width="12" height="8" viewBox="0 0 12 8" fill="none"
+                                aria-hidden="true">
+                                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                        <ul class="dropdown">
+                            <li><a href="./products.html">Firefighting Robots</a></li>
+                            <li><a href="./products.html">Security Robots</a></li>
+                            <li><a href="./products.html">Defense Robots</a></li>
+                            <li><a href="./products.html">Agriculture Robots</a></li>
+                            <li><a href="./products.html">Logistics Robots</a></li>
+                        </ul>
+                    </li>
+                    <li class="main-nav__item has-dropdown">
+                        <a href="./case.html">Case
+                            <svg class="chevron" width="12" height="8" viewBox="0 0 12 8" fill="none"
+                                aria-hidden="true">
+                                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                        <ul class="dropdown">
+                            <li><a href="./case.html">Firefighting</a></li>
+                            <li><a href="./case.html">Security</a></li>
+                            <li><a href="./case.html">Defense</a></li>
+                            <li><a href="./case.html">Agriculture</a></li>
+                            <li><a href="./case.html">Logistics</a></li>
+                        </ul>
+                    </li>
+                    <li class="main-nav__item"><a href="about.html">About</a></li>
+                    <li class="main-nav__item"><a href="news.html">News</a></li>
+                    <li class="main-nav__item has-dropdown">
+                        <a href="#">Partner Portal
+                            <svg class="chevron" width="12" height="8" viewBox="0 0 12 8" fill="none"
+                                aria-hidden="true">
+                                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                        <ul class="dropdown">
+                            <li><a href="#">Partner Login</a></li>
+                            <li><a href="#">Resources</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="site-header__actions" id="site-header-actions">
+                <div class="lang-switch has-dropdown">
+                    <button type="button" class="lang-switch__toggle">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                            <circle cx="9" cy="9" r="7.4" stroke="currentColor" stroke-width="1.3" />
+                            <path
+                                d="M1.6 9H16.4M9 1.6C10.9 3.6 12 6.2 12 9C12 11.8 10.9 14.4 9 16.4C7.1 14.4 6 11.8 6 9C6 6.2 7.1 3.6 9 1.6Z"
+                                stroke="currentColor" stroke-width="1.3" />
+                        </svg>
+                        <span class="lang-switch__current">EN</span>
+                        <svg class="chevron" width="10" height="7" viewBox="0 0 12 8" fill="none" aria-hidden="true">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <ul class="dropdown lang-dropdown">
+                        <li><a href="#" class="is-active" data-lang="EN">English</a></li>
+                        <li><a href="#" data-lang="简中">简体中文</a></li>
+                        <li><a href="#" data-lang="繁中">繁體中文</a></li>
+                        <li><a href="#" data-lang="日本語">日本語</a></li>
+                    </ul>
+                </div>
+                <a href="./contact.html" class="btn btn--pink btn--sm">Contact Us</a>
+            </div>
+
+            <button class="nav-toggle" id="nav-toggle" aria-label="開啟選單" aria-expanded="false" aria-controls="main-nav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
     </header>
 
     <div class="nav-backdrop" id="nav-backdrop"></div>
@@ -26,7 +128,7 @@
             <div class="hero-content">
                 <div class="hero-content__inner">
                     <div class="tagline">
-                    <img src="https://placehold.co/24x24?text=Icon" alt="wave">
+                        <img src="https://placehold.co/24x24?text=Icon" alt="wave">
                         <span>Powering Critical Operations.</span>
                     </div>
                     <h1>INTELLIGENT<br>ROBOTIC PLATFORMS</h1>
@@ -51,26 +153,40 @@
                 <div class="swiper category-swiper">
                     <div class="swiper-wrapper">
                         <!-- Active 狀態 -->
-                        <div class="swiper-slide category-card active">
+                        <div class="swiper-slide category-card active" data-category="firefighting">
                             <div class="img-box">
                                 <img src="https://placehold.co/160x160?text=Firefighting" alt="Firefighting">
                             </div>
                             <h3>Firefighting</h3>
-                            <div class="arrow-btn">↓</div>
+                            <div class="arrow-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.08 15.32"><g><g><line x1="0.91" y1="7.66" x2="27.17" y2="7.66"/><polyline points="20.42 0.91 27.17 7.66 20.42 14.41"/></g></g></svg></div>
                         </div>
-                        <div class="swiper-slide category-card">
+                        <div class="swiper-slide category-card" data-category="security">
                             <div class="img-box">
                                 <img src="https://placehold.co/160x160?text=Security" alt="Security">
                             </div>
                             <h3>Security</h3>
-                            <div class="arrow-btn">→</div>
+                            <div class="arrow-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.08 15.32"><g><g><line x1="0.91" y1="7.66" x2="27.17" y2="7.66"/><polyline points="20.42 0.91 27.17 7.66 20.42 14.41"/></g></g></svg></div>
                         </div>
-                        <div class="swiper-slide category-card">
+                        <div class="swiper-slide category-card" data-category="defense">
                             <div class="img-box">
                                 <img src="https://placehold.co/160x160?text=Defense" alt="Defense">
                             </div>
                             <h3>Defense</h3>
-                            <div class="arrow-btn">→</div>
+                            <div class="arrow-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.08 15.32"><g><g><line x1="0.91" y1="7.66" x2="27.17" y2="7.66"/><polyline points="20.42 0.91 27.17 7.66 20.42 14.41"/></g></g></svg></div>
+                        </div>
+                        <div class="swiper-slide category-card" data-category="agriculture">
+                            <div class="img-box">
+                                <img src="https://placehold.co/160x160?text=Agriculture" alt="Agriculture">
+                            </div>
+                            <h3>Agriculture</h3>
+                            <div class="arrow-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.08 15.32"><g><g><line x1="0.91" y1="7.66" x2="27.17" y2="7.66"/><polyline points="20.42 0.91 27.17 7.66 20.42 14.41"/></g></g></svg></div>
+                        </div>
+                        <div class="swiper-slide category-card" data-category="logistics">
+                            <div class="img-box">
+                                <img src="https://placehold.co/160x160?text=Logistics" alt="Logistics">
+                            </div>
+                            <h3>Logistics</h3>
+                            <div class="arrow-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.08 15.32"><g><g><line x1="0.91" y1="7.66" x2="27.17" y2="7.66"/><polyline points="20.42 0.91 27.17 7.66 20.42 14.41"/></g></g></svg></div>
                         </div>
                     </div>
                     <!-- 左右控制箭頭 -->
@@ -86,11 +202,11 @@
                 <div class="lineup-header">
                     <h2>PRODUCT<br>LINEUP</h2>
                     <div class="lineup-tabs">
-                        <a href="#" class="tab active">Firefighting</a>
-                        <a href="#" class="tab">Security</a>
-                        <a href="#" class="tab">Defense</a>
-                        <a href="#" class="tab">Agriculture</a>
-                        <a href="#" class="tab">Logistics</a>
+                        <a href="#" class="tab active" data-category="firefighting">Firefighting</a>
+                        <a href="#" class="tab" data-category="security">Security</a>
+                        <a href="#" class="tab" data-category="defense">Defense</a>
+                        <a href="#" class="tab" data-category="agriculture">Agriculture</a>
+                        <a href="#" class="tab" data-category="logistics">Logistics</a>
                         <div class="tab-nav">
                             <button class="nav-btn prev">&lt;</button>
                             <button class="nav-btn next">&gt;</button>
@@ -100,7 +216,7 @@
 
                 <div class="lineup-grid">
                     <!-- 產品卡片 1 (高亮版) -->
-                    <a href="products_page.html" class="product-card highlight">
+                    <a href="products_page.html" class="product-card highlight" data-category="firefighting">
                         <div class="card-head">
                             <span class="category">Firefighting Robots</span>
                             <span class="link-icon">→</span>
@@ -117,7 +233,7 @@
                     </a>
 
                     <!-- 產品卡片 2 -->
-                    <a href="products_page.html" class="product-card">
+                    <a href="products_page.html" class="product-card" data-category="firefighting">
                         <div class="card-head">
                             <span class="category">Firefighting Robots</span>
                             <span class="link-icon">↗</span>
@@ -135,7 +251,7 @@
                     </a>
 
                     <!-- 產品卡片 3 -->
-                    <a href="products_page.html" class="product-card">
+                    <a href="products_page.html" class="product-card" data-category="firefighting">
                         <div class="card-head">
                             <span class="category">Firefighting Robots</span>
                             <span class="link-icon">↗</span>
@@ -153,7 +269,7 @@
                     </a>
 
                     <!-- 產品卡片 4 -->
-                    <a href="products_page.html" class="product-card">
+                    <a href="products_page.html" class="product-card" data-category="firefighting">
                         <div class="card-head">
                             <span class="category">Firefighting Robots</span>
                             <span class="link-icon">↗</span>
@@ -169,9 +285,9 @@
                             </div>
                         </div>
                     </a>
-                    
+
                     <!-- 產品卡片 5 -->
-                    <a href="products_page.html" class="product-card">
+                    <a href="products_page.html" class="product-card" data-category="security">
                         <div class="card-head">
                             <span class="category">Patrol Robot</span>
                             <span class="link-icon">↗</span>
@@ -189,7 +305,7 @@
                     </a>
 
                     <!-- 產品卡片 6 -->
-                    <a href="products_page.html" class="product-card">
+                    <a href="products_page.html" class="product-card" data-category="security">
                         <div class="card-head">
                             <span class="category">Patrol Robot</span>
                             <span class="link-icon">↗</span>
@@ -205,6 +321,78 @@
                             </div>
                         </div>
                     </a>
+
+                    <!-- 產品卡片 7 (Defense) -->
+                    <a href="products_page.html" class="product-card" data-category="defense">
+                        <div class="card-head">
+                            <span class="category">Defense Robots</span>
+                            <span class="link-icon">↗</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="info">
+                                <h3>DR-100</h3>
+                                <p>Tactical Reconnaissance<br>Robot</p>
+                            </div>
+                            <div class="pic">
+                                <div class="bg-shape"></div>
+                                <img src="https://placehold.co/250x150?text=DR-100" alt="DR-100">
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- 產品卡片 8 (Defense) -->
+                    <a href="products_page.html" class="product-card" data-category="defense">
+                        <div class="card-head">
+                            <span class="category">Defense Robots</span>
+                            <span class="link-icon">↗</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="info">
+                                <h3>DR-200</h3>
+                                <p>EOD Robotic<br>Platform</p>
+                            </div>
+                            <div class="pic">
+                                <div class="bg-shape"></div>
+                                <img src="https://placehold.co/250x150?text=DR-200" alt="DR-200">
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- 產品卡片 9 (Agriculture) -->
+                    <a href="products_page.html" class="product-card" data-category="agriculture">
+                        <div class="card-head">
+                            <span class="category">Agriculture Robots</span>
+                            <span class="link-icon">↗</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="info">
+                                <h3>AGR-80</h3>
+                                <p>Autonomous Spraying<br>Robot</p>
+                            </div>
+                            <div class="pic">
+                                <div class="bg-shape"></div>
+                                <img src="https://placehold.co/250x150?text=AGR-80" alt="AGR-80">
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- 產品卡片 10 (Logistics) -->
+                    <a href="products_page.html" class="product-card" data-category="logistics">
+                        <div class="card-head">
+                            <span class="category">Logistics Robots</span>
+                            <span class="link-icon">↗</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="info">
+                                <h3>LG-500</h3>
+                                <p>Heavy-duty Autonomous<br>Mobile Robot</p>
+                            </div>
+                            <div class="pic">
+                                <div class="bg-shape"></div>
+                                <img src="https://placehold.co/250x150?text=LG-500" alt="LG-500">
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -216,7 +404,8 @@
                     <div class="cta-content">
                         <h2>ENGINEERED FOR RELIABILITY.<br>BUILT FOR REAL MISSIONS.</h2>
                         <p>
-                            From firefighting and security to industrial support and beyond, Motionnex systems are built<br>
+                            From firefighting and security to industrial support and beyond, Motionnex systems are
+                            built<br>
                             to operate where humans shouldn't have to.
                         </p>
                     </div>
@@ -236,5 +425,103 @@
 
     <script src="./assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="./js/main.js"></script>
+    <script>
+        // 產品列表篩選邏輯
+        function filterProducts(category) {
+            const products = document.querySelectorAll('.lineup-grid .product-card');
+            products.forEach(product => {
+                if (product.dataset.category === category) {
+                    product.style.display = 'flex';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const categorySwiper = new Swiper('.category-swiper', {
+                loop: false,
+                slidesPerView: 1,
+                spaceBetween: 20,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    481: {
+                        slidesPerView: 2,
+                        spaceBetween: 20
+                    },
+                    1025: {
+                        slidesPerView: 3,
+                        spaceBetween: 30
+                    }
+                }
+            });
+
+            const lineupTabsContainer = document.querySelector('.lineup-tabs');
+            const lineupTabs = document.querySelectorAll('.lineup-tabs .tab');
+            const productCards = document.querySelectorAll('.lineup-grid .product-card');
+
+            function updateActiveState(category) {
+                // 更新上方輪播
+                categorySwiper.slides.forEach((slide, index) => {
+                    if (slide.dataset.category === category) {
+                        slide.classList.add('active');
+                        slide.querySelector('svg').style.transform = 'rotate(90deg)';
+                        categorySwiper.slideTo(index);
+                    } else {
+                        slide.classList.remove('active');
+                        slide.querySelector('svg').style.transform = 'rotate(0deg)';
+                    }
+                });
+
+                // 更新下方頁籤
+                lineupTabs.forEach(tab => {
+                    if (tab.dataset.category === category) {
+                        tab.classList.add('active');
+                    } else {
+                        tab.classList.remove('active');
+                    }
+                });
+
+                // 篩選產品列表
+                productCards.forEach(card => {
+                    if (card.dataset.category === category || category === 'all') {
+                        card.style.display = 'flex';
+                        card.classList.add('visible');
+                    } else {
+                        card.style.display = 'none';
+                        card.classList.remove('visible');
+                    }
+                });
+            }
+
+            // 1. 監聽上方輪播的點擊
+            categorySwiper.on('click', function (swiper, event) {
+                const clickedSlide = event.target.closest('.swiper-slide');
+                if (!clickedSlide) return;
+                const category = clickedSlide.dataset.category;
+                updateActiveState(category);
+            });
+
+            // 2. 監聽上方輪播的滑動結束事件
+            categorySwiper.on('slideChange', function (swiper) {
+                const activeSlide = swiper.slides[swiper.activeIndex];
+                const category = activeSlide.dataset.category;
+                updateActiveState(category);
+            });
+
+            // 3. 監聽下方頁籤的點擊
+            lineupTabsContainer.addEventListener('click', function(e) {
+                e.preventDefault();
+                const clickedTab = e.target.closest('.tab');
+                if (!clickedTab) return;
+                const category = clickedTab.dataset.category;
+                updateActiveState(category);
+            });
+        });
+    </script>
 </body>
+
 </html>

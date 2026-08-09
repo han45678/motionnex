@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Motionnex | FRT-509 Detail</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./assets/vendor/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="./css/main.css">
 </head>
@@ -13,9 +14,110 @@
 
     <a href="#main" class="skip-link">Skip to content</a>
 
-    <!-- HEADER (沿用首頁) -->
     <header class="site-header" id="site-header">
-        <!-- ... -->
+        <div class="site-header__inner container">
+
+            <a href="index.html" class="logo">
+                <span class="logo__strong">MOTION</span><span class="logo__light">NEX</span>
+            </a>
+
+            <nav class="main-nav" id="main-nav" data-mobile-class="is-mobile">
+                <ul class="main-nav__list">
+                    <li class="main-nav__item has-dropdown">
+                        <a href="solutions.html">Solutions
+                            <svg class="chevron" width="12" height="8" viewBox="0 0 12 8" fill="none"
+                                aria-hidden="true">
+                                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                        <ul class="dropdown">
+                            <li><a href="./solutions.html">Firefighting</a></li>
+                            <li><a href="./solutions.html">Security</a></li>
+                            <li><a href="./solutions.html">Defense</a></li>
+                            <li><a href="./solutions.html">Agriculture</a></li>
+                            <li><a href="./solutions.html">Logistics</a></li>
+                        </ul>
+                    </li>
+                    <li class="main-nav__item has-dropdown">
+                        <a href="./products.html">Products
+                            <svg class="chevron" width="12" height="8" viewBox="0 0 12 8" fill="none"
+                                aria-hidden="true">
+                                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                        <ul class="dropdown">
+                            <li><a href="./products.html">Firefighting Robots</a></li>
+                            <li><a href="./products.html">Security Robots</a></li>
+                            <li><a href="./products.html">Defense Robots</a></li>
+                            <li><a href="./products.html">Agriculture Robots</a></li>
+                            <li><a href="./products.html">Logistics Robots</a></li>
+                        </ul>
+                    </li>
+                    <li class="main-nav__item has-dropdown">
+                        <a href="./case.html">Case
+                            <svg class="chevron" width="12" height="8" viewBox="0 0 12 8" fill="none"
+                                aria-hidden="true">
+                                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                        <ul class="dropdown">
+                            <li><a href="./case.html">Firefighting</a></li>
+                            <li><a href="./case.html">Security</a></li>
+                            <li><a href="./case.html">Defense</a></li>
+                            <li><a href="./case.html">Agriculture</a></li>
+                            <li><a href="./case.html">Logistics</a></li>
+                        </ul>
+                    </li>
+                    <li class="main-nav__item"><a href="about.html">About</a></li>
+                    <li class="main-nav__item"><a href="news.html">News</a></li>
+                    <li class="main-nav__item has-dropdown">
+                        <a href="#">Partner Portal
+                            <svg class="chevron" width="12" height="8" viewBox="0 0 12 8" fill="none"
+                                aria-hidden="true">
+                                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                        <ul class="dropdown">
+                            <li><a href="#">Partner Login</a></li>
+                            <li><a href="#">Resources</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="site-header__actions" id="site-header-actions">
+                <div class="lang-switch has-dropdown">
+                    <button type="button" class="lang-switch__toggle">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                            <circle cx="9" cy="9" r="7.4" stroke="currentColor" stroke-width="1.3" />
+                            <path
+                                d="M1.6 9H16.4M9 1.6C10.9 3.6 12 6.2 12 9C12 11.8 10.9 14.4 9 16.4C7.1 14.4 6 11.8 6 9C6 6.2 7.1 3.6 9 1.6Z"
+                                stroke="currentColor" stroke-width="1.3" />
+                        </svg>
+                        <span class="lang-switch__current">EN</span>
+                        <svg class="chevron" width="10" height="7" viewBox="0 0 12 8" fill="none" aria-hidden="true">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <ul class="dropdown lang-dropdown">
+                        <li><a href="#" class="is-active" data-lang="EN">English</a></li>
+                        <li><a href="#" data-lang="简中">简体中文</a></li>
+                        <li><a href="#" data-lang="繁中">繁體中文</a></li>
+                        <li><a href="#" data-lang="日本語">日本語</a></li>
+                    </ul>
+                </div>
+                <a href="./contact.html" class="btn btn--pink btn--sm">Contact Us</a>
+            </div>
+
+            <button class="nav-toggle" id="nav-toggle" aria-label="開啟選單" aria-expanded="false" aria-controls="main-nav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
     </header>
 
     <div class="nav-backdrop" id="nav-backdrop"></div>
@@ -80,82 +182,85 @@
                     <div class="tr">
                         <div class="td col-model"></div>
                         <div class="td col-spec">Empty Weight</div>
-                        <div class="td col-value">< 50 kg</div>
-                    </div>
-                    <div class="tr">
-                        <div class="td col-model"></div>
-                        <div class="td col-spec">Endurance</div>
-                        <div class="td col-value">Continuous run: > 4 hrs (under heavy driving & operation) Normal run: > 8 hrs (No Load or Flow Rate)</div>
-                    </div>
-                    <div class="tr">
-                        <div class="td col-model"></div>
-                        <div class="td col-spec">Remote Range</div>
-                        <div class="td col-value">1000 m+ (Unobstructed Line-of-Sight)</div>
-                    </div>
-                    <div class="tr">
-                        <div class="td col-model"></div>
-                        <div class="td col-spec">Hose Towing Capacity</div>
-                        <div class="td col-value">2 lines × 3 hoses each ( 6 total )</div>
-                    </div>
-                    <div class="tr">
-                        <div class="td col-model"></div>
-                        <div class="td col-spec">Monitor Water Output</div>
-                        <div class="td col-value">Max. 3600 L / min (Water & Outlet Pressure: 7 kg / cm2 )</div>
-                    </div>
-                    <div class="tr">
-                        <div class="td col-model"></div>
-                        <div class="td col-spec">Monitor Range</div>
-                        <div class="td col-value">Max. 60 m (Water) @ Output Pressure: 7 kg / cm2</div>
-                    </div>
-                    <div class="tr">
-                        <div class="td col-model"></div>
-                        <div class="td col-spec">Travel Speed</div>
-                        <div class="td col-value">Max. 6.2 km/hr ( No Load or Hose Tow )</div>
-                    </div>
-                    <div class="tr">
-                        <div class="td col-model"></div>
-                        <div class="td col-spec">Gradeability</div>
-                        <div class="td col-value">Max. 35° ( No Load or Hose Tow )</div>
-                    </div>
-                    <div class="tr">
-                        <div class="td col-model"></div>
-                        <div class="td col-spec">Obstacle Clearance</div>
-                        <div class="td col-value">17 cm ( No Load or Hose Tow )</div>
-                    </div>
-                    <div class="tr">
-                        <div class="td col-model"></div>
-                        <div class="td col-spec">Lead Time</div>
-                        <div class="td col-value">120 days</div>
-                    </div>
-                    <div class="tr">
-                        <div class="td col-model"></div>
-                        <div class="td col-spec">Features</div>
                         <div class="td col-value">
-                            <ul class="spec-list">
-                                <li>Smart connectivity for live firmware, video, and data</li>
-                                <li>R-02-certified remote control that does not interfere with emergency communication lines</li>
-                                <li>Detachable remote control for light mobility</li>
-                                <li>Max. 21 liters/minute cool/hot spray in the tracks & control boxes</li>
-                                <li>Two remote & water supply & air interface</li>
-                                <li>Pull unbraked IP65</li>
-                                <li>Righting energy < 1 ms / 1 ms</li>
-                            </ul>
+                            < 50 kg</div>
                         </div>
-                    </div>
-                    <div class="tr">
-                        <div class="td col-model"></div>
-                        <div class="td col-spec">Equipment Description</div>
-                        <div class="td col-value">
-                            <ul class="spec-list">
-                                <li>HD Video Transmission</li>
-                                <li>Infrared Thermal Imaging</li>
-                                <li>5-Gas Detection</li>
-                                <li>Image Storage System ( HD Optional Package )</li>
-                            </ul>
+                        <div class="tr">
+                            <div class="td col-model"></div>
+                            <div class="td col-spec">Endurance</div>
+                            <div class="td col-value">Continuous run: > 4 hrs (under heavy driving & operation) Normal
+                                run: > 8 hrs (No Load or Flow Rate)</div>
+                        </div>
+                        <div class="tr">
+                            <div class="td col-model"></div>
+                            <div class="td col-spec">Remote Range</div>
+                            <div class="td col-value">1000 m+ (Unobstructed Line-of-Sight)</div>
+                        </div>
+                        <div class="tr">
+                            <div class="td col-model"></div>
+                            <div class="td col-spec">Hose Towing Capacity</div>
+                            <div class="td col-value">2 lines × 3 hoses each ( 6 total )</div>
+                        </div>
+                        <div class="tr">
+                            <div class="td col-model"></div>
+                            <div class="td col-spec">Monitor Water Output</div>
+                            <div class="td col-value">Max. 3600 L / min (Water & Outlet Pressure: 7 kg / cm2 )</div>
+                        </div>
+                        <div class="tr">
+                            <div class="td col-model"></div>
+                            <div class="td col-spec">Monitor Range</div>
+                            <div class="td col-value">Max. 60 m (Water) @ Output Pressure: 7 kg / cm2</div>
+                        </div>
+                        <div class="tr">
+                            <div class="td col-model"></div>
+                            <div class="td col-spec">Travel Speed</div>
+                            <div class="td col-value">Max. 6.2 km/hr ( No Load or Hose Tow )</div>
+                        </div>
+                        <div class="tr">
+                            <div class="td col-model"></div>
+                            <div class="td col-spec">Gradeability</div>
+                            <div class="td col-value">Max. 35° ( No Load or Hose Tow )</div>
+                        </div>
+                        <div class="tr">
+                            <div class="td col-model"></div>
+                            <div class="td col-spec">Obstacle Clearance</div>
+                            <div class="td col-value">17 cm ( No Load or Hose Tow )</div>
+                        </div>
+                        <div class="tr">
+                            <div class="td col-model"></div>
+                            <div class="td col-spec">Lead Time</div>
+                            <div class="td col-value">120 days</div>
+                        </div>
+                        <div class="tr">
+                            <div class="td col-model"></div>
+                            <div class="td col-spec">Features</div>
+                            <div class="td col-value">
+                                <ul class="spec-list">
+                                    <li>Smart connectivity for live firmware, video, and data</li>
+                                    <li>R-02-certified remote control that does not interfere with emergency
+                                        communication lines</li>
+                                    <li>Detachable remote control for light mobility</li>
+                                    <li>Max. 21 liters/minute cool/hot spray in the tracks & control boxes</li>
+                                    <li>Two remote & water supply & air interface</li>
+                                    <li>Pull unbraked IP65</li>
+                                    <li>Righting energy < 1 ms / 1 ms</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tr">
+                            <div class="td col-model"></div>
+                            <div class="td col-spec">Equipment Description</div>
+                            <div class="td col-value">
+                                <ul class="spec-list">
+                                    <li>HD Video Transmission</li>
+                                    <li>Infrared Thermal Imaging</li>
+                                    <li>5-Gas Detection</li>
+                                    <li>Image Storage System ( HD Optional Package )</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
 
         <!-- 相關產品推薦 -->
@@ -185,7 +290,7 @@
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
                 </div>
-                
+
                 <div class="action-wrap">
                     <a href="products.html" class="btn btn--red">Back →</a>
                 </div>
@@ -201,4 +306,5 @@
     <script src="./assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="./js/main.js"></script>
 </body>
+
 </html>

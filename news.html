@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motionnex | News</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body class="page-news" id="news-page">
+
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <!-- HEADER (沿用共用 Header，並將 News 設為 active) -->
+    <header class="site-header" id="site-header">
+        <div class="site-header__inner container">
+            <a href="index.html" class="logo">
+                <span class="logo__strong">MOTION</span><span class="logo__light">NEX</span>
+            </a>
+            <nav class="main-nav" id="main-nav" data-mobile-class="is-mobile">
+                <ul class="main-nav__list">
+                    <li class="main-nav__item has-dropdown">
+                        <a href="solutions.html">Solutions
+                            <svg class="chevron" width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
+                                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="main-nav__item has-dropdown">
+                        <a href="./products.html">Products
+                            <svg class="chevron" width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
+                                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="main-nav__item has-dropdown">
+                        <a href="./case.html">Case
+                            <svg class="chevron" width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
+                                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="main-nav__item"><a href="about.html">About</a></li>
+                    <li class="main-nav__item"><a href="news.html" class="is-active" style="color: #ea0044;">News</a></li>
+                    <li class="main-nav__item has-dropdown">
+                        <a href="#">Partner Portal
+                            <svg class="chevron" width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
+                                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="site-header__actions" id="site-header-actions">
+                <div class="lang-switch has-dropdown">
+                    <button type="button" class="lang-switch__toggle">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                            <circle cx="9" cy="9" r="7.4" stroke="currentColor" stroke-width="1.3" />
+                            <path d="M1.6 9H16.4M9 1.6C10.9 3.6 12 6.2 12 9C12 11.8 10.9 14.4 9 16.4C7.1 14.4 6 11.8 6 9C6 6.2 7.1 3.6 9 1.6Z" stroke="currentColor" stroke-width="1.3" />
+                        </svg>
+                        <span class="lang-switch__current">EN</span>
+                    </button>
+                </div>
+                <a href="./contact.html" class="btn btn--pink btn--sm">Contact Us</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="開啟選單">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="nav-backdrop" id="nav-backdrop"></div>
+
+    <main id="main">
+        <!-- Hero 區塊 -->
+        <section class="news-hero">
+            <div class="hero-content">
+                <div class="hero-content__inner">
+                    <div class="tagline">
+                        <img src="https://placehold.co/24x24?text=Icon" alt="icon">
+                    </div>
+                    <h1>LATEST UPDATES</h1>
+                    <p>
+                        Stay informed with the latest developments, events,<br>
+                        and milestones from Motionnex.
+                    </p>
+                </div>
+            </div>
+            <div class="hero-graphic">
+                <img src="https://placehold.co/800x400?text=Hero+Graphic" alt="Updates Graphic">
+            </div>
+        </section>
+
+        <!-- 新聞列表區塊 -->
+        <section class="news-list-section">
+            <div class="container">
+                <!-- 篩選器 -->
+                <div class="news-intro">
+                    <p>Latest announcements, exhibitions, partnerships, awards, and company news.</p>
+                    
+                    <div class="filter-group">
+                        <button class="filter-btn active">All</button>
+                        <button class="filter-btn">Updates</button>
+                        <button class="filter-btn">Events</button>
+                    </div>
+                </div>
+
+                <!-- 網格列表 -->
+                <div class="news-grid">
+                    <!-- 新聞卡片 1 -->
+                    <div class="news-card">
+                        <div class="card-img">
+                            <img src="https://placehold.co/400x250?text=COMPUTEX" alt="COMPUTEX">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="category">Events</span>
+                                <span class="date">June 4, 2026</span>
+                            </div>
+                            <h3 class="card-title">Motionnex at COMPUTEX 2026: AI Together</h3>
+                            <p class="card-desc">Thank you to everyone who visited our booth. See you next year!</p>
+                            <a href="#" class="btn--learn-more">Learn More <span>→</span></a>
+                        </div>
+                    </div>
+
+                    <!-- 新聞卡片 2 -->
+                    <div class="news-card">
+                        <div class="card-img">
+                            <img src="https://placehold.co/400x250?text=Qualcomm" alt="Qualcomm">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="category">Update</span>
+                                <span class="date">May 1, 2026</span>
+                            </div>
+                            <h3 class="card-title">Top 10 Finalist in Qualcomm QITC 2026</h3>
+                            <p class="card-desc">Recognized among hundreds of teams, Motionnex advances to the final stage of...</p>
+                            <a href="#" class="btn--learn-more">Learn More <span>→</span></a>
+                        </div>
+                    </div>
+
+                    <!-- 新聞卡片 3 -->
+                    <div class="news-card">
+                        <div class="card-img">
+                            <img src="https://placehold.co/400x250?text=Yushan+Forum" alt="Yushan Forum">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="category">Events</span>
+                                <span class="date">March 17, 2026</span>
+                            </div>
+                            <h3 class="card-title">Motionnex at the Yushan Forum 2026</h3>
+                            <p class="card-desc">Exploring the future of disaster resilience, autonomous systems, and international...</p>
+                            <a href="#" class="btn--learn-more">Learn More <span>→</span></a>
+                        </div>
+                    </div>
+
+                    <!-- 新聞卡片 4 -->
+                    <div class="news-card">
+                        <div class="card-img">
+                            <img src="https://placehold.co/400x250?text=Smart+City" alt="Smart City">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="category">Events</span>
+                                <span class="date">March 15, 2026</span>
+                            </div>
+                            <h3 class="card-title">Smart City Summit & Expo 2026</h3>
+                            <p class="card-desc">Thank you to everyone who visited our booth. See you next year!</p>
+                            <a href="#" class="btn--learn-more">Learn More <span>→</span></a>
+                        </div>
+                    </div>
+
+                    <!-- 新聞卡片 5 -->
+                    <div class="news-card">
+                        <div class="card-img">
+                            <img src="https://placehold.co/400x250?text=MOU" alt="MOU">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="category">Update</span>
+                                <span class="date">May 15, 2026</span>
+                            </div>
+                            <h3 class="card-title">Tainan City, Motionnex & Sigma Robotics Sign MOU</h3>
+                            <p class="card-desc">Strengthening Taiwan's AI robotics ecosystem through industry collaboration.</p>
+                            <a href="#" class="btn--learn-more">Learn More <span>→</span></a>
+                        </div>
+                    </div>
+
+                    <!-- 新聞卡片 6 -->
+                    <div class="news-card">
+                        <div class="card-img">
+                            <img src="https://placehold.co/400x250?text=Taiwan+Excellence" alt="Taiwan Excellence">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="category">Updates</span>
+                                <span class="date">Nov 13, 2023</span>
+                            </div>
+                            <h3 class="card-title">Motionnex Receives Taiwan Excellence Award 2024</h3>
+                            <p class="card-desc">Honored for our innovative firefighting robot and contributions to smart safety solutions.</p>
+                            <a href="#" class="btn--learn-more">Learn More <span>→</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 分頁模組 -->
+                <div class="pagination">
+                    <a href="#" class="page-nav prev">&lt; Prev</a>
+                    <a href="#" class="page-num active">1</a>
+                    <a href="#" class="page-num">2</a>
+                    <a href="#" class="page-num">3</a>
+                    <a href="#" class="page-num">4</a>
+                    <a href="#" class="page-num">5</a>
+                    <span class="page-dots">...</span>
+                    <a href="#" class="page-num">6</a>
+                    <a href="#" class="page-nav next">Next &gt;</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <!-- 沿用 Footer -->
+    </footer>
+
+    <script src="./assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>

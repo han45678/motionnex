@@ -1,0 +1,450 @@
+@use '../abstracts/mixins';
+@use '../abstracts/function' as *;
+
+/* =========================================
+   #about-page (關於我們頁面)
+========================================= */
+#about-page {
+  /* --- 1. Hero Section --- */
+  .about-hero {
+    display: flex;
+    background-color: #0b1156;
+    overflow: hidden;
+
+    @include mixins.mq(mobile) {
+      flex-direction: column;
+    }
+
+    .hero-content {
+      width: 45%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: size(180) size(80) size(180) size(120);
+
+      @include mixins.mq(mobile) {
+        width: 100%;
+        justify-content: center;
+        padding: size-m(80) size-m(24) size-m(40);
+      }
+
+      &__inner {
+        color: #fff;
+        width: 100%;
+        max-width: size(500);
+
+        @include mixins.mq(mobile) {
+          max-width: 100%;
+        }
+      }
+
+      .tagline {
+        margin-bottom: size(24);
+
+        @include mixins.mq(mobile) {
+          margin-bottom: size-m(16);
+        }
+
+        img {
+          width: size(48);
+          @include mixins.mq(mobile) {
+            width: size-m(32);
+          }
+        }
+      }
+
+      h1 {
+        font-size: size(40);
+        font-family: 'Maven Pro', sans-serif;
+        font-weight: 500;
+        line-height: 1.2;
+        margin: 0 0 size(32) 0;
+        color: #fff;
+        letter-spacing: size(1);
+
+        @include mixins.mq(mobile) {
+          font-size: size-m(28);
+          margin-bottom: size-m(20);
+        }
+      }
+
+      p {
+        font-size: size(15);
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.8);
+        margin: 0;
+
+        @include mixins.mq(mobile) {
+          font-size: size-m(14);
+          br { display: none; }
+        }
+      }
+    }
+
+    .hero-image {
+      width: 55%;
+      position: relative;
+
+      @include mixins.mq(mobile) {
+        width: 100%;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-bottom-left-radius: size(200);
+
+        @include mixins.mq(mobile) {
+          border-bottom-left-radius: size-m(80);
+          height: size-m(300);
+        }
+      }
+    }
+  }
+
+  /* --- 2. Motion Redefined Section --- */
+  .motion-redefined {
+    padding: size(120) 0;
+    background-color: #fff;
+
+    @include mixins.mq(mobile) {
+      padding: size-m(80) 0;
+    }
+
+    .card-box {
+      background-color: #000;
+      border-radius: size(40);
+      display: flex;
+      overflow: hidden;
+      color: #fff;
+      position: relative;
+
+      @include mixins.mq(mobile) {
+        flex-direction: column;
+        border-radius: size-m(24);
+      }
+
+      .card-content {
+        width: 45%;
+        padding: size(80) size(60);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+
+        @include mixins.mq(mobile) {
+          width: 100%;
+          padding: size-m(40) size-m(32);
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: size(85);
+          width: size(8);
+          height: size(40);
+          background-color: #ea0044;
+
+          @include mixins.mq(mobile) {
+            top: size-m(45);
+            width: size-m(4);
+            height: size-m(24);
+          }
+        }
+
+        h2 {
+          font-size: size(40);
+          font-family: 'Maven Pro', sans-serif;
+          font-weight: 500;
+          line-height: 1.2;
+          margin: 0 0 size(24) 0;
+          letter-spacing: size(1);
+
+          @include mixins.mq(mobile) {
+            font-size: size-m(28);
+            margin-bottom: size-m(16);
+          }
+        }
+
+        p {
+          font-size: size(15);
+          line-height: 1.8;
+          color: rgba(255, 255, 255, 0.8);
+          margin: 0;
+
+          @include mixins.mq(mobile) {
+            font-size: size-m(14);
+            br { display: none; }
+          }
+        }
+      }
+
+      .card-image {
+        width: 55%;
+
+        @include mixins.mq(mobile) {
+          width: 100%;
+          height: size-m(250);
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  /* --- 3. Built on Experience Section --- */
+  .built-on-experience {
+    background-color: #f7f9fc;
+    padding: size(120) 0;
+
+    @include mixins.mq(mobile) {
+      padding: size-m(80) 0;
+    }
+
+    .text-area {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: size(80);
+
+      @include mixins.mq(mobile) {
+        flex-direction: column;
+        gap: size-m(24);
+        margin-bottom: size-m(40);
+      }
+
+      h2 {
+        width: 35%;
+        font-size: size(40);
+        font-family: 'Maven Pro', sans-serif;
+        font-weight: 500;
+        color: #0d1b2a;
+        line-height: 1.2;
+        margin: 0;
+
+        @include mixins.mq(mobile) {
+          width: 100%;
+          font-size: size-m(32);
+          br { display: none; }
+        }
+      }
+
+      p {
+        width: 60%;
+        font-size: size(16);
+        color: #555;
+        line-height: 1.8;
+        margin: 0;
+
+        @include mixins.mq(mobile) {
+          width: 100%;
+          font-size: size-m(15);
+          br { display: none; }
+        }
+      }
+    }
+
+    .stats-box {
+      background-color: #1a4bc5;
+      border-radius: size(32);
+      display: flex;
+      padding: size(60) 0;
+      color: #fff;
+      text-align: center;
+
+      @include mixins.mq(mobile) {
+        flex-direction: column;
+        border-radius: size-m(24);
+        padding: size-m(40) 0;
+      }
+
+      .stat-item {
+        flex: 1;
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+
+        @include mixins.mq(mobile) {
+          border-right: none;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+          padding: size-m(24) 0;
+
+          &:first-child { padding-top: 0; }
+          &:last-child { 
+            border-bottom: none; 
+            padding-bottom: 0; 
+          }
+        }
+
+        &:last-child {
+          border-right: none;
+        }
+
+        .num {
+          font-size: size(64);
+          font-family: 'Maven Pro', sans-serif;
+          font-weight: 700;
+          line-height: 1;
+          margin-bottom: size(12);
+
+          @include mixins.mq(mobile) {
+            font-size: size-m(48);
+            margin-bottom: size-m(8);
+          }
+
+          span {
+            color: #ea0044;
+            font-size: size(48);
+
+            @include mixins.mq(mobile) {
+              font-size: size-m(36);
+            }
+          }
+        }
+
+        .label {
+          font-size: size(16);
+          font-weight: 500;
+          opacity: 0.9;
+
+          @include mixins.mq(mobile) {
+            font-size: size-m(14);
+          }
+        }
+      }
+    }
+  }
+
+  /* --- 4. Looking Ahead Section --- */
+  .looking-ahead {
+    padding: size(120) 0;
+    background-color: #fff;
+
+    @include mixins.mq(mobile) {
+      padding: size-m(80) 0;
+    }
+
+    .card-box {
+      background-color: #0b1156;
+      border-radius: size(40);
+      display: flex;
+      flex-wrap: wrap;
+      overflow: hidden;
+      color: #fff;
+      padding: size(60) size(80);
+      position: relative;
+
+      @include mixins.mq(mobile) {
+        flex-direction: column;
+        border-radius: size-m(24);
+        padding: size-m(40) size-m(24);
+        gap: size-m(24);
+      }
+
+      .card-content {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @include mixins.mq(mobile) {
+          width: 100%;
+        }
+
+        .deco-lines {
+          width: size(150);
+          opacity: 0.8;
+          margin-bottom: size(40);
+
+          @include mixins.mq(mobile) {
+            width: size-m(100);
+            margin-bottom: size-m(20);
+          }
+        }
+
+        h2 {
+          font-size: size(40);
+          font-family: 'Maven Pro', sans-serif;
+          font-weight: 500;
+          line-height: 1.2;
+          margin: 0;
+          letter-spacing: size(1);
+
+          @include mixins.mq(mobile) {
+            font-size: size-m(32);
+          }
+        }
+      }
+
+      .card-image {
+        width: 60%;
+        border-radius: size(24);
+        overflow: hidden;
+
+        @include mixins.mq(mobile) {
+          width: 100%;
+          height: size-m(200);
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+      }
+
+      .card-text {
+        width: 100%;
+        margin-top: size(40);
+        padding-left: 40%;
+
+        @include mixins.mq(mobile) {
+          padding-left: 0;
+          margin-top: 0;
+        }
+
+        p {
+          font-size: size(15);
+          line-height: 1.8;
+          color: rgba(255, 255, 255, 0.8);
+          margin: 0;
+
+          @include mixins.mq(mobile) {
+            font-size: size-m(14);
+            br { display: none; }
+          }
+        }
+      }
+    }
+  }
+
+  /* --- 5. Bottom Slogan Section --- */
+  .bottom-slogan {
+    padding: size(80) 0 size(120) 0;
+    text-align: center;
+    background-color: #fff;
+
+    @include mixins.mq(mobile) {
+      padding: size-m(40) 0 size-m(80) 0;
+    }
+
+    h2 {
+      font-size: size(32);
+      font-family: 'Maven Pro', sans-serif;
+      font-weight: 600;
+      color: #1a4bc5;
+      line-height: 1.4;
+      margin: 0;
+      letter-spacing: size(1);
+
+      @include mixins.mq(mobile) {
+        font-size: size-m(22);
+      }
+    }
+  }
+}

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motionnex | Case</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body class="page-case" id="case">
+
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <!-- HEADER (沿用共用 Header) -->
+    <header class="site-header" id="site-header">
+        <div class="site-header__inner container">
+            <a href="index.html" class="logo">
+                <span class="logo__strong">MOTION</span><span class="logo__light">NEX</span>
+            </a>
+            <nav class="main-nav" id="main-nav" data-mobile-class="is-mobile">
+                <ul class="main-nav__list">
+                    <li class="main-nav__item has-dropdown">
+                        <a href="solutions.html">Solutions
+                            <svg class="chevron" width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
+                                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="main-nav__item has-dropdown">
+                        <a href="./products.html">Products
+                            <svg class="chevron" width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
+                                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="main-nav__item has-dropdown">
+                        <a href="./case.html">Case
+                            <svg class="chevron" width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
+                                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="main-nav__item"><a href="about.html">About</a></li>
+                    <li class="main-nav__item"><a href="news.html">News</a></li>
+                    <li class="main-nav__item has-dropdown">
+                        <a href="#">Partner Portal
+                            <svg class="chevron" width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
+                                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="site-header__actions" id="site-header-actions">
+                <div class="lang-switch has-dropdown">
+                    <button type="button" class="lang-switch__toggle">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                            <circle cx="9" cy="9" r="7.4" stroke="currentColor" stroke-width="1.3" />
+                            <path d="M1.6 9H16.4M9 1.6C10.9 3.6 12 6.2 12 9C12 11.8 10.9 14.4 9 16.4C7.1 14.4 6 11.8 6 9C6 6.2 7.1 3.6 9 1.6Z" stroke="currentColor" stroke-width="1.3" />
+                        </svg>
+                        <span class="lang-switch__current">EN</span>
+                    </button>
+                </div>
+                <a href="./contact.html" class="btn btn--pink btn--sm">Contact Us</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="開啟選單">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="nav-backdrop" id="nav-backdrop"></div>
+
+    <main id="main">
+        <!-- Hero 區塊 -->
+        <section class="case-hero">
+            <div class="hero-content">
+                <div class="hero-content__inner">
+                    <div class="tagline">
+                        <img src="https://placehold.co/24x24?text=Icon" alt="wave">
+                        <span>Powering Critical Operations.</span>
+                    </div>
+                    <h1>PROVEN IN REAL<br>EMERGENCIES</h1>
+                    <p>
+                        From chemical plant fires and lithium battery incidents to<br>
+                        large-scale industrial emergencies, Motionnex systems have<br>
+                        been deployed in over 300 real-world missions.<br>
+                        Selected missions below demonstrate how autonomous<br>
+                        systems perform when reliability matters most.
+                    </p>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://placehold.co/800x600?text=Hero+Image" alt="Real Emergencies">
+                <div class="badge">
+                    <span class="num">300+</span>
+                    <span class="text">Real-World<br>Missions</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Categories 區塊 -->
+        <section class="case-categories">
+            <div class="container">
+                <div class="section-header">
+                    <h2>MISSION<br>CATEGORIES</h2>
+                    <div class="desc">
+                        <h4>Beyond Firefighting</h4>
+                        <p>Expanding intelligent robotic solutions across security, defense, logistics, agriculture, and future applications.</p>
+                    </div>
+                </div>
+
+                <div class="swiper category-swiper">
+                    <div class="swiper-wrapper">
+                        <!-- Active 狀態 -->
+                        <div class="swiper-slide category-card active">
+                            <div class="icon-box">
+                                <img src="https://placehold.co/30x30?text=Fire" alt="Firefighting">
+                            </div>
+                            <div class="info">
+                                <h3>Firefighting</h3>
+                                <p>Active Deployments</p>
+                                <span>Case Studies</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide category-card">
+                            <div class="icon-box">
+                                <img src="https://placehold.co/30x30?text=Sec" alt="Security">
+                            </div>
+                            <div class="info">
+                                <h3>Security</h3>
+                                <p>Emerging Applications</p>
+                                <span>Coming Soon</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide category-card">
+                            <div class="icon-box">
+                                <img src="https://placehold.co/30x30?text=Def" alt="Defense">
+                            </div>
+                            <div class="info">
+                                <h3>Defense</h3>
+                                <p>Future Development</p>
+                                <span>Coming Soon</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide category-card">
+                            <div class="icon-box">
+                                <img src="https://placehold.co/30x30?text=Log" alt="Logistics">
+                            </div>
+                            <div class="info">
+                                <h3>Logistics</h3>
+                                <p>Future Applications</p>
+                                <span>Coming Soon</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 左右控制箭頭 -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Missions 區塊 -->
+        <section class="featured-missions">
+            <div class="container">
+                <div class="section-header">
+                    <h2>FEATURED<br>MISSIONS</h2>
+                    <div class="desc">
+                        <h4>Real Missions. Real Impact.</h4>
+                        <p>Selected from hundreds of real-world deployments, these missions highlight how Motionnex supports frontline operations in demanding environments.</p>
+                    </div>
+                </div>
+
+                <div class="mission-showcase">
+                    <!-- 左側數據 -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <img src="https://placehold.co/32x32?text=Time" alt="icon">
+                            <span class="num">26</span>
+                            <span class="label">Hour Operation</span>
+                        </div>
+                        <div class="stat-card">
+                            <img src="https://placehold.co/32x32?text=Time" alt="icon">
+                            <span class="num">312</span>
+                            <span class="label">Hour</span>
+                        </div>
+                        <div class="stat-card">
+                            <img src="https://placehold.co/32x32?text=Rob" alt="icon">
+                            <span class="num">11</span>
+                            <span class="label">Robots Deployed</span>
+                        </div>
+                        <div class="stat-card">
+                            <img src="https://placehold.co/32x32?text=Wat" alt="icon">
+                            <span class="num">200</span>
+                            <span class="label">Water Rate</span>
+                        </div>
+                        <div class="stat-card span-full">
+                            <img src="https://placehold.co/32x32?text=Per" alt="icon">
+                            <span class="num">1,200</span>
+                            <span class="label">Personnel</span>
+                        </div>
+                    </div>
+
+                    <!-- 中間圖片 -->
+                    <div class="main-image">
+                        <img src="https://placehold.co/400x500?text=Mission+Image" alt="Lithium Battery Fire">
+                    </div>
+
+                    <!-- 右側資訊 -->
+                    <div class="mission-details">
+                        <div class="tag">26 <span>HOUR OPERATION</span></div>
+                        <h3>Lithium Battery Fire</h3>
+                        <p>
+                            Lithium battery fires present challenges includ-<br>
+                            ing extreme temperatures, reignition risks,<br>
+                            and prolonged monitoring requirements.<br>
+                            Motionnex robots provided continuous thermal<br>
+                            monitoring and remote firefighting support<br>
+                            while reducing personnel exposure.
+                        </p>
+                        <div class="location-tag">Kaohsiung, Taiwan</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA 區塊 -->
+        <section class="case-cta">
+            <div class="container">
+                <div class="cta-box">
+                    <div class="cta-content">
+                        <h2>BEHIND EVERY MISSION<br>IS A PROVEN SYSTEM</h2>
+                        <p>Discover the technologies and solutions that power Motionnex deployments in the field.</p>
+                    </div>
+                    <div class="cta-action">
+                        <a href="solutions.html" class="btn btn--red">Explore Solutions →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <!-- 沿用 Footer -->
+    </footer>
+
+    <script src="./assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // 初始化 Mission Categories 的 Swiper
+            const categorySwiper = new Swiper('.category-swiper', {
+                loop: false,
+                slidesPerView: 1.2,
+                spaceBetween: 20,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    481: {
+                        slidesPerView: 2,
+                        spaceBetween: 20
+                    },
+                    769: {
+                        slidesPerView: 3,
+                        spaceBetween: 30
+                    },
+                    1025: {
+                        slidesPerView: 4,
+                        spaceBetween: 30
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

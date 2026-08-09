@@ -195,7 +195,7 @@
       .mission-card {
         background-color: #fff;
         border-radius: size(24);
-        padding: size(40);
+        padding: size(40) size(80) size(40) size(40);
         position: relative;
 
         @include mixins.mq(mobile) {

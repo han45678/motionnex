@@ -11,10 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeEffect: {
       crossFade: true,
     },
-    // autoplay: {
-    //   delay: 5000,
-    //   disableOnInteraction: false,
-    // },
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
