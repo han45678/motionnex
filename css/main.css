@@ -228,6 +228,9 @@ img.is-loading {
 .main-nav__item:hover .chevron, .main-nav__item:focus-within .chevron {
   transform: rotate(180deg);
 }
+.main-nav__item > a.is-active {
+  color: #ea0044;
+}
 
 .dropdown {
   position: absolute;
