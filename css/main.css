@@ -111,6 +111,12 @@ h4 {
   margin-inline: auto;
   padding-inline: 1.25vw;
 }
+@media (max-width: 1023px) {
+  .container {
+    max-width: 100%;
+    padding-inline: 6.4vw;
+  }
+}
 
 .section {
   padding: 6.25vw 0;
@@ -124,10 +130,10 @@ h4 {
 .section-eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.5208333333vw;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.75vw;
   color: #8a93a3;
 }
 
@@ -733,7 +739,7 @@ img.is-loading {
   width: 100%;
   height: 100dvh;
   background-color: #000;
-  border-bottom-right-radius: 250px;
+  border-bottom-right-radius: 13.0208333333vw;
   overflow: hidden;
 }
 @media (max-width: 1023px) {
@@ -849,10 +855,8 @@ img.is-loading {
     left: 0;
     width: 100%;
     height: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
-    -o-object-position: right center;
-       object-position: right center;
+    object-fit: cover;
+    object-position: right center;
   }
 }
 #home #banner .swiper-pagination {
@@ -886,7 +890,7 @@ img.is-loading {
 }
 #home #banner .swiper-pagination-bullet-active {
   background: #ea0044;
-  border-radius: 5px;
+  border-radius: 0.2604166667vw;
   width: 2.5vw;
   position: relative;
   overflow: hidden;
@@ -899,7 +903,7 @@ img.is-loading {
   width: 100%;
   height: 100%;
   background: #fff;
-  border-radius: 5px;
+  border-radius: 0.2604166667vw;
 }
 #home #about {
   margin-top: 5.2083333333vw;
@@ -968,7 +972,7 @@ img.is-loading {
   }
 }
 #home #about .title a.btn:hover {
-  background-color: rgb(183, 0, 53.1794871795);
+  background-color: rgb(71.7647058824%, 0%, 20.8547008547%);
 }
 #home #about .content ul {
   background-color: #1d44fa;
@@ -1193,7 +1197,7 @@ img.is-loading {
   color: #ea0044;
 }
 #home #solutions .tabs .tab-btn:hover:not(.active) {
-  background-color: rgb(12.5, 28.125, 62.5);
+  background-color: rgb(4.9019607843%, 11.0294117647%, 24.5098039216%);
 }
 #home #solutions .tab-content {
   flex-grow: 1;
@@ -1226,8 +1230,7 @@ img.is-loading {
 #home #solutions .tab-content .content-item img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 #home #solutions .tab-content .content-item .info-overlay {
   position: absolute;
@@ -1507,8 +1510,7 @@ img.is-loading {
 #home #proven-section .image-wrapper img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   display: block;
 }
 #home #proven-section .content-wrapper {
@@ -1783,8 +1785,7 @@ img.is-loading {
 #solutions .solutions-hero .hero-image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-bottom-left-radius: 10.4166666667vw;
 }
 @media (max-width: 1023px) {
@@ -1882,7 +1883,7 @@ img.is-loading {
 }
 @media (max-width: 1023px) {
   #solutions .solutions-missions .missions-right .mission-card {
-    padding: 8.5333333333vw;
+    padding: 8.5333333333vw 17.0666666667vw 8.5333333333vw 8.5333333333vw;
     border-radius: 4.2666666667vw;
   }
 }
@@ -2104,8 +2105,7 @@ img.is-loading {
 #solutions .solutions-systems .system-card .card-image img {
   max-width: 100%;
   max-height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   transition: transform 0.4s ease;
 }
 #solutions {
@@ -2228,7 +2228,7 @@ img.is-loading {
   }
 }
 #solutions .solutions-cta .cta-action .btn--red:hover {
-  background-color: rgb(183, 0, 53.1794871795);
+  background-color: rgb(71.7647058824%, 0%, 20.8547008547%);
 }
 
 /* =========================================
@@ -2333,8 +2333,7 @@ img.is-loading {
 #products .products-hero .hero-image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-bottom-left-radius: 10.4166666667vw;
 }
 @media (max-width: 1023px) {
@@ -2387,8 +2386,7 @@ img.is-loading {
 #products .products-categories .category-card .img-box img {
   max-height: 100%;
   max-width: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 #products .products-categories .category-card h3 {
   font-size: 1.25vw;
@@ -2865,6 +2863,7 @@ img.is-loading {
   font-size: 3.3333333333vw;
   font-family: "Maven Pro", sans-serif;
   font-weight: 600;
+  color: #fff;
   margin: 0 0 0.8333333333vw 0;
 }
 @media (max-width: 1023px) {
@@ -2970,8 +2969,7 @@ img.is-loading {
 #product-detail .detail-hero .hero-right .thumbnails .thumb img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 #product-detail .detail-hero .hero-right .thumbnails .scroll-down {
   width: 2.0833333333vw;
@@ -3247,7 +3245,7 @@ img.is-loading {
   }
 }
 #product-detail .detail-related .action-wrap .btn--red:hover {
-  background-color: rgb(183, 0, 53.1794871795);
+  background-color: rgb(71.7647058824%, 0%, 20.8547008547%);
 }
 
 /* =========================================
@@ -3355,8 +3353,7 @@ img.is-loading {
 #case .case-hero .hero-image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-bottom-left-radius: 10.4166666667vw;
 }
 @media (max-width: 1023px) {
@@ -3736,8 +3733,7 @@ img.is-loading {
 #case .featured-missions .mission-showcase .main-image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   display: block;
 }
 #case .featured-missions .mission-showcase .mission-details {
@@ -3856,6 +3852,7 @@ img.is-loading {
   font-size: 2.0833333333vw;
   font-family: "Maven Pro", sans-serif;
   font-weight: 600;
+  color: #fff;
   margin: 0 0 0.8333333333vw 0;
   line-height: 1.2;
 }
@@ -3895,7 +3892,7 @@ img.is-loading {
   }
 }
 #case .case-cta .cta-box .btn--red:hover {
-  background-color: rgb(183, 0, 53.1794871795);
+  background-color: rgb(71.7647058824%, 0%, 20.8547008547%);
 }
 
 /* =========================================
@@ -3995,8 +3992,7 @@ img.is-loading {
 #about-page .about-hero .hero-image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-bottom-left-radius: 10.4166666667vw;
 }
 @media (max-width: 1023px) {
@@ -4065,6 +4061,7 @@ img.is-loading {
   font-size: 2.0833333333vw;
   font-family: "Maven Pro", sans-serif;
   font-weight: 500;
+  color: #fff;
   line-height: 1.2;
   margin: 0 0 1.25vw 0;
   letter-spacing: 0.0520833333vw;
@@ -4101,8 +4098,7 @@ img.is-loading {
 #about-page .motion-redefined .card-box .card-image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 #about-page {
   /* --- 3. Built on Experience Section --- */
@@ -4180,12 +4176,12 @@ img.is-loading {
 }
 #about-page .built-on-experience .stats-box .stat-item {
   flex: 1;
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 0.0520833333vw solid rgba(255, 255, 255, 0.2);
 }
 @media (max-width: 1023px) {
   #about-page .built-on-experience .stats-box .stat-item {
     border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 0.2666666667vw solid rgba(255, 255, 255, 0.2);
     padding: 6.4vw 0;
   }
   #about-page .built-on-experience .stats-box .stat-item:first-child {
@@ -4287,6 +4283,7 @@ img.is-loading {
   font-size: 2.0833333333vw;
   font-family: "Maven Pro", sans-serif;
   font-weight: 500;
+  color: #fff;
   line-height: 1.2;
   margin: 0;
   letter-spacing: 0.0520833333vw;
@@ -4310,8 +4307,7 @@ img.is-loading {
 #about-page .looking-ahead .card-box .card-image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   display: block;
 }
 #about-page .looking-ahead .card-box .card-text {
@@ -4468,8 +4464,7 @@ img.is-loading {
 #news-page .news-hero .hero-graphic img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 #news-page {
   /* --- 2. News List Section --- */
@@ -4595,8 +4590,7 @@ img.is-loading {
 #news-page .news-list-section .news-card .card-img img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   transition: transform 0.5s ease;
 }
 #news-page .news-list-section .news-card:hover .card-img img {
@@ -4703,7 +4697,7 @@ img.is-loading {
   }
 }
 #news-page .news-list-section .news-card .card-body .btn--learn-more:hover {
-  background-color: rgb(183, 0, 53.1794871795);
+  background-color: rgb(71.7647058824%, 0%, 20.8547008547%);
 }
 #news-page .news-list-section {
   /* 分頁模組 */
@@ -4821,6 +4815,11 @@ img.is-loading {
 #contact-page .contact-section .container {
   max-width: 52.0833333333vw;
 }
+@media (max-width: 1023px) {
+  #contact-page .contact-section .container {
+    max-width: 100%;
+  }
+}
 #contact-page .contact-section {
   /* 頂部 Banner */
 }
@@ -4860,6 +4859,7 @@ img.is-loading {
   font-size: 2.5vw;
   font-family: "Maven Pro", sans-serif;
   font-weight: 500;
+  color: #fff;
   line-height: 1.2;
   margin: 0 0 1.25vw 0;
 }
@@ -5117,9 +5117,6 @@ img.is-loading {
     border-radius: 1.6vw;
   }
 }
-#contact-page .contact-section .form-card .contact-form .form-group input::-moz-placeholder, #contact-page .contact-section .form-card .contact-form .form-group select::-moz-placeholder, #contact-page .contact-section .form-card .contact-form .form-group textarea::-moz-placeholder {
-  color: #a0a0a0;
-}
 #contact-page .contact-section .form-card .contact-form .form-group input::placeholder, #contact-page .contact-section .form-card .contact-form .form-group select::placeholder, #contact-page .contact-section .form-card .contact-form .form-group textarea::placeholder {
   color: #a0a0a0;
 }
@@ -5147,8 +5144,7 @@ img.is-loading {
   position: relative;
 }
 #contact-page .contact-section .form-card .contact-form .form-group .select-wrapper select {
-  -moz-appearance: none;
-       appearance: none;
+  appearance: none;
   -webkit-appearance: none;
   padding-right: 2.0833333333vw;
   cursor: pointer;
@@ -5190,5 +5186,7 @@ img.is-loading {
   }
 }
 #contact-page .contact-section .form-card .contact-form .submit-btn:hover {
-  background-color: rgb(20.0538116592, 57.8475336323, 151.9461883408);
-}/*# sourceMappingURL=main.css.map */
+  background-color: rgb(7.8642398664%, 22.6853073068%, 59.5867405258%);
+}
+
+/*# sourceMappingURL=main.css.map */

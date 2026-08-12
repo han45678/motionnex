@@ -6,7 +6,7 @@
     width: 100%;
     height: 100dvh;
     background-color: #000;
-    border-bottom-right-radius: 250px;
+    border-bottom-right-radius: size(250);
     overflow: hidden;
 
     @include mixins.mq(mobile) {
@@ -148,7 +148,7 @@
     }
     .swiper-pagination-bullet-active {
       background: #ea0044;
-      border-radius: 5px;
+      border-radius: size(5);
       width: size(48);
       position: relative;
       overflow: hidden;
@@ -160,7 +160,7 @@
         width: 100%;
         height: 100%;
         background: #fff;
-        border-radius: 5px;
+        border-radius: size(5);
       }
     }
   }

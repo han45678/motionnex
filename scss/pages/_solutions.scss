@@ -202,7 +202,8 @@
         position: relative;
 
         @include mixins.mq(mobile) {
-          padding: size-m(32);
+          // 右側多留白，避免標題文字被右上角圖示遮住（呼應桌機版的 size(80)）
+          padding: size-m(32) size-m(64) size-m(32) size-m(32);
           border-radius: size-m(16);
         }
 
