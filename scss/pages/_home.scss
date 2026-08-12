@@ -63,10 +63,10 @@
           width: 100%;
           color: #fff;
           font-size: size(72);
-          font-weight: 400;
-
+          font-weight: 500;
+          padding-top: size(100);
           @include mixins.mq(mobile) {
-            font-size: size-m(32);
+            font-size: size-m(40);
           }
         }
         .line {
@@ -84,11 +84,11 @@
         p {
           width: 100%;
           color: #fff;
-          font-size: size(20);
-          font-weight: 200;
+          font-size: size(21);
+          font-weight: 500;
 
           @include mixins.mq(mobile) {
-            font-size: size-m(14);
+            font-size: size-m(16);
           }
         }
 
@@ -187,14 +187,14 @@
       }
 
       h2 {
-        font-family: 'Maven Pro', sans-serif;
+        font-family: 'Montserrat', sans-serif;
         font-size: size(72);
-        font-weight: 400;
+        font-weight: 500;
         color: #0b192c;
         margin: 0;
 
         @include mixins.mq(mobile) {
-          font-size: size-m(28);
+          font-size: size-m(36);
         }
       }
 
@@ -282,7 +282,7 @@
           }
 
           h3 {
-            font-size: size(64);
+            font-size: size(72);
             font-weight: 700;
             margin: 0 0 size(10) 0;
             display: flex;
@@ -307,13 +307,14 @@
           }
 
           p {
-            font-size: size(18);
+            font-family: 'Maven Pro', sans-serif;
+            font-size: size(24);
             font-weight: 600;
             margin: 0;
             letter-spacing: size(0.5);
 
             @include mixins.mq(mobile) {
-              font-size: size-m(14);
+              font-size: size-m(16);
             }
           }
         }
@@ -321,14 +322,14 @@
 
       > p {
         text-align: center;
-        font-size: size(18);
+        font-size: size(21);
         line-height: 1.8;
         color: #333;
         font-weight: 400;
         margin: 0 auto;
 
         @include mixins.mq(mobile) {
-          font-size: size-m(14);
+          font-size: size-m(16);
           line-height: 1.7;
           max-width: 100%;
         }
@@ -392,7 +393,7 @@
       display: flex;
       flex-direction: column;
       gap: size(16);
-      width: size(775);
+      width: size(638);
       flex-shrink: 0;
 
       @include mixins.mq(mobile) {
@@ -418,34 +419,35 @@
         }
 
         .num {
-          font-size: size(20);
+          font-size: size(34);
           font-weight: bold;
           margin-right: size(24);
           transition: color 0.3s ease;
 
           @include mixins.mq(mobile) {
-            font-size: size-m(16);
+            font-size: size-m(20);
             margin-right: size-m(16);
           }
         }
 
         .text {
-          font-size: size(20);
+          font-size: size(36);
           font-weight: 500;
           flex-grow: 1;
           letter-spacing: size(1);
 
           @include mixins.mq(mobile) {
-            font-size: size-m(16);
+            font-size: size-m(20);
             letter-spacing: size-m(1);
           }
         }
 
         .icon {
-          font-size: size(24);
+          width: size(32);
+          transition: transform 0.3s ease;
 
           @include mixins.mq(mobile) {
-            font-size: size-m(20);
+            width: size-m(24);
             transform: rotate(90deg);
           }
         }
@@ -470,10 +472,10 @@
       border-radius: size(40);
 
       width: size(500);
-      height: size(500);
+      height: size(575);
       background-color: #f5f5f5;
       overflow: hidden;
-      aspect-ratio: 1 / 1;
+      // aspect-ratio: 1 / 1;
 
       @include mixins.mq(mobile) {
         border-radius: size-m(24);
@@ -505,25 +507,26 @@
           top: size(80);
           left: 0;
           padding-left: size(24);
-          border-left: size(8) solid #ea0044;
+          border-left: size(20) solid #ea0044;
           color: #fff;
           z-index: 2;
 
           @include mixins.mq(mobile) {
             top: size-m(40);
             padding-left: size-m(16);
-            border-left: size-m(4) solid #ea0044;
+            border-left: size-m(20) solid #ea0044;
           }
 
           p {
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
-            font-size: size(16);
+            font-size: size(21);
             line-height: 1.8;
             font-weight: 400;
             text-shadow: 0 size(2) size(4) rgba(0, 0, 0, 0.6);
 
             @include mixins.mq(mobile) {
-              font-size: size-m(14);
+              font-size: size-m(16);
               text-shadow: 0 size-m(2) size-m(4) rgba(0, 0, 0, 0.6);
             }
           }
@@ -674,7 +677,11 @@
       .card.dark {
         background-color: #03004a; /* 卡片深藍色 */
         height: size(280); /* 左右卡片較矮 */
-        border-radius: size(30);
+        // border-radius: size(30);
+        border-top-left-radius: size(30);
+        border-top-right-radius:size(30);
+        // border-bottom-right-radius: size(30);
+        // border-bottom-left-radius:size(30);
 
         @include mixins.mq(mobile) {
           height: auto;
@@ -686,17 +693,22 @@
       .left-card {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
+        border-bottom-left-radius:size(30);
+        
       }
 
       .right-card {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
+        border-bottom-right-radius: size(30);
       }
 
       .card.highlight {
         background-color: #ea0044;
         height: size(340); /* 中間卡片較高 */
-        border-radius: size(30);
+        // border-radius: size(30);
+        border-top-left-radius: size(30);
+        border-top-right-radius:size(30);
         z-index: 2;
         margin: 0 size(-1); /* 微調負邊距避免出現細微的 1px 渲染縫隙 */
         padding: size(60) size(40);

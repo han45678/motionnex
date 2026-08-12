@@ -213,11 +213,12 @@ img.is-loading {
   display: flex;
   align-items: center;
   gap: 0.3125vw;
-  font-size: 0.8333333333vw;
+  font-size: 1.0416666667vw;
   font-weight: 500;
   color: #ffffff;
   padding: 0.4166666667vw 0;
   transition: color 0.25s ease;
+  font-family: "Maven Pro Medium";
 }
 .main-nav__item > a .chevron {
   transition: transform 0.25s ease;
@@ -269,6 +270,11 @@ img.is-loading {
   gap: 1.1458333333vw;
   flex-shrink: 0;
 }
+.site-header__actions .btn--sm {
+  font-size: 1.0416666667vw;
+  font-family: "Maven Pro Medium";
+  padding: 0.78125vw 2.0833333333vw;
+}
 
 .lang-switch {
   position: relative;
@@ -278,7 +284,8 @@ img.is-loading {
   align-items: center;
   gap: 0.3125vw;
   color: #ffffff;
-  font-size: 0.75vw;
+  font-size: 1.0416666667vw;
+  font-family: "Maven Pro Medium";
   cursor: pointer;
 }
 .lang-switch:hover .lang-switch__toggle, .lang-switch:focus-within .lang-switch__toggle {
@@ -784,11 +791,12 @@ img.is-loading {
   width: 100%;
   color: #fff;
   font-size: 3.75vw;
-  font-weight: 400;
+  font-weight: 500;
+  padding-top: 5.2083333333vw;
 }
 @media (max-width: 1023px) {
   #home #banner .item .text h2 {
-    font-size: 8.5333333333vw;
+    font-size: 10.6666666667vw;
   }
 }
 #home #banner .item .text .line {
@@ -807,12 +815,12 @@ img.is-loading {
 #home #banner .item .text p {
   width: 100%;
   color: #fff;
-  font-size: 1.0416666667vw;
-  font-weight: 200;
+  font-size: 1.09375vw;
+  font-weight: 500;
 }
 @media (max-width: 1023px) {
   #home #banner .item .text p {
-    font-size: 3.7333333333vw;
+    font-size: 4.2666666667vw;
   }
 }
 #home #banner .item .text .btn {
@@ -915,15 +923,15 @@ img.is-loading {
   }
 }
 #home #about .title h2 {
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 3.75vw;
-  font-weight: 400;
+  font-weight: 500;
   color: #0b192c;
   margin: 0;
 }
 @media (max-width: 1023px) {
   #home #about .title h2 {
-    font-size: 7.4666666667vw;
+    font-size: 9.6vw;
   }
 }
 #home #about .title a.btn {
@@ -1006,7 +1014,7 @@ img.is-loading {
   }
 }
 #home #about .content ul li h3 {
-  font-size: 3.3333333333vw;
+  font-size: 3.75vw;
   font-weight: 700;
   margin: 0 0 0.5208333333vw 0;
   display: flex;
@@ -1031,19 +1039,20 @@ img.is-loading {
   }
 }
 #home #about .content ul li p {
-  font-size: 0.9375vw;
+  font-family: "Maven Pro", sans-serif;
+  font-size: 1.25vw;
   font-weight: 600;
   margin: 0;
   letter-spacing: 0.0260416667vw;
 }
 @media (max-width: 1023px) {
   #home #about .content ul li p {
-    font-size: 3.7333333333vw;
+    font-size: 4.2666666667vw;
   }
 }
 #home #about .content > p {
   text-align: center;
-  font-size: 0.9375vw;
+  font-size: 1.09375vw;
   line-height: 1.8;
   color: #333;
   font-weight: 400;
@@ -1051,7 +1060,7 @@ img.is-loading {
 }
 @media (max-width: 1023px) {
   #home #about .content > p {
-    font-size: 3.7333333333vw;
+    font-size: 4.2666666667vw;
     line-height: 1.7;
     max-width: 100%;
   }
@@ -1113,7 +1122,7 @@ img.is-loading {
   display: flex;
   flex-direction: column;
   gap: 0.8333333333vw;
-  width: 40.3645833333vw;
+  width: 33.2291666667vw;
   flex-shrink: 0;
 }
 @media (max-width: 1023px) {
@@ -1141,35 +1150,36 @@ img.is-loading {
   }
 }
 #home #solutions .tabs .tab-btn .num {
-  font-size: 1.0416666667vw;
+  font-size: 1.7708333333vw;
   font-weight: bold;
   margin-right: 1.25vw;
   transition: color 0.3s ease;
 }
 @media (max-width: 1023px) {
   #home #solutions .tabs .tab-btn .num {
-    font-size: 4.2666666667vw;
+    font-size: 5.3333333333vw;
     margin-right: 4.2666666667vw;
   }
 }
 #home #solutions .tabs .tab-btn .text {
-  font-size: 1.0416666667vw;
+  font-size: 1.875vw;
   font-weight: 500;
   flex-grow: 1;
   letter-spacing: 0.0520833333vw;
 }
 @media (max-width: 1023px) {
   #home #solutions .tabs .tab-btn .text {
-    font-size: 4.2666666667vw;
+    font-size: 5.3333333333vw;
     letter-spacing: 0.2666666667vw;
   }
 }
 #home #solutions .tabs .tab-btn .icon {
-  font-size: 1.25vw;
+  width: 1.6666666667vw;
+  transition: transform 0.3s ease;
 }
 @media (max-width: 1023px) {
   #home #solutions .tabs .tab-btn .icon {
-    font-size: 5.3333333333vw;
+    width: 6.4vw;
     transform: rotate(90deg);
   }
 }
@@ -1187,10 +1197,9 @@ img.is-loading {
   position: relative;
   border-radius: 2.0833333333vw;
   width: 26.0416666667vw;
-  height: 26.0416666667vw;
+  height: 29.9479166667vw;
   background-color: #f5f5f5;
   overflow: hidden;
-  aspect-ratio: 1/1;
 }
 @media (max-width: 1023px) {
   #home #solutions .tab-content {
@@ -1222,7 +1231,7 @@ img.is-loading {
   top: 4.1666666667vw;
   left: 0;
   padding-left: 1.25vw;
-  border-left: 0.4166666667vw solid #ea0044;
+  border-left: 1.0416666667vw solid #ea0044;
   color: #fff;
   z-index: 2;
 }
@@ -1230,19 +1239,20 @@ img.is-loading {
   #home #solutions .tab-content .content-item .info-overlay {
     top: 10.6666666667vw;
     padding-left: 4.2666666667vw;
-    border-left: 1.0666666667vw solid #ea0044;
+    border-left: 5.3333333333vw solid #ea0044;
   }
 }
 #home #solutions .tab-content .content-item .info-overlay p {
+  font-family: "Montserrat", sans-serif;
   margin: 0;
-  font-size: 0.8333333333vw;
+  font-size: 1.09375vw;
   line-height: 1.8;
   font-weight: 400;
   text-shadow: 0 0.1041666667vw 0.2083333333vw rgba(0, 0, 0, 0.6);
 }
 @media (max-width: 1023px) {
   #home #solutions .tab-content .content-item .info-overlay p {
-    font-size: 3.7333333333vw;
+    font-size: 4.2666666667vw;
     text-shadow: 0 0.5333333333vw 1.0666666667vw rgba(0, 0, 0, 0.6);
   }
 }
@@ -1391,7 +1401,8 @@ img.is-loading {
 #home #core-capabilities .cards-wrapper .card.dark {
   background-color: #03004a; /* 卡片深藍色 */
   height: 14.5833333333vw; /* 左右卡片較矮 */
-  border-radius: 1.5625vw;
+  border-top-left-radius: 1.5625vw;
+  border-top-right-radius: 1.5625vw;
 }
 @media (max-width: 1023px) {
   #home #core-capabilities .cards-wrapper .card.dark {
@@ -1405,15 +1416,18 @@ img.is-loading {
 #home #core-capabilities .cards-wrapper .left-card {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+  border-bottom-left-radius: 1.5625vw;
 }
 #home #core-capabilities .cards-wrapper .right-card {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+  border-bottom-right-radius: 1.5625vw;
 }
 #home #core-capabilities .cards-wrapper .card.highlight {
   background-color: #ea0044;
   height: 17.7083333333vw; /* 中間卡片較高 */
-  border-radius: 1.5625vw;
+  border-top-left-radius: 1.5625vw;
+  border-top-right-radius: 1.5625vw;
   z-index: 2;
   margin: 0 -0.0520833333vw; /* 微調負邊距避免出現細微的 1px 渲染縫隙 */
   padding: 3.125vw 2.0833333333vw;
