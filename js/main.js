@@ -4,22 +4,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initSolutionsTabs();
 
-  // Initialize Hero Swiper
-  const heroSwiper = new Swiper('#banner', {
-    loop: true,
-    effect: 'fade',
-    fadeEffect: {
-      crossFade: true,
-    },
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-  });
+  // Initialize Hero Swiper（僅在頁面上真的存在 #banner 時才初始化，
+  // 避免在沒有 banner 輪播的頁面上建立無用的 Swiper 實例）
+  if (document.getElementById('banner')) {
+    const heroSwiper = new Swiper('#banner', {
+      loop: true,
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true,
+      },
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  }
 
   // Other JavaScript code for the site can go here.
 

@@ -16,6 +16,13 @@
     </style>
 </head>
 
+<!--
+  注意：id="solutions" 在此頁是 scss/pages/_solutions.scss 的 CSS 命名空間根節點
+  （整份頁面樣式都寫在 #solutions { ... } 底下），請勿更名，否則全頁樣式會跑掉。
+  這與首頁 index.html 的 <section id="solutions">（頁籤元件容器）是不同用途的同名 id，
+  js/main.js 的 initSolutionsTabs() 已用 .tabs/.content-item 是否存在來判斷，
+  在本頁（沒有頁籤元件）會安全地提早結束，不會誤動作。
+-->
 <body class="page-solutions" id="solutions">
 
     <a href="#main" class="skip-link">Skip to content</a>

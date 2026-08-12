@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Motionnex | Contact Us</title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./assets/vendor/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
@@ -28,6 +27,13 @@
                                 <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </a>
+                        <ul class="dropdown">
+                            <li><a href="./solutions.html">Firefighting</a></li>
+                            <li><a href="./solutions.html">Security</a></li>
+                            <li><a href="./solutions.html">Defense</a></li>
+                            <li><a href="./solutions.html">Agriculture</a></li>
+                            <li><a href="./solutions.html">Logistics</a></li>
+                        </ul>
                     </li>
                     <li class="main-nav__item has-dropdown">
                         <a href="./products.html">Products
@@ -35,6 +41,13 @@
                                 <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </a>
+                        <ul class="dropdown">
+                            <li><a href="./products.html">Firefighting Robots</a></li>
+                            <li><a href="./products.html">Security Robots</a></li>
+                            <li><a href="./products.html">Defense Robots</a></li>
+                            <li><a href="./products.html">Agriculture Robots</a></li>
+                            <li><a href="./products.html">Logistics Robots</a></li>
+                        </ul>
                     </li>
                     <li class="main-nav__item has-dropdown">
                         <a href="./case.html">Case
@@ -42,6 +55,13 @@
                                 <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </a>
+                        <ul class="dropdown">
+                            <li><a href="./case.html">Firefighting</a></li>
+                            <li><a href="./case.html">Security</a></li>
+                            <li><a href="./case.html">Defense</a></li>
+                            <li><a href="./case.html">Agriculture</a></li>
+                            <li><a href="./case.html">Logistics</a></li>
+                        </ul>
                     </li>
                     <li class="main-nav__item"><a href="about.html">About</a></li>
                     <li class="main-nav__item"><a href="news.html">News</a></li>
@@ -51,6 +71,10 @@
                                 <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </a>
+                        <ul class="dropdown">
+                            <li><a href="#">Partner Login</a></li>
+                            <li><a href="#">Resources</a></li>
+                        </ul>
                     </li>
                 </ul>
             </nav>
@@ -62,11 +86,20 @@
                             <path d="M1.6 9H16.4M9 1.6C10.9 3.6 12 6.2 12 9C12 11.8 10.9 14.4 9 16.4C7.1 14.4 6 11.8 6 9C6 6.2 7.1 3.6 9 1.6Z" stroke="currentColor" stroke-width="1.3" />
                         </svg>
                         <span class="lang-switch__current">EN</span>
+                        <svg class="chevron" width="10" height="7" viewBox="0 0 12 8" fill="none" aria-hidden="true">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
                     </button>
+                    <ul class="dropdown lang-dropdown">
+                        <li><a href="#" class="is-active" data-lang="EN">English</a></li>
+                        <li><a href="#" data-lang="简中">简体中文</a></li>
+                        <li><a href="#" data-lang="繁中">繁體中文</a></li>
+                        <li><a href="#" data-lang="日本語">日本語</a></li>
+                    </ul>
                 </div>
                 <a href="./contact.html" class="btn btn--pink btn--sm">Contact Us</a>
             </div>
-            <button class="nav-toggle" id="nav-toggle" aria-label="開啟選單">
+            <button class="nav-toggle" id="nav-toggle" aria-label="開啟選單" aria-expanded="false" aria-controls="main-nav">
                 <span></span><span></span><span></span>
             </button>
         </div>
@@ -196,12 +229,93 @@
         </section>
     </main>
 
-    <!-- FOOTER -->
+    <!-- FOOTER (沿用共用 Footer) -->
     <footer class="site-footer">
-        <!-- 沿用 Footer -->
+        <div class="container">
+            <a href="index.html" class="logo logo--footer">
+                <span class="logo__strong">MOTION</span><span class="logo__light">NEX</span>
+            </a>
+
+            <div class="site-footer__grid">
+                <div class="footer-col footer-col--follow">
+                    <h4>Follow Us</h4>
+                    <ul class="social-list">
+                        <li><a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M22 12.06C22 6.51 17.52 2 12 2S2 6.51 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.9h-2.34V22c4.78-.8 8.44-4.95 8.44-9.94Z" />
+                                </svg></a></li>
+                        <li><a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M23 12s0-3.4-.43-5a3 3 0 0 0-2.12-2.13C18.8 4.4 12 4.4 12 4.4s-6.8 0-8.45.47A3 3 0 0 0 1.43 7C1 8.6 1 12 1 12s0 3.4.43 5A3 3 0 0 0 3.55 19c1.65.47 8.45.47 8.45.47s6.8 0 8.45-.47A3 3 0 0 0 22.57 17c.43-1.6.43-5 .43-5Zm-13.5 3.4V8.6l6 3.4Z" />
+                                </svg></a></li>
+                        <li><a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z" />
+                                </svg></a></li>
+                    </ul>
+
+                    <h4>Contact</h4>
+                    <ul class="contact-list">
+                        <li><a href="tel:+88652772106">+886-(5) 277 2106</a></li>
+                        <li><a href="mailto:roco@motionnex.com">roco@motionnex.com</a></li>
+                        <li>1F., No.135, Zhongxiao 1st St., Chiayi City 600, Taiwan.</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="visually-hidden">Sitemap</h4>
+                    <ul>
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="./about.html">About</a></li>
+                        <li><a href="./news.html">News</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="./solutions.html">Firefighting</a></li>
+                        <li><a href="./solutions.html">Security</a></li>
+                        <li><a href="./solutions.html">Defense</a></li>
+                        <li><a href="./solutions.html">Agriculture</a></li>
+                        <li><a href="./solutions.html">Logistics</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="./products.html">Firefighting Robots</a></li>
+                        <li><a href="./products.html">Security Robots</a></li>
+                        <li><a href="./products.html">Defense Robots</a></li>
+                        <li><a href="./products.html">Agriculture Robots</a></li>
+                        <li><a href="./products.html">Logistics Robots</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Case</h4>
+                    <ul>
+                        <li><a href="./case.html">Firefighting</a></li>
+                        <li><a href="./case.html">Security</a></li>
+                        <li><a href="./case.html">Defense</a></li>
+                        <li><a href="./case.html">Agriculture</a></li>
+                        <li><a href="./case.html">Logistics</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Partner Portal</h4>
+                    <ul>
+                        <li><a href="#">Partner Login</a></li>
+                        <li><a href="#">Resources</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="site-footer__bottom">
+                <p>Copyright©2026 Motionnex Co. Ltd. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
-    <script src="./assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="./js/main.js"></script>
 </body>
 </html>

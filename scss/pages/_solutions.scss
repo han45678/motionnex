@@ -1,6 +1,9 @@
 @use '../abstracts/mixins';
 @use '../abstracts/function' as *;
 
+// #solutions 在此檔是 solutions.html 整頁的命名空間根（對應 <body id="solutions">）。
+// 注意：首頁 _home.scss 也有一段 #solutions { ... }，那個是首頁 <section id="solutions">
+// 頁籤區塊的樣式，兩者同名但作用在不同頁面的不同元素上，互不影響。
 #solutions {
   /* =========================================
      1. Hero Section

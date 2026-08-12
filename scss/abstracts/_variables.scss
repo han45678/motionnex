@@ -7,9 +7,9 @@ $color-navy-950:   #060821; // footer / darkest navy
 $color-navy-900:   #0a0b2e; // proven section / dark hero panels
 $color-navy-800:   #10135c; // capability card navy / inactive tab
 $color-navy-heading: #0b2036; // heading text on light sections
-$color-blue:       #1e3aeb; // accent blue (stats banner, active tab, links)
+$color-blue:       #1a4bc5; // accent blue — was unused; corrected to match the literal #1a4bc5 used across pages
 $color-blue-dark:  #142ac4;
-$color-pink:       #e9134c; // primary CTA / accent pink-red
+$color-pink:       #e9134c; // primary CTA / accent pink-red — actually used (btn--pink, hover states, brand-mark); left unchanged to avoid a visual shift
 $color-pink-dark:  #c50f3f;
 $color-dark:       #17181a; // header pill / near-black hero overlay
 $color-bg-light:   #f6f8fc; // light section background

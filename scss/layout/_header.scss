@@ -98,6 +98,11 @@
     &:focus-within .chevron {
       transform: rotate(180deg);
     }
+
+    // 當前頁面的主導覽連結（沿用站內既有的強調紅，見 news.html 原本的行內樣式）
+    > a.is-active {
+      color: #ea0044;
+    }
   }
 }
 
