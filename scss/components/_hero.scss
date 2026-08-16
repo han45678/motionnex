@@ -1,7 +1,7 @@
 @use '../abstracts/mixins';
 @use '../abstracts/function' as *;
 
-.solutions-hero {
+.hero {
   display: flex;
   background-color: #0b1156;
   height: size(860);

@@ -1,5 +1,6 @@
 @use '../abstracts/mixins';
 @use '../abstracts/function' as *;
+@use 'sass:color';
 
 /* =========================================
    #products (產品總覽頁)
@@ -899,7 +900,7 @@
         }
 
         &:hover {
-          background-color: darken(#ea0044, 10%);
+          background-color: color.adjust(#ea0044, $lightness: -10%);
         }
       }
     }

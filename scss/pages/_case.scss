@@ -1,5 +1,6 @@
 @use '../abstracts/mixins';
 @use '../abstracts/function' as *;
+@use 'sass:color';
 
 /* =========================================
    #case (案例分享頁)
@@ -29,9 +30,9 @@
       }
 
       h2 {
-        font-size: size(40);
+        font-size: size(72);
         font-family: 'Maven Pro', sans-serif;
-        font-weight: 500;
+        font-weight: 300;
         color: #0d1b2a;
         line-height: 1.2;
         margin: 0;
@@ -43,15 +44,15 @@
       }
 
       .desc {
-        max-width: size(500);
+        max-width: size(600);
 
         @include mixins.mq(mobile) {
           max-width: 100%;
         }
 
         h4 {
-          font-size: size(18);
-          font-weight: 700;
+          font-size: size(28);
+          font-weight: 500;
           color: #333;
           margin: 0 0 size(8) 0;
 
@@ -61,7 +62,7 @@
         }
 
         p {
-          font-size: size(15);
+          font-size: size(20);
           color: #666;
           line-height: 1.6;
           margin: 0;
@@ -74,17 +75,18 @@
     }
 
     .category-swiper {
-      padding: size(20) 0;
+      padding: size(50) 0 size(20) 0;
       position: relative;
     }
 
     .category-card {
+      position: relative;
       background-color: #f7f9fc;
       border-radius: size(24);
       padding: size(40) size(30);
       display: flex;
       flex-direction: column;
-      height: size(280);
+      // height: size(280);
       transition: all 0.3s ease;
       cursor: pointer;
 
@@ -104,6 +106,11 @@
         justify-content: center;
         margin-bottom: auto;
         box-shadow: 0 size(5) size(15) rgba(0,0,0,0.05);
+        position: absolute;
+        top: 0;
+        left: size(30);
+            transform: translateY(-50%);
+        
 
         @include mixins.mq(mobile) {
           width: size-m(50);
@@ -111,14 +118,15 @@
         }
 
         img {
-          width: 50%;
-          height: auto;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
       }
 
       .info {
         h3 {
-          font-size: size(24);
+          font-size: size(36);
           font-weight: 700;
           color: #0d1b2a;
           margin: 0 0 size(8) 0;
@@ -129,7 +137,7 @@
         }
 
         p {
-          font-size: size(14);
+          font-size: size(22);
           color: #555;
           margin: 0 0 size(16) 0;
 
@@ -140,7 +148,7 @@
         }
 
         span {
-          font-size: size(13);
+          font-size: size(20);
           color: #999;
           font-weight: 600;
 
@@ -156,9 +164,6 @@
         .info {
           h3, p, span { color: #fff; }
           span { opacity: 0.8; }
-        }
-        .icon-box {
-          img { filter: brightness(0) saturate(100%) invert(21%) sepia(87%) saturate(5411%) hue-rotate(338deg) brightness(94%) contrast(106%); } // 轉換為 #ea0044
         }
       }
     }
@@ -186,9 +191,9 @@
       }
 
       h2 {
-        font-size: size(40);
+        font-size: size(72);
         font-family: 'Maven Pro', sans-serif;
-        font-weight: 500;
+        font-weight: 300;
         color: #0d1b2a;
         line-height: 1.2;
         margin: 0;
@@ -200,14 +205,14 @@
       }
 
       .desc {
-        max-width: size(500);
+        max-width: size(650);
 
         @include mixins.mq(mobile) {
           max-width: 100%;
         }
 
         h4 {
-          font-size: size(18);
+          font-size: size(28);
           font-weight: 700;
           color: #333;
           margin: 0 0 size(8) 0;
@@ -218,7 +223,7 @@
         }
 
         p {
-          font-size: size(15);
+          font-size: size(20);
           color: #666;
           line-height: 1.6;
           margin: 0;
@@ -281,7 +286,7 @@
           }
 
           .num {
-            font-size: size(32);
+            font-size: size(56);
             font-weight: 700;
             color: #1a4bc5;
             margin-bottom: size(4);
@@ -292,7 +297,7 @@
           }
 
           .label {
-            font-size: size(12);
+            font-size: size(18);
             color: #333;
             font-weight: 600;
 
@@ -343,13 +348,11 @@
         }
 
         .tag {
-          font-size: size(32);
+          font-size: size(72);
           font-weight: 700;
           color: #1a4bc5;
-          margin-bottom: size(20);
-          display: flex;
-          align-items: baseline;
-          gap: size(8);
+          margin-bottom: size(70);
+          line-height: 1;
 
           @include mixins.mq(mobile) {
             font-size: size-m(28);
@@ -357,7 +360,8 @@
           }
 
           span {
-            font-size: size(14);
+            display: block;
+            font-size: size(20);
             color: #666;
             font-weight: 600;
             text-transform: uppercase;
@@ -369,7 +373,7 @@
         }
 
         h3 {
-          font-size: size(24);
+          font-size: size(36);
           font-weight: 700;
           color: #0d1b2a;
           margin: 0 0 size(16) 0;
@@ -381,10 +385,10 @@
         }
 
         p {
-          font-size: size(14);
+          font-size: size(16);
           color: #555;
           line-height: 1.8;
-          margin: 0 0 size(32) 0;
+          margin: 0 0 size(70) 0;
 
           @include mixins.mq(mobile) {
             font-size: size-m(14);
@@ -395,11 +399,11 @@
 
         .location-tag {
           display: inline-block;
-          border: size(1) solid #1a4bc5;
+          border: size(3) solid #1a4bc5;
           color: #1a4bc5;
-          padding: size(8) size(16);
-          border-radius: size(20);
-          font-size: size(13);
+          padding: size(5) size(15);
+          border-radius: size(10);
+          font-size: size(18);
           font-weight: 600;
           align-self: flex-start;
 
@@ -481,7 +485,7 @@
         }
 
         &:hover {
-          background-color: darken(#ea0044, 10%);
+          background-color: color.adjust(#ea0044, $lightness: -10%);
         }
       }
     }
