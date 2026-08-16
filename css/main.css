@@ -3446,6 +3446,7 @@ img.is-loading {
   overflow: hidden;
   color: #fff;
   position: relative;
+  height: 36.4583333333vw;
 }
 @media (max-width: 1023px) {
   #about-page .motion-redefined .card-box {
@@ -3484,7 +3485,7 @@ img.is-loading {
   }
 }
 #about-page .motion-redefined .card-box .card-content h2 {
-  font-size: 2.0833333333vw;
+  font-size: 3.75vw;
   font-family: "Maven Pro", sans-serif;
   font-weight: 500;
   color: #fff;
@@ -3499,7 +3500,7 @@ img.is-loading {
   }
 }
 #about-page .motion-redefined .card-box .card-content p {
-  font-size: 0.78125vw;
+  font-size: 1.0416666667vw;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.8);
   margin: 0;
@@ -3554,7 +3555,7 @@ img.is-loading {
 }
 #about-page .built-on-experience .text-area h2 {
   width: 35%;
-  font-size: 2.0833333333vw;
+  font-size: 3.75vw;
   font-family: "Maven Pro", sans-serif;
   font-weight: 500;
   color: #0d1b2a;
@@ -3572,7 +3573,7 @@ img.is-loading {
 }
 #about-page .built-on-experience .text-area p {
   width: 60%;
-  font-size: 0.8333333333vw;
+  font-size: 1.0416666667vw;
   color: #555;
   line-height: 1.8;
   margin: 0;
@@ -3623,7 +3624,7 @@ img.is-loading {
   border-right: none;
 }
 #about-page .built-on-experience .stats-box .stat-item .num {
-  font-size: 3.3333333333vw;
+  font-size: 3.75vw;
   font-family: "Maven Pro", sans-serif;
   font-weight: 700;
   line-height: 1;
@@ -3637,7 +3638,7 @@ img.is-loading {
 }
 #about-page .built-on-experience .stats-box .stat-item .num span {
   color: #ea0044;
-  font-size: 2.5vw;
+  font-size: 3.75vw;
 }
 @media (max-width: 1023px) {
   #about-page .built-on-experience .stats-box .stat-item .num span {
@@ -3645,7 +3646,7 @@ img.is-loading {
   }
 }
 #about-page .built-on-experience .stats-box .stat-item .label {
-  font-size: 0.8333333333vw;
+  font-size: 1.25vw;
   font-weight: 500;
   opacity: 0.9;
 }
@@ -3673,7 +3674,7 @@ img.is-loading {
   flex-wrap: wrap;
   overflow: hidden;
   color: #fff;
-  padding: 3.125vw 4.1666666667vw;
+  padding: 3.125vw 0 3.125vw 0;
   position: relative;
 }
 @media (max-width: 1023px) {
@@ -3685,7 +3686,7 @@ img.is-loading {
   }
 }
 #about-page .looking-ahead .card-box .card-content {
-  width: 40%;
+  width: 30%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -3696,7 +3697,7 @@ img.is-loading {
   }
 }
 #about-page .looking-ahead .card-box .card-content .deco-lines {
-  width: 7.8125vw;
+  width: 12.5vw;
   opacity: 0.8;
   margin-bottom: 2.0833333333vw;
 }
@@ -3707,7 +3708,7 @@ img.is-loading {
   }
 }
 #about-page .looking-ahead .card-box .card-content h2 {
-  font-size: 2.0833333333vw;
+  font-size: 3.75vw;
   font-family: "Maven Pro", sans-serif;
   font-weight: 500;
   color: #fff;
@@ -3721,8 +3722,7 @@ img.is-loading {
   }
 }
 #about-page .looking-ahead .card-box .card-image {
-  width: 60%;
-  border-radius: 1.25vw;
+  width: 70%;
   overflow: hidden;
 }
 @media (max-width: 1023px) {
@@ -3741,7 +3741,7 @@ img.is-loading {
 #about-page .looking-ahead .card-box .card-text {
   width: 100%;
   margin-top: 2.0833333333vw;
-  padding-left: 40%;
+  padding-left: 30%;
 }
 @media (max-width: 1023px) {
   #about-page .looking-ahead .card-box .card-text {
@@ -3750,7 +3750,7 @@ img.is-loading {
   }
 }
 #about-page .looking-ahead .card-box .card-text p {
-  font-size: 0.78125vw;
+  font-size: 1.0416666667vw;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.8);
   margin: 0;
@@ -3777,7 +3777,7 @@ img.is-loading {
   }
 }
 #about-page .bottom-slogan h2 {
-  font-size: 1.6666666667vw;
+  font-size: 2.7083333333vw;
   font-family: "Maven Pro", sans-serif;
   font-weight: 600;
   color: #1a4bc5;
@@ -4716,6 +4716,7 @@ img.is-loading {
 }
 .hero .hero-image {
   width: 55%;
+  position: relative;
 }
 @media (max-width: 1023px) {
   .hero .hero-image {
@@ -4735,69 +4736,47 @@ img.is-loading {
     height: 80vw;
   }
 }
-.hero .hero-image .hero-image {
-  width: 55%;
-  position: relative;
-}
-@media (max-width: 1023px) {
-  .hero .hero-image .hero-image {
-    width: 100%;
-  }
-}
-.hero .hero-image .hero-image img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-bottom-left-radius: 10.4166666667vw;
-}
-@media (max-width: 1023px) {
-  .hero .hero-image .hero-image img {
-    border-bottom-left-radius: 21.3333333333vw;
-    height: 80vw;
-  }
-}
-.hero .hero-image .hero-image .badge {
+.hero .hero-image .badge {
   position: absolute;
-  bottom: 5.2083333333vw;
-  left: -2.6041666667vw;
+  bottom: 2.6041666667vw;
+  left: 23.4375vw;
   background-color: #1a4bc5;
   color: #fff;
-  padding: 2.0833333333vw 2.6041666667vw;
-  border-radius: 1.25vw 1.25vw 1.25vw 0;
+  padding: 2.6041666667vw 1.5625vw 1.5625vw 2.6041666667vw;
+  border-radius: 5.2083333333vw 0 0 0;
   text-align: center;
   box-shadow: 0 1.0416666667vw 2.0833333333vw rgba(26, 75, 197, 0.3);
   z-index: 2;
 }
 @media (max-width: 1023px) {
-  .hero .hero-image .hero-image .badge {
+  .hero .hero-image .badge {
     bottom: -5.3333333333vw;
     left: 5.3333333333vw;
     padding: 6.4vw 8.5333333333vw;
     border-radius: 4.2666666667vw 4.2666666667vw 4.2666666667vw 0;
   }
 }
-.hero .hero-image .hero-image .badge .num {
+.hero .hero-image .badge .num {
   display: block;
-  font-size: 2.5vw;
+  font-size: 4.1666666667vw;
   font-family: "Maven Pro", sans-serif;
   font-weight: 700;
   line-height: 1;
   margin-bottom: 0.4166666667vw;
 }
 @media (max-width: 1023px) {
-  .hero .hero-image .hero-image .badge .num {
+  .hero .hero-image .badge .num {
     font-size: 8.5333333333vw;
     margin-bottom: 1.0666666667vw;
   }
 }
-.hero .hero-image .hero-image .badge .text {
-  font-size: 0.8333333333vw;
+.hero .hero-image .badge .text {
+  font-size: 1.25vw;
   font-weight: 500;
   line-height: 1.4;
 }
 @media (max-width: 1023px) {
-  .hero .hero-image .hero-image .badge .text {
+  .hero .hero-image .badge .text {
     font-size: 3.7333333333vw;
   }
 }
