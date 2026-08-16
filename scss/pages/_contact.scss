@@ -53,6 +53,10 @@
 
     .container {
       max-width: size(1000); // 限制內容最大寬度
+
+      @include mixins.mq(mobile) {
+        max-width: 100%; // 桌機用 size() 等比縮放到手機會過窄，手機改滿寬
+      }
     }
 
     /* 頂部 Banner */
@@ -90,6 +94,7 @@
           font-size: size(48);
           font-family: 'Maven Pro', sans-serif;
           font-weight: 500;
+          color: #fff;
           line-height: 1.2;
           margin: 0 0 size(24) 0;
 

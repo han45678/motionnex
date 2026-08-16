@@ -200,7 +200,7 @@
         <section class="products-lineup">
             <div class="container">
                 <div class="lineup-header">
-                    <h2>PRODUCT<br>LINEUP</h2>
+                    <h2>PRODUCT <br>LINEUP</h2>
                     <div class="lineup-tabs">
                         <a href="#" class="tab active" data-category="firefighting">Firefighting</a>
                         <a href="#" class="tab" data-category="security">Security</a>
@@ -566,6 +566,9 @@
                     }
                 });
             }
+
+            // 頁面載入時，先套用預設分類（Firefighting），否則列表會是空的
+            updateActiveState('firefighting');
 
             // 1. 監聽上方輪播的點擊
             categorySwiper.on('click', function (swiper, event) {

@@ -527,6 +527,7 @@
           font-size: size(64);
           font-family: 'Maven Pro', sans-serif;
           font-weight: 600;
+          color: #fff;
           margin: 0 0 size(16) 0;
 
           @include mixins.mq(mobile) {

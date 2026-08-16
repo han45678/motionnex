@@ -60,6 +60,7 @@
           font-size: size(40);
           font-family: 'Maven Pro', sans-serif;
           font-weight: 500;
+          color: #fff;
           line-height: 1.2;
           margin: 0 0 size(24) 0;
           letter-spacing: size(1);
@@ -168,11 +169,11 @@
 
       .stat-item {
         flex: 1;
-        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        border-right: size(1) solid rgba(255, 255, 255, 0.2);
 
         @include mixins.mq(mobile) {
           border-right: none;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+          border-bottom: size-m(1) solid rgba(255, 255, 255, 0.2);
           padding: size-m(24) 0;
 
           &:first-child { padding-top: 0; }
@@ -272,6 +273,7 @@
           font-size: size(40);
           font-family: 'Maven Pro', sans-serif;
           font-weight: 500;
+          color: #fff;
           line-height: 1.2;
           margin: 0;
           letter-spacing: size(1);

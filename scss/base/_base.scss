@@ -42,6 +42,13 @@ h4 { font-size: size(22); }
   max-width: $container-max-width;
   margin-inline: auto;
   padding-inline: $container-padding;
+
+  @include mixins.mq(mobile) {
+    // $container-max-width / $container-padding 是用桌機的 size() 等比縮放，
+    // 直接延用到手機會越縮越窄，因此手機改成滿寬 + 固定側邊留白
+    max-width: 100%;
+    padding-inline: size-m(24);
+  }
 }
 
 .section {
@@ -51,10 +58,10 @@ h4 { font-size: size(22); }
 .section-eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: size(10);
   font-family: $font-body;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: size(14.4);
   color: $color-text-muted;
 }
 
