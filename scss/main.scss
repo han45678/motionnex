@@ -1,4 +1,3 @@
-
 @use 'abstracts/variables';
 @use 'abstracts/mixins';
 
@@ -13,9 +12,12 @@
 @use 'components/buttons';
 
 @use 'pages/home';
+
 @use 'pages/solutions';
 @use 'pages/products';
 @use 'pages/case';
 @use 'pages/about';
 @use 'pages/news';
 @use 'pages/contact';
+
+@use 'pages/solutions-hero';
