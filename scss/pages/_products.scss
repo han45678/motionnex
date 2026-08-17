@@ -46,6 +46,8 @@
       @include mixins.mq(mobile) {
         padding: size-m(30) size-m(20);
         border-radius: size-m(16);
+        // 手機固定寬度，同樣故意露出下一格
+        width: size-m(260);
       }
 
       .img-box {
@@ -317,9 +319,11 @@
     }
 
     .product-card {
+      position: relative;
       background-color: #e8ecf4;
       border-radius: size(24);
       padding: size(40);
+      min-height: size(330);
       text-decoration: none;
       display: flex;
       flex-direction: column;
@@ -329,8 +333,10 @@
       @include mixins.mq(mobile) {
         padding: size-m(24);
         border-radius: size-m(16);
+        min-height: auto;
       }
 
+      // 滑過效果：套用跟 .highlight 一樣的深藍卡片樣式
       &:hover:not(.highlight) {
         background-color: #1a4bc5;
 
@@ -341,7 +347,14 @@
         }
 
         .card-head .link-icon {
+          background-color: #fff;
+          color: #ea0044;
           transform: rotate(-45deg);
+        }
+
+        // 藍底上圓形改用淺色，維持右下角裝飾但不會跟背景融為一體
+        .card-body .pic .bg-shape {
+          background-color: color.adjust(#1a4bc5, $lightness: 12%);
         }
 
         .card-body .pic img {
@@ -350,6 +363,8 @@
       }
 
       .card-head {
+        position: relative;
+        z-index: 3; // 蓋在 .pic 的絕對定位圖層之上，避免被圖片/裝飾圓形擋住
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -392,6 +407,8 @@
       }
 
       .card-body {
+        position: relative;
+        flex: 1;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -403,7 +420,9 @@
         }
 
         .info {
-          width: 40%;
+          position: relative;
+          z-index: 2;
+          width: 55%;
           @include mixins.mq(mobile) { width: 100%; }
 
           h3 {
@@ -433,36 +452,41 @@
         }
 
         .pic {
-          width: 55%;
-          position: relative;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          // 圖片放大並貼齊卡片右下角溢出，靠 .product-card 的 overflow: hidden 裁切
+          position: absolute;
+          right: size(-24);
+          bottom: size(-24);
+          width: size(240);
+          z-index: 1;
 
           @include mixins.mq(mobile) {
-            width: 100%;
-            margin-top: size-m(20);
+            position: static;
+            width: size-m(150);
+            margin: size-m(16) 0 0 auto;
           }
 
           .bg-shape {
             position: absolute;
-            bottom: -150%;
-            right: -100%;
-            width: 200%;
-            height: 200%;
+            bottom: size(-110);
+            right: size(-90);
+            width: size(320);
+            height: size(320);
             background-color: #1a4bc5;
             border-radius: 100%;
             z-index: 0;
 
             @include mixins.mq(mobile) {
-              bottom: size-m(-10);
-              right: size-m(-10);
+              bottom: size-m(-69);
+              right: size-m(-56);
+              width: size-m(200);
+              height: size-m(200);
             }
           }
 
           img {
-            max-width: 100%;
+            width: 100%;
             height: auto;
+            display: block;
             position: relative;
             transition: transform 0.4s ease;
             z-index: 1;
@@ -477,7 +501,7 @@
         .card-head .category { color: #fff; }
         .card-head .link-icon { background-color: #fff; color: #ea0044; }
         .card-body .info h3, .card-body .info p { color: #fff; }
-        .card-body .pic .bg-shape { display: none; }
+        .card-body .pic .bg-shape { background-color: color.adjust(#1a4bc5, $lightness: 12%); }
       }
     }
   }

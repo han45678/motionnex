@@ -215,7 +215,7 @@
                 </div>
 
                 <div class="lineup-grid">
-                    <!-- 產品卡片 1 highlight -->
+                    <!-- 產品卡片 1 -->
                     <a href="products_page.html" class="product-card" data-category="firefighting">
                         <div class="card-head">
                             <span class="category">Firefighting Robots</span>
@@ -513,19 +513,14 @@
         document.addEventListener('DOMContentLoaded', function () {
             const categorySwiper = new Swiper('.category-swiper', {
                 loop: false,
-                slidesPerView: 1,
+                slidesPerView: 'auto',
                 spaceBetween: 20,
                 navigation: {
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
                 },
                 breakpoints: {
-                    481: {
-                        slidesPerView: 2,
-                        spaceBetween: 20
-                    },
                     1025: {
-                        slidesPerView: 'auto',
                         spaceBetween: 30
                     }
                 }
