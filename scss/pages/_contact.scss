@@ -1,5 +1,6 @@
 @use '../abstracts/mixins';
 @use '../abstracts/function' as *;
+@use 'sass:color';
 
 /* =========================================
    #contact-page (聯絡我們頁面)
@@ -410,7 +411,7 @@
           }
 
           &:hover {
-            background-color: darken(#1a4bc5, 10%);
+            background-color: color.adjust(#1a4bc5, $lightness: -10%);
           }
         }
       }

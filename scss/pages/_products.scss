@@ -16,9 +16,19 @@
       padding: size-m(60) 0;
     }
 
-    .category-swiper {
-      padding: size(20);
+    // container 作為左右箭頭的定位基準（箭頭放在 swiper 外，避免被裁切）
+    .container {
       position: relative;
+    }
+
+    .category-swiper {
+      // 上方留白給圖片上移溢出，避免被 overflow: hidden 裁到
+      padding: size(70) size(20) size(20);
+      position: relative;
+
+      @include mixins.mq(mobile) {
+        padding: size-m(50) size-m(16) size-m(16);
+      }
     }
 
     .category-card {
@@ -29,6 +39,9 @@
       box-shadow: 0 size(10) size(30) rgba(0,0,0,0.05);
       transition: all 0.3s ease;
       cursor: pointer;
+      // 桌機固定寬度：容器裝不下整數格，右側故意露出下一格的一小截
+      width: size(366);
+      flex-shrink: 0;
 
       @include mixins.mq(mobile) {
         padding: size-m(30) size-m(20);
@@ -37,20 +50,27 @@
 
       .img-box {
         height: size(160);
-        margin-bottom: size(24);
+        // 圖片往上移，露出卡片外
+        margin: size(-70) 0 size(24);
         display: flex;
         align-items: center;
         justify-content: center;
+        overflow: visible;
 
         @include mixins.mq(mobile) {
           height: size-m(120);
-          margin-bottom: size-m(16);
+          margin: size-m(-45) 0 size-m(16);
         }
 
         img {
-          max-height: 100%;
+          height: size(200);
+          width: auto;
           max-width: 100%;
           object-fit: contain;
+
+          @include mixins.mq(mobile) {
+            height: size-m(150);
+          }
         }
       }
 
@@ -102,6 +122,76 @@
         background-color: #1a4bc5;
         h3 { color: #fff; }
         .arrow-btn { background-color: #fff; color: #ea0044;}
+      }
+    }
+
+    // 左右導航箭頭：圓形外框 + 線條箭頭，放在 swiper 外側
+    .swiper-button-prev,
+    .swiper-button-next {
+      position: absolute;
+      top: calc(50% + #{size(25)});
+      transform: translateY(-50%);
+      margin-top: 0;
+      width: size(60);
+      height: size(60);
+      border-radius: 50%;
+      border: size(1.5) solid #1a4bc5;
+      background-color: transparent;
+      color: #1a4bc5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s, color 0.3s;
+      z-index: 10;
+
+      &::after { content: none; }
+
+      svg {
+        width: size(16);
+        height: auto;
+        path, polyline, line {
+          fill: none;
+          stroke: currentColor;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          stroke-width: 1.81px;
+        }
+      }
+
+      &:hover {
+        background-color: #1a4bc5;
+        color: #fff;
+      }
+
+      &.swiper-button-disabled {
+        opacity: 0.35;
+        cursor: auto;
+      }
+
+      @include mixins.mq(mobile) {
+        top: calc(50% + #{size-m(15)});
+        width: size-m(36);
+        height: size-m(36);
+        border-width: 1px;
+
+        svg { width: size-m(11); }
+      }
+    }
+
+    .swiper-button-prev {
+      left: size(-56);
+      svg { transform: rotate(180deg); }
+
+      @include mixins.mq(mobile) {
+        left: 0;
+      }
+    }
+
+    .swiper-button-next {
+      right: size(-56);
+
+      @include mixins.mq(mobile) {
+        right: 0;
       }
     }
   }

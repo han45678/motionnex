@@ -1,5 +1,6 @@
 @use '../abstracts/mixins';
 @use '../abstracts/function' as *;
+@use 'sass:color';
 
 /* =========================================
    #news-page (最新消息頁面)
@@ -325,7 +326,7 @@
           }
 
           &:hover {
-            background-color: darken(#ea0044, 10%);
+            background-color: color.adjust(#ea0044, $lightness: -10%);
           }
         }
       }

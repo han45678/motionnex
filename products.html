@@ -189,10 +189,10 @@
                             <div class="arrow-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.08 15.32"><g><g><line x1="0.91" y1="7.66" x2="27.17" y2="7.66"/><polyline points="20.42 0.91 27.17 7.66 20.42 14.41"/></g></g></svg></div>
                         </div>
                     </div>
-                    <!-- 左右控制箭頭 -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
                 </div>
+                <!-- 左右控制箭頭（放在 swiper 外，避免被裁切） -->
+                <div class="swiper-button-prev"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.08 15.32"><g><g><line x1="0.91" y1="7.66" x2="27.17" y2="7.66"/><polyline points="20.42 0.91 27.17 7.66 20.42 14.41"/></g></g></svg></div>
+                <div class="swiper-button-next"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.08 15.32"><g><g><line x1="0.91" y1="7.66" x2="27.17" y2="7.66"/><polyline points="20.42 0.91 27.17 7.66 20.42 14.41"/></g></g></svg></div>
             </div>
         </section>
 
@@ -525,7 +525,7 @@
                         spaceBetween: 20
                     },
                     1025: {
-                        slidesPerView: 3,
+                        slidesPerView: 'auto',
                         spaceBetween: 30
                     }
                 }

@@ -26,6 +26,7 @@
       @include mixins.mq(mobile) {
         flex-direction: column;
         border-radius: size-m(24);
+        height: auto;
       }
 
       .card-content {
@@ -202,7 +203,7 @@
 
           span {
             color: #ea0044;
-            font-size: size(72);
+            font-size: size(54);
 
             @include mixins.mq(mobile) {
               font-size: size-m(36);
@@ -239,9 +240,8 @@
       flex-wrap: wrap;
       overflow: hidden;
       color: #fff;
-      padding:  size(60) 0 size(60) 0;
+      padding: size(60) 0 size(60) size(80);
       position: relative;
-      
 
       @include mixins.mq(mobile) {
         flex-direction: column;
@@ -288,6 +288,7 @@
 
       .card-image {
         width: 70%;
+        border-radius: size(24);
         overflow: hidden;
 
         @include mixins.mq(mobile) {
