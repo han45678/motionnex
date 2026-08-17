@@ -53,7 +53,7 @@
     }
 
     .container {
-      max-width: size(1000); // 限制內容最大寬度
+      // max-width: size(1000); // 限制內容最大寬度
 
       @include mixins.mq(mobile) {
         max-width: 100%; // 桌機用 size() 等比縮放到手機會過窄，手機改滿寬
@@ -64,14 +64,12 @@
     .contact-banner {
       background-color: #1a4bc5; // 藍色背景
       border-radius: size(24);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: size(60) size(80);
+      padding: size(0) size(80) 0 size(80);
       margin-bottom: size(40);
       color: #fff;
       overflow: hidden;
       position: relative;
+      width: 100%;
 
       @include mixins.mq(mobile) {
         flex-direction: column;
@@ -81,9 +79,11 @@
       }
 
       .banner-text {
-        width: 60%;
         position: relative;
         z-index: 2;
+        display: flex;
+        justify-content: space-between;
+            align-items: flex-end;
 
         @include mixins.mq(mobile) {
           width: 100%;
@@ -92,12 +92,12 @@
         }
 
         h1 {
-          font-size: size(48);
+          font-size: size(72);
           font-family: 'Maven Pro', sans-serif;
           font-weight: 500;
           color: #fff;
-          line-height: 1.2;
-          margin: 0 0 size(24) 0;
+          line-height: 1;
+          margin: 0 0 size(100) 0;
 
           @include mixins.mq(mobile) {
             font-size: size-m(36);
@@ -107,39 +107,32 @@
         }
 
         p {
-          font-size: size(16);
+          font-size: size(22);
           line-height: 1.8;
           margin: 0;
           opacity: 0.9;
+          margin: 0 0 size(100) 0;
 
           @include mixins.mq(mobile) {
             font-size: size-m(15);
             br { display: none; }
           }
         }
-      }
 
-      .banner-img {
-        width: 40%;
-        display: flex;
-        justify-content: flex-end;
-        position: absolute;
-        right: size(20);
-        bottom: size(-40);
+        .banner-img {
 
         @include mixins.mq(mobile) {
-          position: relative;
-          right: 0;
-          bottom: 0;
-          width: 80%;
-          justify-content: center;
         }
 
         img {
           max-width: 100%;
+          transform: translateY(10%);
           height: auto;
         }
       }
+      }
+
+      
     }
 
     /* 下方資訊與表單區塊 */
@@ -179,7 +172,7 @@
         }
 
         h4 {
-          font-size: size(14);
+          font-size: size(24);
           font-weight: 700;
           color: #000;
           margin: 0 0 size(8) 0;
@@ -191,7 +184,7 @@
         }
 
         p {
-          font-size: size(15);
+          font-size: size(20);
           color: #555;
           margin: 0;
           line-height: 1.6;
@@ -232,7 +225,7 @@
 
         .hours-col {
           h5.text-blue {
-            font-size: size(15);
+            font-size: size(24);
             font-weight: 600;
             color: #1a4bc5;
             margin: 0 0 size(4) 0;
@@ -315,7 +308,7 @@
           &.full-width { width: 100%; }
 
           label {
-            font-size: size(14);
+            font-size: size(20);
             font-weight: 700;
             color: #000;
             margin-bottom: size(8);
