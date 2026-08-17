@@ -3916,7 +3916,9 @@ img.is-loading {
 }
 #news-page .news-hero {
   display: flex;
-  background: linear-gradient(135deg, #0a0e3d 0%, #161c6e 45%, #38299c 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   overflow: hidden;
 }
 @media (max-width: 1023px) {
@@ -3965,7 +3967,7 @@ img.is-loading {
   }
 }
 #news-page .news-hero .hero-content h1 {
-  font-size: 2.5vw;
+  font-size: 3.5416666667vw;
   font-family: "Maven Pro", sans-serif;
   font-weight: 500;
   line-height: 1.2;
@@ -3980,7 +3982,7 @@ img.is-loading {
   }
 }
 #news-page .news-hero .hero-content p {
-  font-size: 0.8333333333vw;
+  font-size: 1.1458333333vw;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.8);
   margin: 0;
@@ -4052,7 +4054,7 @@ img.is-loading {
   }
 }
 #news-page .news-list-section .news-intro p {
-  font-size: 0.8333333333vw;
+  font-size: 1.1458333333vw;
   color: #666;
   margin: 0 0 2.0833333333vw 0;
 }
@@ -4065,8 +4067,8 @@ img.is-loading {
 #news-page .news-list-section .news-intro .filter-group {
   display: inline-flex;
   background-color: #f3f4f6;
-  border-radius: 2.6041666667vw;
-  padding: 0.3125vw;
+  border-radius: 0.5208333333vw;
+  padding: 0.5208333333vw;
 }
 @media (max-width: 1023px) {
   #news-page .news-list-section .news-intro .filter-group {
@@ -4081,8 +4083,8 @@ img.is-loading {
   font-size: 0.8333333333vw;
   font-weight: 600;
   color: #333;
-  padding: 0.625vw 2.0833333333vw;
-  border-radius: 2.0833333333vw;
+  padding: 0.2604166667vw 2.6041666667vw;
+  border-radius: 0.5208333333vw;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -5028,6 +5030,4 @@ img.is-loading {
 }
 .cta .cta-action .btn--red:hover {
   background-color: rgb(183, 0, 53.1794871795);
-}
-
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */
