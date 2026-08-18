@@ -3631,11 +3631,28 @@ img.is-loading {
 }
 #about-page .motion-redefined .card-box .card-image {
   width: 55%;
+  position: relative;
+}
+#about-page .motion-redefined .card-box .card-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(to right, #000 0%, transparent 100%);
+  z-index: 1;
+  pointer-events: none;
 }
 @media (max-width: 1023px) {
   #about-page .motion-redefined .card-box .card-image {
     width: 100%;
     height: 66.6666666667vw;
+  }
+  #about-page .motion-redefined .card-box .card-image::before {
+    width: 100%;
+    height: 45%;
+    background: linear-gradient(to bottom, #000 0%, transparent 100%);
   }
 }
 #about-page .motion-redefined .card-box .card-image img {

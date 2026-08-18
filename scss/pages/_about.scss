@@ -88,10 +88,29 @@
 
       .card-image {
         width: 55%;
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 45%;
+          height: 100%;
+          background: linear-gradient(to right, #000 0%, transparent 100%);
+          z-index: 1;
+          pointer-events: none;
+        }
 
         @include mixins.mq(mobile) {
           width: 100%;
           height: size-m(250);
+
+          &::before {
+            width: 100%;
+            height: 45%;
+            background: linear-gradient(to bottom, #000 0%, transparent 100%);
+          }
         }
 
         img {
