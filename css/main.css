@@ -1316,14 +1316,8 @@ img.is-loading {
     height: 40%; /* 手機版因卡片轉向垂直，改用百分比覆蓋底部 */
   }
 }
-#home #core-capabilities .container {
-  max-width: 52.0833333333vw;
-  margin: 0 auto;
-  padding: 0 1.0416666667vw;
-}
 @media (max-width: 1023px) {
   #home #core-capabilities .container {
-    padding: 0 5.3333333333vw;
     max-width: 100%;
   }
 }
@@ -1497,7 +1491,6 @@ img.is-loading {
 }
 #home #proven-section .container {
   position: relative;
-  max-width: 62.5vw;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -1574,7 +1567,7 @@ img.is-loading {
 }
 #home #proven-section .content-wrapper h2 {
   font-family: "Maven Pro", sans-serif;
-  font-size: 5.2083333333vw;
+  font-size: 6.25vw;
   font-weight: 500;
   color: #ffffff;
   margin: 0 0 1.25vw 0;
@@ -1589,7 +1582,7 @@ img.is-loading {
   }
 }
 #home #proven-section .content-wrapper p {
-  font-size: 0.9375vw;
+  font-size: 1.3541666667vw;
   line-height: 1.8;
   color: #ffffff;
   margin: 0;

@@ -568,12 +568,12 @@
     }
 
     .container {
-      max-width: size(1000);
-      margin: 0 auto;
-      padding: 0 size(20);
+      // max-width: size(1000);
+      // margin: 0 auto;
+      // padding: 0 size(20);
 
       @include mixins.mq(mobile) {
-        padding: 0 size-m(20);
+        // padding: 0 size-m(20);
         max-width: 100%;
       }
     }
@@ -755,7 +755,7 @@
 
     .container {
       position: relative;
-      max-width: size(1200);
+      // max-width: size(1200);
       margin: 0 auto;
       display: flex;
       align-items: center;
@@ -829,7 +829,7 @@
 
       h2 {
         font-family: 'Maven Pro', sans-serif;
-        font-size: size(100);
+        font-size: size(120);
         font-weight: 500;
         color: #ffffff;
         margin: 0 0 size(24) 0;
@@ -844,7 +844,7 @@
       }
 
       p {
-        font-size: size(18);
+        font-size: size(26);
         line-height: 1.8;
         color: #ffffff;
         margin: 0;
