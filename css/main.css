@@ -298,7 +298,7 @@ img.is-loading {
 .dropdown {
   position: absolute;
   top: calc(100% + 0.9375vw);
-  left: calc(50% + 1.8229166667vw);
+  left: 50%;
   transform: translateX(-50%) translateY(0.4166666667vw);
   min-width: 10.4166666667vw;
   background: #17181a;

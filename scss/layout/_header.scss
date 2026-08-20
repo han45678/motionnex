@@ -180,7 +180,7 @@
 .dropdown {
   position: absolute;
   top: calc(100% + #{size(18)});
-  left: calc(50% + size(35));
+  left: 50%;
   transform: translateX(-50%) translateY(size(8));
   min-width: size(200);
   background: $color-dark;
