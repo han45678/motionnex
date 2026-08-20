@@ -142,9 +142,9 @@
       border-radius: 100%;
 
       @include mixins.mq(mobile) {
-        width: size-m(8);
-        height: size-m(8);
-        margin: 0 size-m(4) !important;
+        width: size-m(60);
+        height: size-m(60);
+        margin: 0 size-m(30) !important;
       }
     }
     .swiper-pagination-bullet-active {
@@ -153,6 +153,11 @@
       width: size(48);
       position: relative;
       overflow: hidden;
+
+      @include mixins.mq(mobile) {
+        width: size-m(240);
+      }
+
       &::before {
         content: '';
         position: absolute;
