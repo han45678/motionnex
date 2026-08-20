@@ -188,9 +188,17 @@ img.is-loading {
   color: #ffffff;
   flex-shrink: 0;
 }
+.logo img {
+  display: block;
+  width: 11.9791666667vw;
+  height: auto;
+}
 @media (max-width: 1023px) {
   .logo {
     font-size: 4.2666666667vw;
+  }
+  .logo img {
+    width: 43.7333333333vw;
   }
 }
 .logo__strong {

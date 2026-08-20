@@ -46,8 +46,19 @@
   letter-spacing: size(0.16);
   color: $color-white;
   flex-shrink: 0;
+
+  img {
+    display: block;
+    width: size(230);
+    height: auto;
+  }
+
   @include mixins.mq(mobile) {
     font-size: size-m(16);
+
+    img {
+      width: size-m(164);
+    }
   }
 
   &__strong {
