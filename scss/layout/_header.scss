@@ -20,7 +20,7 @@
   max-width: size(1800);
   margin-inline: auto;
   height: $header-height;
-  padding-inline: size(40);
+  padding: size(40) size(20) size(40) size(40);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -167,7 +167,9 @@
   .btn--sm {
     font-size: size(20);
     font-family: 'Maven Pro Medium';
-    padding: size(15) size(40);
+    // padding: size(15) size(40);
+    width: size(220);
+    height: size(68);
   }
 }
 
@@ -179,9 +181,15 @@
     align-items: center;
     gap: size(6);
     color: $color-white;
-    font-size: size(20);
+    font-size: size(18);
     font-family: "Maven Pro Medium";
     cursor: pointer;
+    svg{
+      width: size(18);
+      @include mixins.mq(mobile) {
+        width: size-m(18);
+      }
+    }
   }
 
   &:hover &__toggle,

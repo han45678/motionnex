@@ -160,7 +160,7 @@ img.is-loading {
   max-width: 93.75vw;
   margin-inline: auto;
   height: 5vw;
-  padding-inline: 2.0833333333vw;
+  padding: 2.0833333333vw 1.0416666667vw 2.0833333333vw 2.0833333333vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -290,7 +290,8 @@ img.is-loading {
 .site-header__actions .btn--sm {
   font-size: 1.0416666667vw;
   font-family: "Maven Pro Medium";
-  padding: 0.78125vw 2.0833333333vw;
+  width: 11.4583333333vw;
+  height: 3.5416666667vw;
 }
 
 .lang-switch {
@@ -301,9 +302,17 @@ img.is-loading {
   align-items: center;
   gap: 0.3125vw;
   color: #ffffff;
-  font-size: 1.0416666667vw;
+  font-size: 0.9375vw;
   font-family: "Maven Pro Medium";
   cursor: pointer;
+}
+.lang-switch__toggle svg {
+  width: 0.9375vw;
+}
+@media (max-width: 1023px) {
+  .lang-switch__toggle svg {
+    width: 4.8vw;
+  }
 }
 .lang-switch:hover .lang-switch__toggle, .lang-switch:focus-within .lang-switch__toggle {
   color: #e9134c;
