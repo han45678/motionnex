@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initSiteHeader();
 
+  initHeaderScrollState();
+
   initSolutionsTabs();
 
   // Initialize Hero Swiper（僅在頁面上真的存在 #banner 時才初始化，
@@ -124,6 +126,21 @@ function initSiteHeader() {
       }
     });
   });
+}
+
+// 往下滑動後,桌機版 header 貼齊頂端、兩側補滿並整體縮小(見 _header.scss 的 .is-scrolled)
+function initHeaderScrollState() {
+  const header = document.getElementById('site-header');
+  if (!header) return;
+
+  const SCROLL_THRESHOLD = 40;
+
+  function updateHeaderState() {
+    header.classList.toggle('is-scrolled', window.scrollY > SCROLL_THRESHOLD);
+  }
+
+  updateHeaderState();
+  window.addEventListener('scroll', updateHeaderState, { passive: true });
 }
 
 function initSolutionsTabs() {

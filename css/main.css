@@ -148,6 +148,7 @@ img.is-loading {
   right: 0;
   z-index: 200;
   padding-inline: 1.25vw;
+  transition: top 0.25s ease, padding-inline 0.25s ease;
 }
 @media (max-width: 1023px) {
   .site-header {
@@ -168,6 +169,7 @@ img.is-loading {
   background: rgba(23, 24, 26, 0.88);
   border-radius: 52.03125vw;
   box-shadow: 0 0.625vw 1.5625vw rgba(0, 0, 0, 0.18);
+  transition: max-width 0.25s ease, height 0.25s ease, padding 0.25s ease, gap 0.25s ease, border-radius 0.25s ease, box-shadow 0.25s ease;
 }
 @media (max-width: 1023px) {
   .site-header__inner {
@@ -180,6 +182,52 @@ img.is-loading {
   }
 }
 
+/* ---------------- Desktop: scrolled state ----------------
+   往下滑動後貼齊頂端、兩側補滿(取消 pill 造型與外距),內容整體縮小為原本的 0.8 倍。 */
+@media (min-width: 1024px) {
+  .site-header.is-scrolled {
+    top: 0;
+    padding-inline: 0;
+  }
+  .site-header.is-scrolled .site-header__inner {
+    max-width: none;
+    height: 4vw;
+    padding: 1.6666666667vw 0.8333333333vw 1.6666666667vw 1.6666666667vw;
+    gap: 1vw;
+    border-radius: 0;
+    box-shadow: 0 0.5vw 1.25vw rgba(0, 0, 0, 0.18);
+  }
+  .site-header.is-scrolled .logo {
+    font-size: 0.9333333333vw;
+    letter-spacing: 0.0066666667vw;
+  }
+  .site-header.is-scrolled .logo img {
+    width: 9.5833333333vw;
+  }
+  .site-header.is-scrolled .main-nav__list {
+    gap: 1.4166666667vw;
+  }
+  .site-header.is-scrolled .main-nav__item > a {
+    gap: 0.25vw;
+    font-size: 0.8333333333vw;
+    padding: 0.3333333333vw 0;
+  }
+  .site-header.is-scrolled .site-header__actions {
+    gap: 0.9166666667vw;
+  }
+  .site-header.is-scrolled .site-header__actions .btn--sm {
+    font-size: 0.8333333333vw;
+    width: 9.1666666667vw;
+    height: 2.8333333333vw;
+  }
+  .site-header.is-scrolled .lang-switch__toggle {
+    gap: 0.25vw;
+    font-size: 0.75vw;
+  }
+  .site-header.is-scrolled .lang-switch__toggle svg {
+    width: 0.75vw;
+  }
+}
 .logo {
   font-family: "Maven Pro", sans-serif;
   font-weight: 800;
@@ -872,10 +920,8 @@ img.is-loading {
     left: 0;
     width: 100%;
     height: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
-    -o-object-position: right center;
-       object-position: right center;
+    object-fit: cover;
+    object-position: right center;
   }
 }
 #home #banner .swiper-pagination {
@@ -996,7 +1042,7 @@ img.is-loading {
   }
 }
 #home #about .title a.btn:hover {
-  background-color: rgb(183, 0, 53.1794871795);
+  background-color: rgb(71.7647058824%, 0%, 20.8547008547%);
 }
 #home #about .content ul {
   background-color: #1d44fa;
@@ -1221,7 +1267,7 @@ img.is-loading {
   color: #ea0044;
 }
 #home #solutions .tabs .tab-btn:hover:not(.active) {
-  background-color: rgb(12.5, 28.125, 62.5);
+  background-color: rgb(4.9019607843%, 11.0294117647%, 24.5098039216%);
 }
 #home #solutions .tab-content {
   flex-grow: 1;
@@ -1254,8 +1300,7 @@ img.is-loading {
 #home #solutions .tab-content .content-item img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 #home #solutions .tab-content .content-item .info-overlay {
   position: absolute;
@@ -1528,8 +1573,7 @@ img.is-loading {
 #home #proven-section .image-wrapper img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   display: block;
 }
 #home #proven-section .content-wrapper {
@@ -2006,8 +2050,7 @@ img.is-loading {
 #solutions .solutions-systems .system-card .card-image img {
   max-width: 100%;
   max-height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   transition: transform 0.4s ease;
 }
 
@@ -2071,8 +2114,7 @@ img.is-loading {
   height: 10.4166666667vw;
   width: auto;
   max-width: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 @media (max-width: 1023px) {
   #products .products-categories .category-card .img-box img {
@@ -2367,7 +2409,7 @@ img.is-loading {
   transform: rotate(-45deg);
 }
 #products .products-lineup .product-card:hover:not(.highlight) .card-body .pic .bg-shape {
-  background-color: rgb(55.5264573991, 105.1417040359, 228.6735426009);
+  background-color: rgb(21.775081333%, 41.2320407984%, 89.6758990592%);
 }
 #products .products-lineup .product-card:hover:not(.highlight) .card-body .pic img {
   transform: scale(1.1);
@@ -2519,7 +2561,7 @@ img.is-loading {
   color: #fff;
 }
 #products .products-lineup .product-card.highlight .card-body .pic .bg-shape {
-  background-color: rgb(55.5264573991, 105.1417040359, 228.6735426009);
+  background-color: rgb(21.775081333%, 41.2320407984%, 89.6758990592%);
 }
 #products .products-cta {
   padding-bottom: 6.25vw;
@@ -2768,8 +2810,7 @@ img.is-loading {
 #product-detail .detail-hero .hero-right .thumbnails .thumb img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 #product-detail .detail-hero .hero-right .thumbnails .scroll-down {
   width: 2.0833333333vw;
@@ -3045,7 +3086,7 @@ img.is-loading {
   }
 }
 #product-detail .detail-related .action-wrap .btn--red:hover {
-  background-color: rgb(183, 0, 53.1794871795);
+  background-color: rgb(71.7647058824%, 0%, 20.8547008547%);
 }
 
 /* =========================================
@@ -3168,8 +3209,7 @@ img.is-loading {
 #case .case-categories .category-card .icon-box img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 #case .case-categories .category-card .info h3 {
   font-size: 1.875vw;
@@ -3381,8 +3421,7 @@ img.is-loading {
 #case .featured-missions .mission-showcase .main-image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   display: block;
 }
 #case .featured-missions .mission-showcase .mission-details {
@@ -3540,7 +3579,7 @@ img.is-loading {
   }
 }
 #case .case-cta .cta-box .btn--red:hover {
-  background-color: rgb(183, 0, 53.1794871795);
+  background-color: rgb(71.7647058824%, 0%, 20.8547008547%);
 }
 
 /* =========================================
@@ -3662,8 +3701,7 @@ img.is-loading {
 #about-page .motion-redefined .card-box .card-image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 #about-page {
   /* --- 3. Built on Experience Section --- */
@@ -3872,8 +3910,7 @@ img.is-loading {
 #about-page .looking-ahead .card-box .card-image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   display: block;
 }
 #about-page .looking-ahead .card-box .card-text {
@@ -4174,8 +4211,7 @@ img.is-loading {
 #news-page .news-list-section .news-card .card-img img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   transition: transform 0.5s ease;
 }
 #news-page .news-list-section .news-card:hover .card-img img {
@@ -4282,7 +4318,7 @@ img.is-loading {
   }
 }
 #news-page .news-list-section .news-card .card-body .btn--learn-more:hover {
-  background-color: rgb(183, 0, 53.1794871795);
+  background-color: rgb(71.7647058824%, 0%, 20.8547008547%);
 }
 #news-page .news-list-section {
   /* 分頁模組 */
@@ -4684,9 +4720,6 @@ img.is-loading {
     border-radius: 1.6vw;
   }
 }
-#contact-page .contact-section .form-card .contact-form .form-group input::-moz-placeholder, #contact-page .contact-section .form-card .contact-form .form-group select::-moz-placeholder, #contact-page .contact-section .form-card .contact-form .form-group textarea::-moz-placeholder {
-  color: #a0a0a0;
-}
 #contact-page .contact-section .form-card .contact-form .form-group input::placeholder, #contact-page .contact-section .form-card .contact-form .form-group select::placeholder, #contact-page .contact-section .form-card .contact-form .form-group textarea::placeholder {
   color: #a0a0a0;
 }
@@ -4714,8 +4747,7 @@ img.is-loading {
   position: relative;
 }
 #contact-page .contact-section .form-card .contact-form .form-group .select-wrapper select {
-  -moz-appearance: none;
-       appearance: none;
+  appearance: none;
   -webkit-appearance: none;
   padding-right: 2.0833333333vw;
   cursor: pointer;
@@ -4757,7 +4789,7 @@ img.is-loading {
   }
 }
 #contact-page .contact-section .form-card .contact-form .submit-btn:hover {
-  background-color: rgb(20.0538116592, 57.8475336323, 151.9461883408);
+  background-color: rgb(7.8642398664%, 22.6853073068%, 59.5867405258%);
 }
 
 .hero {
@@ -4864,8 +4896,7 @@ img.is-loading {
 .hero .hero-image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-bottom-left-radius: 10.4166666667vw;
 }
 @media (max-width: 1023px) {
@@ -5032,5 +5063,7 @@ img.is-loading {
   }
 }
 .cta .cta-action .btn--red:hover {
-  background-color: rgb(183, 0, 53.1794871795);
-}/*# sourceMappingURL=main.css.map */
+  background-color: rgb(71.7647058824%, 0%, 20.8547008547%);
+}
+
+/*# sourceMappingURL=main.css.map */

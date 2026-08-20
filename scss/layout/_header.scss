@@ -9,6 +9,7 @@
   right: 0;
   z-index: 200;
   padding-inline: size(24);
+  transition: top $transition-base, padding-inline $transition-base;
 
   @include mixins.mq(mobile) {
     top: 0;
@@ -28,6 +29,9 @@
   background: rgba(23, 24, 26, 0.88);
   border-radius: $radius-pill;
   box-shadow: 0 size(12) size(30) rgba(0, 0, 0, 0.18);
+  transition: max-width $transition-base, height $transition-base,
+    padding $transition-base, gap $transition-base, border-radius $transition-base,
+    box-shadow $transition-base;
 
   @include mixins.mq(mobile) {
     max-width: none;
@@ -36,6 +40,62 @@
     gap: size-m(24);
     border-radius: 0;
     box-shadow: 0 size-m(12) size-m(30) rgba(0, 0, 0, 0.18);
+  }
+}
+
+/* ---------------- Desktop: scrolled state ----------------
+   往下滑動後貼齊頂端、兩側補滿(取消 pill 造型與外距),內容整體縮小為原本的 0.8 倍。 */
+@include mixins.mq(desktop) {
+  .site-header.is-scrolled {
+    top: 0;
+    padding-inline: 0;
+
+    .site-header__inner {
+      max-width: none;
+      height: size(76.8);
+      padding: size(32) size(16) size(32) size(32);
+      gap: size(19.2);
+      border-radius: 0;
+      box-shadow: 0 size(9.6) size(24) rgba(0, 0, 0, 0.18);
+    }
+
+    .logo {
+      font-size: size(17.92);
+      letter-spacing: size(0.128);
+
+      img {
+        width: size(184);
+      }
+    }
+
+    .main-nav__list {
+      gap: size(27.2);
+    }
+
+    .main-nav__item > a {
+      gap: size(4.8);
+      font-size: size(16);
+      padding: size(6.4) 0;
+    }
+
+    .site-header__actions {
+      gap: size(17.6);
+
+      .btn--sm {
+        font-size: size(16);
+        width: size(176);
+        height: size(54.4);
+      }
+    }
+
+    .lang-switch__toggle {
+      gap: size(4.8);
+      font-size: size(14.4);
+
+      svg {
+        width: size(14.4);
+      }
+    }
   }
 }
 
