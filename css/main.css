@@ -1607,17 +1607,6 @@ img.is-loading {
     padding: 16vw 0;
   }
 }
-#home #partners-section .container {
-  max-width: 52.0833333333vw;
-  margin: 0 auto;
-  padding: 0 1.0416666667vw;
-}
-@media (max-width: 1023px) {
-  #home #partners-section .container {
-    padding: 0 5.3333333333vw;
-    max-width: 100%;
-  }
-}
 #home #partners-section .title-area {
   margin-bottom: 4.1666666667vw;
 }
@@ -1664,7 +1653,7 @@ img.is-loading {
 #home #partners-section .logos-wrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 4.1666666667vw;
   flex-wrap: wrap; /* 允許空間不足時換行 */
   margin-bottom: 4.1666666667vw;
@@ -1679,7 +1668,7 @@ img.is-loading {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 2.0833333333vw;
+  height: 3.125vw;
 }
 @media (max-width: 1023px) {
   #home #partners-section .logos-wrapper .logo-item {

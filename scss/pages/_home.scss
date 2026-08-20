@@ -869,16 +869,16 @@
       padding: size-m(60) 0;
     }
 
-    .container {
-      max-width: size(1000);
-      margin: 0 auto;
-      padding: 0 size(20);
+    // .container {
+    //   max-width: size(1000);
+    //   margin: 0 auto;
+    //   padding: 0 size(20);
 
-      @include mixins.mq(mobile) {
-        padding: 0 size-m(20);
-        max-width: 100%;
-      }
-    }
+    //   @include mixins.mq(mobile) {
+    //     padding: 0 size-m(20);
+    //     max-width: 100%;
+    //   }
+    // }
 
     .title-area {
       margin-bottom: size(80);
@@ -925,7 +925,7 @@
     .logos-wrapper {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       gap: size(80);
       flex-wrap: wrap; /* 允許空間不足時換行 */
       margin-bottom: size(80);
@@ -939,7 +939,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        height: size(40);
+        height: size(60);
 
         @include mixins.mq(mobile) {
           height: size-m(60);
