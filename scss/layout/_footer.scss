@@ -11,6 +11,13 @@
     padding: size-m(56) 0 size-m(24);
   }
 
+  .container{
+    max-width: size(1650);
+    @include mixins.mq(mobile) {
+      max-width: 100%;
+    }
+  }
+
   .logo {
     margin-bottom: size(56);
     display: inline-block;

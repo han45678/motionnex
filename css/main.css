@@ -578,6 +578,14 @@ img.is-loading {
     padding: 14.9333333333vw 0 6.4vw;
   }
 }
+.site-footer .container {
+  max-width: 85.9375vw;
+}
+@media (max-width: 1023px) {
+  .site-footer .container {
+    max-width: 100%;
+  }
+}
 .site-footer .logo {
   margin-bottom: 2.9166666667vw;
   display: inline-block;
@@ -920,8 +928,10 @@ img.is-loading {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: right center;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: right center;
+       object-position: right center;
   }
 }
 #home #banner .swiper-pagination {
@@ -1042,7 +1052,7 @@ img.is-loading {
   }
 }
 #home #about .title a.btn:hover {
-  background-color: rgb(71.7647058824%, 0%, 20.8547008547%);
+  background-color: rgb(183, 0, 53.1794871795);
 }
 #home #about .content ul {
   background-color: #1d44fa;
@@ -1267,7 +1277,7 @@ img.is-loading {
   color: #ea0044;
 }
 #home #solutions .tabs .tab-btn:hover:not(.active) {
-  background-color: rgb(4.9019607843%, 11.0294117647%, 24.5098039216%);
+  background-color: rgb(12.5, 28.125, 62.5);
 }
 #home #solutions .tab-content {
   flex-grow: 1;
@@ -1300,7 +1310,8 @@ img.is-loading {
 #home #solutions .tab-content .content-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 #home #solutions .tab-content .content-item .info-overlay {
   position: absolute;
@@ -1573,7 +1584,8 @@ img.is-loading {
 #home #proven-section .image-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
 }
 #home #proven-section .content-wrapper {
@@ -2050,7 +2062,8 @@ img.is-loading {
 #solutions .solutions-systems .system-card .card-image img {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   transition: transform 0.4s ease;
 }
 
@@ -2114,7 +2127,8 @@ img.is-loading {
   height: 10.4166666667vw;
   width: auto;
   max-width: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 @media (max-width: 1023px) {
   #products .products-categories .category-card .img-box img {
@@ -2409,7 +2423,7 @@ img.is-loading {
   transform: rotate(-45deg);
 }
 #products .products-lineup .product-card:hover:not(.highlight) .card-body .pic .bg-shape {
-  background-color: rgb(21.775081333%, 41.2320407984%, 89.6758990592%);
+  background-color: rgb(55.5264573991, 105.1417040359, 228.6735426009);
 }
 #products .products-lineup .product-card:hover:not(.highlight) .card-body .pic img {
   transform: scale(1.1);
@@ -2561,7 +2575,7 @@ img.is-loading {
   color: #fff;
 }
 #products .products-lineup .product-card.highlight .card-body .pic .bg-shape {
-  background-color: rgb(21.775081333%, 41.2320407984%, 89.6758990592%);
+  background-color: rgb(55.5264573991, 105.1417040359, 228.6735426009);
 }
 #products .products-cta {
   padding-bottom: 6.25vw;
@@ -2810,7 +2824,8 @@ img.is-loading {
 #product-detail .detail-hero .hero-right .thumbnails .thumb img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 #product-detail .detail-hero .hero-right .thumbnails .scroll-down {
   width: 2.0833333333vw;
@@ -3086,7 +3101,7 @@ img.is-loading {
   }
 }
 #product-detail .detail-related .action-wrap .btn--red:hover {
-  background-color: rgb(71.7647058824%, 0%, 20.8547008547%);
+  background-color: rgb(183, 0, 53.1794871795);
 }
 
 /* =========================================
@@ -3209,7 +3224,8 @@ img.is-loading {
 #case .case-categories .category-card .icon-box img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 #case .case-categories .category-card .info h3 {
   font-size: 1.875vw;
@@ -3421,7 +3437,8 @@ img.is-loading {
 #case .featured-missions .mission-showcase .main-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
 }
 #case .featured-missions .mission-showcase .mission-details {
@@ -3579,7 +3596,7 @@ img.is-loading {
   }
 }
 #case .case-cta .cta-box .btn--red:hover {
-  background-color: rgb(71.7647058824%, 0%, 20.8547008547%);
+  background-color: rgb(183, 0, 53.1794871795);
 }
 
 /* =========================================
@@ -3701,7 +3718,8 @@ img.is-loading {
 #about-page .motion-redefined .card-box .card-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 #about-page {
   /* --- 3. Built on Experience Section --- */
@@ -3910,7 +3928,8 @@ img.is-loading {
 #about-page .looking-ahead .card-box .card-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
 }
 #about-page .looking-ahead .card-box .card-text {
@@ -4211,7 +4230,8 @@ img.is-loading {
 #news-page .news-list-section .news-card .card-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   transition: transform 0.5s ease;
 }
 #news-page .news-list-section .news-card:hover .card-img img {
@@ -4318,7 +4338,7 @@ img.is-loading {
   }
 }
 #news-page .news-list-section .news-card .card-body .btn--learn-more:hover {
-  background-color: rgb(71.7647058824%, 0%, 20.8547008547%);
+  background-color: rgb(183, 0, 53.1794871795);
 }
 #news-page .news-list-section {
   /* 分頁模組 */
@@ -4720,6 +4740,9 @@ img.is-loading {
     border-radius: 1.6vw;
   }
 }
+#contact-page .contact-section .form-card .contact-form .form-group input::-moz-placeholder, #contact-page .contact-section .form-card .contact-form .form-group select::-moz-placeholder, #contact-page .contact-section .form-card .contact-form .form-group textarea::-moz-placeholder {
+  color: #a0a0a0;
+}
 #contact-page .contact-section .form-card .contact-form .form-group input::placeholder, #contact-page .contact-section .form-card .contact-form .form-group select::placeholder, #contact-page .contact-section .form-card .contact-form .form-group textarea::placeholder {
   color: #a0a0a0;
 }
@@ -4747,7 +4770,8 @@ img.is-loading {
   position: relative;
 }
 #contact-page .contact-section .form-card .contact-form .form-group .select-wrapper select {
-  appearance: none;
+  -moz-appearance: none;
+       appearance: none;
   -webkit-appearance: none;
   padding-right: 2.0833333333vw;
   cursor: pointer;
@@ -4789,7 +4813,7 @@ img.is-loading {
   }
 }
 #contact-page .contact-section .form-card .contact-form .submit-btn:hover {
-  background-color: rgb(7.8642398664%, 22.6853073068%, 59.5867405258%);
+  background-color: rgb(20.0538116592, 57.8475336323, 151.9461883408);
 }
 
 .hero {
@@ -4896,7 +4920,8 @@ img.is-loading {
 .hero .hero-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-bottom-left-radius: 10.4166666667vw;
 }
 @media (max-width: 1023px) {
@@ -5063,7 +5088,5 @@ img.is-loading {
   }
 }
 .cta .cta-action .btn--red:hover {
-  background-color: rgb(71.7647058824%, 0%, 20.8547008547%);
-}
-
-/*# sourceMappingURL=main.css.map */
+  background-color: rgb(183, 0, 53.1794871795);
+}/*# sourceMappingURL=main.css.map */
