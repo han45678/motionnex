@@ -1,9 +1,9 @@
 @use 'abstracts/variables';
 @use 'abstracts/mixins';
 
+@use 'base/fonts';
 @use 'base/reset';
 
-// @import 'base/fonts';
 @use 'base/base';
 
 @use 'layout/header';
