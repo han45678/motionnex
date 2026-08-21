@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 *,
 *::before,
 *::after {
@@ -69,7 +68,7 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   letter-spacing: 0.0083333333vw;
   line-height: 1.15;
@@ -230,7 +229,7 @@ img.is-loading {
   }
 }
 .logo {
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 800;
   font-size: 1.1666666667vw;
   letter-spacing: 0.0083333333vw;
@@ -281,7 +280,7 @@ img.is-loading {
   color: #ffffff;
   padding: 0.4166666667vw 0;
   transition: color 0.25s ease;
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
 }
 .main-nav__item > a .chevron {
@@ -339,7 +338,7 @@ img.is-loading {
 }
 .site-header__actions .btn--sm {
   font-size: 1.0416666667vw;
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   width: 11.4583333333vw;
   height: 3.5416666667vw;
@@ -354,7 +353,7 @@ img.is-loading {
   gap: 0.3125vw;
   color: #ffffff;
   font-size: 0.9375vw;
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   cursor: pointer;
 }
@@ -1130,7 +1129,7 @@ img.is-loading {
   }
 }
 #home #about .content ul li p {
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.25vw;
   font-weight: 600;
   margin: 0;
@@ -1175,7 +1174,7 @@ img.is-loading {
   }
 }
 #home #solutions .title-area h2 {
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 2.9166666667vw;
   font-weight: 500;
   color: #0b192c;
@@ -1390,7 +1389,7 @@ img.is-loading {
   }
 }
 #home #core-capabilities .title-area h2 {
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 2.5vw;
   font-weight: 500;
   color: #0b192c;
@@ -1626,7 +1625,7 @@ img.is-loading {
   }
 }
 #home #proven-section .content-wrapper h2 {
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 6.25vw;
   font-weight: 500;
   color: #ffffff;
@@ -1676,7 +1675,7 @@ img.is-loading {
   }
 }
 #home #partners-section .title-area h2 {
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 2.5vw;
   font-weight: 500;
   color: #0b192c;
@@ -1789,7 +1788,7 @@ img.is-loading {
 }
 #solutions .solutions-missions .missions-left h2 {
   font-size: 3.75vw;
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   color: #0d1b2a;
   line-height: 1.2;
@@ -1868,7 +1867,7 @@ img.is-loading {
 }
 #solutions .solutions-missions .missions-right .mission-card h3 {
   font-size: 1.875vw;
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   color: #1a4bc5;
   margin: 0 0 0.8333333333vw 0;
@@ -1922,7 +1921,7 @@ img.is-loading {
 }
 #solutions .solutions-systems .systems-header h2 {
   font-size: 3.75vw;
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   color: #0d1b2a;
   line-height: 1.2;
@@ -2298,7 +2297,7 @@ img.is-loading {
 }
 #products .products-lineup .lineup-header h2 {
   font-size: 2.0833333333vw;
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   color: #0d1b2a;
   line-height: 1.1;
@@ -2610,7 +2609,7 @@ img.is-loading {
 }
 #products .products-cta .cta-box h2 {
   font-size: 2.0833333333vw;
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   margin: 0 0 1.25vw 0;
   line-height: 1.2;
@@ -2720,7 +2719,7 @@ img.is-loading {
 }
 #product-detail .detail-hero .hero-left__content h1 {
   font-size: 3.3333333333vw;
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   color: #fff;
   margin: 0 0 0.8333333333vw 0;
@@ -2884,7 +2883,7 @@ img.is-loading {
 }
 #product-detail .detail-specs .specs-header h2 {
   font-size: 1.875vw;
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: #2b394a;
   margin: 0;
   line-height: 1.2;
@@ -3139,7 +3138,7 @@ img.is-loading {
 }
 #case .case-categories .section-header h2 {
   font-size: 3.75vw;
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 300;
   color: #0d1b2a;
   line-height: 1.2;
@@ -3299,7 +3298,7 @@ img.is-loading {
 }
 #case .featured-missions .section-header h2 {
   font-size: 3.75vw;
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 300;
   color: #0d1b2a;
   line-height: 1.2;
@@ -3558,7 +3557,7 @@ img.is-loading {
 }
 #case .case-cta .cta-box h2 {
   font-size: 2.0833333333vw;
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   color: #fff;
   margin: 0 0 0.8333333333vw 0;
@@ -3666,7 +3665,7 @@ img.is-loading {
 }
 #about-page .motion-redefined .card-box .card-content h2 {
   font-size: 3.75vw;
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   color: #fff;
   line-height: 1.2;
@@ -3753,7 +3752,7 @@ img.is-loading {
 #about-page .built-on-experience .text-area h2 {
   width: 35%;
   font-size: 3.75vw;
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   color: #0d1b2a;
   line-height: 1.2;
@@ -3822,7 +3821,7 @@ img.is-loading {
 }
 #about-page .built-on-experience .stats-box .stat-item .num {
   font-size: 3.75vw;
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   line-height: 1;
   margin-bottom: 0.625vw;
@@ -3906,7 +3905,7 @@ img.is-loading {
 }
 #about-page .looking-ahead .card-box .card-content h2 {
   font-size: 3.75vw;
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   color: #fff;
   line-height: 1.2;
@@ -3976,7 +3975,7 @@ img.is-loading {
 }
 #about-page .bottom-slogan h2 {
   font-size: 2.7083333333vw;
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   color: #1a4bc5;
   line-height: 1.4;
@@ -4049,7 +4048,7 @@ img.is-loading {
 }
 #news-page .news-hero .hero-content h1 {
   font-size: 3.5416666667vw;
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   line-height: 1.2;
   margin: 0 0 1.25vw 0;
@@ -4499,7 +4498,7 @@ img.is-loading {
 }
 #contact-page .contact-section .contact-banner .banner-text h1 {
   font-size: 3.75vw;
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   color: #fff;
   line-height: 1;
@@ -4883,7 +4882,7 @@ img.is-loading {
 }
 .hero .hero-content h1 {
   font-size: 3.5416666667vw;
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   line-height: 1.2;
   margin: 0 0 1.6666666667vw 0;
@@ -4957,7 +4956,7 @@ img.is-loading {
 .hero .hero-image .badge .num {
   display: block;
   font-size: 4.1666666667vw;
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   line-height: 1;
   margin-bottom: 0.4166666667vw;
@@ -5015,7 +5014,7 @@ img.is-loading {
 }
 .cta .cta-content h2 {
   font-size: 3.3333333333vw;
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-family: "Montserrat", sans-serif;
   font-weight: 900;

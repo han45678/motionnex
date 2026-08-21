@@ -1,2 +1,4 @@
-// Google Fonts — Maven Pro (headings) / Montserrat (body)
-@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+// Google Fonts — Montserrat (headings + body)
+// Loaded via <link rel="preconnect"> + <link rel="stylesheet"> tags in each
+// page's <head> instead of @import here, so the font request starts in
+// parallel with main.css rather than waiting for main.css to be parsed first.
