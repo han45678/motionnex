@@ -142,12 +142,21 @@
             </div>
             <div class="hero-right">
                 <div class="main-image">
-                    <img src="https://placehold.co/500x400?text=FRT-509" alt="FRT-509">
+                    <img src="./assets/images/home/solutions-robot01.jpg" alt="FRT-509">
                 </div>
                 <div class="thumbnails">
-                    <button class="thumb active"><img src="https://placehold.co/100x70?text=Thumb+1" alt=""></button>
-                    <button class="thumb"><img src="https://placehold.co/100x70?text=Thumb+2" alt=""></button>
-                    <button class="thumb"><img src="https://placehold.co/100x70?text=Thumb+3" alt=""></button>
+                    <button class="thumb active" data-full="./assets/images/home/solutions-robot01.jpg">
+                        <img src="./assets/images/home/solutions-robot01.jpg" alt="FRT-509 thumbnail 1">
+                    </button>
+                    <button class="thumb" data-full="./assets/images/home/solutions-robot02.jpeg">
+                        <img src="./assets/images/home/solutions-robot02.jpeg" alt="FRT-509 thumbnail 2">
+                    </button>
+                    <button class="thumb" data-full="./assets/images/home/solutions-robot03.jpeg">
+                        <img src="./assets/images/home/solutions-robot03.jpeg" alt="FRT-509 thumbnail 3">
+                    </button>
+                    <button class="thumb" data-full="./assets/images/home/solutions-robot04.jpeg">
+                        <img src="./assets/images/home/solutions-robot04.jpeg" alt="FRT-509 thumbnail 4">
+                    </button>
                     <div class="scroll-down">
                         <span>↓</span>
                     </div>
@@ -412,6 +421,37 @@
                     }
                 }
             });
+
+            // 縮圖點擊切換主圖
+            var mainImage = document.querySelector('.detail-hero .main-image');
+            var mainImg = mainImage ? mainImage.querySelector('img') : null;
+            var thumbs = document.querySelectorAll('.detail-hero .thumbnails .thumb');
+
+            thumbs.forEach(function (thumb) {
+                thumb.addEventListener('click', function () {
+                    var fullSrc = thumb.getAttribute('data-full');
+                    if (!fullSrc || !mainImg) return;
+
+                    mainImg.src = fullSrc;
+                    thumbs.forEach(function (t) { t.classList.remove('active'); });
+                    thumb.classList.add('active');
+                });
+            });
+
+            // 主圖滑過局部放大：transform-origin 隨滑鼠位置即時更新，
+            // 放大倍率由 CSS 的 :hover 控制（見 _products.scss 的 .main-image）
+            if (mainImage && mainImg) {
+                mainImage.addEventListener('mousemove', function (e) {
+                    var rect = mainImage.getBoundingClientRect();
+                    var x = ((e.clientX - rect.left) / rect.width) * 100;
+                    var y = ((e.clientY - rect.top) / rect.height) * 100;
+                    mainImg.style.transformOrigin = x + '% ' + y + '%';
+                });
+
+                mainImage.addEventListener('mouseleave', function () {
+                    mainImg.style.transformOrigin = '50% 50%';
+                });
+            }
         });
     </script>
 </body>

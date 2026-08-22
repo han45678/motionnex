@@ -2866,6 +2866,8 @@ img.is-loading {
 #product-detail .detail-hero .hero-right .main-image {
   width: 70%;
   text-align: center;
+  overflow: hidden;
+  cursor: zoom-in;
 }
 @media (max-width: 1023px) {
   #product-detail .detail-hero .hero-right .main-image {
@@ -2876,6 +2878,10 @@ img.is-loading {
 #product-detail .detail-hero .hero-right .main-image img {
   max-width: 100%;
   height: auto;
+  transition: transform 0.3s ease;
+}
+#product-detail .detail-hero .hero-right .main-image:hover img {
+  transform: scale(2);
 }
 #product-detail .detail-hero .hero-right .thumbnails {
   position: absolute;

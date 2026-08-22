@@ -714,7 +714,9 @@
       .main-image {
         width: 70%;
         text-align: center;
-        
+        overflow: hidden; // 滑過放大時,超出框外的部分裁掉,做出局部放大的效果
+        cursor: zoom-in;
+
         @include mixins.mq(mobile) {
           width: 100%;
           margin-bottom: size-m(24);
@@ -723,6 +725,12 @@
         img {
           max-width: 100%;
           height: auto;
+          transition: transform 0.3s ease;
+        }
+
+        &:hover img {
+          // 滑過時放大,transform-origin 由 JS 依滑鼠位置即時更新,做出跟著游標局部放大的效果
+          transform: scale(2);
         }
       }
 
