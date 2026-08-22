@@ -600,6 +600,13 @@
       position: relative;
       overflow: hidden;
 
+      @include mixins.mq(desktop) {
+        // 電腦版跟 .hero-right 一樣靠上對齊,不要垂直置中;
+        // 上邊距也對齊 .hero-right 的 size(60),兩邊內容才會真正切齊同一條線
+        align-items: flex-start;
+        padding-top: size(60);
+      }
+
       @include mixins.mq(mobile) {
         width: 100%;
         padding: size-m(60) size-m(24);
@@ -685,6 +692,11 @@
       align-items: center;
       justify-content: center;
       padding: size(60);
+
+      @include mixins.mq(desktop) {
+        // 電腦版跟 .hero-left 一樣靠上對齊,不要垂直置中
+        align-items: flex-start;
+      }
 
       @include mixins.mq(mobile) {
         width: 100%;

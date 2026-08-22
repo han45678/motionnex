@@ -2734,6 +2734,12 @@ img.is-loading {
   position: relative;
   overflow: hidden;
 }
+@media (min-width: 1024px) {
+  #product-detail .detail-hero .hero-left {
+    align-items: flex-start;
+    padding-top: 3.125vw;
+  }
+}
 @media (max-width: 1023px) {
   #product-detail .detail-hero .hero-left {
     width: 100%;
@@ -2822,6 +2828,11 @@ img.is-loading {
   align-items: center;
   justify-content: center;
   padding: 3.125vw;
+}
+@media (min-width: 1024px) {
+  #product-detail .detail-hero .hero-right {
+    align-items: flex-start;
+  }
 }
 @media (max-width: 1023px) {
   #product-detail .detail-hero .hero-right {
