@@ -94,12 +94,22 @@
         background-color: #fff;
         border-radius: size(24);
         padding: size(40) size(80) size(40) size(40);
-        position: relative;
+        @include mixins.card-rise-mask;
 
         @include mixins.mq(mobile) {
           // 右側多留白，避免標題文字被右上角圖示遮住（呼應桌機版的 size(80)）
           padding: size-m(32) size-m(64) size-m(32) size-m(32);
           border-radius: size-m(16);
+        }
+
+        &:hover {
+          h3, p {
+            color: #fff;
+          }
+
+          .icon img {
+            filter: brightness(0) invert(1); // 圖示由黑變白
+          }
         }
 
         .icon {
@@ -119,6 +129,7 @@
           img {
             width: 100%;
             height: auto;
+            transition: filter 0.4s ease;
           }
         }
 
@@ -129,6 +140,7 @@
           color: #1a4bc5;
           margin: 0 0 size(16) 0;
           line-height: 1;
+          transition: color 0.4s ease;
 
           @include mixins.mq(mobile) {
             font-size: size-m(20);
@@ -141,6 +153,7 @@
           color: #555;
           line-height: 1.6;
           margin: 0;
+          transition: color 0.4s ease;
 
           @include mixins.mq(mobile) {
             font-size: size-m(14);
