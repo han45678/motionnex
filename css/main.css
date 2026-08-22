@@ -731,11 +731,6 @@ img.is-loading {
   cursor: pointer;
   padding: 0.8333333333vw 1.4583333333vw;
   transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
-}
-.btn:hover {
-  transform: translateY(-0.1041666667vw);
-}
-.btn {
   background: #ffffff;
   color: #0b2036;
 }

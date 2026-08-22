@@ -33,10 +33,6 @@
   cursor: pointer;
   padding: size(16) size(28);
   transition: transform $transition-base, box-shadow $transition-base, background-color $transition-base;
- 
-  &:hover {
-    transform: translateY(size(-2));
-  }
 }
 
 @mixin heading-font {

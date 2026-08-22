@@ -106,9 +106,9 @@
           @include mixins.mq(mobile) {
             margin-top: size-m(28);
             width: size-m(150);
-          height: size-m(40);
-          border-radius: size-m(30);
-          font-size: size-m(12);
+            height: size-m(40);
+            border-radius: size-m(30);
+            font-size: size-m(12);
           }
         }
       }
@@ -310,7 +310,7 @@
               font-size: size(60);
               font-weight: bold;
               // margin-left: size(4);
-              &.num{
+              &.num {
                 color: #fff;
               }
               @include mixins.mq(mobile) {
@@ -423,7 +423,7 @@
         border-radius: size(16);
         padding: size(24) size(32);
         cursor: pointer;
-        transition:0.6s;
+        transition: 0.6s;
         text-align: left;
 
         @include mixins.mq(mobile) {
@@ -467,7 +467,7 @@
 
         &.active {
           background-color: #1d44fa;
-              box-shadow: 0 5px 10px #000;
+          box-shadow: 0 5px 10px #000;
 
           .num {
             color: #ea0044;
@@ -693,12 +693,12 @@
         height: size(280); /* 左右卡片較矮 */
         // border-radius: size(30);
         border-top-left-radius: size(30);
-        border-top-right-radius:size(30);
+        border-top-right-radius: size(30);
         // border-bottom-right-radius: size(30);
         // border-bottom-left-radius:size(30);
-        
+
         @include mixins.mq(mobile) {
-        background-color: #ea0044;
+          background-color: #ea0044;
           height: auto;
           border-radius: size-m(20) !important; /* 手機版強制恢復圓角 */
         }
@@ -708,8 +708,7 @@
       .left-card {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
-        border-bottom-left-radius:size(30);
-        
+        border-bottom-left-radius: size(30);
       }
 
       .right-card {
@@ -723,7 +722,7 @@
         height: size(340); /* 中間卡片較高 */
         // border-radius: size(30);
         border-top-left-radius: size(30);
-        border-top-right-radius:size(30);
+        border-top-right-radius: size(30);
         z-index: 2;
         margin: 0 size(-1); /* 微調負邊距避免出現細微的 1px 渲染縫隙 */
         padding: size(60) size(40);
