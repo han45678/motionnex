@@ -919,7 +919,7 @@ img.is-loading {
   position: relative;
   z-index: 0;
   overflow: hidden;
-  background-color: transparent;
+  background-color: #fff;
   border: 0.1041666667vw solid #ea0044;
   transition: color 0.35s ease;
 }
@@ -1070,7 +1070,7 @@ img.is-loading {
   position: relative;
   z-index: 0;
   overflow: hidden;
-  background-color: transparent;
+  background-color: #fff;
   border: 0.1041666667vw solid #ea0044;
   transition: color 0.35s ease;
 }
@@ -3157,7 +3157,7 @@ img.is-loading {
   position: relative;
   z-index: 0;
   overflow: hidden;
-  background-color: transparent;
+  background-color: #fff;
   border: 0.1041666667vw solid #ea0044;
   transition: color 0.35s ease;
 }
@@ -4414,7 +4414,7 @@ img.is-loading {
   position: relative;
   z-index: 0;
   overflow: hidden;
-  background-color: transparent;
+  background-color: #fff;
   border: 0.1041666667vw solid #ea0044;
   transition: color 0.35s ease;
 }
@@ -5184,7 +5184,7 @@ img.is-loading {
   position: relative;
   z-index: 0;
   overflow: hidden;
-  background-color: transparent;
+  background-color: #fff;
   border: 0.1041666667vw solid #ea0044;
   transition: color 0.35s ease;
 }

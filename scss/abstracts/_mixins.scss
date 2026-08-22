@@ -55,14 +55,14 @@
 }
 
 // 全站紅底白字按鈕(#ea0044)統一的 hover 特效:
-// 色塊向右滑出、文字變成紅色、並露出同色邊框。
+// 色塊向右滑出、露出白底,文字變成紅色、並露出同色邊框。
 // 用法:按鈕本身維持原本的 background-color: #ea0044; color: #fff;
 // 兩個基本狀態不用動,額外 @include 這個 mixin 即可,不用再各自寫 &:hover。
-@mixin btn-slide-hover($color: #ea0044) {
+@mixin btn-slide-hover($color: #ea0044, $reveal: #fff) {
   position: relative;
   z-index: 0;
   overflow: hidden;
-  background-color: transparent; // 實際紅色改由可滑動的 ::before 負責
+  background-color: $reveal; // 色塊滑走後露出的底色;平常被 ::before 完全蓋住看不見
   border: size(2) solid $color; // 平常跟填色同色而不明顯,滑走後才顯露出來
   transition: color 0.35s ease;
 
