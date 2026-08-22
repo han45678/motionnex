@@ -320,7 +320,7 @@
 
     .product-card {
       position: relative;
-      background-color: #e8ecf4;
+      background-color: #f4f6f9; // 跟 solutions.html 的 .system-card 一致
       border-radius: size(24);
       padding: size(40);
       min-height: size(330);
@@ -349,16 +349,15 @@
         .card-head .link-icon {
           background-color: #fff;
           color: #ea0044;
-          transform: rotate(-45deg);
-        }
 
-        // 藍底上圓形改用淺色，維持右下角裝飾但不會跟背景融為一體
-        .card-body .pic .bg-shape {
-          background-color: color.adjust(#1a4bc5, $lightness: 12%);
+          .arrow {
+            transform: rotate(45deg); // ↗ 轉正 45deg 變成 →,只轉箭頭本身、外框不轉
+          }
         }
 
         .card-body .pic img {
-          transform: scale(1.1);
+          // 比照 solutions.html「Recommended Systems」卡片的滑過效果，在原本 1.6 倍的基礎上再放大並往右下推出
+          transform: scale(2.4) translate(15%, 15%);
         }
       }
 
@@ -395,7 +394,11 @@
           justify-content: center;
           border-radius: size(6);
           font-size: size(16);
-          transition: transform 0.4s ease;
+
+          .arrow {
+            display: flex;
+            transition: transform 0.4s ease;
+          }
 
           @include mixins.mq(mobile) {
             width: size-m(28);
@@ -466,20 +469,22 @@
           }
 
           .bg-shape {
+            // 原本 320 的圓比 .pic 自己(240 寬)還大，滑過前就整片藍圓蓋出來，比例明顯不對；
+            // 縮小並貼著圖片邊緣，只在右下角露出一小截當裝飾
             position: absolute;
-            bottom: size(-110);
-            right: size(-90);
-            width: size(320);
-            height: size(320);
+            bottom: size(-45);
+            right: size(-35);
+            width: size(150);
+            height: size(150);
             background-color: #1a4bc5;
             border-radius: 100%;
             z-index: 0;
 
             @include mixins.mq(mobile) {
-              bottom: size-m(-69);
-              right: size-m(-56);
-              width: size-m(200);
-              height: size-m(200);
+              bottom: size-m(-28);
+              right: size-m(-22);
+              width: size-m(95);
+              height: size-m(95);
             }
           }
 
@@ -488,6 +493,8 @@
             height: auto;
             display: block;
             position: relative;
+            // 滑過前的圖片尺寸比照 solutions.html 的 .system-card(該卡片圖片容器固定放大 1.25 倍)
+            transform: scale(1.6);
             transition: transform 0.4s ease;
             z-index: 1;
           }

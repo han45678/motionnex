@@ -1,0 +1,329 @@
+@use '../abstracts/mixins';
+@use '../abstracts/function' as *;
+
+/* =========================================
+   #news-detail (新聞內頁)
+   版面語言沿用 #news-page 的 .news-hero(背景大圖 + 左側文字區塊)
+   跟 #product-detail 一樣，各新聞卡片先共用同一份內頁當範本。
+========================================= */
+#news-detail {
+  /* --- 1. Article Hero --- */
+  .article-hero {
+    display: flex;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+
+    @include mixins.mq(mobile) {
+      flex-direction: column;
+    }
+
+    .hero-content {
+      width: 60%;
+      display: flex;
+      align-items: center;
+      // 背景是照片，疊一層深色漸層確保文字可讀
+      background: linear-gradient(to right, rgba(11, 25, 44, 0.85) 55%, transparent);
+      padding: size(180) size(80) size(120) size(120);
+
+      @include mixins.mq(mobile) {
+        width: 100%;
+        background: linear-gradient(to top, rgba(11, 25, 44, 0.9) 60%, transparent);
+        padding: size-m(120) size-m(24) size-m(48);
+      }
+
+      &__inner {
+        color: #fff;
+        width: 100%;
+        max-width: size(680);
+
+        @include mixins.mq(mobile) {
+          max-width: 100%;
+        }
+      }
+
+      .article-meta {
+        display: flex;
+        align-items: center;
+        gap: size(16);
+        margin-bottom: size(24);
+
+        @include mixins.mq(mobile) {
+          gap: size-m(10);
+          margin-bottom: size-m(16);
+        }
+
+        .category {
+          display: inline-block;
+          border: size(1.5) solid #fff;
+          color: #fff;
+          padding: size(4) size(16);
+          border-radius: size(20);
+          font-size: size(13);
+          font-weight: 600;
+
+          @include mixins.mq(mobile) {
+            padding: size-m(4) size-m(12);
+            font-size: size-m(11);
+          }
+        }
+
+        .date {
+          font-size: size(14);
+          color: rgba(255, 255, 255, 0.75);
+          font-weight: 600;
+
+          @include mixins.mq(mobile) {
+            font-size: size-m(12);
+          }
+        }
+      }
+
+      h1 {
+        font-size: size(52);
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        line-height: 1.25;
+        margin: 0;
+        color: #fff;
+
+        @include mixins.mq(mobile) {
+          font-size: size-m(28);
+        }
+      }
+    }
+  }
+
+  /* --- 2. Article Body --- */
+  .article-body {
+    padding: size(100) 0;
+    background-color: #fff;
+
+    @include mixins.mq(mobile) {
+      padding: size-m(56) 0;
+    }
+
+    .container {
+      max-width: size(860); // 比全站 container 窄，符合閱讀行寬
+      margin: 0 auto;
+      padding: 0 size(24);
+
+      @include mixins.mq(mobile) {
+        max-width: 100%;
+        padding: 0 size-m(24);
+      }
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: size(8);
+      color: #1a4bc5;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: size(15);
+      margin-bottom: size(48);
+      transition: gap 0.3s ease;
+
+      &:hover {
+        gap: size(14);
+      }
+
+      @include mixins.mq(mobile) {
+        font-size: size-m(14);
+        margin-bottom: size-m(28);
+      }
+    }
+
+    p {
+      font-size: size(18);
+      line-height: 1.9;
+      color: #333;
+      margin: 0 0 size(28) 0;
+
+      @include mixins.mq(mobile) {
+        font-size: size-m(15);
+        margin-bottom: size-m(20);
+      }
+    }
+
+    .lead {
+      font-size: size(22);
+      font-weight: 600;
+      color: #0d1b2a;
+      line-height: 1.6;
+
+      @include mixins.mq(mobile) {
+        font-size: size-m(17);
+      }
+    }
+
+    .article-image {
+      margin: size(50) 0;
+
+      img {
+        width: 100%;
+        display: block;
+        border-radius: size(24);
+      }
+
+      figcaption {
+        font-size: size(14);
+        color: #999;
+        margin-top: size(12);
+        text-align: center;
+      }
+
+      @include mixins.mq(mobile) {
+        margin: size-m(32) 0;
+
+        img {
+          border-radius: size-m(16);
+        }
+      }
+    }
+
+    blockquote {
+      border-left: size(4) solid #ea0044;
+      padding-left: size(28);
+      margin: size(50) 0;
+      font-size: size(24);
+      font-weight: 600;
+      font-style: italic;
+      color: #0d1b2a;
+      line-height: 1.6;
+
+      @include mixins.mq(mobile) {
+        padding-left: size-m(16);
+        margin: size-m(32) 0;
+        font-size: size-m(18);
+      }
+    }
+  }
+
+  /* --- 3. More News --- */
+  .article-related {
+    padding: 0 0 size(120) 0;
+    background-color: #fff;
+
+    @include mixins.mq(mobile) {
+      padding-bottom: size-m(70);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: size(60);
+
+      h2 {
+        font-size: size(40);
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        color: #0b192c;
+        margin: 0;
+
+        @include mixins.mq(mobile) {
+          font-size: size-m(26);
+        }
+      }
+
+      @include mixins.mq(mobile) {
+        margin-bottom: size-m(32);
+      }
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: size(30);
+
+      @include mixins.mq(mobile) {
+        grid-template-columns: 1fr;
+        gap: size-m(20);
+      }
+    }
+
+    .related-card {
+      display: block;
+      text-decoration: none;
+      background-color: #f7f9fc;
+      border-radius: size(20);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      @include mixins.mq(mobile) {
+        border-radius: size-m(14);
+      }
+
+      &:hover {
+        transform: translateY(size(-5));
+        box-shadow: 0 size(15) size(40) rgba(0, 0, 0, 0.08);
+
+        .related-card__img img {
+          transform: scale(1.05);
+        }
+
+        h3 {
+          color: #1a4bc5;
+        }
+      }
+
+      &__img {
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+        }
+      }
+
+      &__body {
+        padding: size(24);
+
+        @include mixins.mq(mobile) {
+          padding: size-m(18);
+        }
+      }
+
+      .category {
+        display: inline-block;
+        color: #1a4bc5;
+        font-size: size(12);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: size(0.5);
+        margin-bottom: size(10);
+
+        @include mixins.mq(mobile) {
+          font-size: size-m(11);
+          margin-bottom: size-m(6);
+        }
+      }
+
+      h3 {
+        font-size: size(18);
+        font-weight: 700;
+        color: #0d1b2a;
+        line-height: 1.4;
+        margin: 0 0 size(8) 0;
+        transition: color 0.3s ease;
+
+        @include mixins.mq(mobile) {
+          font-size: size-m(16);
+        }
+      }
+
+      .date {
+        font-size: size(13);
+        color: #999;
+
+        @include mixins.mq(mobile) {
+          font-size: size-m(12);
+        }
+      }
+    }
+  }
+}

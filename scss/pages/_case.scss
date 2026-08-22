@@ -265,6 +265,7 @@
           flex-direction: column;
           align-items: center;
           justify-content: center;
+          @include mixins.card-rise-mask;
 
           @include mixins.mq(mobile) {
             padding: size-m(20) size-m(12);
@@ -275,9 +276,15 @@
             grid-column: span 1; // 根據設計圖左下角獨立一個，若要滿寬可改 span 2
           }
 
+          &:hover {
+            .num, .label { color: #fff; }
+            img { filter: brightness(0) invert(1); }
+          }
+
           img {
             width: size(32);
             margin-bottom: size(12);
+            transition: filter 0.4s ease;
 
             @include mixins.mq(mobile) {
               width: size-m(28);
@@ -290,6 +297,7 @@
             font-weight: 700;
             color: #1a4bc5;
             margin-bottom: size(4);
+            transition: color 0.4s ease;
 
             @include mixins.mq(mobile) {
               font-size: size-m(24);
@@ -300,18 +308,12 @@
             font-size: size(18);
             color: #333;
             font-weight: 600;
+            transition: color 0.4s ease;
 
             @include mixins.mq(mobile) {
               font-size: size-m(11);
             }
           }
-        }
-
-        // 特別為第一張(深藍底)設定
-        .stat-card:first-child {
-          background-color: #1a4bc5;
-          .num, .label { color: #fff; }
-          img { filter: brightness(0) invert(1); }
         }
       }
 
@@ -406,6 +408,12 @@
           font-size: size(18);
           font-weight: 600;
           align-self: flex-start;
+          transition: color 0.4s ease;
+          @include mixins.card-rise-mask;
+
+          &:hover {
+            color: #fff;
+          }
 
           @include mixins.mq(mobile) {
             padding: size-m(6) size-m(12);

@@ -15,7 +15,7 @@
     padding: size(80);
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start; // 右邊按鈕跟左邊標題頂端切齊,不要垂直置中
     color: #fff;
 
     @include mixins.mq(mobile) {
@@ -35,11 +35,12 @@
     }
 
     h2 {
-      font-size: size(64);
+      font-size: size(62);
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
       font-family: 'Montserrat', sans-serif;
       font-weight: 900;
+      line-height: 1.3; // 原本沒設,吃到 body 的 1.6 太鬆;1.2 又讓兩行字靠太近,1.3 折衷
       margin: 0 0 size(16) 0;
       display: flex;
       align-items: center;
@@ -90,8 +91,12 @@
   }
 
   .cta-action {
+    // 文字有行高留白,框線對齊看起來還是偏上;往下微調貼齊標題文字視覺頂端
+    margin-top: size(18);
+
     @include mixins.mq(mobile) {
       width: 100%;
+      margin-top: 0;
     }
 
     .btn--red {
