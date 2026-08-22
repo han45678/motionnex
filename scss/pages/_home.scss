@@ -699,6 +699,7 @@
         border-top-right-radius:size(30);
         // border-bottom-right-radius: size(30);
         // border-bottom-left-radius:size(30);
+        background-color: #ea0044;
 
         @include mixins.mq(mobile) {
           height: auto;
