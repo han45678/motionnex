@@ -98,9 +98,16 @@
           margin-right: auto;
           background-color: #ea0044;
           color: #fff;
+          padding: 0;
+          width: size(240);
+          height: size(70);
 
           @include mixins.mq(mobile) {
             margin-top: size-m(28);
+            width: size-m(150);
+          height: size-m(40);
+          border-radius: size-m(30);
+          font-size: size-m(12);
           }
         }
       }
@@ -142,9 +149,9 @@
       border-radius: 100%;
 
       @include mixins.mq(mobile) {
-        width: size-m(60);
-        height: size-m(60);
-        margin: 0 size-m(30) !important;
+        width: size-m(5);
+        height: size-m(5);
+        margin: 0 size-m(2.5) !important;
       }
     }
     .swiper-pagination-bullet-active {
@@ -155,7 +162,8 @@
       overflow: hidden;
 
       @include mixins.mq(mobile) {
-        width: size-m(240);
+        width: size-m(30);
+        border-radius: size-m(15);
       }
 
       &::before {
@@ -304,8 +312,10 @@
               color: #ea0044;
               font-size: size(60);
               font-weight: bold;
-              margin-left: size(4);
-
+              // margin-left: size(4);
+              &.num{
+                color: #fff;
+              }
               @include mixins.mq(mobile) {
                 font-size: size-m(36);
               }
@@ -416,7 +426,7 @@
         border-radius: size(16);
         padding: size(24) size(32);
         cursor: pointer;
-        transition: background-color 0.3s ease;
+        transition:0.6s;
         text-align: left;
 
         @include mixins.mq(mobile) {
@@ -460,6 +470,7 @@
 
         &.active {
           background-color: #1d44fa;
+              box-shadow: 0 5px 10px #000;
 
           .num {
             color: #ea0044;
