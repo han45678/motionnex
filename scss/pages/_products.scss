@@ -1005,16 +1005,12 @@
         font-size: size(18);
         font-weight: 600;
         display: inline-flex;
-        transition: background-color 0.3s;
+        @include mixins.btn-slide-hover;
 
         @include mixins.mq(mobile) {
           padding: size-m(14) size-m(40);
           border-radius: size-m(10);
           font-size: size-m(16);
-        }
-
-        &:hover {
-          background-color: color.adjust(#ea0044, $lightness: -10%);
         }
       }
     }

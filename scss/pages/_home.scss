@@ -101,6 +101,7 @@
           padding: 0;
           width: size(240);
           height: size(70);
+          @include mixins.btn-slide-hover;
 
           @include mixins.mq(mobile) {
             margin-top: size-m(28);
@@ -223,7 +224,7 @@
           font-weight: 500;
           display: inline-flex;
           align-items: center;
-          transition: background-color 0.3s ease;
+          @include mixins.btn-slide-hover;
 
           @include mixins.mq(mobile) {
             border-radius: size-m(10);
@@ -240,10 +241,6 @@
               margin-left: size-m(10);
               font-size: size-m(16);
             }
-          }
-
-          &:hover {
-            background-color: color.adjust(#ea0044, $lightness: -10%);
           }
         }
       }
