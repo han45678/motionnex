@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initSolutionsTabs();
 
+  initCountUpStats();
+
   // Initialize Hero Swiper（僅在頁面上真的存在 #banner 時才初始化，
   // 避免在沒有 banner 輪播的頁面上建立無用的 Swiper 實例）
   if (document.getElementById('banner')) {
@@ -141,6 +143,54 @@ function initHeaderScrollState() {
 
   updateHeaderState();
   window.addEventListener('scroll', updateHeaderState, { passive: true });
+}
+
+// 數字滾動至可視範圍時,由 0 累加到目標值(見 #about 區塊的 .num[data-count-to])
+function initCountUpStats() {
+  const counters = document.querySelectorAll('.num[data-count-to]');
+  if (!counters.length) return;
+
+  const DURATION = 1500; // 動畫時間(毫秒)
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const easeOutQuad = (t) => t * (2 - t);
+
+  function animateCounter(el) {
+    const target = parseFloat(el.dataset.countTo) || 0;
+    const suffix = el.dataset.suffix || '';
+
+    // 使用者關閉動態效果時,直接顯示最終數值
+    if (prefersReducedMotion) {
+      el.textContent = target + suffix;
+      return;
+    }
+
+    const startTime = performance.now();
+
+    function tick(now) {
+      const progress = Math.min((now - startTime) / DURATION, 1);
+      const current = Math.round(target * easeOutQuad(progress));
+      el.textContent = current + suffix;
+
+      if (progress < 1) {
+        requestAnimationFrame(tick);
+      }
+    }
+
+    requestAnimationFrame(tick);
+  }
+
+  // 進入可視範圍後才觸發,且每個數字只執行一次
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      animateCounter(entry.target);
+      obs.unobserve(entry.target);
+    });
+  }, {
+    threshold: 0.5,
+  });
+
+  counters.forEach((counter) => observer.observe(counter));
 }
 
 function initSolutionsTabs() {
