@@ -711,10 +711,11 @@
         flex-direction: column;
       }
 
+      // 主圖是 Swiper,透過 thumbs 模組跟縮圖串連(見 products_page.html 的 inline script)
       .main-image {
         width: 70%;
-        text-align: center;
-        overflow: hidden; // 滑過放大時,超出框外的部分裁掉,做出局部放大的效果
+        aspect-ratio: 1 / 1; // 固定正方形
+        background-color: #fff; // 非方形圖片留白處用白底補滿
         cursor: zoom-in;
 
         @include mixins.mq(mobile) {
@@ -723,12 +724,14 @@
         }
 
         img {
-          max-width: 100%;
-          height: auto;
+          width: 100%;
+          height: 100%;
+          object-fit: contain; // 不裁切,完整顯示、置中
+          display: block;
           transition: transform 0.3s ease;
         }
 
-        &:hover img {
+        &:hover .swiper-slide-active img {
           // 滑過時放大,transform-origin 由 JS 依滑鼠位置即時更新,做出跟著游標局部放大的效果
           transform: scale(2);
         }
@@ -741,6 +744,7 @@
         transform: translateY(-50%);
         display: flex;
         flex-direction: column;
+        align-items: center;
         gap: size(20);
 
         @include mixins.mq(mobile) {
@@ -748,53 +752,98 @@
           right: 0;
           top: 0;
           transform: none;
-          flex-direction: row;
-          justify-content: center;
+          flex-direction: row; // 縮圖橫排,箭頭跟著排在左右兩側
+        }
+      }
+
+      // 縮圖交給 Swiper 處理,一次最多顯示 4 個;數量不超過 4 個時,
+      // Swiper 預設的 watchOverflow 會自動隱藏箭頭,超過才會出現、可以捲動
+      .thumbs-swiper {
+        width: size(100);
+        height: size(340); // 4 個縮圖(70)+ 3 個間距(20)
+
+        @include mixins.mq(mobile) {
+          width: size-m(280); // 4 個縮圖(80)+ 3 個間距(12) - 上下箭頭挪走後的寬度
+          height: size-m(60);
         }
 
-        .thumb {
-          width: size(100);
-          height: size(70);
-          background-color: #fff;
-          border: size(2) solid transparent;
-          border-radius: size(8);
-          padding: size(5);
-          cursor: pointer;
-          transition: border-color 0.3s;
-
-          @include mixins.mq(mobile) {
-            width: size-m(80);
-            height: size-m(60);
-            border-width: size-m(2);
-            border-radius: size-m(6);
-          }
-
-          &.active, &:hover {
-            border-color: #ea0044;
-          }
-
-          img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-          }
+        .swiper-wrapper {
+          flex-direction: column;
         }
 
-        .scroll-down {
-          width: size(40);
-          height: size(40);
-          border: size(1) solid #1a4bc5;
-          color: #1a4bc5;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin: size(20) auto 0;
-          font-size: size(20);
-
-          @include mixins.mq(mobile) {
-            display: none; // 手機版隱藏下滑箭頭
+        @include mixins.mq(mobile) {
+          .swiper-wrapper {
+            flex-direction: row;
           }
+        }
+      }
+
+      // 上下箭頭是獨立在縮圖框外的自訂圓形按鈕,跟 .scroll-down 同一種樣式,
+      // 不疊在縮圖上面;.thumbnails 本身的 flex + gap 負責排版跟間距
+      .thumbs-swiper__nav {
+        width: size(40);
+        height: size(40);
+        border: size(1) solid #1a4bc5;
+        color: #1a4bc5;
+        background-color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: size(20);
+        flex-shrink: 0;
+        cursor: pointer;
+
+        &.swiper-button-disabled {
+          display: none; // 數量不超過 4 個、或已經捲到底時不顯示箭頭
+        }
+
+        @include mixins.mq(mobile) {
+          width: size-m(32);
+          height: size-m(32);
+          font-size: size-m(16);
+        }
+      }
+
+      .thumb {
+        background-color: #fff;
+        border: size(2) solid transparent;
+        border-radius: size(8);
+        padding: size(5);
+        cursor: pointer;
+        transition: border-color 0.3s;
+
+        @include mixins.mq(mobile) {
+          border-width: size-m(2);
+          border-radius: size-m(6);
+        }
+
+        // .swiper-slide-thumb-active 是 Swiper thumbs 模組自動加的目前選中樣式
+        &.swiper-slide-thumb-active, &:hover {
+          border-color: #ea0044;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+
+      .scroll-down {
+        width: size(40);
+        height: size(40);
+        border: size(1) solid #1a4bc5;
+        color: #1a4bc5;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: size(20) auto 0;
+        font-size: size(20);
+
+        @include mixins.mq(mobile) {
+          display: none; // 手機版隱藏下滑箭頭
         }
       }
     }

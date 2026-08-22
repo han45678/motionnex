@@ -141,40 +141,34 @@
                 </div>
             </div>
             <div class="hero-right">
-                <div class="main-image">
-                    <img src="./assets/images/home/solutions-robot02.jpg" alt="FRT-509">
+                <!-- 主圖改用 Swiper,跟縮圖用 thumbs 模組串連(套件原生機制處理點擊切換,不用自己寫 click 事件) -->
+                <div class="main-image hero-main-swiper swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="./assets/images/home/solutions-robot04.jpeg" alt="FRT-509"></div>
+                        <div class="swiper-slide"><img src="./assets/images/home/solutions-robot01.jpg" alt="FRT-509"></div>
+                        <div class="swiper-slide"><img src="./assets/images/home/solutions-robot02.jpeg" alt="FRT-509"></div>
+                        <div class="swiper-slide"><img src="./assets/images/home/solutions-robot03.jpeg" alt="FRT-509"></div>
+                        <div class="swiper-slide"><img src="./assets/images/home/solutions-robot04.jpeg" alt="FRT-509"></div>
+                    </div>
                 </div>
                 <div class="thumbnails">
-                    <button class="thumb" data-full="./assets/images/home/solutions-robot02.jpeg">
-                        <img src="./assets/images/home/solutions-robot02.jpeg" alt="FRT-509 thumbnail 2">
-                    </button>
-                    <button class="thumb" data-full="./assets/images/home/solutions-robot03.jpeg">
-                        <img src="./assets/images/home/solutions-robot03.jpeg" alt="FRT-509 thumbnail 3">
-                    </button>
-                    <button class="thumb" data-full="./assets/images/home/solutions-robot04.jpeg">
-                        <img src="./assets/images/home/solutions-robot04.jpeg" alt="FRT-509 thumbnail 4">
-                    </button>
-                    <button class="thumb" data-full="./assets/images/home/solutions-robot02.jpeg">
-                        <img src="./assets/images/home/solutions-robot02.jpeg" alt="FRT-509 thumbnail 2">
-                    </button>
-                    <button class="thumb" data-full="./assets/images/home/solutions-robot03.jpeg">
-                        <img src="./assets/images/home/solutions-robot03.jpeg" alt="FRT-509 thumbnail 3">
-                    </button>
-                    <button class="thumb" data-full="./assets/images/home/solutions-robot04.jpeg">
-                        <img src="./assets/images/home/solutions-robot04.jpeg" alt="FRT-509 thumbnail 4">
-                    </button>
-                    <button class="thumb" data-full="./assets/images/home/solutions-robot02.jpeg">
-                        <img src="./assets/images/home/solutions-robot02.jpeg" alt="FRT-509 thumbnail 2">
-                    </button>
-                    <button class="thumb" data-full="./assets/images/home/solutions-robot03.jpeg">
-                        <img src="./assets/images/home/solutions-robot03.jpeg" alt="FRT-509 thumbnail 3">
-                    </button>
-                    <button class="thumb" data-full="./assets/images/home/solutions-robot04.jpeg">
-                        <img src="./assets/images/home/solutions-robot04.jpeg" alt="FRT-509 thumbnail 4">
-                    </button>
-                    <div class="scroll-down">
-                        <span>↓</span>
+                    <!-- 上下箭頭跟 .scroll-down 一樣是獨立在框外的自訂圓形按鈕,不疊在縮圖上面 -->
+                    <button class="thumbs-swiper__nav thumbs-swiper__nav--prev" aria-label="Previous thumbnail">↑</button>
+
+                    <!-- 縮圖清單:一次最多顯示 4 個,超過才會出現箭頭(Swiper 的 watchOverflow 原生行為) -->
+                    <div class="thumbs-swiper swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide thumb"><img src="./assets/images/home/solutions-robot04.jpeg" alt="FRT-509 thumbnail 4"></div>
+                            <div class="swiper-slide thumb"><img src="./assets/images/home/solutions-robot01.jpg" alt="FRT-509 thumbnail 1"></div>
+                            <div class="swiper-slide thumb"><img src="./assets/images/home/solutions-robot02.jpeg" alt="FRT-509 thumbnail 2"></div>
+                            <div class="swiper-slide thumb"><img src="./assets/images/home/solutions-robot03.jpeg" alt="FRT-509 thumbnail 3"></div>
+                            <div class="swiper-slide thumb"><img src="./assets/images/home/solutions-robot04.jpeg" alt="FRT-509 thumbnail 4"></div>
+                        </div>
                     </div>
+
+                    <button class="thumbs-swiper__nav thumbs-swiper__nav--next" aria-label="Next thumbnail">↓</button>
+
+                    
                 </div>
             </div>
             <div class="color-bar"></div>
@@ -437,34 +431,58 @@
                 }
             });
 
-            // 縮圖點擊切換主圖
-            var mainImage = document.querySelector('.detail-hero .main-image');
-            var mainImg = mainImage ? mainImage.querySelector('img') : null;
-            var thumbs = document.querySelectorAll('.detail-hero .thumbnails .thumb');
+            // 初始化縮圖 Swiper：一次最多顯示 4 個,超過 4 個才會出現箭頭並可以捲動
+            // (watchOverflow 是 Swiper 預設行為：可捲動的內容不夠時,箭頭會自動加上
+            // swiper-button-disabled,對應 _products.scss 裡設 display: none 隱藏)
+            var thumbsSwiper = new Swiper('.thumbs-swiper', {
+                direction: 'horizontal',
+                slidesPerView: 4,
+                spaceBetween: 12,
+                watchOverflow: true,
+                navigation: {
+                    nextEl: '.thumbs-swiper__nav--next',
+                    prevEl: '.thumbs-swiper__nav--prev',
+                },
+                breakpoints: {
+                    1024: {
+                        direction: 'vertical',
+                        spaceBetween: 20,
+                    }
+                }
+            });
 
-            thumbs.forEach(function (thumb) {
-                thumb.addEventListener('click', function () {
-                    var fullSrc = thumb.getAttribute('data-full');
-                    if (!fullSrc || !mainImg) return;
-
-                    mainImg.src = fullSrc;
-                    thumbs.forEach(function (t) { t.classList.remove('active'); });
-                    thumb.classList.add('active');
-                });
+            // 主圖 Swiper：用 thumbs 模組跟縮圖串連，點縮圖切換主圖、
+            // 縮圖的 active 高亮完全交給套件處理（.swiper-slide-thumb-active，
+            // 見 _products.scss），不用自己另外寫 click 事件去換 src /
+            // 切 active class（這是原本手動實作在部分瀏覽器點不到的主因：
+            // Swiper 本身的拖曳判斷會吃掉外部另外綁的 click）
+            var mainSwiper = new Swiper('.hero-main-swiper', {
+                loop: false,
+                slidesPerView: 1,
+                spaceBetween: 0,
+                thumbs: {
+                    swiper: thumbsSwiper,
+                },
             });
 
             // 主圖滑過局部放大：transform-origin 隨滑鼠位置即時更新，
             // 放大倍率由 CSS 的 :hover 控制（見 _products.scss 的 .main-image）
-            if (mainImage && mainImg) {
-                mainImage.addEventListener('mousemove', function (e) {
-                    var rect = mainImage.getBoundingClientRect();
+            var mainImageEl = document.querySelector('.detail-hero .main-image');
+
+            if (mainImageEl) {
+                mainImageEl.addEventListener('mousemove', function (e) {
+                    var activeImg = mainImageEl.querySelector('.swiper-slide-active img');
+                    if (!activeImg) return;
+
+                    var rect = mainImageEl.getBoundingClientRect();
                     var x = ((e.clientX - rect.left) / rect.width) * 100;
                     var y = ((e.clientY - rect.top) / rect.height) * 100;
-                    mainImg.style.transformOrigin = x + '% ' + y + '%';
+                    activeImg.style.transformOrigin = x + '% ' + y + '%';
                 });
 
-                mainImage.addEventListener('mouseleave', function () {
-                    mainImg.style.transformOrigin = '50% 50%';
+                mainImageEl.addEventListener('mouseleave', function () {
+                    var activeImg = mainImageEl.querySelector('.swiper-slide-active img');
+                    if (activeImg) activeImg.style.transformOrigin = '50% 50%';
                 });
             }
         });
