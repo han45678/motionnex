@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initCountUpStats();
 
+  initPartnersMarquee();
+
   // Initialize Hero Swiper（僅在頁面上真的存在 #banner 時才初始化，
   // 避免在沒有 banner 輪播的頁面上建立無用的 Swiper 實例）
   if (document.getElementById('banner')) {
@@ -191,6 +193,50 @@ function initCountUpStats() {
   });
 
   counters.forEach((counter) => observer.observe(counter));
+}
+
+// 合作夥伴 Logo 跑馬燈:用 Swiper 做成 autoplay delay:0 + 等速(linear)的無縫輪播
+function initPartnersMarquee() {
+  const marqueeEl = document.querySelector('#partners-section .logos-wrapper');
+  const wrapperEl = marqueeEl?.querySelector('.swiper-wrapper');
+  if (!marqueeEl || !wrapperEl) return;
+
+  // .logos-wrapper 現在是滿版寬度(跳出 .container),原本 4 個 logo 的總寬度
+  // 不足以撐滿畫面,loop 銜接處會露出空白;因此先把原始 logo 組合多複製幾份,
+  // 確保軌道夠長、無論螢幕多寬都能無縫接續捲動
+  const baseSlides = Array.from(wrapperEl.children);
+  const REPEATS = 4; // 總共會有 4 份原始 logo 組合
+  for (let i = 1; i < REPEATS; i++) {
+    baseSlides.forEach((slide) => wrapperEl.appendChild(slide.cloneNode(true)));
+  }
+
+  // spaceBetween 需對應 _home.scss 的 size()/size-m() 換算基準(1920 / 375),
+  // 手機斷點則跟專案統一的 $bp-desktop: 1024px 對齊
+  const mobileQuery = window.matchMedia('(max-width: 1023px)');
+
+  function getSpaceBetween() {
+    const ratio = mobileQuery.matches ? 30 / 375 : 80 / 1920;
+    return window.innerWidth * ratio;
+  }
+
+  const marqueeSwiper = new Swiper(marqueeEl, {
+    loop: true,
+    slidesPerView: 'auto',
+    spaceBetween: getSpaceBetween(),
+    speed: 5000,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+    },
+    allowTouchMove: false,
+  });
+
+  // 視窗縮放時重新計算間距,維持跟 SCSS 一致的流體縮放比例
+  window.addEventListener('resize', () => {
+    marqueeSwiper.params.spaceBetween = getSpaceBetween();
+    marqueeSwiper.update();
+  }, { passive: true });
 }
 
 function initSolutionsTabs() {

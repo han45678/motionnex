@@ -935,22 +935,25 @@
     }
 
     .logos-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: size(80);
-      flex-wrap: wrap; /* 允許空間不足時換行 */
+      /* Swiper 容器,overflow: hidden 讓輪播內容超出範圍時被裁切 */
+      overflow: hidden;
       margin-bottom: size(80);
 
       @include mixins.mq(mobile) {
-        gap: size-m(30);
         margin-bottom: size-m(50);
+      }
+
+      .swiper-wrapper {
+        align-items: center;
+        /* 搭配 autoplay delay:0 做等速捲動,呈現跑馬燈效果 */
+        transition-timing-function: linear;
       }
 
       .logo-item {
         display: flex;
         align-items: center;
         justify-content: center;
+        width: auto; /* 依內容寬度顯示,slidesPerView: 'auto' 需要 */
         height: size(60);
 
         @include mixins.mq(mobile) {

@@ -1722,23 +1722,25 @@ img.is-loading {
   }
 }
 #home #partners-section .logos-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 4.1666666667vw;
-  flex-wrap: wrap; /* 允許空間不足時換行 */
+  /* Swiper 容器,overflow: hidden 讓輪播內容超出範圍時被裁切 */
+  overflow: hidden;
   margin-bottom: 4.1666666667vw;
 }
 @media (max-width: 1023px) {
   #home #partners-section .logos-wrapper {
-    gap: 8vw;
     margin-bottom: 13.3333333333vw;
   }
+}
+#home #partners-section .logos-wrapper .swiper-wrapper {
+  align-items: center;
+  /* 搭配 autoplay delay:0 做等速捲動,呈現跑馬燈效果 */
+  transition-timing-function: linear;
 }
 #home #partners-section .logos-wrapper .logo-item {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: auto; /* 依內容寬度顯示,slidesPerView: 'auto' 需要 */
   height: 3.125vw;
 }
 @media (max-width: 1023px) {
