@@ -699,9 +699,9 @@
         border-top-right-radius:size(30);
         // border-bottom-right-radius: size(30);
         // border-bottom-left-radius:size(30);
-        background-color: #ea0044;
-
+        
         @include mixins.mq(mobile) {
+        background-color: #ea0044;
           height: auto;
           border-radius: size-m(20) !important; /* 手機版強制恢復圓角 */
         }

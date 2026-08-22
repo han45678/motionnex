@@ -1498,10 +1498,10 @@ img.is-loading {
   height: 14.5833333333vw; /* 左右卡片較矮 */
   border-top-left-radius: 1.5625vw;
   border-top-right-radius: 1.5625vw;
-  background-color: #ea0044;
 }
 @media (max-width: 1023px) {
   #home #core-capabilities .cards-wrapper .card.dark {
+    background-color: #ea0044;
     height: auto;
     border-radius: 5.3333333333vw !important; /* 手機版強制恢復圓角 */
   }
