@@ -266,7 +266,7 @@
                                     <defs>
                                         <style>
                                             .cls-1 {
-                                                fill: #212529;
+                                                fill: currentColor;
                                             }
                                         </style>
                                     </defs>
@@ -284,7 +284,7 @@
                                     <defs>
                                         <style>
                                             .cls-1 {
-                                                fill: #212529;
+                                                fill: currentColor;
                                             }
                                         </style>
                                     </defs>
@@ -683,6 +683,21 @@
                 const category = clickedTab.dataset.category;
                 updateActiveState(category);
             });
+
+            // 4. 監聽下方頁籤左右箭頭，切換上一個／下一個分類
+            const navPrevBtn = document.querySelector('.lineup-tabs .nav-btn.prev');
+            const navNextBtn = document.querySelector('.lineup-tabs .nav-btn.next');
+            const categories = Array.from(lineupTabs).map(tab => tab.dataset.category);
+
+            function switchCategory(step) {
+                const activeTab = document.querySelector('.lineup-tabs .tab.active');
+                const currentIndex = categories.indexOf(activeTab.dataset.category);
+                const nextIndex = (currentIndex + step + categories.length) % categories.length;
+                updateActiveState(categories[nextIndex]);
+            }
+
+            navPrevBtn.addEventListener('click', () => switchCategory(-1));
+            navNextBtn.addEventListener('click', () => switchCategory(1));
         });
     </script>
 </body>

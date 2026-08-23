@@ -2474,11 +2474,11 @@ img.is-loading {
   background: none;
   border: none;
   font-size: 1.0416666667vw;
-  color: #666;
+  color: #212529;
   cursor: pointer;
 }
 #products .products-lineup .lineup-header .lineup-tabs .tab-nav .nav-btn:hover {
-  color: #000;
+  color: #ea0044;
 }
 #products .products-lineup .lineup-grid {
   display: grid;
