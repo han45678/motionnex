@@ -59,12 +59,12 @@
       }
 
       .image-wrapper {
-        width: size(600);
+        width: size(690);
         border-top-right-radius: size(120);
         overflow: hidden;
         position: absolute;
         left: 0;
-        bottom: size(-75);
+        bottom: size(-50);
 
         @include mixins.mq(mobile) {
           border-top-right-radius: size-m(80);
@@ -79,7 +79,7 @@
     }
 
     .missions-right {
-      width: 65%;
+      width: 75%;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: size(30);
@@ -103,7 +103,8 @@
         }
 
         &:hover {
-          h3, p {
+          h3,
+          p {
             color: #fff;
           }
 
@@ -116,14 +117,14 @@
           position: absolute;
           top: size(40);
           right: size(40);
-          width: size(40);
-          height: size(40);
+          width: size(60);
+          // height: size(40);
 
           @include mixins.mq(mobile) {
             top: size-m(32);
             right: size-m(32);
             width: size-m(32);
-            height: size-m(32);
+            // height: size-m(32);
           }
 
           img {
@@ -137,8 +138,8 @@
           font-size: size(36);
           font-family: 'Montserrat', sans-serif;
           font-weight: 600;
-          color: #1a4bc5;
-          margin: 0 0 size(16) 0;
+          color: #183eeb;
+          margin: size(45) 0 size(25) 0;
           line-height: 1;
           transition: color 0.4s ease;
 
@@ -247,7 +248,7 @@
       }
 
       &:hover {
-        background-color: #1a4bc5;
+        // background-color: #1a4bc5;
 
         .card-info {
           h3,
@@ -257,8 +258,21 @@
           }
         }
 
-        .card-image img {
-          transform: scale(1.5) translate(15%, 15%);
+        .card-image {
+          .bg-shape {
+            position: absolute;
+            bottom: -25%;
+            right: -25%;
+            width: 250%;
+            height: 150%;
+            background-color: #1a4bc5;
+            z-index: -1;
+            border-radius: 0;
+            transition: 0.6S;
+          }
+          img {
+            transform: scale(1.25) translate(15%, 15%);
+          }
         }
       }
 
@@ -319,7 +333,7 @@
         align-items: center;
         justify-content: center;
         z-index: 1;
-        transform: scale(1.25);
+        // transform: scale(1.25);
 
         @include mixins.mq(mobile) {
           width: 100%;
@@ -328,9 +342,9 @@
 
         .bg-shape {
           position: absolute;
-          bottom: -100%;
+          bottom: -95%;
           right: -50%;
-          width: 120%;
+          width: 160%;
           height: 120%;
           background-color: #1a4bc5;
           z-index: -1;
@@ -346,6 +360,4 @@
       }
     }
   }
-
-  
 }

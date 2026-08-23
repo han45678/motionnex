@@ -1878,12 +1878,12 @@ img.is-loading {
   }
 }
 #solutions .solutions-missions .missions-left .image-wrapper {
-  width: 31.25vw;
+  width: 35.9375vw;
   border-top-right-radius: 6.25vw;
   overflow: hidden;
   position: absolute;
   left: 0;
-  bottom: -3.90625vw;
+  bottom: -2.6041666667vw;
 }
 @media (max-width: 1023px) {
   #solutions .solutions-missions .missions-left .image-wrapper {
@@ -1896,7 +1896,7 @@ img.is-loading {
   width: 100%;
 }
 #solutions .solutions-missions .missions-right {
-  width: 65%;
+  width: 75%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5625vw;
@@ -1935,7 +1935,8 @@ img.is-loading {
     border-radius: 4.2666666667vw;
   }
 }
-#solutions .solutions-missions .missions-right .mission-card:hover h3, #solutions .solutions-missions .missions-right .mission-card:hover p {
+#solutions .solutions-missions .missions-right .mission-card:hover h3,
+#solutions .solutions-missions .missions-right .mission-card:hover p {
   color: #fff;
 }
 #solutions .solutions-missions .missions-right .mission-card:hover .icon img {
@@ -1945,15 +1946,13 @@ img.is-loading {
   position: absolute;
   top: 2.0833333333vw;
   right: 2.0833333333vw;
-  width: 2.0833333333vw;
-  height: 2.0833333333vw;
+  width: 3.125vw;
 }
 @media (max-width: 1023px) {
   #solutions .solutions-missions .missions-right .mission-card .icon {
     top: 8.5333333333vw;
     right: 8.5333333333vw;
     width: 8.5333333333vw;
-    height: 8.5333333333vw;
   }
 }
 #solutions .solutions-missions .missions-right .mission-card .icon img {
@@ -1965,8 +1964,8 @@ img.is-loading {
   font-size: 1.875vw;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
-  color: #1a4bc5;
-  margin: 0 0 0.8333333333vw 0;
+  color: #183eeb;
+  margin: 2.34375vw 0 1.3020833333vw 0;
   line-height: 1;
   transition: color 0.4s ease;
 }
@@ -2074,16 +2073,24 @@ img.is-loading {
     border-radius: 4.2666666667vw;
   }
 }
-#solutions .solutions-systems .system-card:hover {
-  background-color: #1a4bc5;
-}
 #solutions .solutions-systems .system-card:hover .card-info h3,
 #solutions .solutions-systems .system-card:hover .card-info h4,
 #solutions .solutions-systems .system-card:hover .card-info p {
   color: #fff;
 }
+#solutions .solutions-systems .system-card:hover .card-image .bg-shape {
+  position: absolute;
+  bottom: -25%;
+  right: -25%;
+  width: 250%;
+  height: 150%;
+  background-color: #1a4bc5;
+  z-index: -1;
+  border-radius: 0;
+  transition: 0.6S;
+}
 #solutions .solutions-systems .system-card:hover .card-image img {
-  transform: scale(1.5) translate(15%, 15%);
+  transform: scale(1.25) translate(15%, 15%);
 }
 #solutions .solutions-systems .system-card .card-info {
   width: 50%;
@@ -2142,7 +2149,6 @@ img.is-loading {
   align-items: center;
   justify-content: center;
   z-index: 1;
-  transform: scale(1.25);
 }
 @media (max-width: 1023px) {
   #solutions .solutions-systems .system-card .card-image {
@@ -2152,9 +2158,9 @@ img.is-loading {
 }
 #solutions .solutions-systems .system-card .card-image .bg-shape {
   position: absolute;
-  bottom: -100%;
+  bottom: -95%;
   right: -50%;
-  width: 120%;
+  width: 160%;
   height: 120%;
   background-color: #1a4bc5;
   z-index: -1;
@@ -5381,7 +5387,7 @@ img.is-loading {
 
 .hero {
   display: flex;
-  background-color: #0b1156;
+  background-color: #14078C;
   height: 44.7916666667vw;
   overflow: hidden;
 }
@@ -5477,7 +5483,6 @@ img.is-loading {
 @media (max-width: 1023px) {
   .hero .hero-image {
     width: 100%;
-    margin-bottom: 5.3333333333vw;
   }
 }
 .hero .hero-image img {

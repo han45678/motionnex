@@ -3,7 +3,7 @@
 
 .hero {
   display: flex;
-  background-color: #0b1156;
+  background-color: #14078C;
   height: size(860);
   overflow: hidden;
 
@@ -98,7 +98,7 @@
 
     @include mixins.mq(mobile) {
       width: 100%;
-      margin-bottom: size-m(20);
+      // margin-bottom: size-m(20);
     }
 
     img {
