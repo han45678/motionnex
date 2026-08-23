@@ -2083,7 +2083,7 @@ img.is-loading {
   bottom: -25%;
   right: -25%;
   width: 250%;
-  height: 150%;
+  height: 250%;
   background-color: #1a4bc5;
   z-index: -1;
   border-radius: 0;
@@ -2106,7 +2106,7 @@ img.is-loading {
 }
 #solutions .solutions-systems .system-card .card-info h3 {
   font-size: 2.1875vw;
-  font-weight: 700;
+  font-weight: 600;
   transition: color 0.4s ease;
   color: #0d1b2a;
   margin: 0 0 0.4166666667vw 0;
@@ -2206,7 +2206,7 @@ img.is-loading {
   box-shadow: 0 0.5208333333vw 1.5625vw rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
   cursor: pointer;
-  width: 19.0625vw;
+  width: 21.6145833333vw;
   flex-shrink: 0;
 }
 @media (max-width: 1023px) {
@@ -5405,6 +5405,7 @@ img.is-loading {
   align-items: center;
   justify-content: flex-end;
   padding: 11.71875vw 1.5625vw 5.2083333333vw 6.25vw;
+  z-index: 1;
 }
 @media (max-width: 1023px) {
   .hero .hero-content {
@@ -5453,11 +5454,13 @@ img.is-loading {
   line-height: 1.2;
   margin: 0 0 1.6666666667vw 0;
   color: #fff;
+  white-space: nowrap;
 }
 @media (max-width: 1023px) {
   .hero .hero-content h1 {
     font-size: 10.6666666667vw;
     margin-bottom: 6.4vw;
+    word-wrap: break-word;
   }
 }
 .hero .hero-content p {
@@ -5483,6 +5486,21 @@ img.is-loading {
 @media (max-width: 1023px) {
   .hero .hero-image {
     width: 100%;
+  }
+}
+.hero .hero-image::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-bottom-left-radius: 10.4166666667vw;
+}
+@media (max-width: 1023px) {
+  .hero .hero-image::before {
+    border-bottom-left-radius: 26.6666666667vw;
   }
 }
 .hero .hero-image img {

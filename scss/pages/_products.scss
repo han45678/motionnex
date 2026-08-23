@@ -40,7 +40,7 @@
       transition: all 0.3s ease;
       cursor: pointer;
       // 桌機固定寬度：容器裝不下整數格，右側故意露出下一格的一小截
-      width: size(366);
+      width: size(415);
       flex-shrink: 0;
 
       @include mixins.mq(mobile) {
