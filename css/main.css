@@ -4182,44 +4182,74 @@ img.is-loading {
 #about-page .looking-ahead .card-box {
   background-color: #14078C;
   border-radius: 2.0833333333vw;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: repeat(2, 1fr);
+  height: 36.4583333333vw;
   overflow: hidden;
   color: #fff;
-  padding: 3.125vw 0 3.125vw 0;
-  position: relative;
 }
 @media (max-width: 1023px) {
   #about-page .looking-ahead .card-box {
-    flex-direction: column;
+    grid-template-columns: 10% 90%;
+    grid-template-rows: auto auto auto;
+    height: auto;
     border-radius: 6.4vw;
-    padding: 10.6666666667vw 6.4vw;
-    gap: 6.4vw;
   }
 }
-#about-page .looking-ahead .card-box .card-content {
-  width: 30%;
+#about-page .looking-ahead .card-box .cell-icon {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2.0833333333vw 2.0833333333vw 2.0833333333vw 0;
 }
 @media (max-width: 1023px) {
-  #about-page .looking-ahead .card-box .card-content {
-    width: 100%;
+  #about-page .looking-ahead .card-box .cell-icon {
+    height: 53.3333333333vw;
+    padding: 2.1333333333vw 2.1333333333vw 2.1333333333vw 0;
   }
 }
-#about-page .looking-ahead .card-box .card-content .deco-lines {
-  width: 12.5vw;
+#about-page .looking-ahead .card-box .cell-icon .deco-lines {
+  width: 100%;
+  max-width: 15.625vw;
+  height: auto;
   opacity: 0.8;
-  margin-bottom: 2.0833333333vw;
 }
 @media (max-width: 1023px) {
-  #about-page .looking-ahead .card-box .card-content .deco-lines {
-    width: 26.6666666667vw;
-    margin-bottom: 5.3333333333vw;
+  #about-page .looking-ahead .card-box .cell-icon .deco-lines {
+    max-width: 13.3333333333vw;
   }
 }
-#about-page .looking-ahead .card-box .card-content h2 {
+#about-page .looking-ahead .card-box .cell-image {
+  margin-left: 2.6041666667vw;
+  border-bottom-left-radius: 6.5104166667vw;
+  overflow: hidden;
+}
+@media (max-width: 1023px) {
+  #about-page .looking-ahead .card-box .cell-image {
+    margin-left: 0;
+    height: 53.3333333333vw;
+  }
+}
+#about-page .looking-ahead .card-box .cell-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+#about-page .looking-ahead .card-box .cell-title {
+  display: flex;
+  align-items: center;
+  padding: 2.6041666667vw 3.125vw;
+}
+@media (max-width: 1023px) {
+  #about-page .looking-ahead .card-box .cell-title {
+    padding: 8.5333333333vw 6.4vw;
+    grid-column: 1/-1;
+  }
+}
+#about-page .looking-ahead .card-box .cell-title h2 {
   font-size: 3.75vw;
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
@@ -4229,50 +4259,32 @@ img.is-loading {
   letter-spacing: 0.0520833333vw;
 }
 @media (max-width: 1023px) {
-  #about-page .looking-ahead .card-box .card-content h2 {
+  #about-page .looking-ahead .card-box .cell-title h2 {
     font-size: 8.5333333333vw;
   }
 }
-#about-page .looking-ahead .card-box .card-image {
-  width: 70%;
-  border-bottom-left-radius: 6.5104166667vw;
-  overflow: hidden;
+#about-page .looking-ahead .card-box .cell-text {
+  display: flex;
+  align-items: center;
+  padding: 2.6041666667vw 3.125vw;
 }
 @media (max-width: 1023px) {
-  #about-page .looking-ahead .card-box .card-image {
-    width: 100%;
-    height: 53.3333333333vw;
+  #about-page .looking-ahead .card-box .cell-text {
+    padding: 8.5333333333vw 6.4vw;
+    grid-column: 1/-1;
   }
 }
-#about-page .looking-ahead .card-box .card-image img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  display: block;
-}
-#about-page .looking-ahead .card-box .card-text {
-  width: 100%;
-  margin-top: 2.0833333333vw;
-  padding-left: 30%;
-}
-@media (max-width: 1023px) {
-  #about-page .looking-ahead .card-box .card-text {
-    padding-left: 0;
-    margin-top: 0;
-  }
-}
-#about-page .looking-ahead .card-box .card-text p {
+#about-page .looking-ahead .card-box .cell-text p {
   font-size: 1.0416666667vw;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.8);
   margin: 0;
 }
 @media (max-width: 1023px) {
-  #about-page .looking-ahead .card-box .card-text p {
+  #about-page .looking-ahead .card-box .cell-text p {
     font-size: 3.7333333333vw;
   }
-  #about-page .looking-ahead .card-box .card-text p br {
+  #about-page .looking-ahead .card-box .cell-text p br {
     display: none;
   }
 }
