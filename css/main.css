@@ -3372,9 +3372,17 @@ img.is-loading {
     font-size: 3.7333333333vw;
   }
 }
-#case .case-categories .category-swiper {
-  padding: 2.6041666667vw 0 1.0416666667vw 0;
+#case .case-categories .category-swiper-wrap {
   position: relative;
+}
+#case .case-categories .category-swiper {
+  padding: 2.6041666667vw 1.0416666667vw 1.0416666667vw;
+  position: relative;
+}
+@media (max-width: 1023px) {
+  #case .case-categories .category-swiper {
+    padding: 10.6666666667vw 4.2666666667vw 4.2666666667vw;
+  }
 }
 #case .case-categories .category-card {
   position: relative;
@@ -3385,12 +3393,15 @@ img.is-loading {
   flex-direction: column;
   transition: all 0.3s ease;
   cursor: pointer;
+  width: 17.7083333333vw;
+  flex-shrink: 0;
 }
 @media (max-width: 1023px) {
   #case .case-categories .category-card {
     padding: 8vw 5.3333333333vw;
     border-radius: 4.2666666667vw;
     height: 58.6666666667vw;
+    width: 69.3333333333vw;
   }
 }
 #case .case-categories .category-card .icon-box {
@@ -3460,6 +3471,85 @@ img.is-loading {
 }
 #case .case-categories .category-card.active .info span, #case .case-categories .category-card:hover .info span {
   opacity: 0.8;
+}
+#case .case-categories .swiper-button-prev,
+#case .case-categories .swiper-button-next {
+  position: absolute;
+  top: calc(50% + 0.78125vw);
+  transform: translateY(-50%);
+  margin-top: 0;
+  width: 3.125vw;
+  height: 3.125vw;
+  border-radius: 50%;
+  border: 0.078125vw solid #1a4bc5;
+  background-color: transparent;
+  color: #1a4bc5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, color 0.3s;
+  z-index: 10;
+}
+#case .case-categories .swiper-button-prev::after,
+#case .case-categories .swiper-button-next::after {
+  content: none;
+}
+#case .case-categories .swiper-button-prev svg,
+#case .case-categories .swiper-button-next svg {
+  width: 0.8333333333vw;
+  height: auto;
+}
+#case .case-categories .swiper-button-prev svg path, #case .case-categories .swiper-button-prev svg polyline, #case .case-categories .swiper-button-prev svg line,
+#case .case-categories .swiper-button-next svg path,
+#case .case-categories .swiper-button-next svg polyline,
+#case .case-categories .swiper-button-next svg line {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.81px;
+}
+#case .case-categories .swiper-button-prev:hover,
+#case .case-categories .swiper-button-next:hover {
+  background-color: #1a4bc5;
+  color: #fff;
+}
+#case .case-categories .swiper-button-prev.swiper-button-disabled,
+#case .case-categories .swiper-button-next.swiper-button-disabled {
+  opacity: 0.35;
+  cursor: auto;
+}
+@media (max-width: 1023px) {
+  #case .case-categories .swiper-button-prev,
+  #case .case-categories .swiper-button-next {
+    top: calc(50% + 2.6666666667vw);
+    width: 9.6vw;
+    height: 9.6vw;
+    border-width: 1px;
+  }
+  #case .case-categories .swiper-button-prev svg,
+  #case .case-categories .swiper-button-next svg {
+    width: 2.9333333333vw;
+  }
+}
+#case .case-categories .swiper-button-prev {
+  left: -2.9166666667vw;
+}
+#case .case-categories .swiper-button-prev svg {
+  transform: rotate(180deg);
+}
+@media (max-width: 1023px) {
+  #case .case-categories .swiper-button-prev {
+    left: 0;
+  }
+}
+#case .case-categories .swiper-button-next {
+  right: -2.9166666667vw;
+}
+@media (max-width: 1023px) {
+  #case .case-categories .swiper-button-next {
+    right: 0;
+  }
 }
 #case {
   /* --- 3. Featured Missions --- */
