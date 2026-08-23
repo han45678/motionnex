@@ -19,7 +19,7 @@
     .section-header {
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
+      align-items: flex-start;
       margin-bottom: size(60);
 
       @include mixins.mq(mobile) {
@@ -32,7 +32,7 @@
       h2 {
         font-size: size(72);
         font-family: 'Montserrat', sans-serif;
-        font-weight: 300;
+        font-weight: 500;
         color: #0d1b2a;
         line-height: 1.2;
         margin: 0;
@@ -52,9 +52,9 @@
 
         h4 {
           font-size: size(28);
-          font-weight: 500;
+          font-weight: 600;
           color: #333;
-          margin: 0 0 size(8) 0;
+          margin: 0 0 size(15) 0;
 
           @include mixins.mq(mobile) {
             font-size: size-m(16);
@@ -62,10 +62,11 @@
         }
 
         p {
-          font-size: size(20);
+          font-size: size(22);
           color: #666;
           line-height: 1.6;
           margin: 0;
+          font-weight: 400;
 
           @include mixins.mq(mobile) {
             font-size: size-m(14);

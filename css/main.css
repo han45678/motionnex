@@ -3314,7 +3314,7 @@ img.is-loading {
 #case .case-categories .section-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
   margin-bottom: 3.125vw;
 }
 @media (max-width: 1023px) {
@@ -3328,7 +3328,7 @@ img.is-loading {
 #case .case-categories .section-header h2 {
   font-size: 3.75vw;
   font-family: "Montserrat", sans-serif;
-  font-weight: 300;
+  font-weight: 500;
   color: #0d1b2a;
   line-height: 1.2;
   margin: 0;
@@ -3351,9 +3351,9 @@ img.is-loading {
 }
 #case .case-categories .section-header .desc h4 {
   font-size: 1.4583333333vw;
-  font-weight: 500;
+  font-weight: 600;
   color: #333;
-  margin: 0 0 0.4166666667vw 0;
+  margin: 0 0 0.78125vw 0;
 }
 @media (max-width: 1023px) {
   #case .case-categories .section-header .desc h4 {
@@ -3361,10 +3361,11 @@ img.is-loading {
   }
 }
 #case .case-categories .section-header .desc p {
-  font-size: 1.0416666667vw;
+  font-size: 1.1458333333vw;
   color: #666;
   line-height: 1.6;
   margin: 0;
+  font-weight: 400;
 }
 @media (max-width: 1023px) {
   #case .case-categories .section-header .desc p {
