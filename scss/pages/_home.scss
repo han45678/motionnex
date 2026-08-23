@@ -86,7 +86,7 @@
           width: 100%;
           color: #fff;
           font-size: size(21);
-          font-weight: 500;
+          font-weight: 300;
 
           @include mixins.mq(mobile) {
             font-size: size-m(16);
@@ -94,6 +94,7 @@
         }
 
         .btn {
+          @include mixins.btn-slide-hover;
           margin-top: size(50);
           margin-right: auto;
           background-color: #ea0044;
@@ -101,14 +102,17 @@
           padding: 0;
           width: size(240);
           height: size(70);
-          @include mixins.btn-slide-hover;
-
+          font-size: size(20);
+          font-weight: 500;
+          letter-spacing: size(1);
+          
           @include mixins.mq(mobile) {
             margin-top: size-m(28);
             width: size-m(150);
             height: size-m(40);
             border-radius: size-m(30);
             font-size: size-m(12);
+            letter-spacing: size-m(1);
           }
         }
       }
@@ -202,9 +206,8 @@
       }
 
       h2 {
-        font-family: 'Montserrat', sans-serif;
         font-size: size(72);
-        font-weight: 500;
+        font-weight: 600;
         color: #0b192c;
         margin: 0;
 
@@ -218,18 +221,20 @@
           background-color: #ea0044;
           color: #fff;
           border-radius: size(12);
-          padding: size(16) size(36);
           text-decoration: none;
-          font-size: size(18);
+          font-size: size(24);
           font-weight: 500;
           display: inline-flex;
           align-items: center;
+          width: size(292);
+          height: size(72);
           @include mixins.btn-slide-hover;
 
           @include mixins.mq(mobile) {
             border-radius: size-m(10);
-            padding: size-m(14) size-m(28);
             font-size: size-m(14);
+            width: size-m(185);
+          height: size-m(45);
           }
 
           &::after {
@@ -368,8 +373,8 @@
 
       h2 {
         font-family: 'Montserrat', sans-serif;
-        font-size: size(56);
-        font-weight: 500;
+        font-size: size(72);
+        font-weight: 600;
         color: #0b192c;
         margin: 0 0 size(16) 0;
 
@@ -380,9 +385,9 @@
       }
 
       p {
-        font-size: size(18);
+        font-size: size(22);
         color: #333;
-        font-weight: 600;
+        font-weight: 400;
         margin: 0;
 
         @include mixins.mq(mobile) {
@@ -456,7 +461,7 @@
         }
 
         .icon {
-          width: size(32);
+          width: size(38);
           transition: transform 0.3s ease;
 
           @include mixins.mq(mobile) {
@@ -532,9 +537,8 @@
           }
 
           p {
-            font-family: 'Montserrat', sans-serif;
             margin: 0;
-            font-size: size(21);
+            font-size: size(22);
             line-height: 1.8;
             font-weight: 400;
             text-shadow: 0 size(2) size(4) rgba(0, 0, 0, 0.6);
@@ -595,7 +599,7 @@
 
       h2 {
         font-family: 'Montserrat', sans-serif;
-        font-size: size(48);
+        font-size: size(72);
         font-weight: 500;
         color: #0b192c;
         line-height: 1.2;
@@ -608,8 +612,8 @@
       }
 
       p {
-        font-size: size(16);
-        font-weight: 600;
+        font-size: size(22);
+        font-weight: 400;
         color: #333;
         margin: 0;
         letter-spacing: size(1);
@@ -637,7 +641,7 @@
       .card {
         flex: 1;
         color: #fff;
-        padding: size(40) size(30);
+        padding: size(40) size(50);
         position: relative;
         box-sizing: border-box;
 
@@ -689,13 +693,10 @@
       }
 
       .card.dark {
-        background-color: #03004a; /* 卡片深藍色 */
-        height: size(280); /* 左右卡片較矮 */
-        // border-radius: size(30);
+        background-color: #03004a; 
+        height: size(280); 
         border-top-left-radius: size(30);
         border-top-right-radius: size(30);
-        // border-bottom-right-radius: size(30);
-        // border-bottom-left-radius:size(30);
 
         @include mixins.mq(mobile) {
           background-color: #ea0044;
@@ -719,13 +720,13 @@
 
       .card.highlight {
         background-color: #ea0044;
-        height: size(340); /* 中間卡片較高 */
+        // height: size(340); /* 中間卡片較高 */
         // border-radius: size(30);
         border-top-left-radius: size(30);
         border-top-right-radius: size(30);
         z-index: 2;
         margin: 0 size(-1); /* 微調負邊距避免出現細微的 1px 渲染縫隙 */
-        padding: size(60) size(40);
+        padding: size(60) size(65);
 
         @include mixins.mq(mobile) {
           height: auto;
@@ -735,7 +736,7 @@
         }
 
         .icon {
-          height: size(80); /* 中間的 Icon 尺寸稍微放大 */
+          height: size(150); /* 中間的 Icon 尺寸稍微放大 */
           margin-bottom: size(30);
 
           @include mixins.mq(mobile) {
@@ -785,7 +786,7 @@
       top: 0;
       height: 100%;
       width: 65%; /* 控制圖片覆蓋畫面的寬度 */
-      border-top-left-radius: size(80); /* 左上大圓角 */
+      border-top-left-radius: size(150); /* 左上大圓角 */
       overflow: hidden;
       z-index: 1;
 
@@ -896,8 +897,7 @@
       }
 
       h2 {
-        font-family: 'Montserrat', sans-serif;
-        font-size: size(48);
+        font-size: size(72);
         font-weight: 500;
         color: #0b192c;
         margin: 0 0 size(24) 0;
@@ -911,9 +911,10 @@
       }
 
       p {
-        font-size: size(18);
+        font-size: size(22);
         color: #555; /* 次要文字使用深灰色 */
         line-height: 1.8;
+        font-weight: 400;
         margin: 0 auto;
 
         @include mixins.mq(mobile) {
@@ -966,9 +967,9 @@
 
     .footer-text {
       p {
-        font-size: size(16);
+        font-size: size(22);
         color: #333;
-        font-weight: 500;
+        font-weight: 400;
         margin: 0;
 
         @include mixins.mq(mobile) {

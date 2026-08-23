@@ -11,7 +11,7 @@
     padding: size-m(56) 0 size-m(24);
   }
 
-  .container{
+  .container {
     max-width: size(1650);
     @include mixins.mq(mobile) {
       max-width: 100%;
@@ -29,7 +29,7 @@
 
   h4 {
     color: $color-white;
-    font-size: size(13.6);
+    font-size: size(22);
     letter-spacing: size(0.48);
     text-transform: uppercase;
     margin-bottom: size(20);
@@ -42,7 +42,9 @@
   a {
     transition: color $transition-base;
 
-    &:hover { color: $color-white; }
+    &:hover {
+      color: $color-white;
+    }
   }
 }
 
@@ -104,7 +106,10 @@
       height: size-m(34);
     }
 
-    &:hover { background: $color-pink; color: $color-white; }
+    &:hover {
+      background: $color-pink;
+      color: $color-white;
+    }
   }
 }
 
@@ -127,7 +132,7 @@
 
   p {
     font-size: size(12.8);
-    color: rgba(255, 255, 255, 0.45);
+    color: #fff;
 
     @include mixins.mq(mobile) {
       font-size: size-m(11);
@@ -136,5 +141,25 @@
 
   @include mixins.mq(mobile) {
     justify-content: flex-start;
+  }
+}
+
+.footer-col {
+  &:nth-child(2) {
+    ul {
+      li {
+        a {
+          font-weight: 600;
+          color: $color-white;
+          font-size: size(22);
+          letter-spacing: size(0.48);
+          text-transform: uppercase;
+          margin-bottom: size(20);
+          @include mixins.mq(mobile) {
+            font-size: size-m(12);
+          }
+        }
+      }
+    }
   }
 }
