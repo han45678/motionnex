@@ -2560,7 +2560,7 @@ img.is-loading {
   }
 }
 #products .products-lineup .product-card .card-head .category {
-  font-size: 0.7291666667vw;
+  font-size: 1.25vw;
   font-weight: 600;
   color: #333;
   transition: color 0.4s ease;
@@ -2623,7 +2623,7 @@ img.is-loading {
   font-weight: 600;
   color: #0d1b2a;
   transition: color 0.4s ease;
-  margin: 0 0 0.4166666667vw 0;
+  margin: 5.9895833333vw 0 0.4166666667vw 0;
 }
 @media (max-width: 1023px) {
   #products .products-lineup .product-card .card-body .info h3 {
