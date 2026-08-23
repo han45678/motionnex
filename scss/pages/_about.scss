@@ -60,7 +60,6 @@
 
         h2 {
           font-size: size(72);
-          font-family: 'Montserrat', sans-serif;
           font-weight: 500;
           color: #fff;
           line-height: 1.2;
@@ -75,6 +74,7 @@
 
         p {
           font-size: size(20);
+          font-weight: 400;
           line-height: 1.8;
           color: rgba(255, 255, 255, 0.8);
           margin: 0;
@@ -253,13 +253,13 @@
     }
 
     .card-box {
-      background-color: #0b1156;
+      background-color: #14078C;
       border-radius: size(40);
       display: flex;
       flex-wrap: wrap;
       overflow: hidden;
       color: #fff;
-      padding: size(60) 0 size(60) size(80);
+      padding: size(60) 0 size(60) 0;
       position: relative;
 
       @include mixins.mq(mobile) {
@@ -307,7 +307,7 @@
 
       .card-image {
         width: 70%;
-        border-radius: size(24);
+        border-bottom-left-radius: size(125);
         overflow: hidden;
 
         @include mixins.mq(mobile) {

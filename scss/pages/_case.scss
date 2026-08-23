@@ -6,7 +6,6 @@
    #case (案例分享頁)
 ========================================= */
 #case {
-
   /* --- 2. Mission Categories --- */
   .case-categories {
     padding: size(120) 0;
@@ -39,7 +38,9 @@
 
         @include mixins.mq(mobile) {
           font-size: size-m(32);
-          br { display: none; }
+          br {
+            display: none;
+          }
         }
       }
 
@@ -82,7 +83,7 @@
     }
 
     .category-swiper {
-      padding: size(50) size(20) size(20);
+      padding: size(75) size(20) size(20);
       position: relative;
 
       @include mixins.mq(mobile) {
@@ -94,14 +95,14 @@
       position: relative;
       background-color: #f7f9fc;
       border-radius: size(24);
-      padding: size(40) size(30);
+      padding: size(85) size(30) size(75) size(30);
       display: flex;
       flex-direction: column;
       // height: size(280);
       transition: all 0.3s ease;
       cursor: pointer;
       // 桌機固定寬度：容器裝不下整數格，右側故意露出下一格的一小截
-      width: size(340);
+      width: size(375);
       flex-shrink: 0;
 
       @include mixins.mq(mobile) {
@@ -113,20 +114,19 @@
       }
 
       .icon-box {
-        width: size(60);
-        height: size(60);
+        width: size(126);
+        height: size(126);
         background-color: #fff;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         margin-bottom: auto;
-        box-shadow: 0 size(5) size(15) rgba(0,0,0,0.05);
+        box-shadow: 0 size(5) size(15) rgba(0, 0, 0, 0.05);
         position: absolute;
         top: 0;
         left: size(30);
-            transform: translateY(-50%);
-        
+        transform: translateY(-50%);
 
         @include mixins.mq(mobile) {
           width: size-m(50);
@@ -135,15 +135,18 @@
 
         img {
           width: 100%;
-          height: 100%;
-          object-fit: cover;
+
+          // width: size(72);
+          // @include mixins.mq(mobile) {
+          //   width: size-m(40);
+          // }
         }
       }
 
       .info {
         h3 {
           font-size: size(36);
-          font-weight: 700;
+          font-weight: 600;
           color: #0d1b2a;
           margin: 0 0 size(8) 0;
 
@@ -153,9 +156,10 @@
         }
 
         p {
-          font-size: size(22);
+          font-size: size(24);
+          font-weight: 600;
           color: #555;
-          margin: 0 0 size(16) 0;
+          margin: 0 0 size(5) 0;
 
           @include mixins.mq(mobile) {
             font-size: size-m(13);
@@ -164,7 +168,7 @@
         }
 
         span {
-          font-size: size(20);
+          font-size: size(24);
           color: #999;
           font-weight: 600;
 
@@ -174,12 +178,19 @@
         }
       }
 
-      &.active, &:hover {
+      &.active,
+      &:hover {
         background-color: #1a4bc5;
 
         .info {
-          h3, p, span { color: #fff; }
-          span { opacity: 0.8; }
+          h3,
+          p,
+          span {
+            color: #fff;
+          }
+          span {
+            opacity: 0.8;
+          }
         }
       }
     }
@@ -194,21 +205,27 @@
       width: size(60);
       height: size(60);
       border-radius: 50%;
-      border: size(1.5) solid #1a4bc5;
+      border: 2.5px solid #1a4bc5;
       background-color: transparent;
       color: #1a4bc5;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: background-color 0.3s, color 0.3s;
+      transition:
+        background-color 0.3s,
+        color 0.3s;
       z-index: 10;
 
-      &::after { content: none; }
+      &::after {
+        content: none;
+      }
 
       svg {
         width: size(16);
         height: auto;
-        path, polyline, line {
+        path,
+        polyline,
+        line {
           fill: none;
           stroke: currentColor;
           stroke-linecap: round;
@@ -233,13 +250,17 @@
         height: size-m(36);
         border-width: 1px;
 
-        svg { width: size-m(11); }
+        svg {
+          width: size-m(11);
+        }
       }
     }
 
     .swiper-button-prev {
       left: size(-56);
-      svg { transform: rotate(180deg); }
+      svg {
+        transform: rotate(180deg);
+      }
 
       @include mixins.mq(mobile) {
         left: 0;
@@ -247,7 +268,7 @@
     }
 
     .swiper-button-next {
-      right: size(-56);
+      right: size(-100);
 
       @include mixins.mq(mobile) {
         right: 0;
@@ -279,14 +300,16 @@
       h2 {
         font-size: size(72);
         font-family: 'Montserrat', sans-serif;
-        font-weight: 300;
+        font-weight: 500;
         color: #0d1b2a;
         line-height: 1.2;
         margin: 0;
 
         @include mixins.mq(mobile) {
           font-size: size-m(32);
-          br { display: none; }
+          br {
+            display: none;
+          }
         }
       }
 
@@ -299,9 +322,9 @@
 
         h4 {
           font-size: size(28);
-          font-weight: 700;
+          font-weight: 600;
           color: #333;
-          margin: 0 0 size(8) 0;
+          margin: 0 0 size(20) 0;
 
           @include mixins.mq(mobile) {
             font-size: size-m(16);
@@ -309,6 +332,7 @@
         }
 
         p {
+          font-weight: 400;
           font-size: size(20);
           color: #666;
           line-height: 1.6;
@@ -323,7 +347,7 @@
 
     .mission-showcase {
       display: flex;
-      gap: size(40);
+      gap: size(30);
       align-items: stretch;
 
       @include mixins.mq(mobile) {
@@ -335,7 +359,7 @@
         width: 30%;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: size(16);
+        gap: size(10);
 
         @include mixins.mq(mobile) {
           width: 100%;
@@ -363,18 +387,25 @@
           }
 
           &:hover {
-            .num, .label { color: #fff; }
-            img { filter: brightness(0) invert(1); }
+            .num{
+              color: #fff;
+            }
+            .label{
+              color: #BABABA;
+            }
+            img {
+              filter: brightness(0) invert(1);
+            }
           }
 
           img {
-            width: size(32);
-            margin-bottom: size(12);
+            width: size(55);
+            // margin-bottom: size(12);
             transition: filter 0.4s ease;
 
             @include mixins.mq(mobile) {
               width: size-m(28);
-              margin-bottom: size-m(8);
+              // margin-bottom: size-m(8);
             }
           }
 
@@ -382,12 +413,12 @@
             font-size: size(56);
             font-weight: 700;
             color: #1a4bc5;
-            margin-bottom: size(4);
+            // margin-bottom: size(4);
             transition: color 0.4s ease;
 
-            @include mixins.mq(mobile) {
-              font-size: size-m(24);
-            }
+            // @include mixins.mq(mobile) {
+            //   font-size: size-m(24);
+            // }
           }
 
           .label {
@@ -404,10 +435,10 @@
       }
 
       .main-image {
-        width: 40%;
+        width: 35%;
         border-radius: size(24);
         overflow: hidden;
-        border-bottom: size(8) solid #ea0044;
+        border-bottom: size(20) solid #ea0044;
 
         @include mixins.mq(mobile) {
           width: 100%;
@@ -424,11 +455,10 @@
       }
 
       .mission-details {
-        width: 30%;
+        width: 35%;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding-left: size(20);
 
         @include mixins.mq(mobile) {
           width: 100%;
@@ -450,6 +480,7 @@
           span {
             display: block;
             font-size: size(20);
+            line-height: 1.5;
             color: #666;
             font-weight: 600;
             text-transform: uppercase;
@@ -473,7 +504,7 @@
         }
 
         p {
-          font-size: size(16);
+          font-size: size(18);
           color: #555;
           line-height: 1.8;
           margin: 0 0 size(70) 0;
@@ -481,7 +512,9 @@
           @include mixins.mq(mobile) {
             font-size: size-m(14);
             margin-bottom: size-m(24);
-            br { display: none; }
+            br {
+              display: none;
+            }
           }
         }
 

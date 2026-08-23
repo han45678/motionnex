@@ -3376,7 +3376,7 @@ img.is-loading {
   position: relative;
 }
 #case .case-categories .category-swiper {
-  padding: 2.6041666667vw 1.0416666667vw 1.0416666667vw;
+  padding: 3.90625vw 1.0416666667vw 1.0416666667vw;
   position: relative;
 }
 @media (max-width: 1023px) {
@@ -3388,12 +3388,12 @@ img.is-loading {
   position: relative;
   background-color: #f7f9fc;
   border-radius: 1.25vw;
-  padding: 2.0833333333vw 1.5625vw;
+  padding: 4.4270833333vw 1.5625vw 3.90625vw 1.5625vw;
   display: flex;
   flex-direction: column;
   transition: all 0.3s ease;
   cursor: pointer;
-  width: 17.7083333333vw;
+  width: 19.53125vw;
   flex-shrink: 0;
 }
 @media (max-width: 1023px) {
@@ -3405,8 +3405,8 @@ img.is-loading {
   }
 }
 #case .case-categories .category-card .icon-box {
-  width: 3.125vw;
-  height: 3.125vw;
+  width: 6.5625vw;
+  height: 6.5625vw;
   background-color: #fff;
   border-radius: 50%;
   display: flex;
@@ -3427,13 +3427,10 @@ img.is-loading {
 }
 #case .case-categories .category-card .icon-box img {
   width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 #case .case-categories .category-card .info h3 {
   font-size: 1.875vw;
-  font-weight: 700;
+  font-weight: 600;
   color: #0d1b2a;
   margin: 0 0 0.4166666667vw 0;
 }
@@ -3443,9 +3440,10 @@ img.is-loading {
   }
 }
 #case .case-categories .category-card .info p {
-  font-size: 1.1458333333vw;
+  font-size: 1.25vw;
+  font-weight: 600;
   color: #555;
-  margin: 0 0 0.8333333333vw 0;
+  margin: 0 0 0.2604166667vw 0;
 }
 @media (max-width: 1023px) {
   #case .case-categories .category-card .info p {
@@ -3454,7 +3452,7 @@ img.is-loading {
   }
 }
 #case .case-categories .category-card .info span {
-  font-size: 1.0416666667vw;
+  font-size: 1.25vw;
   color: #999;
   font-weight: 600;
 }
@@ -3466,7 +3464,11 @@ img.is-loading {
 #case .case-categories .category-card.active, #case .case-categories .category-card:hover {
   background-color: #1a4bc5;
 }
-#case .case-categories .category-card.active .info h3, #case .case-categories .category-card.active .info p, #case .case-categories .category-card.active .info span, #case .case-categories .category-card:hover .info h3, #case .case-categories .category-card:hover .info p, #case .case-categories .category-card:hover .info span {
+#case .case-categories .category-card.active .info h3,
+#case .case-categories .category-card.active .info p,
+#case .case-categories .category-card.active .info span, #case .case-categories .category-card:hover .info h3,
+#case .case-categories .category-card:hover .info p,
+#case .case-categories .category-card:hover .info span {
   color: #fff;
 }
 #case .case-categories .category-card.active .info span, #case .case-categories .category-card:hover .info span {
@@ -3481,7 +3483,7 @@ img.is-loading {
   width: 3.125vw;
   height: 3.125vw;
   border-radius: 50%;
-  border: 0.078125vw solid #1a4bc5;
+  border: 2.5px solid #1a4bc5;
   background-color: transparent;
   color: #1a4bc5;
   display: flex;
@@ -3499,7 +3501,9 @@ img.is-loading {
   width: 0.8333333333vw;
   height: auto;
 }
-#case .case-categories .swiper-button-prev svg path, #case .case-categories .swiper-button-prev svg polyline, #case .case-categories .swiper-button-prev svg line,
+#case .case-categories .swiper-button-prev svg path,
+#case .case-categories .swiper-button-prev svg polyline,
+#case .case-categories .swiper-button-prev svg line,
 #case .case-categories .swiper-button-next svg path,
 #case .case-categories .swiper-button-next svg polyline,
 #case .case-categories .swiper-button-next svg line {
@@ -3544,7 +3548,7 @@ img.is-loading {
   }
 }
 #case .case-categories .swiper-button-next {
-  right: -2.9166666667vw;
+  right: -5.2083333333vw;
 }
 @media (max-width: 1023px) {
   #case .case-categories .swiper-button-next {
@@ -3579,7 +3583,7 @@ img.is-loading {
 #case .featured-missions .section-header h2 {
   font-size: 3.75vw;
   font-family: "Montserrat", sans-serif;
-  font-weight: 300;
+  font-weight: 500;
   color: #0d1b2a;
   line-height: 1.2;
   margin: 0;
@@ -3602,9 +3606,9 @@ img.is-loading {
 }
 #case .featured-missions .section-header .desc h4 {
   font-size: 1.4583333333vw;
-  font-weight: 700;
+  font-weight: 600;
   color: #333;
-  margin: 0 0 0.4166666667vw 0;
+  margin: 0 0 1.0416666667vw 0;
 }
 @media (max-width: 1023px) {
   #case .featured-missions .section-header .desc h4 {
@@ -3612,6 +3616,7 @@ img.is-loading {
   }
 }
 #case .featured-missions .section-header .desc p {
+  font-weight: 400;
   font-size: 1.0416666667vw;
   color: #666;
   line-height: 1.6;
@@ -3624,7 +3629,7 @@ img.is-loading {
 }
 #case .featured-missions .mission-showcase {
   display: flex;
-  gap: 2.0833333333vw;
+  gap: 1.5625vw;
   align-items: stretch;
 }
 @media (max-width: 1023px) {
@@ -3637,7 +3642,7 @@ img.is-loading {
   width: 30%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.8333333333vw;
+  gap: 0.5208333333vw;
 }
 @media (max-width: 1023px) {
   #case .featured-missions .mission-showcase .stats-grid {
@@ -3680,34 +3685,29 @@ img.is-loading {
 #case .featured-missions .mission-showcase .stats-grid .stat-card.span-full {
   grid-column: span 1;
 }
-#case .featured-missions .mission-showcase .stats-grid .stat-card:hover .num, #case .featured-missions .mission-showcase .stats-grid .stat-card:hover .label {
+#case .featured-missions .mission-showcase .stats-grid .stat-card:hover .num {
   color: #fff;
+}
+#case .featured-missions .mission-showcase .stats-grid .stat-card:hover .label {
+  color: #BABABA;
 }
 #case .featured-missions .mission-showcase .stats-grid .stat-card:hover img {
   filter: brightness(0) invert(1);
 }
 #case .featured-missions .mission-showcase .stats-grid .stat-card img {
-  width: 1.6666666667vw;
-  margin-bottom: 0.625vw;
+  width: 2.8645833333vw;
   transition: filter 0.4s ease;
 }
 @media (max-width: 1023px) {
   #case .featured-missions .mission-showcase .stats-grid .stat-card img {
     width: 7.4666666667vw;
-    margin-bottom: 2.1333333333vw;
   }
 }
 #case .featured-missions .mission-showcase .stats-grid .stat-card .num {
   font-size: 2.9166666667vw;
   font-weight: 700;
   color: #1a4bc5;
-  margin-bottom: 0.2083333333vw;
   transition: color 0.4s ease;
-}
-@media (max-width: 1023px) {
-  #case .featured-missions .mission-showcase .stats-grid .stat-card .num {
-    font-size: 6.4vw;
-  }
 }
 #case .featured-missions .mission-showcase .stats-grid .stat-card .label {
   font-size: 0.9375vw;
@@ -3721,10 +3721,10 @@ img.is-loading {
   }
 }
 #case .featured-missions .mission-showcase .main-image {
-  width: 40%;
+  width: 35%;
   border-radius: 1.25vw;
   overflow: hidden;
-  border-bottom: 0.4166666667vw solid #ea0044;
+  border-bottom: 1.0416666667vw solid #ea0044;
 }
 @media (max-width: 1023px) {
   #case .featured-missions .mission-showcase .main-image {
@@ -3741,11 +3741,10 @@ img.is-loading {
   display: block;
 }
 #case .featured-missions .mission-showcase .mission-details {
-  width: 30%;
+  width: 35%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 1.0416666667vw;
 }
 @media (max-width: 1023px) {
   #case .featured-missions .mission-showcase .mission-details {
@@ -3769,6 +3768,7 @@ img.is-loading {
 #case .featured-missions .mission-showcase .mission-details .tag span {
   display: block;
   font-size: 1.0416666667vw;
+  line-height: 1.5;
   color: #666;
   font-weight: 600;
   text-transform: uppercase;
@@ -3791,7 +3791,7 @@ img.is-loading {
   }
 }
 #case .featured-missions .mission-showcase .mission-details p {
-  font-size: 0.8333333333vw;
+  font-size: 0.9375vw;
   color: #555;
   line-height: 1.8;
   margin: 0 0 3.6458333333vw 0;
@@ -3981,7 +3981,6 @@ img.is-loading {
 }
 #about-page .motion-redefined .card-box .card-content h2 {
   font-size: 3.75vw;
-  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   color: #fff;
   line-height: 1.2;
@@ -3996,6 +3995,7 @@ img.is-loading {
 }
 #about-page .motion-redefined .card-box .card-content p {
   font-size: 1.0416666667vw;
+  font-weight: 400;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.8);
   margin: 0;
@@ -4180,13 +4180,13 @@ img.is-loading {
   }
 }
 #about-page .looking-ahead .card-box {
-  background-color: #0b1156;
+  background-color: #14078C;
   border-radius: 2.0833333333vw;
   display: flex;
   flex-wrap: wrap;
   overflow: hidden;
   color: #fff;
-  padding: 3.125vw 0 3.125vw 4.1666666667vw;
+  padding: 3.125vw 0 3.125vw 0;
   position: relative;
 }
 @media (max-width: 1023px) {
@@ -4235,7 +4235,7 @@ img.is-loading {
 }
 #about-page .looking-ahead .card-box .card-image {
   width: 70%;
-  border-radius: 1.25vw;
+  border-bottom-left-radius: 6.5104166667vw;
   overflow: hidden;
 }
 @media (max-width: 1023px) {
