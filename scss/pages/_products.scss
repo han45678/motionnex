@@ -323,20 +323,17 @@
       background-color: #f4f6f9; // 跟 solutions.html 的 .system-card 一致
       border-radius: size(24);
       padding: size(40);
-      min-height: size(330);
       text-decoration: none;
       display: flex;
-      flex-direction: column;
       transition: background-color 0.4s ease, transform 0.3s ease;
       overflow: hidden;
 
       @include mixins.mq(mobile) {
-        padding: size-m(24);
+        padding: size-m(32);
         border-radius: size-m(16);
-        min-height: auto;
       }
 
-      // 滑過效果：套用跟 .highlight 一樣的深藍卡片樣式
+      // 滑過效果：完整移植 solutions.html「Recommended Systems」.system-card 的滑過效果
       &:hover:not(.highlight) {
         background-color: #1a4bc5;
 
@@ -355,22 +352,41 @@
           }
         }
 
-        .card-body .pic img {
-          // 比照 solutions.html「Recommended Systems」卡片的滑過效果，在原本 1.6 倍的基礎上再放大並往右下推出
-          transform: scale(2.4) translate(15%, 15%);
+        .card-body .pic {
+          .bg-shape {
+            position: absolute;
+            bottom: -25%;
+            right: -25%;
+            width: 250%;
+            height: 250%;
+            background-color: #1a4bc5;
+            z-index: -1;
+            border-radius: 0;
+            transition: 0.6s;
+          }
+
+          img {
+            transform: scale(1.25) translate(15%, 15%);
+          }
         }
       }
 
+      // 分類標籤 + 箭頭：改用絕對定位疊在卡片最上方，下方 .card-body 才能保留
+      // solutions.html .system-card 原本左右對半的版型
       .card-head {
-        position: relative;
-        z-index: 3; // 蓋在 .pic 的絕對定位圖層之上，避免被圖片/裝飾圓形擋住
+        position: absolute;
+        top: size(40);
+        left: size(40);
+        right: size(40);
+        z-index: 3; // 蓋在 .pic 的裝飾圓形之上，避免被擋住
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: size(24);
 
         @include mixins.mq(mobile) {
-          margin-bottom: size-m(16);
+          top: size-m(32);
+          left: size-m(32);
+          right: size-m(32);
         }
 
         .category {
@@ -409,94 +425,85 @@
         }
       }
 
+      // 主體版型：直接移植 solutions.html .system-card 左文字、右圖 + 裝飾圓的對半版型
       .card-body {
         position: relative;
-        flex: 1;
+        width: 100%;
         display: flex;
-        align-items: center;
         justify-content: space-between;
         gap: size(20);
+        padding-top: size(56); // 讓出 .card-head 的高度，避免疊到標題
 
         @include mixins.mq(mobile) {
           flex-direction: column;
-          align-items: flex-start;
+          padding-top: size-m(44);
         }
 
         .info {
           position: relative;
           z-index: 2;
-          width: 55%;
-          @include mixins.mq(mobile) { width: 100%; }
+          width: 50%;
+
+          @include mixins.mq(mobile) {
+            width: 100%;
+            margin-bottom: size-m(24);
+          }
 
           h3 {
-            font-size: size(32);
-            font-weight: 700;
+            font-size: size(42);
+            font-weight: 600;
             color: #0d1b2a;
             transition: color 0.4s ease;
-            margin: 0 0 size(12) 0;
+            margin: 0 0 size(8) 0;
 
             @include mixins.mq(mobile) {
-              font-size: size-m(24);
-              margin-bottom: size-m(8);
+              font-size: size-m(22);
             }
           }
 
           p {
-            font-size: size(14);
-            color: #555;
+            font-size: size(24);
+            font-weight: 600;
+            color: #333;
             transition: color 0.4s ease;
-            line-height: 1.5;
+            line-height: 1.4;
             margin: 0;
 
             @include mixins.mq(mobile) {
-              font-size: size-m(13);
+              font-size: size-m(15);
             }
           }
         }
 
         .pic {
-          // 圖片放大並貼齊卡片右下角溢出，靠 .product-card 的 overflow: hidden 裁切
-          position: absolute;
-          right: size(-24);
-          bottom: size(-24);
-          width: size(240);
+          width: 50%;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           z-index: 1;
 
           @include mixins.mq(mobile) {
-            position: static;
-            width: size-m(150);
-            margin: size-m(16) 0 0 auto;
+            width: 100%;
+            height: size-m(200);
           }
 
           .bg-shape {
-            // 原本 320 的圓比 .pic 自己(240 寬)還大，滑過前就整片藍圓蓋出來，比例明顯不對；
-            // 縮小並貼著圖片邊緣，只在右下角露出一小截當裝飾
             position: absolute;
-            bottom: size(-45);
-            right: size(-35);
-            width: size(150);
-            height: size(150);
+            bottom: -95%;
+            right: -50%;
+            width: 160%;
+            height: 120%;
             background-color: #1a4bc5;
+            z-index: -1;
             border-radius: 100%;
-            z-index: 0;
-
-            @include mixins.mq(mobile) {
-              bottom: size-m(-28);
-              right: size-m(-22);
-              width: size-m(95);
-              height: size-m(95);
-            }
           }
 
           img {
-            width: 100%;
-            height: auto;
-            display: block;
-            position: relative;
-            // 滑過前的圖片尺寸比照 solutions.html 的 .system-card(該卡片圖片容器固定放大 1.25 倍)
-            transform: scale(1.6);
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
             transition: transform 0.4s ease;
-            z-index: 1;
           }
         }
       }
@@ -504,7 +511,7 @@
       // 高亮版本
       &.highlight {
         background-color: #1a4bc5;
-        
+
         .card-head .category { color: #fff; }
         .card-head .link-icon { background-color: #fff; color: #ea0044; }
         .card-body .info h3, .card-body .info p { color: #fff; }
