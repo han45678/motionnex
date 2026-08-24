@@ -2813,7 +2813,7 @@ img.is-loading {
   align-items: center;
   gap: 0.625vw;
   margin-bottom: 1.25vw;
-  font-size: 0.7291666667vw;
+  font-size: 1.25vw;
   color: #ea0044;
   font-weight: 600;
 }
@@ -2833,7 +2833,7 @@ img.is-loading {
   }
 }
 #product-detail .detail-hero .hero-left__content h1 {
-  font-size: 4.1666666667vw;
+  font-size: 3.75vw;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   color: #fff;
@@ -2846,7 +2846,7 @@ img.is-loading {
   }
 }
 #product-detail .detail-hero .hero-left__content p {
-  font-size: 1.0416666667vw;
+  font-size: 1.1458333333vw;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.4;
   margin: 0;
@@ -2858,17 +2858,11 @@ img.is-loading {
 }
 #product-detail .detail-hero .hero-left .deco-lines {
   position: absolute;
-  bottom: 2.0833333333vw;
-  left: -2.0833333333vw;
-  width: 13.0208333333vw;
+  bottom: 0;
+  left: 0;
+  width: 70%;
   opacity: 0.1;
   z-index: 1;
-}
-@media (max-width: 1023px) {
-  #product-detail .detail-hero .hero-left .deco-lines {
-    bottom: 5.3333333333vw;
-    width: 40vw;
-  }
 }
 #product-detail .detail-hero .hero-right {
   width: 65%;
@@ -2925,6 +2919,7 @@ img.is-loading {
     top: 0;
     transform: none;
     flex-direction: row;
+    width: 100%;
     gap: 3.2vw;
   }
 }
@@ -2934,7 +2929,9 @@ img.is-loading {
 }
 @media (max-width: 1023px) {
   #product-detail .detail-hero .hero-right .thumbs-swiper {
-    width: 115.7333333333vw;
+    width: auto;
+    flex: 1;
+    min-width: 0;
     height: 25.6vw;
   }
 }
@@ -3068,6 +3065,9 @@ img.is-loading {
     gap: 2.1333333333vw;
     padding: 4.2666666667vw 0;
     border-bottom-width: 0.2666666667vw;
+  }
+  #product-detail .detail-specs .specs-table .tr .col-model {
+    display: none;
   }
 }
 #product-detail .detail-specs .specs-table .tr.thead {
@@ -3716,6 +3716,11 @@ img.is-loading {
   font-weight: 700;
   color: #1a4bc5;
   transition: color 0.4s ease;
+}
+@media (max-width: 1023px) {
+  #case .featured-missions .mission-showcase .stats-grid .stat-card .num {
+    font-size: 6.4vw;
+  }
 }
 #case .featured-missions .mission-showcase .stats-grid .stat-card .label {
   font-size: 0.9375vw;
@@ -5156,7 +5161,6 @@ img.is-loading {
 }
 @media (max-width: 1023px) {
   #contact-page .contact-section .contact-banner {
-    flex-direction: column;
     padding: 10.6666666667vw 8.5333333333vw;
     margin-bottom: 6.4vw;
     border-radius: 4.2666666667vw;
@@ -5171,6 +5175,9 @@ img.is-loading {
 }
 @media (max-width: 1023px) {
   #contact-page .contact-section .contact-banner .banner-text {
+    flex-direction: column;
+    align-items: center;
+    gap: 4.2666666667vw;
     width: 100%;
     text-align: center;
     margin-bottom: 6.4vw;
@@ -5574,6 +5581,7 @@ img.is-loading {
   .hero .hero-content h1 {
     font-size: 10.6666666667vw;
     margin-bottom: 6.4vw;
+    white-space: normal;
     word-wrap: break-word;
   }
 }

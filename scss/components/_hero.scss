@@ -73,7 +73,10 @@
       @include mixins.mq(mobile) {
         font-size: size-m(40);
         margin-bottom: size-m(24);
-        word-wrap:break-word;
+        white-space: normal; // 桌機刻意不換行,但手機沒有重設,標題(如 about.html
+        // 的「REDEFINING AUTONOMOUS」)會被 nowrap 硬撐成一行,超出 .hero 的
+        // overflow:hidden 而被裁掉一截;手機改回可換行，交給 <br> 或自動換行
+        word-wrap: break-word;
       }
     }
 

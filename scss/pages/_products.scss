@@ -642,7 +642,7 @@
         align-items: center;
         gap: size(12);
         margin-bottom: size(24);
-        font-size: size(14);
+        font-size: size(24);
         color: #ea0044;
         font-weight: 600;
 
@@ -659,7 +659,7 @@
       }
 
       h1 {
-        font-size: size(80);
+        font-size: size(72);
         font-family: 'Montserrat', sans-serif;
         font-weight: 600;
         color: #fff;
@@ -672,7 +672,7 @@
       }
 
       p {
-        font-size: size(20);
+        font-size: size(22);
         color: rgba(255,255,255,0.7);
         line-height: 1.4;
         margin: 0;
@@ -685,16 +685,11 @@
 
     .deco-lines {
       position: absolute;
-      bottom: size(40);
-      left: size(-40);
-      width: size(250);
+      bottom: 0;
+      left: 0;
+      width: 70%;
       opacity: 0.1;
       z-index: 1;
-
-      @include mixins.mq(mobile) {
-        bottom: size-m(20);
-        width: size-m(150);
-      }
     }
   }
 
@@ -752,6 +747,7 @@
         top: 0;
         transform: none;
         flex-direction: row;
+        width: 100%;
         gap: size-m(12);
       }
     }
@@ -761,7 +757,12 @@
       height: size(520);
 
       @include mixins.mq(mobile) {
-        width: size-m(434);
+        // 手機版縮圖列改吃 .thumbnails 剩餘寬度（跟旁邊的下一張按鈕共用同一列），
+        // 原本的 size-m(434) 換算出來比手機螢幕本身還寬，會被全站 overflow-x:hidden 左右裁掉、
+        // 導致縮圖被切、旁邊的導覽按鈕直接被推出畫面外
+        width: auto;
+        flex: 1;
+        min-width: 0;
         height: size-m(96);
       }
 
@@ -900,6 +901,11 @@
           gap: size-m(8);
           padding: size-m(16) 0;
           border-bottom-width: size-m(1);
+
+          // .col-model 只有表頭（型號名稱）有內容，資料列一律是空 div；
+          // 手機版表頭本身已經 display:none，但空 .col-model 仍會佔一個 grid row + gap，
+          // 每一列都多墊一段看不到內容的空白，14 列累加起來手機會多拖出約 100px+ 空白
+          .col-model { display: none; }
         }
 
         &.thead {

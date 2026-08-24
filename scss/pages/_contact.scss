@@ -72,7 +72,6 @@
       width: 100%;
 
       @include mixins.mq(mobile) {
-        flex-direction: column;
         padding: size-m(40) size-m(32);
         margin-bottom: size-m(24);
         border-radius: size-m(16);
@@ -85,7 +84,14 @@
         justify-content: space-between;
             align-items: flex-end;
 
+        // .contact-banner 本身不是 flex container(只有這一個子層),
+        // 原本的 flex-direction: column 寫錯放在它身上沒有作用；
+        // 手機版真正要疊起來的是這裡的 h1 / p / .banner-img 三個 flex 子項,
+        // 少了這行手機版會維持桌機的橫向 space-between 排列,擠成一團
         @include mixins.mq(mobile) {
+          flex-direction: column;
+          align-items: center;
+          gap: size-m(16);
           width: 100%;
           text-align: center;
           margin-bottom: size-m(24);

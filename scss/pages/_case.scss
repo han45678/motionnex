@@ -416,9 +416,11 @@
             // margin-bottom: size(4);
             transition: color 0.4s ease;
 
-            // @include mixins.mq(mobile) {
-            //   font-size: size-m(24);
-            // }
+            // 原本被註解掉,手機版會直接吃桌機的 size(56) 等比縮到 ~11px,
+            // 跟底下 .label(size-m(11))幾乎一樣大,大數字失去視覺重量,補回來
+            @include mixins.mq(mobile) {
+              font-size: size-m(24);
+            }
           }
 
           .label {
