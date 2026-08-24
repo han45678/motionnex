@@ -319,207 +319,6 @@
         }
       }
     }
-
-    .product-card {
-      position: relative;
-      background-color: #f4f6f9; // 跟 solutions.html 的 .system-card 一致
-      border-radius: size(24);
-      padding: size(10) size(40);
-      text-decoration: none;
-      display: flex;
-      transition: background-color 0.4s ease, transform 0.3s ease;
-      overflow: hidden;
-
-      @include mixins.mq(mobile) {
-        padding: size-m(32);
-        border-radius: size-m(16);
-      }
-
-      // 滑過效果：完整移植 solutions.html「Recommended Systems」.system-card 的滑過效果
-      &:hover:not(.highlight) {
-        background-color: #1a4bc5;
-
-        .card-head .category,
-        .card-body .info h3,
-        .card-body .info p {
-          color: #fff;
-        }
-
-        .card-head .link-icon {
-          background-color: #fff;
-          color: #ea0044;
-
-          .arrow {
-            transform: rotate(45deg); // ↗ 轉正 45deg 變成 →,只轉箭頭本身、外框不轉
-          }
-        }
-
-        .card-body .pic {
-          .bg-shape {
-            position: absolute;
-            bottom: -25%;
-            right: -25%;
-            width: 250%;
-            height: 250%;
-            background-color: #1a4bc5;
-            z-index: -1;
-            border-radius: 0;
-            transition: 0.6s;
-          }
-
-          img {
-            transform: scale(1.25) translate(15%, 15%);
-          }
-        }
-      }
-
-      // 分類標籤 + 箭頭：改用絕對定位疊在卡片最上方，下方 .card-body 才能保留
-      // solutions.html .system-card 原本左右對半的版型
-      .card-head {
-        position: absolute;
-        top: size(20);
-        left: size(40);
-        right: size(40);
-        z-index: 3; // 蓋在 .pic 的裝飾圓形之上，避免被擋住
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        @include mixins.mq(mobile) {
-          top: size-m(32);
-          left: size-m(32);
-          right: size-m(32);
-        }
-
-        .category {
-          font-size: size(24);
-          font-weight: 600;
-          color: #333;
-          transition: color 0.4s ease;
-
-          @include mixins.mq(mobile) {
-            font-size: size-m(13);
-          }
-        }
-
-        .link-icon {
-          width: size(60);
-          height: size(60);
-          background-color: #ea0044;
-          color: #fff;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: size(6);
-          font-size: size(40);
-
-          .arrow {
-            display: flex;
-            transition: transform 0.4s ease;
-          }
-
-          @include mixins.mq(mobile) {
-            width: size-m(28);
-            height: size-m(28);
-            border-radius: size-m(4);
-            font-size: size-m(14);
-          }
-        }
-      }
-
-      // 主體版型：直接移植 solutions.html .system-card 左文字、右圖 + 裝飾圓的對半版型
-      .card-body {
-        position: relative;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        gap: size(20);
-        // padding-top: size(15); // 讓出 .card-head 的高度，避免疊到標題
-
-        @include mixins.mq(mobile) {
-          flex-direction: column;
-          padding-top: size-m(44);
-        }
-
-        .info {
-          position: relative;
-          z-index: 2;
-          width: 50%;
-
-          @include mixins.mq(mobile) {
-            width: 100%;
-            margin-bottom: size-m(24);
-          }
-
-          h3 {
-            font-size: size(42);
-            font-weight: 600;
-            color: #0d1b2a;
-            transition: color 0.4s ease;
-            margin: size(175) 0 size(8) 0;
-
-            @include mixins.mq(mobile) {
-              font-size: size-m(22);
-            }
-          }
-
-          p {
-            font-size: size(20);
-            font-weight: 600;
-            color: #333;
-            transition: color 0.4s ease;
-            line-height: 1.4;
-            margin: 0;
-
-            @include mixins.mq(mobile) {
-              font-size: size-m(15);
-            }
-          }
-        }
-
-        .pic {
-          width: 50%;
-          position: relative;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          z-index: 1;
-
-          @include mixins.mq(mobile) {
-            width: 100%;
-            height: size-m(200);
-          }
-
-          .bg-shape {
-            position: absolute;
-            bottom: -95%;
-            right: -50%;
-            width: 160%;
-            height: 120%;
-            background-color: #1a4bc5;
-            z-index: -1;
-            border-radius: 100%;
-          }
-
-          img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            transition: transform 0.4s ease;
-          }
-        }
-      }
-
-      // 高亮版本
-      &.highlight {
-        background-color: #1a4bc5;
-
-        .card-head .category { color: #fff; }
-        .card-head .link-icon { background-color: #fff; color: #ea0044; }
-        .card-body .info h3, .card-body .info p { color: #fff; }
-        .card-body .pic .bg-shape { background-color: color.adjust(#1a4bc5, $lightness: 12%); }
-      }
-    }
   }
 
   .products-cta {
@@ -589,6 +388,211 @@
         }
       }
     }
+  }
+}
+
+/* =========================================
+   .product-card (共用元件：products.html 產品列表 + 
+   product-detail 相關產品輪播，兩處共用同一份卡片樣式)
+========================================= */
+.product-card {
+  position: relative;
+  background-color: #f4f6f9; // 跟 solutions.html 的 .system-card 一致
+  border-radius: size(24);
+  padding: size(10) size(40);
+  text-decoration: none;
+  display: flex;
+  transition: background-color 0.4s ease, transform 0.3s ease;
+  overflow: hidden;
+
+  @include mixins.mq(mobile) {
+    padding: size-m(32);
+    border-radius: size-m(16);
+  }
+
+  // 滑過效果：完整移植 solutions.html「Recommended Systems」.system-card 的滑過效果
+  &:hover:not(.highlight) {
+    background-color: #1a4bc5;
+
+    .card-head .category,
+    .card-body .info h3,
+    .card-body .info p {
+      color: #fff;
+    }
+
+    .card-head .link-icon {
+      background-color: #fff;
+      color: #ea0044;
+
+      .arrow {
+        transform: rotate(45deg); // ↗ 轉正 45deg 變成 →,只轉箭頭本身、外框不轉
+      }
+    }
+
+    .card-body .pic {
+      .bg-shape {
+        position: absolute;
+        bottom: -25%;
+        right: -25%;
+        width: 250%;
+        height: 250%;
+        background-color: #1a4bc5;
+        z-index: -1;
+        border-radius: 0;
+        transition: 0.6s;
+      }
+
+      img {
+        transform: scale(1.25) translate(15%, 15%);
+      }
+    }
+  }
+
+  // 分類標籤 + 箭頭：改用絕對定位疊在卡片最上方，下方 .card-body 才能保留
+  // solutions.html .system-card 原本左右對半的版型
+  .card-head {
+    position: absolute;
+    top: size(20);
+    left: size(40);
+    right: size(40);
+    z-index: 3; // 蓋在 .pic 的裝飾圓形之上，避免被擋住
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include mixins.mq(mobile) {
+      top: size-m(32);
+      left: size-m(32);
+      right: size-m(32);
+    }
+
+    .category {
+      font-size: size(24);
+      font-weight: 600;
+      color: #333;
+      transition: color 0.4s ease;
+
+      @include mixins.mq(mobile) {
+        font-size: size-m(13);
+      }
+    }
+
+    .link-icon {
+      width: size(60);
+      height: size(60);
+      background-color: #ea0044;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: size(6);
+      font-size: size(40);
+
+      .arrow {
+        display: flex;
+        transition: transform 0.4s ease;
+      }
+
+      @include mixins.mq(mobile) {
+        width: size-m(28);
+        height: size-m(28);
+        border-radius: size-m(4);
+        font-size: size-m(14);
+      }
+    }
+  }
+
+  // 主體版型：直接移植 solutions.html .system-card 左文字、右圖 + 裝飾圓的對半版型
+  .card-body {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: size(20);
+    // padding-top: size(15); // 讓出 .card-head 的高度，避免疊到標題
+
+    @include mixins.mq(mobile) {
+      flex-direction: column;
+      padding-top: size-m(44);
+    }
+
+    .info {
+      position: relative;
+      z-index: 2;
+      width: 50%;
+
+      @include mixins.mq(mobile) {
+        width: 100%;
+        margin-bottom: size-m(24);
+      }
+
+      h3 {
+        font-size: size(42);
+        font-weight: 600;
+        color: #0d1b2a;
+        transition: color 0.4s ease;
+        margin: size(175) 0 size(8) 0;
+
+        @include mixins.mq(mobile) {
+          font-size: size-m(22);
+        }
+      }
+
+      p {
+        font-size: size(20);
+        font-weight: 600;
+        color: #333;
+        transition: color 0.4s ease;
+        line-height: 1.4;
+        margin: 0;
+
+        @include mixins.mq(mobile) {
+          font-size: size-m(15);
+        }
+      }
+    }
+
+    .pic {
+      width: 50%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+
+      @include mixins.mq(mobile) {
+        width: 100%;
+        height: size-m(200);
+      }
+
+      .bg-shape {
+        position: absolute;
+        bottom: -95%;
+        right: -50%;
+        width: 160%;
+        height: 120%;
+        background-color: #1a4bc5;
+        z-index: -1;
+        border-radius: 100%;
+      }
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        transition: transform 0.4s ease;
+      }
+    }
+  }
+
+  // 高亮版本
+  &.highlight {
+    background-color: #1a4bc5;
+
+    .card-head .category { color: #fff; }
+    .card-head .link-icon { background-color: #fff; color: #ea0044; }
+    .card-body .info h3, .card-body .info p { color: #fff; }
+    .card-body .pic .bg-shape { background-color: color.adjust(#1a4bc5, $lightness: 12%); }
   }
 }
 
@@ -1010,84 +1014,101 @@
       padding-bottom: size-m(80);
     }
 
+    // container 作為左右箭頭的定位基準（箭頭放在 swiper 外，避免被裁切），
+    // 跟 products.html 的 .products-categories 同一套做法
+    .container {
+      position: relative;
+    }
+
     .related-swiper {
       padding: size(40) 0;
       position: relative;
+      text-align: left; // 卡片內容沿用 .product-card 版型，蓋掉外層 .detail-related 的 text-align: center
 
       @include mixins.mq(mobile) {
         padding: size-m(20) 0;
       }
+
+      // 沿用 products.html 產品列表的 .product-card 樣式，
+      // 只是改成輪播、寬度自訂（跟 .category-swiper 一樣用 slidesPerView: 'auto' + 固定寬度，
+      // 而不是等分容器寬度），讓下一張卡片可以露出一小截
+      .product-card {
+        width: size(600);
+        flex-shrink: 0;
+
+        @include mixins.mq(mobile) {
+          width: size-m(300);
+        }
+      }
     }
 
-    .related-card {
-      background-color: #f4f6f9;
-      border-radius: size(24);
-      padding: size(30);
-      position: relative;
-      overflow: hidden;
-      text-align: left;
-      height: size(280);
+    // 左右導航箭頭：圓形外框 + 線條箭頭，放在 swiper 外側，
+    // 樣式沿用 products.html 產品分類輪播區塊（.products-categories .swiper-button-prev/next）
+    .swiper-button-prev,
+    .swiper-button-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      margin-top: 0;
+      width: size(60);
+      height: size(60);
+      border-radius: 50%;
+      border: size(1.5) solid #1a4bc5;
+      background-color: transparent;
+      color: #1a4bc5;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s, color 0.3s;
+      z-index: 10;
+
+      &::after { content: none; }
+
+      svg {
+        width: size(16);
+        height: auto;
+        path, polyline, line {
+          fill: none;
+          stroke: currentColor;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          stroke-width: 1.81px;
+        }
+      }
+
+      &:hover {
+        background-color: #1a4bc5;
+        color: #fff;
+      }
+
+      &.swiper-button-disabled {
+        opacity: 0.35;
+        cursor: auto;
+      }
 
       @include mixins.mq(mobile) {
-        border-radius: size-m(16);
-        padding: size-m(20);
-        height: size-m(220);
+        width: size-m(36);
+        height: size-m(36);
+        border-width: 1px;
+
+        svg { width: size-m(11); }
       }
+    }
 
-      .category {
-        font-size: size(14);
-        font-weight: 600;
-        color: #333;
-        z-index: 2;
-        position: relative;
+    .swiper-button-prev {
+      left: size(-56);
+      svg { transform: rotate(180deg); }
 
-        @include mixins.mq(mobile) {
-          font-size: size-m(13);
-        }
+      @include mixins.mq(mobile) {
+        left: 0;
       }
+    }
 
-      .robot-pic {
-        position: absolute;
-        bottom: size(20);
-        right: size(20);
-        width: 65%;
-        z-index: 2;
+    .swiper-button-next {
+      right: size(-56);
 
-        @include mixins.mq(mobile) {
-          bottom: size-m(10);
-          right: size-m(10);
-        }
-      }
-
-      h3 {
-        font-size: size(32);
-        font-weight: 700;
-        color: #0d1b2a;
-        margin: 0;
-        z-index: 2;
-        position: relative;
-
-        @include mixins.mq(mobile) {
-          font-size: size-m(24);
-        }
-      }
-
-      .bg-shape {
-        position: absolute;
-        bottom: 0;
+      @include mixins.mq(mobile) {
         right: 0;
-        width: 80%;
-        height: 40%;
-        background-color: #1a4bc5;
-        border-radius: size(60) 0 0 0;
-        z-index: 1;
-
-        @include mixins.mq(mobile) {
-          border-radius: size-m(40) 0 0 0;
-        }
       }
     }
 

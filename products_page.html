@@ -284,33 +284,79 @@
                 </div>
         </section>
 
-        <!-- 相關產品推薦 -->
+        <!-- 相關產品推薦：卡片樣式沿用 products.html 的 .product-card（產品列表區塊），
+             改成輪播呈現，卡片寬度自訂（見 _products.scss .detail-related .related-swiper .product-card） -->
         <section class="detail-related">
             <div class="container">
                 <div class="swiper related-swiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide related-card">
-                            <div class="category">Firefighting<br>Robots</div>
-                            <img class="robot-pic" src="./assets/images/home/solutions-robot01.jpg" alt="FRT-309">
-                            <h3>FRT-309</h3>
-                            <div class="bg-shape"></div>
-                        </div>
-                        <div class="swiper-slide related-card">
-                            <div class="category">Firefighting<br>Robots</div>
-                            <img class="robot-pic" src="./assets/images/home/solutions-robot01.jpg" alt="PCT-5">
-                            <h3>PCT-5</h3>
-                            <div class="bg-shape"></div>
-                        </div>
-                        <div class="swiper-slide related-card">
-                            <div class="category">Firefighting<br>Robots</div>
-                            <img class="robot-pic" src="./assets/images/home/solutions-robot01.jpg" alt="FRT-509">
-                            <h3>FRT-509</h3>
-                            <div class="bg-shape"></div>
-                        </div>
+                        <a href="products_page.html" class="swiper-slide product-card" data-category="firefighting">
+                            <div class="card-head">
+                                <span class="category">Firefighting Robots</span>
+                                <span class="link-icon"><span class="arrow">↗</span></span>
+                            </div>
+                            <div class="card-body">
+                                <div class="info">
+                                    <h3>FRT-309</h3>
+                                    <p>Compact Firefighting<br>Robot</p>
+                                </div>
+                                <div class="pic">
+                                    <div class="bg-shape"></div>
+                                    <img src="./assets/images/products/m2.png" alt="FRT-309">
+                                </div>
+                            </div>
+                        </a>
+                        <a href="products_page.html" class="swiper-slide product-card" data-category="firefighting">
+                            <div class="card-head">
+                                <span class="category">Firefighting Robots</span>
+                                <span class="link-icon"><span class="arrow">↗</span></span>
+                            </div>
+                            <div class="card-body">
+                                <div class="info">
+                                    <h3>PCT-5</h3>
+                                    <p>Medium Tracked Robotic<br>Platform</p>
+                                </div>
+                                <div class="pic">
+                                    <div class="bg-shape"></div>
+                                    <img src="./assets/images/products/m3.png" alt="PCT-5">
+                                </div>
+                            </div>
+                        </a>
+                        <a href="products_page.html" class="swiper-slide product-card" data-category="firefighting">
+                            <div class="card-head">
+                                <span class="category">Firefighting Robots</span>
+                                <span class="link-icon"><span class="arrow">↗</span></span>
+                            </div>
+                            <div class="card-body">
+                                <div class="info">
+                                    <h3>FRT-509</h3>
+                                    <p>Medium Intelligent Fire-<br>fighting Robot</p>
+                                </div>
+                                <div class="pic">
+                                    <div class="bg-shape"></div>
+                                    <img src="./assets/images/products/m1.png" alt="FRT-509">
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
                 </div>
+                <!-- 左右控制箭頭（放在 swiper 外，避免被裁切；樣式沿用 products.html 產品分類輪播區塊） -->
+                <div class="swiper-button-prev"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.08 15.32">
+                        <g>
+                            <g>
+                                <line x1="0.91" y1="7.66" x2="27.17" y2="7.66" />
+                                <polyline points="20.42 0.91 27.17 7.66 20.42 14.41" />
+                            </g>
+                        </g>
+                    </svg></div>
+                <div class="swiper-button-next"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.08 15.32">
+                        <g>
+                            <g>
+                                <line x1="0.91" y1="7.66" x2="27.17" y2="7.66" />
+                                <polyline points="20.42 0.91 27.17 7.66 20.42 14.41" />
+                            </g>
+                        </g>
+                    </svg></div>
 
                 <div class="action-wrap">
                     <a href="products.html" class="btn btn--red">Back →</a>
@@ -410,22 +456,20 @@
     <script src="./js/main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // 初始化相關產品推薦的 Swiper
+            // 初始化相關產品推薦的 Swiper：卡片沿用 .product-card 樣式、寬度自訂，
+            // 所以跟 products.html 的 .category-swiper 一樣用 slidesPerView: 'auto'
+            // （每張卡片實際寬度交給 CSS 的 .related-swiper .product-card 決定），
+            // 不用 breakpoints 切換張數
             new Swiper('.related-swiper', {
                 loop: false,
-                slidesPerView: 1.2,
+                slidesPerView: 'auto',
                 spaceBetween: 20,
                 navigation: {
-                    nextEl: '.related-swiper .swiper-button-next',
-                    prevEl: '.related-swiper .swiper-button-prev',
+                    nextEl: '.detail-related .swiper-button-next',
+                    prevEl: '.detail-related .swiper-button-prev',
                 },
                 breakpoints: {
-                    481: {
-                        slidesPerView: 2,
-                        spaceBetween: 20
-                    },
                     1025: {
-                        slidesPerView: 3,
                         spaceBetween: 30
                     }
                 }
