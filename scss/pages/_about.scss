@@ -369,18 +369,18 @@
 
   /* --- 5. Bottom Slogan Section --- */
   .bottom-slogan {
-    padding: size(80) 0 size(120) 0;
+    padding: 0 0 size(120) 0;
     text-align: center;
     background-color: #fff;
 
     @include mixins.mq(mobile) {
-      padding: size-m(40) 0 size-m(80) 0;
+      padding: 0 0 size-m(80) 0;
     }
 
     h2 {
       font-size: size(52);
       font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
+      font-weight: 700;
       color: #1a4bc5;
       line-height: 1.4;
       margin: 0;

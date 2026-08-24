@@ -609,13 +609,12 @@
     .hero-left {
       width: 35%;
       background-color: #070b28;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      padding: size(100) size(60) size(100) size(20);
+      // display: flex;
+      // align-items: center;
+      // justify-content: flex-end;
+      // padding: size(150) size(60) size(50) size(100);
       position: relative;
       overflow: hidden;
-
       @include mixins.mq(desktop) {
         // 電腦版跟 .hero-right 一樣靠上對齊,不要垂直置中;
         // 上邊距也對齊 .hero-right 的 size(60),兩邊內容才會真正切齊同一條線
@@ -708,10 +707,10 @@
       align-items: center;
       justify-content: center;
       padding: size(60);
-
+      background-color: #DADEE7;
       @include mixins.mq(desktop) {
         // 電腦版跟 .hero-left 一樣靠上對齊,不要垂直置中
-        align-items: flex-start;
+        // align-items: flex-start;
       }
 
       @include mixins.mq(mobile) {
@@ -816,15 +815,13 @@
 
       .thumb {
         background-color: #fff;
-        border: size(2) solid transparent;
-        border-radius: size(8);
+        border-bottom: size(2) solid transparent;
         padding: size(5);
         cursor: pointer;
         transition: border-color 0.3s;
 
         @include mixins.mq(mobile) {
           border-width: size-m(2);
-          border-radius: size-m(6);
         }
 
         // .swiper-slide-thumb-active 是 Swiper thumbs 模組自動加的目前選中樣式
@@ -863,7 +860,14 @@
       left: 0;
       width: 100%;
       height: size(8);
-      background: linear-gradient(to right, #00d2ff 25%, #1a4bc5 25% 50%, #fbd500 50% 75%, #ea0044 75%);
+      background: linear-gradient(to right, 
+  #EA0044 20%, 
+  #00C08B 20% 40%, 
+  #655CC6 40% 60%, 
+  #0091B2 60% 80%, 
+  #FF681D 80%
+);
+
       z-index: 3;
 
       @include mixins.mq(mobile) {
@@ -891,7 +895,7 @@
       }
 
       h2 {
-        font-size: size(36);
+        font-size: size(72);
         font-family: 'Montserrat', sans-serif;
         color: #2b394a;
         margin: 0;
@@ -903,7 +907,7 @@
       }
 
       .header-icon {
-        width: size(80);
+        width: size(155);
         @include mixins.mq(mobile) { width: size-m(50); }
       }
     }
@@ -917,6 +921,7 @@
 
       .tr {
         display: grid;
+            align-items: center;
         grid-template-columns: 20% 30% 50%;
         border-bottom: size(1) solid #eaeaea;
         padding: size(24) 0;
@@ -933,7 +938,14 @@
           color: #000;
           text-transform: uppercase;
           
-          .col-model { color: #1a4bc5; }
+          .col-model { color: #1a4bc5; 
+          font-size: size(42);
+          }
+
+          .col-value{
+          font-size: size(24);
+          font-weight: 600;
+        }
 
           @include mixins.mq(mobile) {
             display: none; // 手機版隱藏表頭，或依需求調整
@@ -951,6 +963,7 @@
         }
 
         .col-spec {
+          font-size: size(24);
           font-weight: 600;
           color: #2b394a;
           @include mixins.mq(mobile) { color: #1a4bc5; } // 手機版強調屬性名
@@ -979,6 +992,10 @@
               @include mixins.mq(mobile) { left: size-m(-15); }
             }
           }
+        }
+        .col-value{
+          font-size: size(22);
+          font-weight: 400;
         }
       }
     }
