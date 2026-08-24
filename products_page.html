@@ -128,51 +128,47 @@
     <main id="main">
         <!-- 產品 Hero -->
         <section class="detail-hero">
-            <div class="hero-left">
-                <div class="hero-left__content">
-                    <div class="category">
-                        <img src="./assets/images/home/line.svg" alt="">
-                        <span>Firefighting Robots</span>
-                    </div>
-                    <h1>FRT-509</h1>
-                    <p>Medium Intelligent<br>Firefighting Robot</p>
-                    <!-- 裝飾斜線圖案 -->
-                    <img class="deco-lines" src="https://placehold.co/250x150?text=Deco" alt="">
+    <div class="hero-left">
+        <div class="hero-left__content">
+            <div class="category">
+                <img src="./assets/images/home/line.svg" alt="">
+                <span>Firefighting Robots</span>
+            </div>
+            <h1>FRT-509</h1>
+            <p>Medium Intelligent<br>Firefighting Robot</p>
+            <!-- 裝飾斜線圖案 -->
+            <img class="deco-lines" src="./assets/images/about/icon.svg" alt="">
+        </div>
+    </div>
+    <div class="hero-right">
+        <!-- 主圖 -->
+        <div class="main-image hero-main-swiper swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="./assets/images/home/solutions-robot04.jpeg" alt="FRT-509"></div>
+                <div class="swiper-slide"><img src="./assets/images/home/solutions-robot01.jpg" alt="FRT-509"></div>
+                <div class="swiper-slide"><img src="./assets/images/home/solutions-robot02.jpeg" alt="FRT-509"></div>
+                <div class="swiper-slide"><img src="./assets/images/home/solutions-robot03.jpeg" alt="FRT-509"></div>
+                <div class="swiper-slide"><img src="./assets/images/home/solutions-robot04.jpeg" alt="FRT-509"></div>
+            </div>
+        </div>
+        <div class="thumbnails">
+            <!-- 縮圖清單 -->
+            <div class="thumbs-swiper swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide thumb"><img src="./assets/images/home/solutions-robot04.jpeg" alt="FRT-509 thumbnail 4"></div>
+                    <div class="swiper-slide thumb"><img src="./assets/images/home/solutions-robot01.jpg" alt="FRT-509 thumbnail 1"></div>
+                    <div class="swiper-slide thumb"><img src="./assets/images/home/solutions-robot02.jpeg" alt="FRT-509 thumbnail 2"></div>
+                    <div class="swiper-slide thumb"><img src="./assets/images/home/solutions-robot03.jpeg" alt="FRT-509 thumbnail 3"></div>
+                    <div class="swiper-slide thumb"><img src="./assets/images/home/solutions-robot04.jpeg" alt="FRT-509 thumbnail 4"></div>
                 </div>
             </div>
-            <div class="hero-right">
-                <!-- 主圖改用 Swiper,跟縮圖用 thumbs 模組串連(套件原生機制處理點擊切換,不用自己寫 click 事件) -->
-                <div class="main-image hero-main-swiper swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="./assets/images/home/solutions-robot04.jpeg" alt="FRT-509"></div>
-                        <div class="swiper-slide"><img src="./assets/images/home/solutions-robot01.jpg" alt="FRT-509"></div>
-                        <div class="swiper-slide"><img src="./assets/images/home/solutions-robot02.jpeg" alt="FRT-509"></div>
-                        <div class="swiper-slide"><img src="./assets/images/home/solutions-robot03.jpeg" alt="FRT-509"></div>
-                        <div class="swiper-slide"><img src="./assets/images/home/solutions-robot04.jpeg" alt="FRT-509"></div>
-                    </div>
-                </div>
-                <div class="thumbnails">
-                    <!-- 上下箭頭跟 .scroll-down 一樣是獨立在框外的自訂圓形按鈕,不疊在縮圖上面 -->
-                    <button class="thumbs-swiper__nav thumbs-swiper__nav--prev" aria-label="Previous thumbnail">↑</button>
 
-                    <!-- 縮圖清單:一次最多顯示 4 個,超過才會出現箭頭(Swiper 的 watchOverflow 原生行為) -->
-                    <div class="thumbs-swiper swiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide thumb"><img src="./assets/images/home/solutions-robot04.jpeg" alt="FRT-509 thumbnail 4"></div>
-                            <div class="swiper-slide thumb"><img src="./assets/images/home/solutions-robot01.jpg" alt="FRT-509 thumbnail 1"></div>
-                            <div class="swiper-slide thumb"><img src="./assets/images/home/solutions-robot02.jpeg" alt="FRT-509 thumbnail 2"></div>
-                            <div class="swiper-slide thumb"><img src="./assets/images/home/solutions-robot03.jpeg" alt="FRT-509 thumbnail 3"></div>
-                            <div class="swiper-slide thumb"><img src="./assets/images/home/solutions-robot04.jpeg" alt="FRT-509 thumbnail 4"></div>
-                        </div>
-                    </div>
-
-                    <button class="thumbs-swiper__nav thumbs-swiper__nav--next" aria-label="Next thumbnail">↓</button>
-
-                    
-                </div>
-            </div>
-            <div class="color-bar"></div>
-        </section>
+            <!-- 只保留下箭頭，符合設計圖 -->
+            <button class="thumbs-swiper__nav thumbs-swiper__nav--next" aria-label="Next thumbnail">↓</button>
+        </div>
+    </div>
+    <div class="color-bar"></div>
+</section>
 
         <!-- 規格表區塊 -->
         <section class="detail-specs">
@@ -475,12 +471,13 @@
                 }
             });
 
-            // 初始化縮圖 Swiper：一次最多顯示 4 個,超過 4 個才會出現箭頭並可以捲動
+            // 初始化縮圖 Swiper：一次最多顯示 3 個(容器大小不變,縮圖自動變大顆),
+            // 超過 3 個才會出現箭頭並可以捲動
             // (watchOverflow 是 Swiper 預設行為：可捲動的內容不夠時,箭頭會自動加上
             // swiper-button-disabled,對應 _products.scss 裡設 display: none 隱藏)
             var thumbsSwiper = new Swiper('.thumbs-swiper', {
                 direction: 'horizontal',
-                slidesPerView: 4,
+                slidesPerView: 3,
                 spaceBetween: 12,
                 watchOverflow: true,
                 navigation: {

@@ -601,284 +601,249 @@
 ========================================= */
 #product-detail {
   .detail-hero {
+  display: flex;
+  min-height: 80vh;
+  position: relative;
+  background-color: #f7f9fc;
+
+  @include mixins.mq(mobile) {
+    flex-direction: column;
+  }
+
+  .hero-left {
+    width: 35%;
+    background-color: #070b28;
     display: flex;
-    min-height: 80vh;
+    align-items: center;
+    justify-content: center;
+    padding: size(60);
     position: relative;
-    background-color: #f7f9fc;
+    overflow: hidden;
 
     @include mixins.mq(mobile) {
-      flex-direction: column;
+      width: 100%;
+      padding: size-m(60) size-m(24);
+      justify-content: flex-start;
     }
 
-    .hero-left {
-      width: 35%;
-      background-color: #070b28;
-      // display: flex;
-      // align-items: center;
-      // justify-content: flex-end;
-      // padding: size(150) size(60) size(50) size(100);
+    &__content {
+      color: #fff;
+      width: 100%;
+      max-width: size(350);
       position: relative;
-      overflow: hidden;
-      @include mixins.mq(desktop) {
-        // 電腦版跟 .hero-right 一樣靠上對齊,不要垂直置中;
-        // 上邊距也對齊 .hero-right 的 size(60),兩邊內容才會真正切齊同一條線
-        align-items: flex-start;
-        padding-top: size(60);
-      }
+      z-index: 2;
 
       @include mixins.mq(mobile) {
-        width: 100%;
-        padding: size-m(60) size-m(24);
-        justify-content: flex-start;
+        max-width: 100%;
       }
 
-      &__content {
-        color: #fff;
-        width: 100%;
-        max-width: size(350);
-        position: relative;
-        z-index: 2;
+      .category {
+        display: flex;
+        align-items: center;
+        gap: size(12);
+        margin-bottom: size(24);
+        font-size: size(14);
+        color: #ea0044;
+        font-weight: 600;
 
         @include mixins.mq(mobile) {
-          max-width: 100%;
-        }
-
-        .category {
-          display: flex;
-          align-items: center;
-          gap: size(12);
-          margin-bottom: size(24);
-          font-size: size(14);
-          color: #ea0044;
-          font-weight: 600;
-
-          @include mixins.mq(mobile) {
-            font-size: size-m(13);
-            margin-bottom: size-m(16);
-            gap: size-m(8);
-          }
-
-          img {
-            width: size(20);
-            @include mixins.mq(mobile) { width: size-m(16); }
-          }
-        }
-
-        h1 {
-          font-size: size(64);
-          font-family: 'Montserrat', sans-serif;
-          font-weight: 600;
-          color: #fff;
-          margin: 0 0 size(16) 0;
-
-          @include mixins.mq(mobile) {
-            font-size: size-m(48);
-            margin-bottom: size-m(8);
-          }
-        }
-
-        p {
-          font-size: size(20);
-          color: rgba(255,255,255,0.7);
-          line-height: 1.4;
-          margin: 0;
-
-          @include mixins.mq(mobile) {
-            font-size: size-m(16);
-          }
-        }
-      }
-
-      .deco-lines {
-        position: absolute;
-        bottom: size(40);
-        left: size(-40);
-        width: size(250);
-        opacity: 0.1;
-        z-index: 1;
-
-        @include mixins.mq(mobile) {
-          bottom: size-m(20);
-          width: size-m(150);
-        }
-      }
-    }
-
-    .hero-right {
-      width: 65%;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: size(60);
-      background-color: #DADEE7;
-      @include mixins.mq(desktop) {
-        // 電腦版跟 .hero-left 一樣靠上對齊,不要垂直置中
-        // align-items: flex-start;
-      }
-
-      @include mixins.mq(mobile) {
-        width: 100%;
-        padding: size-m(40) size-m(24);
-        flex-direction: column;
-      }
-
-      // 主圖是 Swiper,透過 thumbs 模組跟縮圖串連(見 products_page.html 的 inline script)
-      .main-image {
-        width: 70%;
-        aspect-ratio: 1 / 1; // 固定正方形
-        background-color: #fff; // 非方形圖片留白處用白底補滿
-        cursor: zoom-in;
-
-        @include mixins.mq(mobile) {
-          width: 100%;
-          margin-bottom: size-m(24);
+          font-size: size-m(13);
+          margin-bottom: size-m(16);
+          gap: size-m(8);
         }
 
         img {
-          width: 100%;
-          height: 100%;
-          object-fit: contain; // 不裁切,完整顯示、置中
-          display: block;
-          transition: transform 0.3s ease;
-        }
-
-        &:hover .swiper-slide-active img {
-          // 滑過時放大,transform-origin 由 JS 依滑鼠位置即時更新,做出跟著游標局部放大的效果
-          transform: scale(2);
+          width: size(20);
+          @include mixins.mq(mobile) { width: size-m(16); }
         }
       }
 
-      .thumbnails {
-        position: absolute;
-        right: size(60);
-        top: 50%;
-        transform: translateY(-50%);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: size(20);
+      h1 {
+        font-size: size(80);
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        color: #fff;
+        margin: 0 0 size(16) 0;
 
         @include mixins.mq(mobile) {
-          position: relative;
-          right: 0;
-          top: 0;
-          transform: none;
-          flex-direction: row; // 縮圖橫排,箭頭跟著排在左右兩側
+          font-size: size-m(48);
+          margin-bottom: size-m(8);
         }
       }
 
-      // 縮圖交給 Swiper 處理,一次最多顯示 4 個;數量不超過 4 個時,
-      // Swiper 預設的 watchOverflow 會自動隱藏箭頭,超過才會出現、可以捲動
-      .thumbs-swiper {
-        width: size(100);
-        height: size(340); // 4 個縮圖(70)+ 3 個間距(20)
-
-        @include mixins.mq(mobile) {
-          width: size-m(280); // 4 個縮圖(80)+ 3 個間距(12) - 上下箭頭挪走後的寬度
-          height: size-m(60);
-        }
-
-        .swiper-wrapper {
-          flex-direction: column;
-        }
-
-        @include mixins.mq(mobile) {
-          .swiper-wrapper {
-            flex-direction: row;
-          }
-        }
-      }
-
-      // 上下箭頭是獨立在縮圖框外的自訂圓形按鈕,跟 .scroll-down 同一種樣式,
-      // 不疊在縮圖上面;.thumbnails 本身的 flex + gap 負責排版跟間距
-      .thumbs-swiper__nav {
-        width: size(40);
-        height: size(40);
-        border: size(1) solid #1a4bc5;
-        color: #1a4bc5;
-        background-color: #fff;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      p {
         font-size: size(20);
-        flex-shrink: 0;
-        cursor: pointer;
-
-        &.swiper-button-disabled {
-          display: none; // 數量不超過 4 個、或已經捲到底時不顯示箭頭
-        }
+        color: rgba(255,255,255,0.7);
+        line-height: 1.4;
+        margin: 0;
 
         @include mixins.mq(mobile) {
-          width: size-m(32);
-          height: size-m(32);
           font-size: size-m(16);
         }
       }
-
-      .thumb {
-        background-color: #fff;
-        border-bottom: size(2) solid transparent;
-        padding: size(5);
-        cursor: pointer;
-        transition: border-color 0.3s;
-
-        @include mixins.mq(mobile) {
-          border-width: size-m(2);
-        }
-
-        // .swiper-slide-thumb-active 是 Swiper thumbs 模組自動加的目前選中樣式
-        &.swiper-slide-thumb-active, &:hover {
-          border-color: #ea0044;
-        }
-
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
-        }
-      }
-
-      .scroll-down {
-        width: size(40);
-        height: size(40);
-        border: size(1) solid #1a4bc5;
-        color: #1a4bc5;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: size(20) auto 0;
-        font-size: size(20);
-
-        @include mixins.mq(mobile) {
-          display: none; // 手機版隱藏下滑箭頭
-        }
-      }
     }
 
-    .color-bar {
+    .deco-lines {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: size(8);
-      background: linear-gradient(to right, 
-  #EA0044 20%, 
-  #00C08B 20% 40%, 
-  #655CC6 40% 60%, 
-  #0091B2 60% 80%, 
-  #FF681D 80%
-);
-
-      z-index: 3;
+      bottom: size(40);
+      left: size(-40);
+      width: size(250);
+      opacity: 0.1;
+      z-index: 1;
 
       @include mixins.mq(mobile) {
-        height: size-m(4);
+        bottom: size-m(20);
+        width: size-m(150);
       }
     }
   }
+
+  .hero-right {
+    width: 65%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: size(60);
+    background-color: #DADEE7;
+
+    @include mixins.mq(mobile) {
+      width: 100%;
+      padding: size-m(40) size-m(24);
+      flex-direction: column;
+    }
+
+    .main-image {
+      width: 70%;
+      aspect-ratio: 1 / 1;
+      cursor: zoom-in;
+
+      @include mixins.mq(mobile) {
+        width: 100%;
+        margin-bottom: size-m(24);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover .swiper-slide-active img {
+        transform: scale(2);
+      }
+    }
+
+    .thumbnails {
+      position: absolute;
+      right: size(60);
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: size(20);
+
+      @include mixins.mq(mobile) {
+        position: relative;
+        right: 0;
+        top: 0;
+        transform: none;
+        flex-direction: row;
+        gap: size-m(12);
+      }
+    }
+
+    .thumbs-swiper {
+      width: size(160);
+      height: size(520);
+
+      @include mixins.mq(mobile) {
+        width: size-m(434);
+        height: size-m(96);
+      }
+
+      .swiper-wrapper {
+        flex-direction: column;
+
+        @include mixins.mq(mobile) {
+          flex-direction: row;
+        }
+      }
+    }
+
+    .thumbs-swiper__nav {
+      width: size(40);
+      height: size(40);
+      border: size(1) solid #1a4bc5;
+      color: #1a4bc5;
+      background-color: transparent; 
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: size(20);
+      flex-shrink: 0;
+      cursor: pointer;
+
+      &.swiper-button-disabled {
+        display: none;
+      }
+
+      @include mixins.mq(mobile) {
+        width: size-m(32);
+        height: size-m(32);
+        font-size: size-m(16);
+        border-width: size-m(1);
+      }
+    }
+
+    .thumb {
+      background-color: transparent; 
+      border-bottom: size(3) solid transparent;
+      padding-bottom: size(10);
+      cursor: pointer;
+      transition: border-color 0.3s;
+
+      @include mixins.mq(mobile) {
+        border-bottom-width: size-m(3);
+        padding-bottom: size-m(6);
+      }
+
+      &.swiper-slide-thumb-active, &:hover {
+        border-color: #ea0044;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+
+  .color-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: size(8);
+    background: linear-gradient(to right, 
+      #EA0044 20%, 
+      #00C08B 20% 40%, 
+      #655CC6 40% 60%, 
+      #0091B2 60% 80%, 
+      #FF681D 80%
+    );
+    z-index: 3;
+
+    @include mixins.mq(mobile) {
+      height: size-m(4);
+    }
+  }
+}
 
   .detail-specs {
     padding: size(120) 0;
