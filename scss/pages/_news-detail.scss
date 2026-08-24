@@ -10,6 +10,8 @@
   /* --- 1. Article Hero --- */
   .article-hero {
     display: flex;
+    // 原本寫在 news_page.html 的 style="background-image: url(...)" 內聯樣式,統一收進 SCSS
+    background-image: url('../assets/images/news/pic01.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

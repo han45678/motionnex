@@ -8,12 +8,8 @@
 #case {
   /* --- 2. Mission Categories --- */
   .case-categories {
-    padding: size(120) 0;
+    @include mixins.section-padding;
     background-color: #fff;
-
-    @include mixins.mq(mobile) {
-      padding: size-m(80) 0;
-    }
 
     .section-header {
       display: flex;
@@ -135,11 +131,6 @@
 
         img {
           width: 100%;
-
-          // width: size(72);
-          // @include mixins.mq(mobile) {
-          //   width: size-m(40);
-          // }
         }
       }
 
@@ -196,84 +187,12 @@
     }
 
     // 左右導航箭頭：圓形外框 + 線條箭頭，放在 swiper 外側
-    .swiper-button-prev,
-    .swiper-button-next {
-      position: absolute;
-      top: calc(50% + #{size(15)});
-      transform: translateY(-50%);
-      margin-top: 0;
-      width: size(60);
-      height: size(60);
-      border-radius: 50%;
-      border: 2.5px solid #1a4bc5;
-      background-color: transparent;
-      color: #1a4bc5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition:
-        background-color 0.3s,
-        color 0.3s;
-      z-index: 10;
-
-      &::after {
-        content: none;
-      }
-
-      svg {
-        width: size(16);
-        height: auto;
-        path,
-        polyline,
-        line {
-          fill: none;
-          stroke: currentColor;
-          stroke-linecap: round;
-          stroke-linejoin: round;
-          stroke-width: 1.81px;
-        }
-      }
-
-      &:hover {
-        background-color: #1a4bc5;
-        color: #fff;
-      }
-
-      &.swiper-button-disabled {
-        opacity: 0.35;
-        cursor: auto;
-      }
-
-      @include mixins.mq(mobile) {
-        top: calc(50% + #{size-m(10)});
-        width: size-m(36);
-        height: size-m(36);
-        border-width: 1px;
-
-        svg {
-          width: size-m(11);
-        }
-      }
-    }
-
-    .swiper-button-prev {
-      left: size(-56);
-      svg {
-        transform: rotate(180deg);
-      }
-
-      @include mixins.mq(mobile) {
-        left: 0;
-      }
-    }
-
-    .swiper-button-next {
-      right: size(-100);
-
-      @include mixins.mq(mobile) {
-        right: 0;
-      }
-    }
+    @include mixins.swiper-nav-circle(
+      $top: calc(50% + #{size(15)}),
+      $mobile-top: calc(50% + #{size-m(10)}),
+      $border-width: 2.5px,
+      $next-right: size(-100)
+    );
   }
 
   /* --- 3. Featured Missions --- */
@@ -546,77 +465,7 @@
     }
   }
 
-  /* --- 4. CTA Section --- */
-  .case-cta {
-    padding-bottom: size(120);
-
-    @include mixins.mq(mobile) {
-      padding-bottom: size-m(80);
-    }
-
-    .cta-box {
-      background-color: #070b28;
-      border-radius: size(40);
-      padding: size(80);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: #fff;
-
-      @include mixins.mq(mobile) {
-        flex-direction: column;
-        padding: size-m(40) size-m(24);
-        border-radius: size-m(24);
-        align-items: flex-start;
-        gap: size-m(32);
-      }
-
-      h2 {
-        font-size: size(40);
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 600;
-        color: #fff;
-        margin: 0 0 size(16) 0;
-        line-height: 1.2;
-
-        @include mixins.mq(mobile) {
-          font-size: size-m(28);
-          margin-bottom: size-m(12);
-        }
-      }
-
-      p {
-        font-size: size(16);
-        line-height: 1.6;
-        opacity: 0.8;
-        margin: 0;
-
-        @include mixins.mq(mobile) {
-          font-size: size-m(14);
-        }
-      }
-
-      .btn--red {
-        background-color: #ea0044;
-        color: #fff;
-        padding: size(20) size(40);
-        border-radius: size(12);
-        text-decoration: none;
-        font-size: size(18);
-        font-weight: 600;
-        white-space: nowrap;
-        transition: background-color 0.3s;
-
-        @include mixins.mq(mobile) {
-          padding: size-m(16) size-m(32);
-          border-radius: size-m(10);
-          font-size: size-m(16);
-        }
-
-        &:hover {
-          background-color: color.adjust(#ea0044, $lightness: -10%);
-        }
-      }
-    }
-  }
+  // 注意：本頁 CTA 區塊(case.html 的 <section class="cta">)實際套用的是
+  // scss/components/_cta.scss 的共用 .cta 元件，跟首頁共用同一份樣式。
+  // 這裡原本還有一份完全沒有對應 HTML(class="case-cta")、從未生效的重複樣式，已移除。
 }

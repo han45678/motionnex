@@ -34,7 +34,9 @@
     }
     
     // 確保深色背景下字體與圖示顏色正確
-    .logo__strong, .logo__light, .main-nav__list a, .lang-switch__current {
+    // （.logo__strong / .logo__light 原本也在這份選取器裡，但目前 logo 是
+    // 純圖片 <img>，沒有這兩個文字子元素，已移除這兩個對不到任何 HTML 的選取器）
+    .main-nav__list a, .lang-switch__current {
       color: #fff;
     }
     .lang-switch__toggle svg {

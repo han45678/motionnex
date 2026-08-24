@@ -123,7 +123,7 @@ h4 {
 }
 @media (max-width: 1023px) {
   .section {
-    padding: 14.9333333333vw 0;
+    padding: 21.3333333333vw 0;
   }
 }
 
@@ -763,26 +763,6 @@ img.is-loading {
   flex-shrink: 0;
 }
 
-.brand-mark {
-  display: flex;
-  align-items: flex-end;
-  gap: 0.2604166667vw;
-  height: 0.8333333333vw;
-}
-.brand-mark span {
-  display: block;
-  width: 1.3541666667vw;
-  height: 0.3125vw;
-  background: #e9134c;
-  transform: skewX(-30deg);
-}
-.brand-mark span:nth-child(2) {
-  width: 1.0416666667vw;
-}
-.brand-mark span:nth-child(3) {
-  width: 0.625vw;
-}
-
 .visually-hidden {
   position: absolute;
   width: 0.0520833333vw;
@@ -978,10 +958,8 @@ img.is-loading {
     left: 0;
     width: 100%;
     height: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
-    -o-object-position: right center;
-       object-position: right center;
+    object-fit: cover;
+    object-position: right center;
   }
 }
 #home #banner .swiper-pagination {
@@ -1345,6 +1323,13 @@ img.is-loading {
     transform: rotate(90deg);
   }
 }
+#home #solutions .tabs .tab-btn .icon svg .cls-1 {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.6px;
+}
 #home #solutions .tabs .tab-btn.active {
   background-color: #1d44fa;
   box-shadow: 0 5px 10px #000;
@@ -1353,7 +1338,7 @@ img.is-loading {
   color: #ea0044;
 }
 #home #solutions .tabs .tab-btn:hover:not(.active) {
-  background-color: rgb(12.5, 28.125, 62.5);
+  background-color: rgb(4.9019607843%, 11.0294117647%, 24.5098039216%);
 }
 #home #solutions .tab-content {
   flex-grow: 1;
@@ -1386,8 +1371,7 @@ img.is-loading {
 #home #solutions .tab-content .content-item img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 #home #solutions .tab-content .content-item .info-overlay {
   position: absolute;
@@ -1568,14 +1552,18 @@ img.is-loading {
   }
 }
 #home #core-capabilities .cards-wrapper {
-  /* 處理左右兩側卡片與中間卡片貼合處為直角 */
+  /* 處理左右兩側卡片與中間卡片貼合處為直角
+     用 .card.dark.left-card / .card.dark.right-card(比 .card.dark 多一個
+     class,specificity 較高)才蓋得過上面 .card.dark 的圓角設定；原本單寫
+     .left-card / .right-card specificity 比 .card.dark 低，永遠蓋不掉，
+     導致桌機這個交接角一直是圓角，不是設計要的直角。 */
 }
-#home #core-capabilities .cards-wrapper .left-card {
+#home #core-capabilities .cards-wrapper .card.dark.left-card {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 1.5625vw;
 }
-#home #core-capabilities .cards-wrapper .right-card {
+#home #core-capabilities .cards-wrapper .card.dark.right-card {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 1.5625vw;
@@ -1659,8 +1647,7 @@ img.is-loading {
 #home #proven-section .image-wrapper img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   display: block;
 }
 #home #proven-section .content-wrapper {
@@ -2169,8 +2156,7 @@ img.is-loading {
 #solutions .solutions-systems .system-card .card-image img {
   max-width: 100%;
   max-height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   transition: transform 0.4s ease;
 }
 
@@ -2234,8 +2220,7 @@ img.is-loading {
   height: 10.4166666667vw;
   width: auto;
   max-width: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 @media (max-width: 1023px) {
   #products .products-categories .category-card .img-box img {
@@ -2481,6 +2466,12 @@ img.is-loading {
 #products .products-lineup .lineup-header .lineup-tabs .tab-nav .nav-btn:hover {
   color: #ea0044;
 }
+#products .products-lineup .lineup-header .lineup-tabs .tab-nav .nav-btn svg {
+  height: 20px;
+}
+#products .products-lineup .lineup-header .lineup-tabs .tab-nav .nav-btn svg .cls-1 {
+  fill: currentColor;
+}
 #products .products-lineup .lineup-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -2497,75 +2488,6 @@ img.is-loading {
 }
 #products .products-lineup .lineup-grid .product-card.visible {
   display: flex;
-}
-#products .products-cta {
-  padding-bottom: 6.25vw;
-  background-color: #f7f9fc;
-}
-@media (max-width: 1023px) {
-  #products .products-cta {
-    padding-bottom: 21.3333333333vw;
-  }
-}
-#products .products-cta .cta-box {
-  background-color: #070b28;
-  border-radius: 2.0833333333vw;
-  padding: 4.1666666667vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #fff;
-}
-@media (max-width: 1023px) {
-  #products .products-cta .cta-box {
-    flex-direction: column;
-    padding: 10.6666666667vw 6.4vw;
-    border-radius: 6.4vw;
-    align-items: flex-start;
-    gap: 8.5333333333vw;
-  }
-}
-#products .products-cta .cta-box h2 {
-  font-size: 2.0833333333vw;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  margin: 0 0 1.25vw 0;
-  line-height: 1.2;
-  color: #fff;
-}
-@media (max-width: 1023px) {
-  #products .products-cta .cta-box h2 {
-    font-size: 7.4666666667vw;
-    margin-bottom: 4.2666666667vw;
-  }
-}
-#products .products-cta .cta-box p {
-  font-size: 0.78125vw;
-  line-height: 1.8;
-  opacity: 0.8;
-  margin: 0;
-}
-@media (max-width: 1023px) {
-  #products .products-cta .cta-box p {
-    font-size: 3.7333333333vw;
-  }
-}
-#products .products-cta .cta-box .btn--red {
-  background-color: #ea0044;
-  color: #fff;
-  padding: 1.0416666667vw 2.0833333333vw;
-  border-radius: 0.625vw;
-  text-decoration: none;
-  font-size: 0.9375vw;
-  font-weight: 600;
-  white-space: nowrap;
-}
-@media (max-width: 1023px) {
-  #products .products-cta .cta-box .btn--red {
-    padding: 4.2666666667vw 8.5333333333vw;
-    border-radius: 2.6666666667vw;
-    font-size: 4.2666666667vw;
-  }
 }
 
 /* =========================================
@@ -2744,8 +2666,7 @@ img.is-loading {
 .product-card .card-body .pic img {
   max-width: 100%;
   max-height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   transition: transform 0.4s ease;
 }
 .product-card.highlight {
@@ -2762,7 +2683,7 @@ img.is-loading {
   color: #fff;
 }
 .product-card.highlight .card-body .pic .bg-shape {
-  background-color: rgb(55.5264573991, 105.1417040359, 228.6735426009);
+  background-color: rgb(21.775081333%, 41.2320407984%, 89.6758990592%);
 }
 
 /* =========================================
@@ -2894,8 +2815,7 @@ img.is-loading {
 #product-detail .detail-hero .hero-right .main-image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   display: block;
   transition: transform 0.3s ease;
 }
@@ -2987,8 +2907,7 @@ img.is-loading {
 #product-detail .detail-hero .hero-right .thumb img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 #product-detail .detail-hero .color-bar {
   position: absolute;
@@ -3225,6 +3144,7 @@ img.is-loading {
 @media (max-width: 1023px) {
   #product-detail .detail-related .swiper-button-prev,
   #product-detail .detail-related .swiper-button-next {
+    top: 50%;
     width: 9.6vw;
     height: 9.6vw;
     border-width: 1px;
@@ -3269,7 +3189,6 @@ img.is-loading {
   text-decoration: none;
   font-size: 0.9375vw;
   font-weight: 600;
-  display: inline-flex;
   position: relative;
   z-index: 0;
   overflow: hidden;
@@ -3303,6 +3222,9 @@ img.is-loading {
     font-size: 4.2666666667vw;
   }
 }
+#product-detail .detail-related .action-wrap .btn--red {
+  display: inline-flex;
+}
 
 /* =========================================
    #case (案例分享頁)
@@ -3312,12 +3234,14 @@ img.is-loading {
 }
 #case .case-categories {
   padding: 6.25vw 0;
-  background-color: #fff;
 }
 @media (max-width: 1023px) {
   #case .case-categories {
     padding: 21.3333333333vw 0;
   }
+}
+#case .case-categories {
+  background-color: #fff;
 }
 #case .case-categories .section-header {
   display: flex;
@@ -3509,9 +3433,7 @@ img.is-loading {
   width: 0.8333333333vw;
   height: auto;
 }
-#case .case-categories .swiper-button-prev svg path,
-#case .case-categories .swiper-button-prev svg polyline,
-#case .case-categories .swiper-button-prev svg line,
+#case .case-categories .swiper-button-prev svg path, #case .case-categories .swiper-button-prev svg polyline, #case .case-categories .swiper-button-prev svg line,
 #case .case-categories .swiper-button-next svg path,
 #case .case-categories .swiper-button-next svg polyline,
 #case .case-categories .swiper-button-next svg line {
@@ -3749,8 +3671,7 @@ img.is-loading {
 #case .featured-missions .mission-showcase .main-image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   display: block;
 }
 #case .featured-missions .mission-showcase .mission-details {
@@ -3855,81 +3776,6 @@ img.is-loading {
     font-size: 3.2vw;
   }
 }
-#case {
-  /* --- 4. CTA Section --- */
-}
-#case .case-cta {
-  padding-bottom: 6.25vw;
-}
-@media (max-width: 1023px) {
-  #case .case-cta {
-    padding-bottom: 21.3333333333vw;
-  }
-}
-#case .case-cta .cta-box {
-  background-color: #070b28;
-  border-radius: 2.0833333333vw;
-  padding: 4.1666666667vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #fff;
-}
-@media (max-width: 1023px) {
-  #case .case-cta .cta-box {
-    flex-direction: column;
-    padding: 10.6666666667vw 6.4vw;
-    border-radius: 6.4vw;
-    align-items: flex-start;
-    gap: 8.5333333333vw;
-  }
-}
-#case .case-cta .cta-box h2 {
-  font-size: 2.0833333333vw;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  color: #fff;
-  margin: 0 0 0.8333333333vw 0;
-  line-height: 1.2;
-}
-@media (max-width: 1023px) {
-  #case .case-cta .cta-box h2 {
-    font-size: 7.4666666667vw;
-    margin-bottom: 3.2vw;
-  }
-}
-#case .case-cta .cta-box p {
-  font-size: 0.8333333333vw;
-  line-height: 1.6;
-  opacity: 0.8;
-  margin: 0;
-}
-@media (max-width: 1023px) {
-  #case .case-cta .cta-box p {
-    font-size: 3.7333333333vw;
-  }
-}
-#case .case-cta .cta-box .btn--red {
-  background-color: #ea0044;
-  color: #fff;
-  padding: 1.0416666667vw 2.0833333333vw;
-  border-radius: 0.625vw;
-  text-decoration: none;
-  font-size: 0.9375vw;
-  font-weight: 600;
-  white-space: nowrap;
-  transition: background-color 0.3s;
-}
-@media (max-width: 1023px) {
-  #case .case-cta .cta-box .btn--red {
-    padding: 4.2666666667vw 8.5333333333vw;
-    border-radius: 2.6666666667vw;
-    font-size: 4.2666666667vw;
-  }
-}
-#case .case-cta .cta-box .btn--red:hover {
-  background-color: rgb(183, 0, 53.1794871795);
-}
 
 /* =========================================
    #about-page (關於我們頁面)
@@ -3939,12 +3785,14 @@ img.is-loading {
 }
 #about-page .motion-redefined {
   padding: 6.25vw 0;
-  background-color: #fff;
 }
 @media (max-width: 1023px) {
   #about-page .motion-redefined {
     padding: 21.3333333333vw 0;
   }
+}
+#about-page .motion-redefined {
+  background-color: #fff;
 }
 #about-page .motion-redefined .card-box {
   background-color: #000;
@@ -4050,8 +3898,7 @@ img.is-loading {
 #about-page .motion-redefined .card-box .card-image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 #about-page {
   /* --- 3. Built on Experience Section --- */
@@ -4185,12 +4032,14 @@ img.is-loading {
 }
 #about-page .looking-ahead {
   padding: 6.25vw 0;
-  background-color: #fff;
 }
 @media (max-width: 1023px) {
   #about-page .looking-ahead {
     padding: 21.3333333333vw 0;
   }
+}
+#about-page .looking-ahead {
+  background-color: #fff;
 }
 #about-page .looking-ahead .card-box {
   background-color: #14078C;
@@ -4247,8 +4096,7 @@ img.is-loading {
 #about-page .looking-ahead .card-box .cell-image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   display: block;
 }
 #about-page .looking-ahead .card-box .cell-title {
@@ -4337,6 +4185,7 @@ img.is-loading {
 }
 #news-page .news-hero {
   display: flex;
+  background-image: url("../assets/images/news/banner.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -4415,25 +4264,6 @@ img.is-loading {
   #news-page .news-hero .hero-content p br {
     display: none;
   }
-}
-#news-page .news-hero .hero-graphic {
-  width: 50%;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-@media (max-width: 1023px) {
-  #news-page .news-hero .hero-graphic {
-    width: 100%;
-    height: 66.6666666667vw;
-  }
-}
-#news-page .news-hero .hero-graphic__deco {
-  width: 100%;
-  height: 100%;
-  max-width: 29.1666666667vw;
 }
 #news-page {
   /* --- 2. News List Section --- */
@@ -4574,8 +4404,7 @@ img.is-loading {
 #news-page .news-list-section .news-card .card-img img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   transition: transform 0.5s ease;
 }
 #news-page .news-list-section .news-card:hover .card-img img {
@@ -4777,6 +4606,7 @@ img.is-loading {
 }
 #news-detail .article-hero {
   display: flex;
+  background-image: url("../assets/images/news/pic01.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -5040,8 +4870,7 @@ img.is-loading {
 #news-detail .article-related .related-card__img img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   transition: transform 0.5s ease;
 }
 #news-detail .article-related .related-card__body {
@@ -5122,7 +4951,7 @@ img.is-loading {
     padding: 3.2vw 5.3333333333vw;
   }
 }
-#contact-page .site-header--floating .logo__strong, #contact-page .site-header--floating .logo__light, #contact-page .site-header--floating .main-nav__list a, #contact-page .site-header--floating .lang-switch__current {
+#contact-page .site-header--floating .main-nav__list a, #contact-page .site-header--floating .lang-switch__current {
   color: #fff;
 }
 #contact-page .site-header--floating .lang-switch__toggle svg {
@@ -5430,9 +5259,6 @@ img.is-loading {
     border-radius: 1.6vw;
   }
 }
-#contact-page .contact-section .form-card .contact-form .form-group input::-moz-placeholder, #contact-page .contact-section .form-card .contact-form .form-group select::-moz-placeholder, #contact-page .contact-section .form-card .contact-form .form-group textarea::-moz-placeholder {
-  color: #a0a0a0;
-}
 #contact-page .contact-section .form-card .contact-form .form-group input::placeholder, #contact-page .contact-section .form-card .contact-form .form-group select::placeholder, #contact-page .contact-section .form-card .contact-form .form-group textarea::placeholder {
   color: #a0a0a0;
 }
@@ -5460,8 +5286,7 @@ img.is-loading {
   position: relative;
 }
 #contact-page .contact-section .form-card .contact-form .form-group .select-wrapper select {
-  -moz-appearance: none;
-       appearance: none;
+  appearance: none;
   -webkit-appearance: none;
   padding-right: 2.0833333333vw;
   cursor: pointer;
@@ -5503,7 +5328,7 @@ img.is-loading {
   }
 }
 #contact-page .contact-section .form-card .contact-form .submit-btn:hover {
-  background-color: rgb(20.0538116592, 57.8475336323, 151.9461883408);
+  background-color: rgb(7.8642398664%, 22.6853073068%, 59.5867405258%);
 }
 
 .hero {
@@ -5628,8 +5453,7 @@ img.is-loading {
 .hero .hero-image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-bottom-left-radius: 10.4166666667vw;
 }
 @media (max-width: 1023px) {
@@ -5788,7 +5612,6 @@ img.is-loading {
   text-decoration: none;
   font-size: 0.9375vw;
   font-weight: 600;
-  display: inline-flex;
   position: relative;
   z-index: 0;
   overflow: hidden;
@@ -5820,7 +5643,16 @@ img.is-loading {
     padding: 4.2666666667vw 8.5333333333vw;
     border-radius: 2.6666666667vw;
     font-size: 4.2666666667vw;
+  }
+}
+.cta .cta-action .btn--red {
+  display: inline-flex;
+}
+@media (max-width: 1023px) {
+  .cta .cta-action .btn--red {
     width: 100%;
     justify-content: center;
   }
-}/*# sourceMappingURL=main.css.map */
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -22,24 +22,6 @@
   svg { flex-shrink: 0; }
 }
 
-.brand-mark {
-  display: flex;
-  align-items: flex-end;
-  gap: size(5);
-  height: size(16);
-
-  span {
-    display: block;
-    width: size(26);
-    height: size(6);
-    background: $color-pink;
-    transform: skewX(-30deg);
-
-    &:nth-child(2) { width: size(20); }
-    &:nth-child(3) { width: size(12); }
-  }
-}
-
 .visually-hidden {
   @include mixins.visually-hidden;
 }

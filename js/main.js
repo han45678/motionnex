@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize Hero Swiper（僅在頁面上真的存在 #banner 時才初始化，
   // 避免在沒有 banner 輪播的頁面上建立無用的 Swiper 實例）
   if (document.getElementById('banner')) {
-    const heroSwiper = new Swiper('#banner', {
+    new Swiper('#banner', {
       loop: true,
       effect: 'fade',
       fadeEffect: {
@@ -232,17 +232,52 @@ function initPartnersMarquee() {
     allowTouchMove: false,
   });
 
-  // 視窗縮放時重新計算間距,維持跟 SCSS 一致的流體縮放比例
+  // 視窗縮放時重新計算間距,維持跟 SCSS 一致的流體縮放比例；
+  // 用 rAF 節流,拖曳視窗邊緣連續觸發的 resize 只會在下一影格重算一次，
+  // 不會每個 resize 事件都逼一次 Swiper 重排。
+  let resizeQueued = false;
   window.addEventListener('resize', () => {
-    marqueeSwiper.params.spaceBetween = getSpaceBetween();
-    marqueeSwiper.update();
+    if (resizeQueued) return;
+    resizeQueued = true;
+    requestAnimationFrame(() => {
+      resizeQueued = false;
+      marqueeSwiper.params.spaceBetween = getSpaceBetween();
+      marqueeSwiper.update();
+    });
   }, { passive: true });
+}
+
+// 分類 Swiper（Mission Categories / 產品分類）:case.html、products.html
+// 共用同一份設定，原本兩邊各自在 inline <script> 複製一份，改成這裡集中一份。
+// 回傳建立好的 Swiper 實例（頁面沒有 .category-swiper 時回傳 null），
+// 讓呼叫端（例如 products.html）可以接著掛自己的 click / slideChange 邏輯。
+function initCategorySwiper() {
+  const el = document.querySelector('.category-swiper');
+  if (!el) return null;
+
+  return new Swiper(el, {
+    loop: false,
+    slidesPerView: 'auto',
+    spaceBetween: 20,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      1024: {
+        spaceBetween: 30,
+      },
+    },
+  });
 }
 
 function initSolutionsTabs() {
   const solutionsSection = document.getElementById('solutions');
-  // 判斷頁面上是否有 #solutions，若無則提早結束，避免報錯
-  if (!solutionsSection) return;
+  // 判斷頁面上是否有 #solutions，若無則提早結束，避免報錯。
+  // solutions.html 的 <body> 也帶了 id="solutions"（作為該頁 SCSS 命名空間根，
+  // 跟這裡要找的首頁 <section id="solutions"> 是兩回事)，用 tagName 排除掉，
+  // 避免哪天 solutions.html 也長出 .tabs 時，事件被錯誤委派到整個 <body>。
+  if (!solutionsSection || solutionsSection.tagName !== 'SECTION') return;
 
   // 將選取範圍限制在 solutionsSection 內，效能更好也避免干擾其他區塊
   const tabsContainer = solutionsSection.querySelector('.tabs');

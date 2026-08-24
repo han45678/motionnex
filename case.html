@@ -396,21 +396,9 @@
     <script src="./js/main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // 初始化 Mission Categories 的 Swiper
-            const categorySwiper = new Swiper('.category-swiper', {
-                loop: false,
-                slidesPerView: 'auto',
-                spaceBetween: 20,
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                breakpoints: {
-                    1025: {
-                        spaceBetween: 30
-                    }
-                }
-            });
+            // Mission Categories 的 Swiper 初始化跟 products.html 的產品分類輪播共用同一份設定，
+            // 已收進 js/main.js 的 initCategorySwiper()
+            initCategorySwiper();
         });
     </script>
 </body>

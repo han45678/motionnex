@@ -468,6 +468,17 @@
             width: size-m(24);
             transform: rotate(90deg);
           }
+
+          // 原本這顆箭頭圖示的樣式是內嵌在 index.html 每個 <svg><style> 裡(重複 5 份),
+          // 統一收進 SCSS，範圍限定在這裡的 .icon svg 底下，避免跟其他頁面自己的
+          // .cls-1（例如 products.html 的上一頁/下一頁箭頭)互相影響
+          svg .cls-1 {
+            fill: none;
+            stroke: currentColor;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 2.6px;
+          }
         }
 
         &.active {
@@ -705,14 +716,18 @@
         }
       }
 
-      /* 處理左右兩側卡片與中間卡片貼合處為直角 */
-      .left-card {
+      /* 處理左右兩側卡片與中間卡片貼合處為直角
+         用 .card.dark.left-card / .card.dark.right-card(比 .card.dark 多一個
+         class,specificity 較高)才蓋得過上面 .card.dark 的圓角設定；原本單寫
+         .left-card / .right-card specificity 比 .card.dark 低，永遠蓋不掉，
+         導致桌機這個交接角一直是圓角，不是設計要的直角。 */
+      .card.dark.left-card {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         border-bottom-left-radius: size(30);
       }
 
-      .right-card {
+      .card.dark.right-card {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: size(30);
@@ -877,17 +892,6 @@
     @include mixins.mq(mobile) {
       padding: size-m(60) 0;
     }
-
-    // .container {
-    //   max-width: size(1000);
-    //   margin: 0 auto;
-    //   padding: 0 size(20);
-
-    //   @include mixins.mq(mobile) {
-    //     padding: 0 size-m(20);
-    //     max-width: 100%;
-    //   }
-    // }
 
     .title-area {
       margin-bottom: size(80);

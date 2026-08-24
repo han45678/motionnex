@@ -262,17 +262,10 @@
                         <a href="#" class="tab" data-category="logistics">Logistics</a>
                         <div class="tab-nav">
                             <button class="nav-btn prev">
-                                <svg style="height: 20px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.09 19.69">
-                                    <defs>
-                                        <style>
-                                            .cls-1 {
-                                                fill: currentColor;
-                                            }
-                                        </style>
-                                    </defs>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.09 19.69">
                                     <title>資產 2</title>
-                                    <g id="圖層_2" data-name="圖層 2">
-                                        <g id="圖層_1-2" data-name="圖層 1">
+                                    <g data-name="圖層 2">
+                                        <g data-name="圖層 1">
                                             <path class="cls-1"
                                                 d="M.37,10.72h0L9,19.32a1.22,1.22,0,0,0,.88.37,1.26,1.26,0,0,0,1.24-1.24,1.22,1.22,0,0,0-.37-.88L3,9.88l0,0,0,0,7.69-7.69A1.22,1.22,0,0,0,11,1.71a1.27,1.27,0,0,0,0-.94,1.13,1.13,0,0,0-.27-.41,1.41,1.41,0,0,0-.4-.27A1.27,1.27,0,0,0,9.85,0a1.28,1.28,0,0,0-.48.09A1.41,1.41,0,0,0,9,.36L.36,9a1.2,1.2,0,0,0-.26.4,1.1,1.1,0,0,0-.1.47,1.12,1.12,0,0,0,.1.48,1.18,1.18,0,0,0,.27.4" />
                                         </g>
@@ -280,17 +273,10 @@
                                 </svg>
                             </button>
                             <button class="nav-btn next">
-                                <svg style="height: 20px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.09 19.69">
-                                    <defs>
-                                        <style>
-                                            .cls-1 {
-                                                fill: currentColor;
-                                            }
-                                        </style>
-                                    </defs>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.09 19.69">
                                     <title>資產 3</title>
-                                    <g id="圖層_2" data-name="圖層 2">
-                                        <g id="圖層_1-2" data-name="圖層 1">
+                                    <g data-name="圖層 2">
+                                        <g data-name="圖層 1">
                                             <path class="cls-1"
                                                 d="M10.72,10.72h0l-8.6,8.6a1.23,1.23,0,0,1-1.76,0A1.23,1.23,0,0,1,0,18.45a1.25,1.25,0,0,1,.36-.88L8.05,9.88l0,0,0,0L.36,2.12A1.36,1.36,0,0,1,.1,1.71,1.1,1.1,0,0,1,0,1.24,1.1,1.1,0,0,1,.1.77,1.25,1.25,0,0,1,.36.36,1.62,1.62,0,0,1,.77.09,1.27,1.27,0,0,1,1.24,0a1.32,1.32,0,0,1,.48.09,1.56,1.56,0,0,1,.4.27L10.72,9a1.09,1.09,0,0,1,.27.4,1.18,1.18,0,0,1,0,1,1.18,1.18,0,0,1-.27.4" />
                                         </g>
@@ -604,26 +590,24 @@
     <script src="./js/main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const categorySwiper = new Swiper('.category-swiper', {
-                loop: false,
-                slidesPerView: 'auto',
-                spaceBetween: 20,
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                breakpoints: {
-                    1025: {
-                        spaceBetween: 30
-                    }
-                }
-            });
+            // 產品分類輪播的初始化跟 case.html 的 Mission Categories 共用同一份設定，
+            // 已收進 js/main.js 的 initCategorySwiper()
+            const categorySwiper = initCategorySwiper();
+            if (!categorySwiper) return;
 
             const lineupTabsContainer = document.querySelector('.lineup-tabs');
             const lineupTabs = document.querySelectorAll('.lineup-tabs .tab');
             const productCards = document.querySelectorAll('.lineup-grid .product-card');
 
+            // 記錄目前分類，updateActiveState 內部會呼叫 categorySwiper.slideTo()，
+            // 又會觸發 slideChange 再呼叫一次 updateActiveState；同一個分類已經是
+            // active 時直接跳過，避免同一次點擊把整套 DOM 更新跑兩遍。
+            let currentCategory = null;
+
             function updateActiveState(category) {
+                if (category === currentCategory) return;
+                currentCategory = category;
+
                 // 更新上方輪播
                 categorySwiper.slides.forEach((slide, index) => {
                     if (slide.dataset.category === category) {
@@ -676,13 +660,15 @@
             });
 
             // 3. 監聽下方頁籤的點擊
-            lineupTabsContainer.addEventListener('click', function (e) {
-                e.preventDefault();
-                const clickedTab = e.target.closest('.tab');
-                if (!clickedTab) return;
-                const category = clickedTab.dataset.category;
-                updateActiveState(category);
-            });
+            if (lineupTabsContainer) {
+                lineupTabsContainer.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const clickedTab = e.target.closest('.tab');
+                    if (!clickedTab) return;
+                    const category = clickedTab.dataset.category;
+                    updateActiveState(category);
+                });
+            }
 
             // 4. 監聽下方頁籤左右箭頭，切換上一個／下一個分類
             const navPrevBtn = document.querySelector('.lineup-tabs .nav-btn.prev');
@@ -691,13 +677,14 @@
 
             function switchCategory(step) {
                 const activeTab = document.querySelector('.lineup-tabs .tab.active');
+                if (!activeTab) return;
                 const currentIndex = categories.indexOf(activeTab.dataset.category);
                 const nextIndex = (currentIndex + step + categories.length) % categories.length;
                 updateActiveState(categories[nextIndex]);
             }
 
-            navPrevBtn.addEventListener('click', () => switchCategory(-1));
-            navNextBtn.addEventListener('click', () => switchCategory(1));
+            if (navPrevBtn) navPrevBtn.addEventListener('click', () => switchCategory(-1));
+            if (navNextBtn) navNextBtn.addEventListener('click', () => switchCategory(1));
         });
     </script>
 </body>

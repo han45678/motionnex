@@ -7,12 +7,8 @@
 #about-page {
   /* --- 2. Motion Redefined Section --- */
   .motion-redefined {
-    padding: size(120) 0;
+    @include mixins.section-padding;
     background-color: #fff;
-
-    @include mixins.mq(mobile) {
-      padding: size-m(80) 0;
-    }
 
     .card-box {
       background-color: #000;
@@ -125,11 +121,7 @@
   /* --- 3. Built on Experience Section --- */
   .built-on-experience {
     background-color: #f7f9fc;
-    padding: size(120) 0;
-
-    @include mixins.mq(mobile) {
-      padding: size-m(80) 0;
-    }
+    @include mixins.section-padding;
 
     .text-area {
       display: flex;
@@ -245,12 +237,8 @@
 
   /* --- 4. Looking Ahead Section --- */
   .looking-ahead {
-    padding: size(120) 0;
+    @include mixins.section-padding;
     background-color: #fff;
-
-    @include mixins.mq(mobile) {
-      padding: size-m(80) 0;
-    }
 
     // grid 四等份：上排圖標＋圖片、下排標題＋內文
     .card-box {

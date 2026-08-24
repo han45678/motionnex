@@ -8,6 +8,8 @@
   /* --- 1. Hero Section --- */
   .news-hero {
     display: flex;
+    // 原本寫在 news.html 的 style="background-image: url(...)" 內聯樣式,統一收進 SCSS
+    background-image: url('../assets/images/news/banner.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -83,25 +85,9 @@
       }
     }
 
-    .hero-graphic {
-      width: 50%;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-
-      @include mixins.mq(mobile) {
-        width: 100%;
-        height: size-m(250);
-      }
-
-      &__deco {
-        width: 100%;
-        height: 100%;
-        max-width: size(560);
-      }
-    }
+    // 注意：.hero-graphic 原本這裡有一份樣式，但 news.html 的 .news-hero
+    // 實際上只有 .hero-content、沒有對應的 .hero-graphic 元素，是從未生效的
+    // 殘留樣式，已移除。
   }
 
   /* --- 2. News List Section --- */

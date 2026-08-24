@@ -9,16 +9,6 @@
   }
 }
 
-@mixin flex($align: center, $justify: flex-start, $gap: 0, $direction: row) {
-  display: flex;
-  flex-direction: $direction;
-  align-items: $align;
-  justify-content: $justify;
-  @if $gap != 0 {
-    gap: $gap;
-  }
-}
-
 @mixin button-base {
   display: inline-flex;
   align-items: center;
@@ -46,7 +36,10 @@
   padding: size(120) 0;
 
   @include mq(mobile) {
-    padding: size-m(56) 0;
+    // 原本這裡寫的是 size-m(56)，但站上實際每個手動複製這組 padding 的地方
+    // (case.html/about.html 好幾個 section)全部用的都是 size-m(80)，這個
+    // mixin 本身反而沒人真的在用、數值也跟現況對不上，修成跟現況一致
+    padding: size-m(80) 0;
   }
 }
 
@@ -106,6 +99,105 @@
 
   &:hover::before {
     transform: scaleY(1);
+  }
+}
+
+// 輪播的圓形導覽箭頭(圓框 + 線條箭頭 + hover/disabled 狀態):
+// case.html「Mission Categories」、products.html「產品分類」、
+// product-detail「相關產品」三處輪播原本各自複製一份幾乎一樣的樣式，
+// 只有 top 偏移量、border 寬度、.swiper-button-next 的 right 偏移量三處數值不同，
+// 抽成這個 mixin，用參數保留各自原本的數值，不改變任何頁面現有輸出。
+// 預設值對應 product-detail「相關產品」那份(數值最單純的一份)。
+@mixin swiper-nav-circle($top: 50%, $mobile-top: $top, $border-width: size(1.5), $next-right: size(-56)) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: absolute;
+    top: $top;
+    transform: translateY(-50%);
+    margin-top: 0;
+    width: size(60);
+    height: size(60);
+    border-radius: 50%;
+    border: $border-width solid #1a4bc5;
+    background-color: transparent;
+    color: #1a4bc5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, color 0.3s;
+    z-index: 10;
+
+    &::after { content: none; }
+
+    svg {
+      width: size(16);
+      height: auto;
+      path, polyline, line {
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.81px;
+      }
+    }
+
+    &:hover {
+      background-color: #1a4bc5;
+      color: #fff;
+    }
+
+    &.swiper-button-disabled {
+      opacity: 0.35;
+      cursor: auto;
+    }
+
+    @include mq(mobile) {
+      top: $mobile-top;
+      width: size-m(36);
+      height: size-m(36);
+      border-width: 1px;
+
+      svg { width: size-m(11); }
+    }
+  }
+
+  .swiper-button-prev {
+    left: size(-56);
+    svg { transform: rotate(180deg); }
+
+    @include mq(mobile) {
+      left: 0;
+    }
+  }
+
+  .swiper-button-next {
+    right: $next-right;
+
+    @include mq(mobile) {
+      right: 0;
+    }
+  }
+}
+
+// 紅色 CTA 按鈕(.btn--red):首頁/case.html 共用的 .cta 元件、products.html
+// 底部 CTA、product-detail 相關產品區塊的「Back」按鈕，原本三處各自複製一份
+// 幾乎一樣的樣式。只有 padding 因為按鈕情境不同而合理有差異，抽成參數保留；
+// 其中 products.html 那份原本漏寫 hover(跟另外兩份的 btn-slide-hover 不一致)，
+// 統一補上，讓三顆視覺上同名的按鈕行為一致。
+@mixin btn-red-cta($padding: size(15) size(20), $mobile-padding: size-m(16) size-m(32)) {
+  background-color: #ea0044;
+  color: #fff;
+  padding: $padding;
+  border-radius: size(12);
+  text-decoration: none;
+  font-size: size(18);
+  font-weight: 600;
+  @include btn-slide-hover;
+
+  @include mq(mobile) {
+    padding: $mobile-padding;
+    border-radius: size-m(10);
+    font-size: size-m(16);
   }
 }
 

@@ -482,7 +482,7 @@
                     prevEl: '.detail-related .swiper-button-prev',
                 },
                 breakpoints: {
-                    1025: {
+                    1024: {
                         spaceBetween: 30
                     }
                 }
@@ -492,6 +492,7 @@
             // 超過 3 個才會出現箭頭並可以捲動
             // (watchOverflow 是 Swiper 預設行為：可捲動的內容不夠時,箭頭會自動加上
             // swiper-button-disabled,對應 _products.scss 裡設 display: none 隱藏)
+            // 只保留下一張箭頭，符合設計圖，故 navigation 只設 nextEl
             var thumbsSwiper = new Swiper('.thumbs-swiper', {
                 direction: 'horizontal',
                 slidesPerView: 3,
@@ -499,7 +500,6 @@
                 watchOverflow: true,
                 navigation: {
                     nextEl: '.thumbs-swiper__nav--next',
-                    prevEl: '.thumbs-swiper__nav--prev',
                 },
                 breakpoints: {
                     1024: {
@@ -528,14 +528,27 @@
             var mainImageEl = document.querySelector('.detail-hero .main-image');
 
             if (mainImageEl) {
-                mainImageEl.addEventListener('mousemove', function (e) {
-                    var activeImg = mainImageEl.querySelector('.swiper-slide-active img');
-                    if (!activeImg) return;
+                // 用 rAF 節流：mousemove 觸發頻率可能遠高於畫面更新頻率，
+                // 沒節流的話每一次滑鼠移動都會重新查 DOM + 量測位置；
+                // 改成每個影格最多算一次，取最新的滑鼠座標。
+                var moveRafPending = false;
+                var lastMoveEvent = null;
 
-                    var rect = mainImageEl.getBoundingClientRect();
-                    var x = ((e.clientX - rect.left) / rect.width) * 100;
-                    var y = ((e.clientY - rect.top) / rect.height) * 100;
-                    activeImg.style.transformOrigin = x + '% ' + y + '%';
+                mainImageEl.addEventListener('mousemove', function (e) {
+                    lastMoveEvent = e;
+                    if (moveRafPending) return;
+                    moveRafPending = true;
+
+                    requestAnimationFrame(function () {
+                        moveRafPending = false;
+                        var activeImg = mainImageEl.querySelector('.swiper-slide-active img');
+                        if (!activeImg) return;
+
+                        var rect = mainImageEl.getBoundingClientRect();
+                        var x = ((lastMoveEvent.clientX - rect.left) / rect.width) * 100;
+                        var y = ((lastMoveEvent.clientY - rect.top) / rect.height) * 100;
+                        activeImg.style.transformOrigin = x + '% ' + y + '%';
+                    });
                 });
 
                 mainImageEl.addEventListener('mouseleave', function () {

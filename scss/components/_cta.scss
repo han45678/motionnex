@@ -100,20 +100,10 @@
     }
 
     .btn--red {
-      background-color: #ea0044;
-      color: #fff;
-      padding: size(15) size(20);
-      border-radius: size(12);
-      text-decoration: none;
-      font-size: size(18);
-      font-weight: 600;
+      @include mixins.btn-red-cta;
       display: inline-flex;
-      @include mixins.btn-slide-hover;
 
       @include mixins.mq(mobile) {
-        padding: size-m(16) size-m(32);
-        border-radius: size-m(10);
-        font-size: size-m(16);
         width: 100%;
         justify-content: center;
       }
