@@ -79,7 +79,7 @@
       h3 {
         font-size: size(24);
         font-weight: 700;
-        color: #1a4bc5;
+        color: #183eeb;
         margin: 0 0 size(24) 0;
 
         @include mixins.mq(mobile) {
@@ -121,7 +121,7 @@
       }
 
       &.active, &:hover {
-        background-color: #1a4bc5;
+        background-color: #183eeb;
         h3 { color: #fff; }
         .arrow-btn { background-color: #fff; color: #ea0044;}
       }
@@ -293,7 +293,7 @@
 
   // 滑過效果：完整移植 solutions.html「Recommended Systems」.system-card 的滑過效果
   &:hover:not(.highlight) {
-    background-color: #1a4bc5;
+    background-color: #183eeb;
 
     .card-head .category,
     .card-body .info h3,
@@ -317,7 +317,7 @@
         right: -25%;
         width: 250%;
         height: 250%;
-        background-color: #1a4bc5;
+        background-color: #183eeb;
         z-index: -1;
         border-radius: 0;
         transition: 0.6s;
@@ -452,7 +452,7 @@
         right: -50%;
         width: 160%;
         height: 120%;
-        background-color: #1a4bc5;
+        background-color: #183eeb;
         z-index: -1;
         border-radius: 100%;
       }
@@ -468,12 +468,12 @@
 
   // 高亮版本
   &.highlight {
-    background-color: #1a4bc5;
+    background-color: #183eeb;
 
     .card-head .category { color: #fff; }
     .card-head .link-icon { background-color: #fff; color: #ea0044; }
     .card-body .info h3, .card-body .info p { color: #fff; }
-    .card-body .pic .bg-shape { background-color: color.adjust(#1a4bc5, $lightness: 12%); }
+    .card-body .pic .bg-shape { background-color: color.adjust(#183eeb, $lightness: 12%); }
   }
 }
 
@@ -659,8 +659,8 @@
     .thumbs-swiper__nav {
       width: size(40);
       height: size(40);
-      border: size(1) solid #1a4bc5;
-      color: #1a4bc5;
+      border: size(1) solid #183eeb;
+      color: #183eeb;
       background-color: transparent; 
       border-radius: 50%;
       display: flex;
@@ -764,7 +764,7 @@
     }
 
     .specs-table {
-      border-top: size(2) solid #1a4bc5;
+      border-top: size(2) solid #183eeb;
 
       @include mixins.mq(mobile) {
         border-top-width: size-m(2);
@@ -794,7 +794,7 @@
           color: #000;
           text-transform: uppercase;
           
-          .col-model { color: #1a4bc5; 
+          .col-model { color: #183eeb; 
           font-size: size(42);
           }
 
@@ -822,7 +822,7 @@
           font-size: size(24);
           font-weight: 600;
           color: #2b394a;
-          @include mixins.mq(mobile) { color: #1a4bc5; } // 手機版強調屬性名
+          @include mixins.mq(mobile) { color: #183eeb; } // 手機版強調屬性名
         }
 
         .spec-list {

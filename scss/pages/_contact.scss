@@ -64,7 +64,7 @@
 
     /* 頂部 Banner */
     .contact-banner {
-      background-color: #1a4bc5; // 藍色背景
+      background-color: #183eeb; // 藍色背景
       border-radius: size(24);
       padding: size(0) size(80) 0 size(80);
       margin-bottom: size(40);
@@ -235,7 +235,7 @@
           h5.text-blue {
             font-size: size(24);
             font-weight: 600;
-            color: #1a4bc5;
+            color: #183eeb;
             margin: 0 0 size(4) 0;
 
             @include mixins.mq(mobile) {
@@ -349,8 +349,8 @@
             }
 
             &:focus {
-              box-shadow: 0 0 0 size(2) rgba(26, 75, 197, 0.2);
-              @include mixins.mq(mobile) { box-shadow: 0 0 0 size-m(2) rgba(26, 75, 197, 0.2); }
+              box-shadow: 0 0 0 size(2) rgba(24, 62, 235, 0.2);
+              @include mixins.mq(mobile) { box-shadow: 0 0 0 size-m(2) rgba(24, 62, 235, 0.2); }
             }
           }
 
@@ -393,7 +393,7 @@
         }
 
         .submit-btn {
-          background-color: #1a4bc5;
+          background-color: #183eeb;
           color: #fff;
           border: none;
           border-radius: size(8);
@@ -412,7 +412,7 @@
           }
 
           &:hover {
-            background-color: color.adjust(#1a4bc5, $lightness: -10%);
+            background-color: color.adjust(#183eeb, $lightness: -10%);
           }
         }
       }

@@ -83,7 +83,7 @@
 // (各卡片文字結構不同,顏色轉場記得也在該文字元素加 transition: color ...)。
 // $origin 控制色塊長出的方向,預設 bottom(由下往上,原本站上既有卡片都用這個);
 // 傳 top 則變成由上往下長出來。
-@mixin card-rise-mask($color: #1a4bc5, $origin: bottom) {
+@mixin card-rise-mask($color: #183eeb, $origin: bottom) {
   position: relative;
   z-index: 0;
   overflow: hidden;
@@ -120,9 +120,9 @@
     width: size(60);
     height: size(60);
     border-radius: 50%;
-    border: $border-width solid #1a4bc5;
+    border: $border-width solid #183eeb;
     background-color: transparent;
-    color: #1a4bc5;
+    color: #183eeb;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -144,7 +144,7 @@
     }
 
     &:hover {
-      background-color: #1a4bc5;
+      background-color: #183eeb;
       color: #fff;
     }
 

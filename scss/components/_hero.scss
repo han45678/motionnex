@@ -139,12 +139,12 @@
       position: absolute;
       bottom: size(50);
       left: size(450);
-      background-color: #1a4bc5;
+      background-color: #183eeb;
       color: #fff;
       padding: size(50) size(30) size(30) size(50);
       border-radius: size(100) 0 0 0;
       text-align: center;
-      box-shadow: 0 size(20) size(40) rgba(26, 75, 197, 0.3);
+      box-shadow: 0 size(20) size(40) rgba(24, 62, 235, 0.3);
       z-index: 2;
 
       @include mixins.mq(mobile) {
