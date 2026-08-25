@@ -23,7 +23,7 @@
       width: 50%;
       display: flex;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: flex-start;
       padding: size(180) size(80) size(180) size(120);
 
       @include mixins.mq(mobile) {
@@ -80,7 +80,9 @@
 
         @include mixins.mq(mobile) {
           font-size: size-m(15);
-          br { display: none; }
+          br {
+            display: none;
+          }
         }
       }
     }
@@ -97,6 +99,13 @@
 
     @include mixins.mq(mobile) {
       padding: size-m(60) 0 size-m(80) 0;
+    }
+
+    .container {
+      max-width: size(1480);
+      @include mixins.mq(mobile) {
+        max-width: 100%;
+      }
     }
 
     /* 頂部篩選與介紹區塊 */
@@ -138,30 +147,35 @@
 
       .filter-group {
         display: inline-flex;
+        align-items: center;
+        justify-content: space-evenly;
         background-color: #f3f4f6;
         border-radius: size(10);
-        padding: size(10);
+        width: size(720);
+        height: size(90);
 
         @include mixins.mq(mobile) {
-          padding: size-m(4);
           width: 100%;
+          height: size-m(48);
+          padding: 0 size-m(4);
           justify-content: space-between;
         }
 
         .filter-btn {
           border: none;
           background: transparent;
-          font-size: size(16);
+          font-size: size(24);
           font-weight: 600;
           color: #333;
-          padding: size(5) size(50);
           border-radius: size(10);
           cursor: pointer;
           transition: all 0.3s ease;
+          width: size(220);
+          height: size(60);
 
           @include mixins.mq(mobile) {
             font-size: size-m(14);
-            padding: size-m(10) size-m(20);
+            height: size-m(40);
             flex: 1;
           }
 
@@ -200,7 +214,9 @@
       box-shadow: 0 size(10) size(30) rgba(0, 0, 0, 0.06);
       display: flex;
       flex-direction: column;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 
       @include mixins.mq(mobile) {
         border-radius: size-m(16);
@@ -209,7 +225,7 @@
       &:hover {
         transform: translateY(size(-5));
         box-shadow: 0 size(15) size(40) rgba(0, 0, 0, 0.1);
-        
+
         @include mixins.mq(mobile) {
           transform: translateY(size-m(-5));
         }
@@ -258,8 +274,8 @@
             color: #1a4bc5;
             padding: size(4) size(16);
             border-radius: size(20);
-            font-size: size(12);
-            font-weight: 600;
+            font-size: size(18);
+            font-weight: 500;
 
             @include mixins.mq(mobile) {
               padding: size-m(4) size-m(12);
@@ -268,9 +284,9 @@
           }
 
           .date {
-            font-size: size(13);
+            font-size: size(18);
             color: #1a4bc5;
-            font-weight: 600;
+            font-weight: 700;
 
             @include mixins.mq(mobile) {
               font-size: size-m(12);
@@ -279,7 +295,7 @@
         }
 
         .card-title {
-          font-size: size(20);
+          font-size: size(24);
           font-weight: 700;
           color: #0d1b2a;
           margin: 0 0 size(12) 0;
@@ -296,7 +312,8 @@
         }
 
         .card-desc {
-          font-size: size(14);
+          font-size: size(16);
+          font-weight: 400;
           color: #666;
           line-height: 1.6;
           margin: 0 0 size(24) 0;
@@ -312,15 +329,19 @@
           background-color: #ea0044;
           color: #fff;
           text-align: center;
-          padding: size(12) 0;
           border-radius: size(12);
           text-decoration: none;
-          font-size: size(15);
-          font-weight: 600;
+          font-size: size(20);
+          font-weight: 700;
           display: flex;
           align-items: center;
           justify-content: center;
           gap: size(8);
+
+          display: flex;
+          justify-content: space-between;
+          padding: 0 size(50);
+          height: size(60);
           @include mixins.btn-slide-hover;
 
           @include mixins.mq(mobile) {
@@ -344,7 +365,8 @@
         gap: size-m(12);
       }
 
-      a, span {
+      a,
+      span {
         text-decoration: none;
         color: #333;
         font-weight: 600;
@@ -381,7 +403,7 @@
 
       .page-nav {
         font-size: size(14);
-        
+
         @include mixins.mq(mobile) {
           font-size: size-m(13);
         }

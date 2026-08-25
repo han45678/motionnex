@@ -4256,7 +4256,7 @@ img.is-loading {
   width: 50%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   padding: 9.375vw 4.1666666667vw 9.375vw 6.25vw;
 }
 @media (max-width: 1023px) {
@@ -4333,6 +4333,14 @@ img.is-loading {
     padding: 16vw 0 21.3333333333vw 0;
   }
 }
+#news-page .news-list-section .container {
+  max-width: 77.0833333333vw;
+}
+@media (max-width: 1023px) {
+  #news-page .news-list-section .container {
+    max-width: 100%;
+  }
+}
 #news-page .news-list-section {
   /* 頂部篩選與介紹區塊 */
 }
@@ -4373,32 +4381,37 @@ img.is-loading {
 }
 #news-page .news-list-section .news-intro .filter-group {
   display: inline-flex;
+  align-items: center;
+  justify-content: space-evenly;
   background-color: #f3f4f6;
   border-radius: 0.5208333333vw;
-  padding: 0.5208333333vw;
+  width: 37.5vw;
+  height: 4.6875vw;
 }
 @media (max-width: 1023px) {
   #news-page .news-list-section .news-intro .filter-group {
-    padding: 1.0666666667vw;
     width: 100%;
+    height: 12.8vw;
+    padding: 0 1.0666666667vw;
     justify-content: space-between;
   }
 }
 #news-page .news-list-section .news-intro .filter-group .filter-btn {
   border: none;
   background: transparent;
-  font-size: 0.8333333333vw;
+  font-size: 1.25vw;
   font-weight: 600;
   color: #333;
-  padding: 0.2604166667vw 2.6041666667vw;
   border-radius: 0.5208333333vw;
   cursor: pointer;
   transition: all 0.3s ease;
+  width: 11.4583333333vw;
+  height: 3.125vw;
 }
 @media (max-width: 1023px) {
   #news-page .news-list-section .news-intro .filter-group .filter-btn {
     font-size: 3.7333333333vw;
-    padding: 2.6666666667vw 5.3333333333vw;
+    height: 10.6666666667vw;
     flex: 1;
   }
 }
@@ -4495,8 +4508,8 @@ img.is-loading {
   color: #1a4bc5;
   padding: 0.2083333333vw 0.8333333333vw;
   border-radius: 1.0416666667vw;
-  font-size: 0.625vw;
-  font-weight: 600;
+  font-size: 0.9375vw;
+  font-weight: 500;
 }
 @media (max-width: 1023px) {
   #news-page .news-list-section .news-card .card-body .card-meta .category {
@@ -4505,9 +4518,9 @@ img.is-loading {
   }
 }
 #news-page .news-list-section .news-card .card-body .card-meta .date {
-  font-size: 0.6770833333vw;
+  font-size: 0.9375vw;
   color: #1a4bc5;
-  font-weight: 600;
+  font-weight: 700;
 }
 @media (max-width: 1023px) {
   #news-page .news-list-section .news-card .card-body .card-meta .date {
@@ -4515,7 +4528,7 @@ img.is-loading {
   }
 }
 #news-page .news-list-section .news-card .card-body .card-title {
-  font-size: 1.0416666667vw;
+  font-size: 1.25vw;
   font-weight: 700;
   color: #0d1b2a;
   margin: 0 0 0.625vw 0;
@@ -4532,7 +4545,8 @@ img.is-loading {
   }
 }
 #news-page .news-list-section .news-card .card-body .card-desc {
-  font-size: 0.7291666667vw;
+  font-size: 0.8333333333vw;
+  font-weight: 400;
   color: #666;
   line-height: 1.6;
   margin: 0 0 1.25vw 0;
@@ -4548,15 +4562,18 @@ img.is-loading {
   background-color: #ea0044;
   color: #fff;
   text-align: center;
-  padding: 0.625vw 0;
   border-radius: 0.625vw;
   text-decoration: none;
-  font-size: 0.78125vw;
-  font-weight: 600;
+  font-size: 1.0416666667vw;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.4166666667vw;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2.6041666667vw;
+  height: 3.125vw;
   position: relative;
   z-index: 0;
   overflow: hidden;
@@ -4605,14 +4622,16 @@ img.is-loading {
     gap: 3.2vw;
   }
 }
-#news-page .news-list-section .pagination a, #news-page .news-list-section .pagination span {
+#news-page .news-list-section .pagination a,
+#news-page .news-list-section .pagination span {
   text-decoration: none;
   color: #333;
   font-weight: 600;
   font-size: 0.78125vw;
 }
 @media (max-width: 1023px) {
-  #news-page .news-list-section .pagination a, #news-page .news-list-section .pagination span {
+  #news-page .news-list-section .pagination a,
+  #news-page .news-list-section .pagination span {
     font-size: 3.7333333333vw;
   }
 }
