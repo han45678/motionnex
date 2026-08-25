@@ -281,9 +281,24 @@ function initSolutionsTabs() {
 
   // 將選取範圍限制在 solutionsSection 內，效能更好也避免干擾其他區塊
   const tabsContainer = solutionsSection.querySelector('.tabs');
+  const tabContent = solutionsSection.querySelector('.tab-content');
   const contentItems = solutionsSection.querySelectorAll('.content-item');
 
-  if (!tabsContainer || contentItems.length === 0) return;
+  if (!tabsContainer || !tabContent || contentItems.length === 0) return;
+
+  // 手機版斷點跟 _mixins.scss 的 mq(mobile) 對齊 ($bp-desktop: 1024px)
+  const mobileQuery = window.matchMedia('(max-width: 1023px)');
+
+  // 手機版：把內容區塊搬到「目前作用中頁籤按鈕」的正下方，
+  // 桌機版：內容區塊固定在 tabs 右側，搬回 .tabs 後面（原本 HTML 的位置）
+  function positionTabContent() {
+    if (mobileQuery.matches) {
+      const activeBtn = tabsContainer.querySelector('.tab-btn.active');
+      if (activeBtn) activeBtn.insertAdjacentElement('afterend', tabContent);
+    } else {
+      tabsContainer.insertAdjacentElement('afterend', tabContent);
+    }
+  }
 
   // 使用事件委派 (Event Delegation) 提升效能
   tabsContainer.addEventListener('click', (e) => {
@@ -308,5 +323,11 @@ function initSolutionsTabs() {
     if (targetContent) {
       targetContent.classList.add('active');
     }
+
+    positionTabContent();
   });
+
+  // 監聽斷點切換（例如轉橫向、縮放視窗），確保內容區塊隨版面重新歸位
+  mobileQuery.addEventListener('change', positionTabContent);
+  positionTabContent();
 }
