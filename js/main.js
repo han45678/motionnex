@@ -300,31 +300,46 @@ function initSolutionsTabs() {
     }
   }
 
-  // 使用事件委派 (Event Delegation) 提升效能
-  tabsContainer.addEventListener('click', (e) => {
-    // 找到被點擊的按鈕，如果點擊的不是按鈕或其子元素，則不處理
-    const clickedBtn = e.target.closest('.tab-btn');
-    if (!clickedBtn) return;
-
-    // 如果點擊的按鈕已經是 active 狀態，則不需重複執行
-    if (clickedBtn.classList.contains('active')) return;
+  // 切到指定頁籤：按鈕/內容區塊的 active 狀態切換 + 內容區塊歸位，
+  // 點擊(手機版)、滑過(桌機版)共用同一套邏輯
+  function activateTab(targetBtn) {
+    // 如果目標按鈕已經是 active 狀態，則不需重複執行
+    if (targetBtn.classList.contains('active')) return;
 
     // 移除所有按鈕的 active 狀態
     tabsContainer.querySelector('.tab-btn.active')?.classList.remove('active');
-    // 為當前點擊的按鈕加上 active
-    clickedBtn.classList.add('active');
+    // 為目標按鈕加上 active
+    targetBtn.classList.add('active');
 
     // 移除所有內容區塊的 active 狀態
     solutionsSection.querySelector('.content-item.active')?.classList.remove('active');
 
     // 取得對應的目標 ID 並加上 active 顯示內容
-    const targetId = clickedBtn.dataset.target;
+    const targetId = targetBtn.dataset.target;
     const targetContent = document.getElementById(targetId);
     if (targetContent) {
       targetContent.classList.add('active');
     }
 
     positionTabContent();
+  }
+
+  // 使用事件委派 (Event Delegation) 提升效能
+  // 手機版：點擊觸發切換
+  tabsContainer.addEventListener('click', (e) => {
+    const clickedBtn = e.target.closest('.tab-btn');
+    if (!clickedBtn) return;
+    activateTab(clickedBtn);
+  });
+
+  // 桌機版：滑過（hover）就觸發切換，不用點擊
+  // 用 mouseover 而非 mouseenter 才能靠事件委派冒泡到 tabsContainer；
+  // mobileQuery.matches 時代表是手機版寬度（含觸控裝置的 hover 模擬），這裡直接略過
+  tabsContainer.addEventListener('mouseover', (e) => {
+    if (mobileQuery.matches) return;
+    const hoveredBtn = e.target.closest('.tab-btn');
+    if (!hoveredBtn) return;
+    activateTab(hoveredBtn);
   });
 
   // 監聽斷點切換（例如轉橫向、縮放視窗），確保內容區塊隨版面重新歸位
