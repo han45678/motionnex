@@ -29,7 +29,8 @@
         z-index: 1;
 
         @include mixins.mq(mobile) {
-          height: 45%;
+          height: 25%;
+          background: linear-gradient(to bottom, #000 30%, transparent);
         }
       }
       .text {
@@ -55,7 +56,7 @@
           width: 100%;
           height: auto;
           padding: size-m(64) size-m(24) size-m(48);
-          background: linear-gradient(to top, #000 30%, transparent);
+          background: linear-gradient(to top, #000 0%, transparent);
           justify-content: flex-start;
           align-content: flex-end;
         }
