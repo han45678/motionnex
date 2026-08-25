@@ -714,16 +714,18 @@
       }
 
       .card.dark {
-        background-color: #03004a; 
-        height: size(280); 
+        background-color: #03004a;
+        height: size(280);
         border-top-left-radius: size(30);
         border-top-right-radius: size(30);
 
         @include mixins.mq(mobile) {
-          background-color: #ea0044;
           height: auto;
           border-radius: size-m(20) !important; /* 手機版強制恢復圓角 */
         }
+
+        /* 左右卡片 hover:色塊由上往下鋪滿,取代原本瞬間切換的 background-color */
+        @include mixins.card-rise-mask($color: #ea0044, $origin: top);
       }
 
       /* 處理左右兩側卡片與中間卡片貼合處為直角
@@ -773,6 +775,9 @@
         p {
           color: #ffffff; /* 中間卡片內文全白，提升對比度 */
         }
+
+        /* 中間卡片 hover:色塊由上往下鋪滿,取代原本瞬間切換的 background-color */
+        @include mixins.card-rise-mask($color: #03004a, $origin: top);
       }
     }
   }

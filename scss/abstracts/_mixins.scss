@@ -77,11 +77,13 @@
   }
 }
 
-// 卡片型 hover:色塊由下往上放大鋪滿當遮罩,取代原本瞬間切換的 background-color。
+// 卡片型 hover:色塊放大鋪滿當遮罩,取代原本瞬間切換的 background-color。
 // 用法:卡片本身維持原本的 background-color(平常底色),額外 @include 這個 mixin;
 // 內容文字要跟著變色的話,自己在該卡片選擇器裡寫 &:hover { h3, p { color: #fff; } }
 // (各卡片文字結構不同,顏色轉場記得也在該文字元素加 transition: color ...)。
-@mixin card-rise-mask($color: #1a4bc5) {
+// $origin 控制色塊長出的方向,預設 bottom(由下往上,原本站上既有卡片都用這個);
+// 傳 top 則變成由上往下長出來。
+@mixin card-rise-mask($color: #1a4bc5, $origin: bottom) {
   position: relative;
   z-index: 0;
   overflow: hidden;
@@ -93,7 +95,7 @@
     z-index: -1; // 壓在文字/圖示底下,放大時才不會蓋住內容
     background-color: $color;
     transform: scaleY(0);
-    transform-origin: bottom; // 由下往上長出來
+    transform-origin: $origin;
     transition: transform 0.4s ease;
   }
 

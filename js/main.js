@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  initAOS();
+
   initSiteHeader();
 
   initHeaderScrollState();
@@ -33,6 +35,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // Other JavaScript code for the site can go here.
 
 });
+
+// 頁面上所有帶 data-aos 屬性的元素,滾動進可視範圍時觸發動畫(見 assets/vendor/aos)
+// 全站統一採用「向上淡出」(fade-up),只在每個元素第一次進入畫面時觸發一次
+function initAOS() {
+  if (typeof AOS === 'undefined') return;
+
+  AOS.init({
+    duration: 800,
+    easing: 'ease-out-cubic',
+    offset: 80,
+    once: true,
+    disable: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+  });
+}
 
 function initSiteHeader() {
   const navToggle = document.getElementById('nav-toggle');

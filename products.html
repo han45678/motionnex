@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./assets/vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./assets/vendor/aos/aos.css">
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
@@ -130,7 +131,7 @@
         <!-- Hero 區塊 -->
         <section class="hero">
             <div class="hero-content">
-                <div class="hero-content__inner">
+                <div class="hero-content__inner" data-aos="fade-up">
                     <div class="tagline">
                         <img src="./assets/images/solutions/line.svg" alt="line">
                         <span>Powering Critical Operations.</span>
@@ -146,14 +147,14 @@
                     </p>
                 </div>
             </div>
-            <div class="hero-image">
+            <div class="hero-image" data-aos="fade-up" data-aos-delay="100">
                 <img src="./assets/images/products/banner.jpg" alt="banner">
             </div>
         </section>
 
         <!-- 產品分類輪播區塊 -->
         <section class="products-categories">
-            <div class="container">
+            <div class="container" data-aos="fade-up">
                 <div class="swiper category-swiper">
                     <div class="swiper-wrapper">
                         <!-- Active 狀態 -->
@@ -252,7 +253,7 @@
         <!-- 產品列表區塊 -->
         <section class="products-lineup">
             <div class="container">
-                <div class="lineup-header">
+                <div class="lineup-header" data-aos="fade-up">
                     <h2>PRODUCT <br>LINEUP</h2>
                     <div class="lineup-tabs">
                         <a href="#" class="tab active" data-category="firefighting">Firefighting</a>
@@ -473,7 +474,7 @@
         <!-- CTA 區塊 -->
         <section class="cta">
             <div class="container">
-                <div class="cta-box">
+                <div class="cta-box" data-aos="fade-up">
                     <div class="cta-content">
                         <h2>
                             <span>ENGINEERED FOR RELIABILITY.<br>BUILT FOR REAL MISSIONS.</span>
@@ -494,7 +495,7 @@
     </main>
 
     <!-- FOOTER (沿用共用 Footer) -->
-    <footer class="site-footer">
+    <footer class="site-footer" data-aos="fade-up">
         <div class="container">
             <a href="index.html" class="logo logo--footer">
                 <img src="./assets/images/logo.svg" alt="Motionnex">
@@ -587,6 +588,7 @@
     </footer>
 
     <script src="./assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="./assets/vendor/aos/aos.js"></script>
     <script src="./js/main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
