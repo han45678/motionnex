@@ -128,11 +128,22 @@
         }
 
         .banner-img {
+        // 原始圖檔只有 319x339px，先前用 size(460) 等比放大到寬螢幕會超過原生解析度
+        // 快 1.5 倍，瀏覽器放大取樣導致邊緣模糊、淡藍色元素跟藍色背景糊在一起，
+        // 看起來像蒙了一層濾鏡。這裡把上限收回接近原生尺寸（僅小幅放大，維持銳利度），
+        // max-width 故意用固定 px（不用 size()）避免大螢幕下持續等比放大到失真；
+        // flex-basis 百分比只在容器變窄（會小於這個上限）時負責等比縮小
+        flex: 0 0 24%;
+        max-width: 272px;
 
         @include mixins.mq(mobile) {
+          flex: 0 0 auto;
+          max-width: size-m(192);
         }
 
         img {
+          display: block;
+          width: 100%;
           max-width: 100%;
           transform: translateY(10%);
           height: auto;
@@ -233,7 +244,8 @@
 
         .hours-col {
           h5.text-blue {
-            font-size: size(24);
+            // 字級改成與下方 "9:00 AM – 6:00 PM" 的 p 一致（size(20) / size-m(14)）
+            font-size: size(20);
             font-weight: 600;
             color: #183eeb;
             margin: 0 0 size(4) 0;
