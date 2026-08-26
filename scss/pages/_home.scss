@@ -702,7 +702,7 @@
       .card {
         flex: 1;
         color: #fff;
-        padding: size(40) size(50);
+        padding: size(40) size(35);
         position: relative;
         box-sizing: border-box;
 
@@ -712,7 +712,7 @@
 
         .icon {
           margin-bottom: size(30);
-          height: size(60); /* 統一 Icon 容器高度 */
+          height: size(110); /* 側邊卡片 Icon 容器高度 */
           display: flex;
           align-items: center;
           justify-content: flex-start;
@@ -729,20 +729,23 @@
         }
 
         h3 {
-          font-size: size(20);
-          font-weight: 600;
+          font-size: size(28);
+          font-weight: 700;
           margin: 0 0 size(16) 0;
           line-height: 1.3;
           color: #fff;
+          white-space: nowrap; /* 設計稿標題不斷行 */
 
           @include mixins.mq(mobile) {
             font-size: size-m(18);
             margin: 0 0 size-m(12) 0;
+            white-space: normal;
           }
         }
 
         p {
-          font-size: size(14);
+          font-size: size(20);
+          font-weight: 400;
           line-height: 1.6;
           margin: 0;
           color: #d1d5db; /* 淺灰色內文 */
@@ -755,7 +758,7 @@
 
       .card.dark {
         background-color: #03004a;
-        height: size(280);
+        height: size(375); /* 固定高度,確保左右兩張卡片不因標題斷行字數不同而高度不一 */
         border-top-left-radius: size(30);
         border-top-right-radius: size(30);
 
@@ -787,28 +790,33 @@
 
       .card.highlight {
         background-color: #ea0044;
-        // height: size(340); /* 中間卡片較高 */
-        // border-radius: size(30);
         border-top-left-radius: size(30);
         border-top-right-radius: size(30);
         z-index: 2;
         margin: 0 size(-1); /* 微調負邊距避免出現細微的 1px 渲染縫隙 */
-        padding: size(60) size(65);
+        padding: size(60) size(50);
 
         @include mixins.mq(mobile) {
-          height: auto;
           margin: 0;
           border-radius: size-m(20);
           padding: size-m(40) size-m(20);
         }
 
         .icon {
-          height: size(150); /* 中間的 Icon 尺寸稍微放大 */
+          height: size(200); /* 中間的 Icon 容器高度 */
           margin-bottom: size(30);
 
           @include mixins.mq(mobile) {
             height: size-m(70);
             margin-bottom: size-m(20);
+          }
+        }
+
+        h3 {
+          font-size: size(32);
+
+          @include mixins.mq(mobile) {
+            font-size: size-m(18);
           }
         }
 
