@@ -286,12 +286,12 @@
 
       // 上排：圖片
       .cell-image {
-        margin-left: size(50); // 電腦版左邊 50 間距
-        border-bottom-left-radius: size(125); // 左下角圓角 125
+        margin: size(50) 0 0 size(50); // 電腦版左邊、上面留白，右邊貼齊卡片邊緣
+        border-bottom-left-radius: size(125); // 只有左下角圓角
         overflow: hidden;
 
         @include mixins.mq(mobile) {
-          margin-left: 0;
+          margin: 0;
           height: size-m(200);
         }
 
@@ -341,8 +341,8 @@
         }
 
         p {
-          font-size: size(20);
-          line-height: 1.8;
+          font-size: size(16);
+          line-height: 1.6;
           color: rgba(255, 255, 255, 0.8);
           margin: 0;
 
