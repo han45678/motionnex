@@ -1964,6 +1964,7 @@ img.is-loading {
     border-top-right-radius: 21.3333333333vw;
     width: 66.6666666667vw;
     bottom: 0;
+    position: static;
   }
 }
 #solutions .solutions-missions .missions-left .image-wrapper img {
@@ -2495,6 +2496,7 @@ img.is-loading {
 @media (max-width: 1023px) {
   #products .products-lineup .lineup-header .lineup-tabs {
     gap: 4.2666666667vw;
+    overflow-y: hidden;
     overflow-x: auto;
     width: 100%;
     padding-bottom: 2.1333333333vw;
@@ -4661,6 +4663,8 @@ img.is-loading {
     border-radius: 2.6666666667vw;
     font-size: 3.7333333333vw;
     gap: 1.6vw;
+    padding: 0 4vw;
+    height: 10.6666666667vw;
   }
 }
 #news-page .news-list-section {
