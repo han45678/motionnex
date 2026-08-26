@@ -366,7 +366,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: size(6);
+      border-radius: size(12);
       font-size: size(24);
 
       .arrow {
@@ -377,7 +377,7 @@
       @include mixins.mq(mobile) {
         width: size-m(28);
         height: size-m(28);
-        border-radius: size-m(4);
+        border-radius: size-m(8);
         font-size: size-m(14);
       }
     }
@@ -471,7 +471,14 @@
     background-color: #183eeb;
 
     .card-head .category { color: #fff; }
-    .card-head .link-icon { background-color: #fff; color: #ea0044; }
+    .card-head .link-icon {
+      background-color: #fff;
+      color: #ea0044;
+
+      .arrow {
+        transform: rotate(45deg); // 高亮卡片箭頭常態顯示為 →,跟 hover 效果一致
+      }
+    }
     .card-body .info h3, .card-body .info p { color: #fff; }
     .card-body .pic .bg-shape { background-color: color.adjust(#183eeb, $lightness: 12%); }
   }
