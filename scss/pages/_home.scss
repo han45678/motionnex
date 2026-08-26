@@ -1,6 +1,5 @@
 @use '../abstracts/mixins';
 @use '../abstracts/function' as *;
-@use 'sass:color';
 
 #home {
   #banner {
@@ -365,6 +364,28 @@
       margin-bottom: size-m(40);
     }
 
+    .container {
+      position: relative; // 讓 .solutions-pattern 用絕對定位對齊這個範圍
+    }
+
+    // 標題右側淡淡的品牌 Logo Pattern 裝飾(原設計稿有、測試頁漏放),
+    // 沿用 products_page/about 那顆 icon.svg 素材與 opacity: 0.1 的用法。
+    // 只在電腦版顯示,手機版版位太窄放不下、原設計稿也沒有對應版位。
+    .solutions-pattern {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: size(320);
+      height: auto;
+      opacity: 0.1;
+      z-index: -1; // 壓在標題/選單/圖片底下,純裝飾用
+      pointer-events: none;
+
+      @include mixins.mq(mobile) {
+        display: none;
+      }
+    }
+
     .title-area {
       margin-bottom: size(40);
 
@@ -421,6 +442,9 @@
       }
 
       .tab-btn {
+        position: relative;
+        z-index: 0;
+        overflow: hidden; // 讓 ::before 掃色被圓角裁掉,不會露出直角
         display: flex;
         align-items: center;
         background-color: #040914; /* 根據設計圖微調的深色 */
@@ -435,6 +459,18 @@
         @include mixins.mq(mobile) {
           padding: size-m(16) size-m(24);
           border-radius: size-m(12);
+        }
+
+        // hover 時由左至右掃出藍色色塊,取代原本瞬間切換的 background-color
+        &::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          z-index: -1; // 壓在數字/文字/箭頭底下
+          background-color: #183eeb;
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.4s ease;
         }
 
         .num {
@@ -482,17 +518,20 @@
           }
         }
 
+        // 桌機版滑過就會由 JS 加上 .active(見 main.js activateTab),
+        // 所以「滑過變藍色」的掃色效果要掛在 .active 上,而不是另外寫 :hover,
+        // 不然滑入的當下 JS 已經同步加上 .active,:hover:not(.active) 永遠不會命中。
+        // 手機版點擊切換也是同一套 .active,效果自然一併適用。
         &.active {
-          background-color: #183eeb;
           box-shadow: 0 5px 10px #000;
+
+          &::before {
+            transform: scaleX(1);
+          }
 
           .num {
             color: #ea0044;
           }
-        }
-
-        &:hover:not(.active) {
-          background-color: color.adjust(#040914, $lightness: 10%);
         }
       }
     }
@@ -503,7 +542,8 @@
       border-radius: size(40);
 
       width: size(500);
-      height: size(575);
+      // 高度不再寫死,改讓 .content-wrapper 的 align-items: stretch 撐滿,
+      // 跟左側 .tabs 的實際高度一致,圖框底部才會跟選單底部切齊
       background-color: #f5f5f5;
       overflow: hidden;
       // aspect-ratio: 1 / 1;
