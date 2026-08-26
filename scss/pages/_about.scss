@@ -17,7 +17,7 @@
       overflow: hidden;
       color: #fff;
       position: relative;
-      height: size(700);
+      height: size(830);
 
       @include mixins.mq(mobile) {
         flex-direction: column;
@@ -240,6 +240,12 @@
     @include mixins.section-padding;
     background-color: #fff;
 
+    .container{
+      max-width: size(1745);
+      @include mixins.mq(mobile) {
+        max-width: 100%;
+      }
+    }
     // grid 四等份：上排圖標＋圖片、下排標題＋內文
     .card-box {
       background-color: #14078C;
@@ -248,7 +254,7 @@
       // 電腦版：兩排都是 30% / 70%
       grid-template-columns: 30% 70%;
       grid-template-rows: repeat(2, 1fr);
-      height: size(700);
+      height: size(830);
       overflow: hidden;
       color: #fff;
 
@@ -263,9 +269,9 @@
       // 上排：圖標
       .cell-icon {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: flex-start; // 貼著左邊
-        padding: size(40) size(40) size(40) 0;
+        padding: size(140) size(40) size(40) 0;
 
         @include mixins.mq(mobile) {
           height: size-m(200);
@@ -273,8 +279,8 @@
         }
 
         .deco-lines {
-          width: 100%;
-          max-width: size(300); // 大一點
+          
+          width: 100%; // 大一點
           height: auto;
           opacity: 0.8;
 
@@ -286,9 +292,10 @@
 
       // 上排：圖片
       .cell-image {
-        margin: size(50) 0 0 size(50); // 電腦版左邊、上面留白，右邊貼齊卡片邊緣
+        margin: size(110) 0 0 size(80); // 電腦版左邊、上面留白，右邊貼齊卡片邊緣
         border-bottom-left-radius: size(125); // 只有左下角圓角
         overflow: hidden;
+        height: size(365);
 
         @include mixins.mq(mobile) {
           margin: 0;
@@ -306,8 +313,8 @@
       // 下排：標題
       .cell-title {
         display: flex;
-        align-items: center;
-        padding: size(50) size(60);
+        align-items: flex-start;
+        padding: size(50) size(60) size(70) size(120);
 
         @include mixins.mq(mobile) {
           padding: size-m(32) size-m(24);
@@ -332,8 +339,8 @@
       // 下排：內文
       .cell-text {
         display: flex;
-        align-items: center;
-        padding: size(50) size(60);
+        align-items: flex-start;
+        padding: size(50) size(60) size(50) size(30);
 
         @include mixins.mq(mobile) {
           padding: size-m(32) size-m(24);
@@ -341,7 +348,7 @@
         }
 
         p {
-          font-size: size(16);
+          font-size: size(20);
           line-height: 1.6;
           color: rgba(255, 255, 255, 0.8);
           margin: 0;
