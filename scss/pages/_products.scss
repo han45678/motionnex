@@ -687,6 +687,7 @@
         height: size-m(32);
         font-size: size-m(16);
         border-width: size-m(1);
+        transform: rotate(-90deg); // 縮圖列手機版改橫向排列，箭頭跟著從上下轉成左右
       }
     }
 
@@ -830,7 +831,11 @@
           font-size: size(24);
           font-weight: 600;
           color: #2b394a;
-          @include mixins.mq(mobile) { color: #183eeb; } // 手機版強調屬性名
+
+          @include mixins.mq(mobile) {
+            font-size: size-m(16);
+            color: #183eeb; // 手機版強調屬性名
+          }
         }
 
         .spec-list {
@@ -860,6 +865,10 @@
         .col-value{
           font-size: size(22);
           font-weight: 400;
+
+          @include mixins.mq(mobile) {
+            font-size: size-m(14);
+          }
         }
       }
     }
