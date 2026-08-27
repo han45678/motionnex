@@ -824,8 +824,20 @@
           color: #ffffff; /* 中間卡片內文全白，提升對比度 */
         }
 
-        /* 中間卡片 hover:色塊由上往下鋪滿,取代原本瞬間切換的 background-color */
+        /* 藍色遮罩沿用 mixin 產生 ::before,但改由左右卡片 hover 觸發(見下方
+           :has() 規則),中間卡片自己 hover 不觸發,故蓋掉 mixin 內建的 &:hover */
         @include mixins.card-rise-mask($color: #03004a, $origin: top);
+
+        /* 滑過中間卡片本身時維持紅色,不套用上面 mixin 內建的 hover 變藍 */
+        &:hover::before {
+          transform: scaleY(0);
+        }
+      }
+
+      /* 同時間只允許一張卡片亮紅色:滑左右任一側的深色卡片時,
+         中間原本預設紅色的卡片要蓋成藍色;放開後中間卡片才恢復紅色 */
+      &:has(.card.dark:hover) .card.highlight::before {
+        transform: scaleY(1);
       }
     }
   }
