@@ -959,8 +959,10 @@ img.is-loading {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: right center;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: right center;
+       object-position: right center;
   }
 }
 #home #banner .swiper-pagination {
@@ -1407,7 +1409,8 @@ img.is-loading {
 #home #solutions .tab-content .content-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 #home #solutions .tab-content .content-item .info-overlay {
   position: absolute;
@@ -1730,7 +1733,8 @@ img.is-loading {
 #home #proven-section .image-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
 }
 #home #proven-section .content-wrapper {
@@ -1952,8 +1956,9 @@ img.is-loading {
   border-top-right-radius: 6.25vw;
   overflow: hidden;
   position: absolute;
+  bottom: -10.4166666667vw;
   left: 0;
-  bottom: -2.6041666667vw;
+  transform: translateX(-13vw);
 }
 @media (max-width: 1023px) {
   #solutions .solutions-missions .missions-left .image-wrapper {
@@ -1961,6 +1966,8 @@ img.is-loading {
     width: 66.6666666667vw;
     bottom: 0;
     position: static;
+    left: auto;
+    transform: none;
   }
 }
 #solutions .solutions-missions .missions-left .image-wrapper img {
@@ -2158,7 +2165,7 @@ img.is-loading {
   background-color: #183eeb;
   z-index: -1;
   border-radius: 0;
-  transition: 0.6S;
+  transition: 0.6s;
 }
 #solutions .solutions-systems .system-card:hover .card-image img {
   transform: scale(1.25) translate(15%, 15%);
@@ -2240,7 +2247,8 @@ img.is-loading {
 #solutions .solutions-systems .system-card .card-image img {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   transition: transform 0.4s ease;
 }
 
@@ -2304,7 +2312,8 @@ img.is-loading {
   height: 10.4166666667vw;
   width: auto;
   max-width: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 @media (max-width: 1023px) {
   #products .products-categories .category-card .img-box img {
@@ -2751,7 +2760,8 @@ img.is-loading {
 .product-card .card-body .pic img {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   transition: transform 0.4s ease;
 }
 .product-card.highlight {
@@ -2771,7 +2781,7 @@ img.is-loading {
   color: #fff;
 }
 .product-card.highlight .card-body .pic .bg-shape {
-  background-color: rgb(31.4994141083%, 42.7679087571%, 94.0692133427%);
+  background-color: rgb(80.3235059761, 109.0581673307, 239.8764940239);
 }
 
 /* =========================================
@@ -2903,7 +2913,8 @@ img.is-loading {
 #product-detail .detail-hero .hero-right .main-image img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   display: block;
   transition: transform 0.3s ease;
 }
@@ -2996,7 +3007,8 @@ img.is-loading {
 #product-detail .detail-hero .hero-right .thumb img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 #product-detail .detail-hero .color-bar {
   position: absolute;
@@ -3766,7 +3778,8 @@ img.is-loading {
 #case .featured-missions .mission-showcase .main-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
 }
 #case .featured-missions .mission-showcase .mission-details {
@@ -3993,7 +4006,8 @@ img.is-loading {
 #about-page .motion-redefined .card-box .card-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 #about-page {
   /* --- 3. Built on Experience Section --- */
@@ -4199,7 +4213,8 @@ img.is-loading {
 #about-page .looking-ahead .card-box .cell-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
 }
 #about-page .looking-ahead .card-box .cell-title {
@@ -4523,7 +4538,8 @@ img.is-loading {
 #news-page .news-list-section .news-card .card-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   transition: transform 0.5s ease;
 }
 #news-page .news-list-section .news-card:hover .card-img img {
@@ -4999,7 +5015,8 @@ img.is-loading {
 #news-detail .article-related .related-card__img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   transition: transform 0.5s ease;
 }
 #news-detail .article-related .related-card__body {
@@ -5400,6 +5417,9 @@ img.is-loading {
     border-radius: 1.6vw;
   }
 }
+#contact-page .contact-section .form-card .contact-form .form-group input::-moz-placeholder, #contact-page .contact-section .form-card .contact-form .form-group select::-moz-placeholder, #contact-page .contact-section .form-card .contact-form .form-group textarea::-moz-placeholder {
+  color: #a0a0a0;
+}
 #contact-page .contact-section .form-card .contact-form .form-group input::placeholder, #contact-page .contact-section .form-card .contact-form .form-group select::placeholder, #contact-page .contact-section .form-card .contact-form .form-group textarea::placeholder {
   color: #a0a0a0;
 }
@@ -5427,7 +5447,8 @@ img.is-loading {
   position: relative;
 }
 #contact-page .contact-section .form-card .contact-form .form-group .select-wrapper select {
-  appearance: none;
+  -moz-appearance: none;
+       appearance: none;
   -webkit-appearance: none;
   padding-right: 2.0833333333vw;
   cursor: pointer;
@@ -5469,7 +5490,7 @@ img.is-loading {
   }
 }
 #contact-page .contact-section .form-card .contact-form .submit-btn:hover {
-  background-color: rgb(6.4994922272%, 18.8485274588%, 75.0691352238%);
+  background-color: rgb(16.5737051793, 48.0637450199, 191.4262948207);
 }
 
 .hero {
@@ -5594,7 +5615,8 @@ img.is-loading {
 .hero .hero-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-bottom-left-radius: 10.4166666667vw;
 }
 @media (max-width: 1023px) {
@@ -5794,6 +5816,4 @@ img.is-loading {
     width: 100%;
     justify-content: center;
   }
-}
-
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

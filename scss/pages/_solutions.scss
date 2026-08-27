@@ -63,14 +63,18 @@
         border-top-right-radius: size(120);
         overflow: hidden;
         position: absolute;
+        bottom: size(-200);
+
         left: 0;
-        bottom: size(-50);
+        transform: translateX(-13vw);
 
         @include mixins.mq(mobile) {
           border-top-right-radius: size-m(80);
           width: size-m(250);
           bottom: 0;
-          position:static
+          position: static;
+          left: auto;
+          transform: none;
         }
 
         img {
@@ -269,7 +273,7 @@
             background-color: #183eeb;
             z-index: -1;
             border-radius: 0;
-            transition: 0.6S;
+            transition: 0.6s;
           }
           img {
             transform: scale(1.25) translate(15%, 15%);
