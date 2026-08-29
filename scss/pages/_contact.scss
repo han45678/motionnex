@@ -170,7 +170,7 @@
       width: 45%;
       background-color: #fff;
       border-radius: size(24);
-      padding: size(48);
+      padding: size(48) size(48);
       box-shadow: 0 size(10) size(30) rgba(0, 0, 0, 0.05);
 
       @include mixins.mq(mobile) {
@@ -194,7 +194,7 @@
           font-size: size(24);
           font-weight: 700;
           color: #000;
-          margin: 0 0 size(8) 0;
+          margin: 0 0 size(12) 0;
           text-transform: uppercase;
 
           @include mixins.mq(mobile) {
@@ -207,6 +207,9 @@
           color: #555;
           margin: 0;
           line-height: 1.6;
+          br{
+            display: none;
+          }
 
           @include mixins.mq(mobile) {
             font-size: size-m(14);
@@ -225,7 +228,7 @@
 
       .divider {
         border: 0;
-        border-top: size(1) solid #eaeaea;
+        border-top: size(1) solid #183eeb;
         margin: size(32) 0;
 
         @include mixins.mq(mobile) {

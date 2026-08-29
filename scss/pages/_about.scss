@@ -340,7 +340,7 @@
       .cell-text {
         display: flex;
         align-items: flex-start;
-        padding: size(50) size(60) size(50) size(30);
+        padding: size(60) size(60) size(50) size(30);
 
         @include mixins.mq(mobile) {
           padding: size-m(32) size-m(24);

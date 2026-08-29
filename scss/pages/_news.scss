@@ -24,7 +24,7 @@
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      padding: size(180) size(80) size(180) size(120);
+      padding: size(205) size(80) size(180) size(120);
 
       @include mixins.mq(mobile) {
         width: 100%;
