@@ -165,7 +165,7 @@ function initHeaderScrollState() {
 
 // 數字滾動至可視範圍時,由 0 累加到目標值(見 #about 區塊的 .num[data-count-to])
 function initCountUpStats() {
-  const counters = document.querySelectorAll('.num[data-count-to]');
+  const counters = document.querySelectorAll('.num[data-count-to], ._num[data-count-to]');
   if (!counters.length) return;
 
   const DURATION = 1500; // 動畫時間(毫秒)
