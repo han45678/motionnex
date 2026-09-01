@@ -834,14 +834,14 @@ img.is-loading {
 }
 @media (max-width: 1023px) {
   #home #banner .item .text {
-    top: auto;
+    top: 13.3333333333vw;
     bottom: 0;
     left: 0;
     width: 100%;
     height: auto;
-    padding: 17.0666666667vw 6.4vw 12.8vw;
-    justify-content: flex-start;
-    align-content: flex-end;
+    padding: 8vw 6.4vw 12.8vw;
+    align-content: flex-start;
+    align-items: flex-start;
   }
 }
 #home #banner .item .text h2 {
@@ -933,18 +933,21 @@ img.is-loading {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 68.75vw;
+  width: 100%;
+  height: 100%;
+  -o-object-position: left bottom;
+     object-position: left bottom;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 @media (max-width: 1023px) {
   #home #banner .item .pic {
-    top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 50dvh;
+    max-width: unset;
     -o-object-fit: cover;
        object-fit: cover;
-    -o-object-position: right center;
-       object-position: right center;
   }
 }
 #home #banner .swiper-pagination {
@@ -1205,9 +1208,9 @@ img.is-loading {
 }
 #home #solutions .solutions-pattern {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 16.6666666667vw;
+  top: -0.78125vw;
+  right: -1.5625vw;
+  width: 33.8541666667vw;
   height: auto;
   opacity: 0.1;
   z-index: -1;
@@ -2352,7 +2355,9 @@ img.is-loading {
   height: auto;
   transition: transform 0.3s ease;
 }
-#products .products-categories .category-card .arrow-btn svg path, #products .products-categories .category-card .arrow-btn svg polyline, #products .products-categories .category-card .arrow-btn svg line {
+#products .products-categories .category-card .arrow-btn svg path,
+#products .products-categories .category-card .arrow-btn svg polyline,
+#products .products-categories .category-card .arrow-btn svg line {
   fill: none;
   stroke: currentColor;
   stroke-linecap: round;
@@ -2503,7 +2508,7 @@ img.is-loading {
 }
 #products .products-lineup .lineup-header .lineup-tabs .tab {
   font-size: 1.0416666667vw;
-  color: #A4A7AA;
+  color: #a4a7aa;
   text-decoration: none;
   font-weight: 600;
   position: relative;
@@ -2773,7 +2778,8 @@ img.is-loading {
 .product-card.highlight .card-head .link-icon .arrow {
   transform: rotate(45deg);
 }
-.product-card.highlight .card-body .info h3, .product-card.highlight .card-body .info p {
+.product-card.highlight .card-body .info h3,
+.product-card.highlight .card-body .info p {
   color: #fff;
 }
 .product-card.highlight .card-body .pic .bg-shape {
@@ -2886,7 +2892,7 @@ img.is-loading {
   align-items: center;
   justify-content: center;
   padding: 3.125vw;
-  background-color: #DADEE7;
+  background-color: #dadee7;
 }
 @media (max-width: 1023px) {
   #product-detail .detail-hero .hero-right {
@@ -2898,7 +2904,12 @@ img.is-loading {
 #product-detail .detail-hero .hero-right .main-image {
   width: 70%;
   aspect-ratio: 1/1;
+  background-color: #ffffff;
   cursor: zoom-in;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 @media (max-width: 1023px) {
   #product-detail .detail-hero .hero-right .main-image {
@@ -2985,16 +2996,18 @@ img.is-loading {
   }
 }
 #product-detail .detail-hero .hero-right .thumb {
-  background-color: transparent;
+  aspect-ratio: 1/1;
+  background-color: #ffffff;
   border-bottom: 0.15625vw solid transparent;
-  padding-bottom: 0.5208333333vw;
   cursor: pointer;
   transition: border-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 @media (max-width: 1023px) {
   #product-detail .detail-hero .hero-right .thumb {
     border-bottom-width: 0.8vw;
-    padding-bottom: 1.6vw;
   }
 }
 #product-detail .detail-hero .hero-right .thumb.swiper-slide-thumb-active, #product-detail .detail-hero .hero-right .thumb:hover {
@@ -3012,7 +3025,7 @@ img.is-loading {
   left: 0;
   width: 100%;
   height: 0.4166666667vw;
-  background: linear-gradient(to right, #EA0044 20%, #00C08B 20% 40%, #655CC6 40% 60%, #0091B2 60% 80%, #FF681D 80%);
+  background: linear-gradient(to right, #ea0044 20%, #00c08b 20% 40%, #655cc6 40% 60%, #0091b2 60% 80%, #ff681d 80%);
   z-index: 3;
 }
 @media (max-width: 1023px) {

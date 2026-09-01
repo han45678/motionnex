@@ -6,8 +6,6 @@
    #products (產品總覽頁)
 ========================================= */
 #products {
-
-
   .products-categories {
     padding: size(100) 0;
     background-color: #f7f9fc;
@@ -36,7 +34,7 @@
       border-radius: size(24);
       padding: size(40) size(30);
       text-align: center;
-      box-shadow: 0 size(10) size(30) rgba(0,0,0,0.05);
+      box-shadow: 0 size(10) size(30) rgba(0, 0, 0, 0.05);
       transition: all 0.3s ease;
       cursor: pointer;
       // 桌機固定寬度：容器裝不下整數格，右側故意露出下一格的一小截
@@ -98,7 +96,9 @@
         align-items: center;
         justify-content: center;
         font-weight: bold;
-        transition: background-color 0.3s, color 0.3s;
+        transition:
+          background-color 0.3s,
+          color 0.3s;
 
         @include mixins.mq(mobile) {
           width: size-m(32);
@@ -110,7 +110,9 @@
           width: size(16);
           height: auto;
           transition: transform 0.3s ease;
-          path, polyline, line {
+          path,
+          polyline,
+          line {
             fill: none;
             stroke: currentColor;
             stroke-linecap: round;
@@ -120,10 +122,16 @@
         }
       }
 
-      &.active, &:hover {
+      &.active,
+      &:hover {
         background-color: #183eeb;
-        h3 { color: #fff; }
-        .arrow-btn { background-color: #fff; color: #ea0044;}
+        h3 {
+          color: #fff;
+        }
+        .arrow-btn {
+          background-color: #fff;
+          color: #ea0044;
+        }
       }
     }
 
@@ -165,7 +173,9 @@
 
         @include mixins.mq(mobile) {
           font-size: size-m(32);
-          br { display: none; }
+          br {
+            display: none;
+          }
         }
       }
 
@@ -184,7 +194,7 @@
 
         .tab {
           font-size: size(20);
-          color: #A4A7AA;
+          color: #a4a7aa;
           text-decoration: none;
           font-weight: 600;
           position: relative;
@@ -195,19 +205,19 @@
           }
 
           &::after {
-              content: '';
-              position: absolute;
-              bottom: size(-5); // 對齊 border-bottom
-              left: 0;
-              width: 0;
-              height: size(3);
-              background-color: #ea0044;
-              transition: 0.6s;
+            content: '';
+            position: absolute;
+            bottom: size(-5); // 對齊 border-bottom
+            left: 0;
+            width: 0;
+            height: size(3);
+            background-color: #ea0044;
+            transition: 0.6s;
 
-              @include mixins.mq(mobile) {
-                bottom: size-m(-9);
-              }
+            @include mixins.mq(mobile) {
+              bottom: size-m(-9);
             }
+          }
 
           &.active {
             color: #000;
@@ -233,7 +243,9 @@
             font-size: size(20);
             color: #212529;
             cursor: pointer;
-            &:hover { color: #ea0044; }
+            &:hover {
+              color: #ea0044;
+            }
 
             // 原本是寫在 products.html 的 svg style="height: 20px;" 內聯樣式,
             // 以及每顆 svg 自帶的 <style>.cls-1{fill:currentColor;}</style>,
@@ -241,7 +253,9 @@
             svg {
               height: 20px;
 
-              .cls-1 { fill: currentColor; }
+              .cls-1 {
+                fill: currentColor;
+              }
             }
           }
         }
@@ -284,7 +298,9 @@
   padding: size(10) size(40);
   text-decoration: none;
   display: flex;
-  transition: background-color 0.4s ease, transform 0.3s ease;
+  transition:
+    background-color 0.4s ease,
+    transform 0.3s ease;
   overflow: hidden;
 
   @include mixins.mq(mobile) {
@@ -471,7 +487,9 @@
   &.highlight {
     background-color: #183eeb;
 
-    .card-head .category { color: #fff; }
+    .card-head .category {
+      color: #fff;
+    }
     .card-head .link-icon {
       background-color: #fff;
       color: #ea0044;
@@ -480,8 +498,13 @@
         transform: rotate(45deg); // 高亮卡片箭頭常態顯示為 →,跟 hover 效果一致
       }
     }
-    .card-body .info h3, .card-body .info p { color: #fff; }
-    .card-body .pic .bg-shape { background-color: color.adjust(#183eeb, $lightness: 12%); }
+    .card-body .info h3,
+    .card-body .info p {
+      color: #fff;
+    }
+    .card-body .pic .bg-shape {
+      background-color: color.adjust(#183eeb, $lightness: 12%);
+    }
   }
 }
 
@@ -490,251 +513,264 @@
 ========================================= */
 #product-detail {
   .detail-hero {
-  display: flex;
-  min-height: 80vh;
-  position: relative;
-  background-color: #f7f9fc;
-
-  @include mixins.mq(mobile) {
-    flex-direction: column;
-  }
-
-  .hero-left {
-    width: 35%;
-    background-color: #070b28;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: size(60);
+    min-height: 80vh;
     position: relative;
-    overflow: hidden;
+    background-color: #f7f9fc;
 
     @include mixins.mq(mobile) {
-      width: 100%;
-      padding: size-m(60) size-m(24);
-      justify-content: flex-start;
-    }
-
-    &__content {
-      color: #fff;
-      width: 100%;
-      max-width: size(350);
-      position: relative;
-      z-index: 2;
-
-      @include mixins.mq(mobile) {
-        max-width: 100%;
-      }
-
-      .category {
-        display: flex;
-        align-items: center;
-        gap: size(12);
-        margin-bottom: size(24);
-        font-size: size(24);
-        color: #ea0044;
-        font-weight: 600;
-
-        @include mixins.mq(mobile) {
-          font-size: size-m(13);
-          margin-bottom: size-m(16);
-          gap: size-m(8);
-        }
-
-        img {
-          width: size(20);
-          @include mixins.mq(mobile) { width: size-m(16); }
-        }
-      }
-
-      h1 {
-        font-size: size(72);
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 600;
-        color: #fff;
-        margin: 0 0 size(16) 0;
-
-        @include mixins.mq(mobile) {
-          font-size: size-m(48);
-          margin-bottom: size-m(8);
-        }
-      }
-
-      p {
-        font-size: size(22);
-        color: rgba(255,255,255,0.7);
-        line-height: 1.4;
-        margin: 0;
-
-        @include mixins.mq(mobile) {
-          font-size: size-m(16);
-        }
-      }
-    }
-
-    .deco-lines {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 70%;
-      opacity: 0.1;
-      z-index: 1;
-    }
-  }
-
-  .hero-right {
-    width: 65%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: size(60);
-    background-color: #DADEE7;
-
-    @include mixins.mq(mobile) {
-      width: 100%;
-      padding: size-m(40) size-m(24);
       flex-direction: column;
     }
 
-    .main-image {
-      width: 70%;
-      aspect-ratio: 1 / 1;
-      cursor: zoom-in;
-
-      @include mixins.mq(mobile) {
-        width: 100%;
-        margin-bottom: size-m(24);
-      }
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        display: block;
-        transition: transform 0.3s ease;
-      }
-
-      &:hover .swiper-slide-active img {
-        transform: scale(2);
-      }
-    }
-
-    .thumbnails {
-      position: absolute;
-      right: size(60);
-      top: 50%;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: size(20);
-
-      @include mixins.mq(mobile) {
-        position: relative;
-        right: 0;
-        top: 0;
-        transform: none;
-        flex-direction: row;
-        width: 100%;
-        gap: size-m(12);
-      }
-    }
-
-    .thumbs-swiper {
-      width: size(160);
-      height: size(520);
-
-      @include mixins.mq(mobile) {
-        // 手機版縮圖列改吃 .thumbnails 剩餘寬度（跟旁邊的下一張按鈕共用同一列），
-        // 原本的 size-m(434) 換算出來比手機螢幕本身還寬，會被全站 overflow-x:hidden 左右裁掉、
-        // 導致縮圖被切、旁邊的導覽按鈕直接被推出畫面外
-        width: auto;
-        flex: 1;
-        min-width: 0;
-        height: size-m(96);
-      }
-
-      .swiper-wrapper {
-        flex-direction: column;
-
-        @include mixins.mq(mobile) {
-          flex-direction: row;
-        }
-      }
-    }
-
-    .thumbs-swiper__nav {
-      width: size(40);
-      height: size(40);
-      border: size(1) solid #183eeb;
-      color: #183eeb;
-      background-color: transparent; 
-      border-radius: 50%;
+    .hero-left {
+      width: 35%;
+      background-color: #070b28;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: size(20);
-      flex-shrink: 0;
-      cursor: pointer;
-
-      &.swiper-button-disabled {
-        display: none;
-      }
+      padding: size(60);
+      position: relative;
+      overflow: hidden;
 
       @include mixins.mq(mobile) {
-        width: size-m(32);
-        height: size-m(32);
-        font-size: size-m(16);
-        border-width: size-m(1);
-        transform: rotate(-90deg); // 縮圖列手機版改橫向排列，箭頭跟著從上下轉成左右
-      }
-    }
-
-    .thumb {
-      background-color: transparent; 
-      border-bottom: size(3) solid transparent;
-      padding-bottom: size(10);
-      cursor: pointer;
-      transition: border-color 0.3s;
-
-      @include mixins.mq(mobile) {
-        border-bottom-width: size-m(3);
-        padding-bottom: size-m(6);
-      }
-
-      &.swiper-slide-thumb-active, &:hover {
-        border-color: #ea0044;
-      }
-
-      img {
         width: 100%;
-        height: 100%;
-        object-fit: contain;
+        padding: size-m(60) size-m(24);
+        justify-content: flex-start;
+      }
+
+      &__content {
+        color: #fff;
+        width: 100%;
+        max-width: size(350);
+        position: relative;
+        z-index: 2;
+
+        @include mixins.mq(mobile) {
+          max-width: 100%;
+        }
+
+        .category {
+          display: flex;
+          align-items: center;
+          gap: size(12);
+          margin-bottom: size(24);
+          font-size: size(24);
+          color: #ea0044;
+          font-weight: 600;
+
+          @include mixins.mq(mobile) {
+            font-size: size-m(13);
+            margin-bottom: size-m(16);
+            gap: size-m(8);
+          }
+
+          img {
+            width: size(20);
+            @include mixins.mq(mobile) {
+              width: size-m(16);
+            }
+          }
+        }
+
+        h1 {
+          font-size: size(72);
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 600;
+          color: #fff;
+          margin: 0 0 size(16) 0;
+
+          @include mixins.mq(mobile) {
+            font-size: size-m(48);
+            margin-bottom: size-m(8);
+          }
+        }
+
+        p {
+          font-size: size(22);
+          color: rgba(255, 255, 255, 0.7);
+          line-height: 1.4;
+          margin: 0;
+
+          @include mixins.mq(mobile) {
+            font-size: size-m(16);
+          }
+        }
+      }
+
+      .deco-lines {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 70%;
+        opacity: 0.1;
+        z-index: 1;
+      }
+    }
+
+    .hero-right {
+      width: 65%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: size(60);
+      background-color: #dadee7;
+
+      @include mixins.mq(mobile) {
+        width: 100%;
+        padding: size-m(40) size-m(24);
+        flex-direction: column;
+      }
+
+      .main-image {
+        width: 70%;
+        aspect-ratio: 1 / 1;
+        background-color: #ffffff;
+        cursor: zoom-in;
+        // 加入 Flex 確保絕對置中
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // 避免圖片放大時超出白色正方形
+        overflow: hidden;
+
+        @include mixins.mq(mobile) {
+          width: 100%;
+          margin-bottom: size-m(24);
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain; // 保持圖片比例並自動在範圍內置中
+          display: block;
+          transition: transform 0.3s ease;
+        }
+
+        &:hover .swiper-slide-active img {
+          transform: scale(2);
+        }
+      }
+      
+      .thumbnails {
+        position: absolute;
+        right: size(60);
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: size(20);
+
+        @include mixins.mq(mobile) {
+          position: relative;
+          right: 0;
+          top: 0;
+          transform: none;
+          flex-direction: row;
+          width: 100%;
+          gap: size-m(12);
+        }
+      }
+
+      .thumbs-swiper {
+        width: size(160);
+        height: size(520);
+
+        @include mixins.mq(mobile) {
+          width: auto;
+          flex: 1;
+          min-width: 0;
+          height: size-m(96);
+        }
+
+        .swiper-wrapper {
+          flex-direction: column;
+
+          @include mixins.mq(mobile) {
+            flex-direction: row;
+          }
+        }
+      }
+
+      .thumbs-swiper__nav {
+        width: size(40);
+        height: size(40);
+        border: size(1) solid #183eeb;
+        color: #183eeb;
+        background-color: transparent;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: size(20);
+        flex-shrink: 0;
+        cursor: pointer;
+
+        &.swiper-button-disabled {
+          display: none;
+        }
+
+        @include mixins.mq(mobile) {
+          width: size-m(32);
+          height: size-m(32);
+          font-size: size-m(16);
+          border-width: size-m(1);
+          transform: rotate(-90deg);
+        }
+      }
+
+      .thumb {
+        aspect-ratio: 1 / 1;
+        background-color: #ffffff;
+        border-bottom: size(3) solid transparent;
+        // padding-bottom: size(10);
+        cursor: pointer;
+        transition: border-color 0.3s;
+        // 加入 Flex 確保絕對置中
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include mixins.mq(mobile) {
+          border-bottom-width: size-m(3);
+          // padding-bottom: size-m(6);
+        }
+
+        &.swiper-slide-thumb-active,
+        &:hover {
+          border-color: #ea0044;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain; // 保持圖片比例並自動在範圍內置中
+        }
+      }
+    }
+
+    .color-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: size(8);
+      background: linear-gradient(
+        to right,
+        #ea0044 20%,
+        #00c08b 20% 40%,
+        #655cc6 40% 60%,
+        #0091b2 60% 80%,
+        #ff681d 80%
+      );
+      z-index: 3;
+
+      @include mixins.mq(mobile) {
+        height: size-m(4);
       }
     }
   }
-
-  .color-bar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: size(8);
-    background: linear-gradient(to right, 
-      #EA0044 20%, 
-      #00C08B 20% 40%, 
-      #655CC6 40% 60%, 
-      #0091B2 60% 80%, 
-      #FF681D 80%
-    );
-    z-index: 3;
-
-    @include mixins.mq(mobile) {
-      height: size-m(4);
-    }
-  }
-}
 
   .detail-specs {
     padding: size(120) 0;
@@ -768,7 +804,9 @@
 
       .header-icon {
         width: size(155);
-        @include mixins.mq(mobile) { width: size-m(50); }
+        @include mixins.mq(mobile) {
+          width: size-m(50);
+        }
       }
     }
 
@@ -781,7 +819,7 @@
 
       .tr {
         display: grid;
-            align-items: center;
+        align-items: center;
         grid-template-columns: 20% 30% 50%;
         border-bottom: size(1) solid #eaeaea;
         padding: size(24) 0;
@@ -795,22 +833,25 @@
           // .col-model 只有表頭（型號名稱）有內容，資料列一律是空 div；
           // 手機版表頭本身已經 display:none，但空 .col-model 仍會佔一個 grid row + gap，
           // 每一列都多墊一段看不到內容的空白，14 列累加起來手機會多拖出約 100px+ 空白
-          .col-model { display: none; }
+          .col-model {
+            display: none;
+          }
         }
 
         &.thead {
           font-weight: 700;
           color: #000;
           text-transform: uppercase;
-          
-          .col-model { color: #183eeb; 
-          font-size: size(42);
+
+          .col-model {
+            color: #183eeb;
+            font-size: size(42);
           }
 
-          .col-value{
-          font-size: size(24);
-          font-weight: 600;
-        }
+          .col-value {
+            font-size: size(24);
+            font-weight: 600;
+          }
 
           @include mixins.mq(mobile) {
             display: none; // 手機版隱藏表頭，或依需求調整
@@ -842,14 +883,18 @@
           margin: 0;
           padding-left: size(20);
 
-          @include mixins.mq(mobile) { padding-left: size-m(20); }
+          @include mixins.mq(mobile) {
+            padding-left: size-m(20);
+          }
 
           li {
             margin-bottom: size(8);
             position: relative;
             list-style: none;
 
-            @include mixins.mq(mobile) { margin-bottom: size-m(6); }
+            @include mixins.mq(mobile) {
+              margin-bottom: size-m(6);
+            }
 
             &::before {
               content: '•';
@@ -858,11 +903,13 @@
               left: size(-15);
               font-weight: bold;
 
-              @include mixins.mq(mobile) { left: size-m(-15); }
+              @include mixins.mq(mobile) {
+                left: size-m(-15);
+              }
             }
           }
         }
-        .col-value{
+        .col-value {
           font-size: size(22);
           font-weight: 400;
 
@@ -917,13 +964,16 @@
 
     .action-wrap {
       margin-top: size(60);
-      
+
       @include mixins.mq(mobile) {
         margin-top: size-m(40);
       }
 
       .btn--red {
-        @include mixins.btn-red-cta($padding: size(16) size(48), $mobile-padding: size-m(14) size-m(40));
+        @include mixins.btn-red-cta(
+          $padding: size(16) size(48),
+          $mobile-padding: size-m(14) size-m(40)
+        );
         display: inline-flex;
       }
     }
