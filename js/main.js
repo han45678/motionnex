@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initCountUpStats();
 
+  initCountUpStatsAbout();
+
   initPartnersMarquee();
 
   // Initialize Hero Swiper（僅在頁面上真的存在 #banner 時才初始化，
@@ -165,7 +167,7 @@ function initHeaderScrollState() {
 
 // 數字滾動至可視範圍時,由 0 累加到目標值(見 #about 區塊的 .num[data-count-to])
 function initCountUpStats() {
-  const counters = document.querySelectorAll('.num[data-count-to], ._num[data-count-to]');
+  const counters = document.querySelectorAll('.num[data-count-to]');
   if (!counters.length) return;
 
   const DURATION = 1500; // 動畫時間(毫秒)
@@ -206,6 +208,57 @@ function initCountUpStats() {
     });
   }, {
     threshold: 0.5,
+  });
+
+  counters.forEach((counter) => observer.observe(counter));
+}
+
+function initCountUpStatsAbout() {
+  // 加上外層 class 限制範圍，並精準選取帶有 data-count-to 的 <pre> 標籤
+  const counters = document.querySelectorAll('.built-on-experience .num pre[data-count-to]');
+  if (!counters.length) return;
+
+  const DURATION = 1500; // 動畫時間(毫秒)
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const easeOutQuad = (t) => t * (2 - t);
+
+  function animateCounter(el) {
+    const target = parseFloat(el.dataset.countTo) || 0;
+
+    if (prefersReducedMotion) {
+      el.textContent = target;
+      return;
+    }
+
+    const startTime = performance.now();
+
+    function tick(now) {
+      const progress = Math.min((now - startTime) / DURATION, 1);
+      const current = Math.round(target * easeOutQuad(progress));
+      
+      el.textContent = current;
+
+      if (progress < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        // 確保最後數值絕對等於目標值
+        el.textContent = target;
+      }
+    }
+
+    requestAnimationFrame(tick);
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {
+    // 將 threshold 從 0.5 降到 0.1
+    threshold: 0.1, 
   });
 
   counters.forEach((counter) => observer.observe(counter));

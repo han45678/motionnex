@@ -159,6 +159,8 @@
                     </div>
                 </div>
                 <div class="thumbnails">
+                    <button class="thumbs-swiper__nav thumbs-swiper__nav--next" aria-label="Next thumbnail">⭡</button>
+
                     <!-- 縮圖清單 -->
                     <div class="thumbs-swiper swiper">
                         <div class="swiper-wrapper">
@@ -175,7 +177,6 @@
                         </div>
                     </div>
 
-                    <!-- 只保留下箭頭，符合設計圖 -->
                     <button class="thumbs-swiper__nav thumbs-swiper__nav--next" aria-label="Next thumbnail">↓</button>
                 </div>
             </div>
@@ -502,6 +503,7 @@
                 watchOverflow: true,
                 navigation: {
                     nextEl: '.thumbs-swiper__nav--next',
+                    prevEl: '.thumbs-swiper__nav--prev',
                 },
                 breakpoints: {
                     1024: {

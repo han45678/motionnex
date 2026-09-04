@@ -2904,7 +2904,6 @@ img.is-loading {
 #product-detail .detail-hero .hero-right .main-image {
   width: 70%;
   aspect-ratio: 1/1;
-  background-color: #ffffff;
   cursor: zoom-in;
   display: flex;
   align-items: center;
@@ -2997,7 +2996,6 @@ img.is-loading {
 }
 #product-detail .detail-hero .hero-right .thumb {
   aspect-ratio: 1/1;
-  background-color: #ffffff;
   border-bottom: 0.15625vw solid transparent;
   cursor: pointer;
   transition: border-color 0.3s;

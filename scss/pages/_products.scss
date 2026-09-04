@@ -625,7 +625,7 @@
       .main-image {
         width: 70%;
         aspect-ratio: 1 / 1;
-        background-color: #ffffff;
+        // background-color: #ffffff;
         cursor: zoom-in;
         // 加入 Flex 確保絕對置中
         display: flex;
@@ -722,7 +722,7 @@
 
       .thumb {
         aspect-ratio: 1 / 1;
-        background-color: #ffffff;
+        // background-color: #ffffff;
         border-bottom: size(3) solid transparent;
         // padding-bottom: size(10);
         cursor: pointer;
