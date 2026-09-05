@@ -548,7 +548,11 @@
 
       width: size(500);
       // 高度不再寫死,改讓 .content-wrapper 的 align-items: stretch 撐滿,
-      // 跟左側 .tabs 的實際高度一致,圖框底部才會跟選單底部切齊
+      // 跟左側 .tabs 的實際高度一致,圖框底部才會跟選單底部切齊；
+      // 但後台分類數量可能比原設計的 5 個少(例如只剩 3 個),.tabs 疊起來的高度
+      // 會矮於正方形,這裡補一個 min-height 頂住,讓它「最少維持正方形」,
+      // 分類夠多、.tabs 撐得比正方形高時,還是照舊跟著 stretch 長高。
+      min-height: size(500);
       background-color: #f5f5f5;
       overflow: hidden;
       // aspect-ratio: 1 / 1;

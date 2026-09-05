@@ -131,6 +131,15 @@
 
     &::after { content: none; }
 
+    // Swiper JS 只要偵測到元素 class 是預設的 swiper-button-prev/next，
+    // 無論裡面本來有沒有內容，都會自動塞一顆自己的箭頭 svg(.swiper-navigation-icon)進來。
+    // 原本手繪 svg 版本剛好因為下面那份「path/polyline/line { fill: none }」規則
+    // 連帶把它變不可見，才沒讓人注意到;換成 Material Symbols 圖示後不再有那份規則，
+    // Swiper 塞的箭頭就會跟我們自己的圖示疊在一起變成雙箭頭，這裡直接關掉它。
+    svg.swiper-navigation-icon {
+      display: none;
+    }
+
     // 圖示改用 Google Material Symbols（見 base/_base.scss 的 .material-symbols-outlined），
     // 大小直接用 font-size 控制，取代原本手繪 SVG 的 width/stroke 設定
     .material-symbols-outlined {

@@ -551,13 +551,17 @@
 
                 // 更新上方輪播
                 categorySwiper.slides.forEach((slide, index) => {
+                    // .arrow-btn 圖示已從手繪 svg 改成 Google Material Symbols 的 <span>，
+                    // 這裡跟著改抓 .material-symbols-outlined，並用 ?. 防呆(找不到就跳過，
+                    // 不要整個 forEach 因為丟例外中斷，害後面 productCards 的顯示/隱藏跑不到)
+                    const icon = slide.querySelector('.material-symbols-outlined');
                     if (slide.dataset.category === category) {
                         slide.classList.add('active');
-                        slide.querySelector('svg').style.transform = 'rotate(90deg)';
+                        if (icon) icon.style.transform = 'rotate(90deg)';
                         categorySwiper.slideTo(index);
                     } else {
                         slide.classList.remove('active');
-                        slide.querySelector('svg').style.transform = 'rotate(0deg)';
+                        if (icon) icon.style.transform = 'rotate(0deg)';
                     }
                 });
 

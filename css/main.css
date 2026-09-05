@@ -942,8 +942,10 @@ img.is-loading {
   right: 0;
   width: 100%;
   height: 100%;
-  object-position: left bottom;
-  object-fit: cover;
+  -o-object-position: left bottom;
+     object-position: left bottom;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 @media (max-width: 1023px) {
   #home #banner .item .pic {
@@ -951,7 +953,8 @@ img.is-loading {
     width: 100%;
     height: 50dvh;
     max-width: unset;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
 }
 #home #banner .swiper-pagination {
@@ -1367,6 +1370,7 @@ img.is-loading {
   position: relative;
   border-radius: 2.0833333333vw;
   width: 26.0416666667vw;
+  min-height: 26.0416666667vw;
   background-color: #f5f5f5;
   overflow: hidden;
 }
@@ -1398,7 +1402,8 @@ img.is-loading {
 #home #solutions .tab-content .content-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 #home #solutions .tab-content .content-item .info-overlay {
   position: absolute;
@@ -1837,7 +1842,8 @@ img.is-loading {
 #home #proven-section .image-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
 }
 #home #proven-section .content-wrapper {
@@ -2350,7 +2356,8 @@ img.is-loading {
 #solutions .solutions-systems .system-card .card-image img {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   transition: transform 0.4s ease;
 }
 
@@ -2414,7 +2421,8 @@ img.is-loading {
   height: 10.4166666667vw;
   width: auto;
   max-width: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 @media (max-width: 1023px) {
   #products .products-categories .category-card .img-box img {
@@ -2492,6 +2500,10 @@ img.is-loading {
 #products .products-categories .swiper-button-prev::after,
 #products .products-categories .swiper-button-next::after {
   content: none;
+}
+#products .products-categories .swiper-button-prev svg.swiper-navigation-icon,
+#products .products-categories .swiper-button-next svg.swiper-navigation-icon {
+  display: none;
 }
 #products .products-categories .swiper-button-prev .material-symbols-outlined,
 #products .products-categories .swiper-button-next .material-symbols-outlined {
@@ -2844,7 +2856,8 @@ img.is-loading {
 .product-card .card-body .pic img {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   transition: transform 0.4s ease;
 }
 .product-card.highlight {
@@ -2865,7 +2878,7 @@ img.is-loading {
   color: #fff;
 }
 .product-card.highlight .card-body .pic .bg-shape {
-  background-color: rgb(31.4994141083%, 42.7679087571%, 94.0692133427%);
+  background-color: rgb(80.3235059761, 109.0581673307, 239.8764940239);
 }
 
 /* =========================================
@@ -3003,7 +3016,8 @@ img.is-loading {
 #product-detail .detail-hero .hero-right .main-image img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   display: block;
   transition: transform 0.3s ease;
 }
@@ -3090,7 +3104,8 @@ img.is-loading {
 #product-detail .detail-hero .hero-right .thumb img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 #product-detail .detail-hero .color-bar {
   position: absolute;
@@ -3329,6 +3344,10 @@ img.is-loading {
 #product-detail .detail-related .swiper-button-prev::after,
 #product-detail .detail-related .swiper-button-next::after {
   content: none;
+}
+#product-detail .detail-related .swiper-button-prev svg.swiper-navigation-icon,
+#product-detail .detail-related .swiper-button-next svg.swiper-navigation-icon {
+  display: none;
 }
 #product-detail .detail-related .swiper-button-prev .material-symbols-outlined,
 #product-detail .detail-related .swiper-button-next .material-symbols-outlined {
@@ -3634,6 +3653,10 @@ img.is-loading {
 #case .case-categories .swiper-button-next::after {
   content: none;
 }
+#case .case-categories .swiper-button-prev svg.swiper-navigation-icon,
+#case .case-categories .swiper-button-next svg.swiper-navigation-icon {
+  display: none;
+}
 #case .case-categories .swiper-button-prev .material-symbols-outlined,
 #case .case-categories .swiper-button-next .material-symbols-outlined {
   font-size: 1.0416666667vw;
@@ -3882,7 +3905,8 @@ img.is-loading {
 #case .featured-missions .mission-showcase .main-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
 }
 #case .featured-missions .mission-showcase .mission-details {
@@ -4109,7 +4133,8 @@ img.is-loading {
 #about-page .motion-redefined .card-box .card-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 #about-page {
   /* --- 3. Built on Experience Section --- */
@@ -4315,7 +4340,8 @@ img.is-loading {
 #about-page .looking-ahead .card-box .cell-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
 }
 #about-page .looking-ahead .card-box .cell-title {
@@ -4645,7 +4671,8 @@ img.is-loading {
 #news-page .news-list-section .news-card .card-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   transition: transform 0.5s ease;
 }
 #news-page .news-list-section .news-card:hover .card-img img {
@@ -5125,7 +5152,8 @@ img.is-loading {
 #news-detail .article-related .related-card__img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   transition: transform 0.5s ease;
 }
 #news-detail .article-related .related-card__body {
@@ -5529,6 +5557,9 @@ img.is-loading {
     border-radius: 1.6vw;
   }
 }
+#contact-page .contact-section .form-card .contact-form .form-group input::-moz-placeholder, #contact-page .contact-section .form-card .contact-form .form-group select::-moz-placeholder, #contact-page .contact-section .form-card .contact-form .form-group textarea::-moz-placeholder {
+  color: #a0a0a0;
+}
 #contact-page .contact-section .form-card .contact-form .form-group input::placeholder, #contact-page .contact-section .form-card .contact-form .form-group select::placeholder, #contact-page .contact-section .form-card .contact-form .form-group textarea::placeholder {
   color: #a0a0a0;
 }
@@ -5556,7 +5587,8 @@ img.is-loading {
   position: relative;
 }
 #contact-page .contact-section .form-card .contact-form .form-group .select-wrapper select {
-  appearance: none;
+  -moz-appearance: none;
+       appearance: none;
   -webkit-appearance: none;
   padding-right: 2.0833333333vw;
   cursor: pointer;
@@ -5598,7 +5630,7 @@ img.is-loading {
   }
 }
 #contact-page .contact-section .form-card .contact-form .submit-btn:hover {
-  background-color: rgb(6.4994922272%, 18.8485274588%, 75.0691352238%);
+  background-color: rgb(16.5737051793, 48.0637450199, 191.4262948207);
 }
 
 .hero {
@@ -5723,7 +5755,8 @@ img.is-loading {
 .hero .hero-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-bottom-left-radius: 10.4166666667vw;
 }
 @media (max-width: 1023px) {
@@ -5926,6 +5959,4 @@ img.is-loading {
     width: 100%;
     justify-content: center;
   }
-}
-
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */
