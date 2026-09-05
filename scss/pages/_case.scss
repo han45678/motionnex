@@ -269,6 +269,31 @@
       gap: size(30);
       align-items: stretch;
 
+      // 每個分類一組 .mission-set（見 case.html），非 active 的整組不渲染；
+      // active 那組用 display:contents「消失」成透明容器，讓裡面的
+      // .stats-grid/.main-image/.mission-details 直接變成 .mission-showcase
+      // 的 flex 子項，版面才不會多一層跟原本設計對不起來。
+      .mission-set {
+        display: none;
+
+        &.active {
+          display: contents;
+        }
+      }
+
+      // .mission-set 裡的 5 個 .stat-card 是固定不變的「案例選單」，
+      // 點了哪張，.main-image/.mission-details 就換成對應那組 .mission-item
+      // （見 js/main.js initCaseMissionSelect()），做法跟上面 .mission-set 一樣，
+      // 用 display:contents 讓裡面的 .main-image/.mission-details 直接變成
+      // .mission-showcase 的 flex 子項。
+      .mission-item {
+        display: none;
+
+        &.active {
+          display: contents;
+        }
+      }
+
       @include mixins.mq(mobile) {
         flex-direction: column;
         gap: size-m(32);
@@ -294,6 +319,7 @@
           flex-direction: column;
           align-items: center;
           justify-content: center;
+          cursor: pointer;
           @include mixins.card-rise-mask;
 
           @include mixins.mq(mobile) {
@@ -305,7 +331,10 @@
             grid-column: span 1; // 根據設計圖左下角獨立一個，若要滿寬可改 span 2
           }
 
-          &:hover {
+          // .active：點了這張卡片、目前正顯示它對應的案例（見 mission-item），
+          // 沿用跟 :hover 一樣的藍色填滿視覺，讓使用者看得出目前選到哪一張
+          &:hover,
+          &.active {
             .num{
               color: #fff;
             }
@@ -315,6 +344,10 @@
             img {
               filter: brightness(0) invert(1);
             }
+          }
+
+          &.active::before {
+            transform: scaleY(1);
           }
 
           img {

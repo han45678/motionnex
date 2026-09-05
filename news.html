@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Google Material Symbols：全站箭頭圖示統一來源，取代各自的手繪 SVG / unicode 符號，
+         避免不同裝置系統字型渲染箭頭字元的樣式跑掉 -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=block" rel="stylesheet">
     <link rel="stylesheet" href="./assets/vendor/aos/aos.css">
     <link rel="stylesheet" href="./css/main.css">
 </head>
@@ -139,16 +142,17 @@
                     <p>Latest announcements, exhibitions, partnerships, awards, and company news.</p>
 
                     <div class="filter-group">
-                        <button class="filter-btn active">All</button>
-                        <button class="filter-btn">Updates</button>
-                        <button class="filter-btn">Events</button>
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="case">CASE</button>
+                        <button class="filter-btn" data-filter="events">Events</button>
+                        <button class="filter-btn" data-filter="technology">Technology</button>
                     </div>
                 </div>
 
                 <!-- 網格列表 -->
                 <div class="news-grid">
                     <!-- 新聞卡片 1 -->
-                    <div class="news-card" data-aos="fade-up">
+                    <div class="news-card" data-aos="fade-up" data-category="events">
                         <div class="card-img">
                             <img src="./assets/images/news/pic01.jpg" alt="Qualcomm">
                         </div>
@@ -159,28 +163,28 @@
                             </div>
                             <h3 class="card-title">Motionnex at COMPUTEX 2026: AI Together</h3>
                             <p class="card-desc">Thank you to everyone who visited our booth. See you next year!</p>
-                            <a href="news_page.html" class="btn--learn-more">Learn More <span>→</span></a>
+                            <a href="news_page.html" class="btn--learn-more">Learn More <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
                         </div>
                     </div>
 
                     <!-- 新聞卡片 2 -->
-                    <div class="news-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="news-card" data-aos="fade-up" data-aos-delay="100" data-category="technology">
                         <div class="card-img">
                             <img src="./assets/images/news/pic02.jpg" alt="Qualcomm">
                         </div>
                         <div class="card-body">
                             <div class="card-meta">
-                                <span class="category">Update</span>
+                                <span class="category">Technology</span>
                                 <span class="date">May 1, 2026</span>
                             </div>
                             <h3 class="card-title">Top 10 Finalist in Qualcomm QITC 2026</h3>
                             <p class="card-desc">Recognized among hundreds of teams, Motionnex advances to the final stage of...</p>
-                            <a href="news_page.html" class="btn--learn-more">Learn More <span>→</span></a>
+                            <a href="news_page.html" class="btn--learn-more">Learn More <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
                         </div>
                     </div>
 
                     <!-- 新聞卡片 3 -->
-                    <div class="news-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="news-card" data-aos="fade-up" data-aos-delay="200" data-category="events">
                         <div class="card-img">
                             <img src="./assets/images/news/pic03.jpg" alt="Yushan Forum">
                         </div>
@@ -191,12 +195,12 @@
                             </div>
                             <h3 class="card-title">Motionnex at the Yushan Forum 2026</h3>
                             <p class="card-desc">Exploring the future of disaster resilience, autonomous systems, and international...</p>
-                            <a href="news_page.html" class="btn--learn-more">Learn More <span>→</span></a>
+                            <a href="news_page.html" class="btn--learn-more">Learn More <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
                         </div>
                     </div>
 
                     <!-- 新聞卡片 4 -->
-                    <div class="news-card" data-aos="fade-up">
+                    <div class="news-card" data-aos="fade-up" data-category="events">
                         <div class="card-img">
                             <img src="./assets/images/news/pic04.jpg" alt="Smart City">
                         </div>
@@ -207,46 +211,46 @@
                             </div>
                             <h3 class="card-title">Smart City Summit & Expo 2026</h3>
                             <p class="card-desc">Thank you to everyone who visited our booth. See you next year!</p>
-                            <a href="news_page.html" class="btn--learn-more">Learn More <span>→</span></a>
+                            <a href="news_page.html" class="btn--learn-more">Learn More <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
                         </div>
                     </div>
 
                     <!-- 新聞卡片 5 -->
-                    <div class="news-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="news-card" data-aos="fade-up" data-aos-delay="100" data-category="case">
                         <div class="card-img">
                             <img src="./assets/images/news/pic05.jpg" alt="MOU">
                         </div>
                         <div class="card-body">
                             <div class="card-meta">
-                                <span class="category">Update</span>
+                                <span class="category">CASE</span>
                                 <span class="date">May 15, 2026</span>
                             </div>
                             <h3 class="card-title">Tainan City, Motionnex & Sigma Robotics Sign MOU</h3>
                             <p class="card-desc">Strengthening Taiwan's AI robotics ecosystem through industry collaboration.</p>
-                            <a href="news_page.html" class="btn--learn-more">Learn More <span>→</span></a>
+                            <a href="news_page.html" class="btn--learn-more">Learn More <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
                         </div>
                     </div>
 
                     <!-- 新聞卡片 6 -->
-                    <div class="news-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="news-card" data-aos="fade-up" data-aos-delay="200" data-category="technology">
                         <div class="card-img">
                             <img src="./assets/images/news/pic06.jpg" alt="Taiwan Excellence">
                         </div>
                         <div class="card-body">
                             <div class="card-meta">
-                                <span class="category">Updates</span>
+                                <span class="category">Technology</span>
                                 <span class="date">Nov 13, 2023</span>
                             </div>
                             <h3 class="card-title">Motionnex Receives Taiwan Excellence Award 2024</h3>
                             <p class="card-desc">Honored for our innovative firefighting robot and contributions to smart safety solutions.</p>
-                            <a href="news_page.html" class="btn--learn-more">Learn More <span>→</span></a>
+                            <a href="news_page.html" class="btn--learn-more">Learn More <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
                         </div>
                     </div>
                 </div>
 
                 <!-- 分頁模組 -->
                 <div class="pagination">
-                    <a href="#" class="page-nav prev">&lt; Prev</a>
+                    <a href="#" class="page-nav prev"><span class="material-symbols-outlined" aria-hidden="true">chevron_left</span> Prev</a>
                     <a href="#" class="page-num active">1</a>
                     <a href="#" class="page-num">2</a>
                     <a href="#" class="page-num">3</a>
@@ -254,7 +258,7 @@
                     <a href="#" class="page-num">5</a>
                     <span class="page-dots">...</span>
                     <a href="#" class="page-num">6</a>
-                    <a href="#" class="page-nav next">Next &gt;</a>
+                    <a href="#" class="page-nav next">Next <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span></a>
                 </div>
             </div>
         </section>

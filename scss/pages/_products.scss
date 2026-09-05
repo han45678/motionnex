@@ -106,18 +106,13 @@
           border-radius: size-m(6);
         }
 
-        svg {
-          width: size(16);
-          height: auto;
+        // 圖示改用 Google Material Symbols（見 base/_base.scss），大小用 font-size 控制
+        .material-symbols-outlined {
+          font-size: size(20);
           transition: transform 0.3s ease;
-          path,
-          polyline,
-          line {
-            fill: none;
-            stroke: currentColor;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            stroke-width: 1.81px;
+
+          @include mixins.mq(mobile) {
+            font-size: size-m(16);
           }
         }
       }
@@ -247,15 +242,10 @@
               color: #ea0044;
             }
 
-            // 原本是寫在 products.html 的 svg style="height: 20px;" 內聯樣式,
-            // 以及每顆 svg 自帶的 <style>.cls-1{fill:currentColor;}</style>,
-            // 統一收進 SCSS(範圍限定在這裡,避免跟其他頁面自己的 .cls-1 互相影響)
-            svg {
-              height: 20px;
-
-              .cls-1 {
-                fill: currentColor;
-              }
+            // 圖示改用 Google Material Symbols（見 base/_base.scss），
+            // 大小直接沿用 .nav-btn 本身的 font-size
+            .material-symbols-outlined {
+              font-size: size(20);
             }
           }
         }
@@ -613,6 +603,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: size(60);
       padding: size(60);
       background-color: #dadee7;
 
@@ -620,6 +611,7 @@
         width: 100%;
         padding: size-m(40) size-m(24);
         flex-direction: column;
+        gap: 0; // 手機版間距交給 .main-image 的 margin-bottom 控制，避免疊加
       }
 
       .main-image {
@@ -651,22 +643,18 @@
           transform: scale(2);
         }
       }
-      
+
       .thumbnails {
-        position: absolute;
-        right: size(60);
-        top: 50%;
-        transform: translateY(-50%);
+        // 電腦版：縮圖欄從絕對定位改成跟 .main-image 並排的 flex 項目（用上面 .hero-right
+        // 的 gap 控制間距），讓縮圖欄的寬度也一起參與 justify-content: center 的置中計算，
+        // 這樣產品圖左右兩邊的留白才會真正對稱（縮圖不再是額外疊加在留白上的東西）
+        flex-shrink: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: size(20);
 
         @include mixins.mq(mobile) {
-          position: relative;
-          right: 0;
-          top: 0;
-          transform: none;
           flex-direction: row;
           width: 100%;
           gap: size-m(12);
@@ -917,6 +905,47 @@
             font-size: size-m(14);
           }
         }
+
+        // 影片列：這一列只有一個 td，用 grid-column: 1 / -1 讓它滿版整列（蓋過 col-model/
+        // col-spec/col-value 的 20%/30%/50% 切法），放一支影片，不需要文字說明。
+        // 使用者填內容時會直接貼上 YouTube「分享→內嵌」給的完整 <iframe>（含 width/height 屬性），
+        // 所以下面用 !important 蓋掉那些寫死的尺寸，強制吃滿容器並維持 16:9。
+        &.tr--media {
+          .col-media {
+            grid-column: 1 / -1;
+          }
+
+          .video-frame {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background-color: #f2f2f2;
+
+            iframe {
+              position: absolute !important;
+              inset: 0 !important;
+              width: 100% !important;
+              height: 100% !important;
+              border: 0 !important;
+            }
+          }
+        }
+      }
+    }
+
+    // spec_html 後台自由編輯器貼的內容（跟上面 .specs-table 的固定表格是兩條不同路徑，
+    // 產品沒填 spec_html 時才會用 .specs-table）。使用者會直接貼上 YouTube「分享→內嵌」
+    // 給的原始 <iframe>（含 width="560" height="315"），這裡不用包 wrapper，直接在 iframe
+    // 本身用 aspect-ratio 強制變成 16:9 並吃滿容器寬度。
+    .specs-editor-html {
+      iframe {
+        display: block;
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 9 !important;
+        max-width: 100%;
+        border: 0 !important;
       }
     }
   }

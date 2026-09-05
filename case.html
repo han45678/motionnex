@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Google Material Symbols：全站箭頭圖示統一來源，取代各自的手繪 SVG / unicode 符號，
+         避免不同裝置系統字型渲染箭頭字元的樣式跑掉 -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=block" rel="stylesheet">
     <link rel="stylesheet" href="./assets/vendor/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="./assets/vendor/aos/aos.css">
     <link rel="stylesheet" href="./css/main.css">
@@ -154,8 +157,9 @@
                 <div class="category-swiper-wrap" data-aos="fade-up" data-aos-delay="100">
                     <div class="swiper category-swiper">
                         <div class="swiper-wrapper">
-                            <!-- Active 狀態 -->
-                            <div class="swiper-slide category-card">
+                            <!-- Active 狀態：預設選中 Firefighting，點卡片會切換下方 Featured Missions 的內容
+                                 （data-target 對應 .featured-missions 裡 .mission-set 的 data-mission） -->
+                            <div class="swiper-slide category-card active" data-target="firefighting">
                                 <div class="icon-box">
                                     <img src="./assets/images/case/icon01.svg" alt="icon">
                                 </div>
@@ -165,7 +169,7 @@
                                     <span>300+ Missions</span>
                                 </div>
                             </div>
-                            <div class="swiper-slide category-card">
+                            <div class="swiper-slide category-card" data-target="security">
                                 <div class="icon-box">
                                     <img src="./assets/images/case/icon02.svg" alt="icon">
                                 </div>
@@ -174,8 +178,12 @@
                                     <p>Emerging Applications</p>
                                     <span>300+ Missions</span>
                                 </div>
+
                             </div>
-                            <div class="swiper-slide category-card">
+
+
+
+                            <div class="swiper-slide category-card" data-target="defense">
                                 <div class="icon-box">
                                     <img src="./assets/images/case/icon03.svg" alt="icon">
                                 </div>
@@ -185,7 +193,7 @@
                                     <span>300+ Missions</span>
                                 </div>
                             </div>
-                            <div class="swiper-slide category-card">
+                            <div class="swiper-slide category-card" data-target="logistics">
                                 <div class="icon-box">
                                     <img src="./assets/images/case/icon04.svg" alt="icon">
                                 </div>
@@ -198,22 +206,8 @@
                         </div>
                     </div>
                     <!-- 左右控制箭頭（放在 swiper 外，避免被裁切） -->
-                    <div class="swiper-button-prev"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.08 15.32">
-                            <g>
-                                <g>
-                                    <line x1="0.91" y1="7.66" x2="27.17" y2="7.66" />
-                                    <polyline points="20.42 0.91 27.17 7.66 20.42 14.41" />
-                                </g>
-                            </g>
-                        </svg></div>
-                    <div class="swiper-button-next"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.08 15.32">
-                            <g>
-                                <g>
-                                    <line x1="0.91" y1="7.66" x2="27.17" y2="7.66" />
-                                    <polyline points="20.42 0.91 27.17 7.66 20.42 14.41" />
-                                </g>
-                            </g>
-                        </svg></div>
+                    <div class="swiper-button-prev"><span class="material-symbols-outlined" aria-hidden="true">arrow_right_alt</span></div>
+                    <div class="swiper-button-next"><span class="material-symbols-outlined" aria-hidden="true">arrow_right_alt</span></div>
                 </div>
             </div>
         </section>
@@ -234,53 +228,426 @@
                 </div>
 
                 <div class="mission-showcase">
-                    <!-- 左側數據 -->
-                    <div class="stats-grid" data-aos="fade-up">
-                        <div class="stat-card">
-                            <img src="./assets/images/case/fm_icon.svg" alt="icon">
-                            <span class="num">26</span>
-                            <span class="label">Hour Operation</span>
+                    <!-- 每個分類一組 .mission-set，對應上面 Mission Categories 卡片的
+                         data-target，.active 那組才會顯示（見 js/main.js
+                         initCaseMissionSelect()）。
+                         每組裡的 5 張 .stat-card 各自代表「不同一個案例」（不是同一個
+                         案例的 5 項數據），點了會切換旁邊對應 data-mission-index 的
+                         .mission-item（圖片+說明），同一分類內互相切換、離開分類時
+                         各自記住選到第幾個。
+                         目前只有 Firefighting 的第 1 個案例（Lithium Battery Fire）
+                         是真實內容，其餘都還是先放示意用的靜態文字/佔位圖，
+                         之後要換成客戶提供的真實案例內容跟照片。 -->
+                    <div class="mission-set active" data-mission="firefighting">
+                        <!-- 左側案例選單 -->
+                        <div class="stats-grid" data-aos="fade-up">
+                            <div class="stat-card active" data-mission-index="0">
+                                <img src="./assets/images/case/fm_icon.svg" alt="icon">
+                                <span class="num">26</span>
+                                <span class="label">Hour Operation</span>
+                            </div>
+                            <div class="stat-card" data-mission-index="1">
+                                <img src="./assets/images/case/fm_icon.svg" alt="icon">
+                                <span class="num">--</span>
+                                <span class="label">Hour</span>
+                            </div>
+                            <div class="stat-card" data-mission-index="2">
+                                <img src="./assets/images/case/fm_icon.svg" alt="icon">
+                                <span class="num">--</span>
+                                <span class="label">Robots Deployed</span>
+                            </div>
+                            <div class="stat-card" data-mission-index="3">
+                                <img src="./assets/images/case/fm_icon.svg" alt="icon">
+                                <span class="num">--</span>
+                                <span class="label">Water Rate</span>
+                            </div>
+                            <div class="stat-card span-full" data-mission-index="4">
+                                <img src="./assets/images/case/fm_icon.svg" alt="icon">
+                                <span class="num">--</span>
+                                <span class="label">Personnel</span>
+                            </div>
                         </div>
-                        <div class="stat-card">
-                            <img src="./assets/images/case/fm_icon.svg" alt="icon">
-                            <span class="num">312</span>
-                            <span class="label">Hour</span>
+
+                        <!-- 案例 1（真實內容）：中間圖片 + 右側資訊 -->
+                        <div class="mission-item active" data-mission-index="0">
+                            <div class="main-image" data-aos="fade-up" data-aos-delay="100">
+                                <img src="./assets/images/case/pic.jpg" alt="pic">
+                            </div>
+                            <div class="mission-details" data-aos="fade-up" data-aos-delay="200">
+                                <div class="tag">26 <span>HOUR OPERATION</span></div>
+                                <h3>Lithium Battery Fire</h3>
+                                <p>
+                                    Lithium battery fires present challenges includ-<br>
+                                    ing extreme temperatures, reignition risks,<br>
+                                    and prolonged monitoring requirements.<br>
+                                    Motionnex robots provided continuous thermal<br>
+                                    monitoring and remote firefighting support<br>
+                                    while reducing personnel exposure.
+                                </p>
+                                <div class="location-tag">Kaohsiung, Taiwan</div>
+                            </div>
                         </div>
-                        <div class="stat-card">
-                            <img src="./assets/images/case/fm_icon.svg" alt="icon">
-                            <span class="num">11</span>
-                            <span class="label">Robots Deployed</span>
+
+                        <!-- 案例 2-5（先放佔位內容） -->
+                        <div class="mission-item" data-mission-index="1">
+                            <div class="main-image" data-aos="fade-up" data-aos-delay="100">
+                                <img src="./assets/images/case/placeholder-firefighting-2.svg" alt="pic">
+                            </div>
+                            <div class="mission-details" data-aos="fade-up" data-aos-delay="200">
+                                <div class="tag">-- <span>HOUR</span></div>
+                                <h3>Firefighting Case 2 Placeholder</h3>
+                                <p>
+                                    Firefighting case content placeholder — replace with a real
+                                    mission title, description and photo once provided.
+                                </p>
+                                <div class="location-tag">Location, Taiwan</div>
+                            </div>
                         </div>
-                        <div class="stat-card">
-                            <img src="./assets/images/case/fm_icon.svg" alt="icon">
-                            <span class="num">200</span>
-                            <span class="label">Water Rate</span>
+                        <div class="mission-item" data-mission-index="2">
+                            <div class="main-image" data-aos="fade-up" data-aos-delay="100">
+                                <img src="./assets/images/case/placeholder-firefighting-3.svg" alt="pic">
+                            </div>
+                            <div class="mission-details" data-aos="fade-up" data-aos-delay="200">
+                                <div class="tag">-- <span>ROBOTS DEPLOYED</span></div>
+                                <h3>Firefighting Case 3 Placeholder</h3>
+                                <p>
+                                    Firefighting case content placeholder — replace with a real
+                                    mission title, description and photo once provided.
+                                </p>
+                                <div class="location-tag">Location, Taiwan</div>
+                            </div>
                         </div>
-                        <div class="stat-card span-full">
-                            <img src="./assets/images/case/fm_icon.svg" alt="icon">
-                            <span class="num">1,200</span>
-                            <span class="label">Personnel</span>
+                        <div class="mission-item" data-mission-index="3">
+                            <div class="main-image" data-aos="fade-up" data-aos-delay="100">
+                                <img src="./assets/images/case/placeholder-firefighting-4.svg" alt="pic">
+                            </div>
+                            <div class="mission-details" data-aos="fade-up" data-aos-delay="200">
+                                <div class="tag">-- <span>WATER RATE</span></div>
+                                <h3>Firefighting Case 4 Placeholder</h3>
+                                <p>
+                                    Firefighting case content placeholder — replace with a real
+                                    mission title, description and photo once provided.
+                                </p>
+                                <div class="location-tag">Location, Taiwan</div>
+                            </div>
+                        </div>
+                        <div class="mission-item" data-mission-index="4">
+                            <div class="main-image" data-aos="fade-up" data-aos-delay="100">
+                                <img src="./assets/images/case/placeholder-firefighting-5.svg" alt="pic">
+                            </div>
+                            <div class="mission-details" data-aos="fade-up" data-aos-delay="200">
+                                <div class="tag">-- <span>PERSONNEL</span></div>
+                                <h3>Firefighting Case 5 Placeholder</h3>
+                                <p>
+                                    Firefighting case content placeholder — replace with a real
+                                    mission title, description and photo once provided.
+                                </p>
+                                <div class="location-tag">Location, Taiwan</div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- 中間圖片 -->
-                    <div class="main-image" data-aos="fade-up" data-aos-delay="100">
-                        <img src="./assets/images/case/pic.jpg" alt="pic">
+                    <div class="mission-set" data-mission="security">
+                        <div class="stats-grid" data-aos="fade-up">
+                            <div class="stat-card active" data-mission-index="0">
+                                <img src="./assets/images/case/fm_icon.svg" alt="icon">
+                                <span class="num">--</span>
+                                <span class="label">Hour Operation</span>
+                            </div>
+                            <div class="stat-card" data-mission-index="1">
+                                <img src="./assets/images/case/fm_icon.svg" alt="icon">
+                                <span class="num">--</span>
+                                <span class="label">Hour</span>
+                            </div>
+                            <div class="stat-card" data-mission-index="2">
+                                <img src="./assets/images/case/fm_icon.svg" alt="icon">
+                                <span class="num">--</span>
+                                <span class="label">Robots Deployed</span>
+                            </div>
+                            <div class="stat-card" data-mission-index="3">
+                                <img src="./assets/images/case/fm_icon.svg" alt="icon">
+                                <span class="num">--</span>
+                                <span class="label">Detection Rate</span>
+                            </div>
+                            <div class="stat-card span-full" data-mission-index="4">
+                                <img src="./assets/images/case/fm_icon.svg" alt="icon">
+                                <span class="num">--</span>
+                                <span class="label">Personnel</span>
+                            </div>
+                        </div>
+
+                        <div class="mission-item active" data-mission-index="0">
+                            <div class="main-image" data-aos="fade-up" data-aos-delay="100">
+                                <img src="./assets/images/case/placeholder-security-1.svg" alt="pic">
+                            </div>
+                            <div class="mission-details" data-aos="fade-up" data-aos-delay="200">
+                                <div class="tag">-- <span>HOUR OPERATION</span></div>
+                                <h3>Security Case 1 Placeholder</h3>
+                                <p>
+                                    Security case content placeholder — replace with a real
+                                    mission title, description and photo once provided.
+                                </p>
+                                <div class="location-tag">Location, Taiwan</div>
+                            </div>
+                        </div>
+                        <div class="mission-item" data-mission-index="1">
+                            <div class="main-image" data-aos="fade-up" data-aos-delay="100">
+                                <img src="./assets/images/case/placeholder-security-2.svg" alt="pic">
+                            </div>
+                            <div class="mission-details" data-aos="fade-up" data-aos-delay="200">
+                                <div class="tag">-- <span>HOUR</span></div>
+                                <h3>Security Case 2 Placeholder</h3>
+                                <p>
+                                    Security case content placeholder — replace with a real
+                                    mission title, description and photo once provided.
+                                </p>
+                                <div class="location-tag">Location, Taiwan</div>
+                            </div>
+                        </div>
+                        <div class="mission-item" data-mission-index="2">
+                            <div class="main-image" data-aos="fade-up" data-aos-delay="100">
+                                <img src="./assets/images/case/placeholder-security-3.svg" alt="pic">
+                            </div>
+                            <div class="mission-details" data-aos="fade-up" data-aos-delay="200">
+                                <div class="tag">-- <span>ROBOTS DEPLOYED</span></div>
+                                <h3>Security Case 3 Placeholder</h3>
+                                <p>
+                                    Security case content placeholder — replace with a real
+                                    mission title, description and photo once provided.
+                                </p>
+                                <div class="location-tag">Location, Taiwan</div>
+                            </div>
+                        </div>
+                        <div class="mission-item" data-mission-index="3">
+                            <div class="main-image" data-aos="fade-up" data-aos-delay="100">
+                                <img src="./assets/images/case/placeholder-security-4.svg" alt="pic">
+                            </div>
+                            <div class="mission-details" data-aos="fade-up" data-aos-delay="200">
+                                <div class="tag">-- <span>DETECTION RATE</span></div>
+                                <h3>Security Case 4 Placeholder</h3>
+                                <p>
+                                    Security case content placeholder — replace with a real
+                                    mission title, description and photo once provided.
+                                </p>
+                                <div class="location-tag">Location, Taiwan</div>
+                            </div>
+                        </div>
+                        <div class="mission-item" data-mission-index="4">
+                            <div class="main-image" data-aos="fade-up" data-aos-delay="100">
+                                <img src="./assets/images/case/placeholder-security-5.svg" alt="pic">
+                            </div>
+                            <div class="mission-details" data-aos="fade-up" data-aos-delay="200">
+                                <div class="tag">-- <span>PERSONNEL</span></div>
+                                <h3>Security Case 5 Placeholder</h3>
+                                <p>
+                                    Security case content placeholder — replace with a real
+                                    mission title, description and photo once provided.
+                                </p>
+                                <div class="location-tag">Location, Taiwan</div>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- 右側資訊 -->
-                    <div class="mission-details" data-aos="fade-up" data-aos-delay="200">
-                        <div class="tag">26 <span>HOUR OPERATION</span></div>
-                        <h3>Lithium Battery Fire</h3>
-                        <p>
-                            Lithium battery fires present challenges includ-<br>
-                            ing extreme temperatures, reignition risks,<br>
-                            and prolonged monitoring requirements.<br>
-                            Motionnex robots provided continuous thermal<br>
-                            monitoring and remote firefighting support<br>
-                            while reducing personnel exposure.
-                        </p>
-                        <div class="location-tag">Kaohsiung, Taiwan</div>
+                    <div class="mission-set" data-mission="defense">
+                        <div class="stats-grid" data-aos="fade-up">
+                            <div class="stat-card active" data-mission-index="0">
+                                <img src="./assets/images/case/fm_icon.svg" alt="icon">
+                                <span class="num">--</span>
+                                <span class="label">Hour Operation</span>
+                            </div>
+                            <div class="stat-card" data-mission-index="1">
+                                <img src="./assets/images/case/fm_icon.svg" alt="icon">
+                                <span class="num">--</span>
+                                <span class="label">Hour</span>
+                            </div>
+                            <div class="stat-card" data-mission-index="2">
+                                <img src="./assets/images/case/fm_icon.svg" alt="icon">
+                                <span class="num">--</span>
+                                <span class="label">Robots Deployed</span>
+                            </div>
+                            <div class="stat-card" data-mission-index="3">
+                                <img src="./assets/images/case/fm_icon.svg" alt="icon">
+                                <span class="num">--</span>
+                                <span class="label">Response Accuracy</span>
+                            </div>
+                            <div class="stat-card span-full" data-mission-index="4">
+                                <img src="./assets/images/case/fm_icon.svg" alt="icon">
+                                <span class="num">--</span>
+                                <span class="label">Personnel</span>
+                            </div>
+                        </div>
+
+                        <div class="mission-item active" data-mission-index="0">
+                            <div class="main-image" data-aos="fade-up" data-aos-delay="100">
+                                <img src="./assets/images/case/placeholder-defense-1.svg" alt="pic">
+                            </div>
+                            <div class="mission-details" data-aos="fade-up" data-aos-delay="200">
+                                <div class="tag">-- <span>HOUR OPERATION</span></div>
+                                <h3>Defense Case 1 Placeholder</h3>
+                                <p>
+                                    Defense case content placeholder — replace with a real
+                                    mission title, description and photo once provided.
+                                </p>
+                                <div class="location-tag">Location, Taiwan</div>
+                            </div>
+                        </div>
+                        <div class="mission-item" data-mission-index="1">
+                            <div class="main-image" data-aos="fade-up" data-aos-delay="100">
+                                <img src="./assets/images/case/placeholder-defense-2.svg" alt="pic">
+                            </div>
+                            <div class="mission-details" data-aos="fade-up" data-aos-delay="200">
+                                <div class="tag">-- <span>HOUR</span></div>
+                                <h3>Defense Case 2 Placeholder</h3>
+                                <p>
+                                    Defense case content placeholder — replace with a real
+                                    mission title, description and photo once provided.
+                                </p>
+                                <div class="location-tag">Location, Taiwan</div>
+                            </div>
+                        </div>
+                        <div class="mission-item" data-mission-index="2">
+                            <div class="main-image" data-aos="fade-up" data-aos-delay="100">
+                                <img src="./assets/images/case/placeholder-defense-3.svg" alt="pic">
+                            </div>
+                            <div class="mission-details" data-aos="fade-up" data-aos-delay="200">
+                                <div class="tag">-- <span>ROBOTS DEPLOYED</span></div>
+                                <h3>Defense Case 3 Placeholder</h3>
+                                <p>
+                                    Defense case content placeholder — replace with a real
+                                    mission title, description and photo once provided.
+                                </p>
+                                <div class="location-tag">Location, Taiwan</div>
+                            </div>
+                        </div>
+                        <div class="mission-item" data-mission-index="3">
+                            <div class="main-image" data-aos="fade-up" data-aos-delay="100">
+                                <img src="./assets/images/case/placeholder-defense-4.svg" alt="pic">
+                            </div>
+                            <div class="mission-details" data-aos="fade-up" data-aos-delay="200">
+                                <div class="tag">-- <span>RESPONSE ACCURACY</span></div>
+                                <h3>Defense Case 4 Placeholder</h3>
+                                <p>
+                                    Defense case content placeholder — replace with a real
+                                    mission title, description and photo once provided.
+                                </p>
+                                <div class="location-tag">Location, Taiwan</div>
+                            </div>
+                        </div>
+                        <div class="mission-item" data-mission-index="4">
+                            <div class="main-image" data-aos="fade-up" data-aos-delay="100">
+                                <img src="./assets/images/case/placeholder-defense-5.svg" alt="pic">
+                            </div>
+                            <div class="mission-details" data-aos="fade-up" data-aos-delay="200">
+                                <div class="tag">-- <span>PERSONNEL</span></div>
+                                <h3>Defense Case 5 Placeholder</h3>
+                                <p>
+                                    Defense case content placeholder — replace with a real
+                                    mission title, description and photo once provided.
+                                </p>
+                                <div class="location-tag">Location, Taiwan</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mission-set" data-mission="logistics">
+                        <div class="stats-grid" data-aos="fade-up">
+                            <div class="stat-card active" data-mission-index="0">
+                                <img src="./assets/images/case/fm_icon.svg" alt="icon">
+                                <span class="num">--</span>
+                                <span class="label">Hour Operation</span>
+                            </div>
+                            <div class="stat-card" data-mission-index="1">
+                                <img src="./assets/images/case/fm_icon.svg" alt="icon">
+                                <span class="num">--</span>
+                                <span class="label">Hour</span>
+                            </div>
+                            <div class="stat-card" data-mission-index="2">
+                                <img src="./assets/images/case/fm_icon.svg" alt="icon">
+                                <span class="num">--</span>
+                                <span class="label">Robots Deployed</span>
+                            </div>
+                            <div class="stat-card" data-mission-index="3">
+                                <img src="./assets/images/case/fm_icon.svg" alt="icon">
+                                <span class="num">--</span>
+                                <span class="label">On-Time Rate</span>
+                            </div>
+                            <div class="stat-card span-full" data-mission-index="4">
+                                <img src="./assets/images/case/fm_icon.svg" alt="icon">
+                                <span class="num">--</span>
+                                <span class="label">Personnel</span>
+                            </div>
+                        </div>
+
+                        <div class="mission-item active" data-mission-index="0">
+                            <div class="main-image" data-aos="fade-up" data-aos-delay="100">
+                                <img src="./assets/images/case/placeholder-logistics-1.svg" alt="pic">
+                            </div>
+                            <div class="mission-details" data-aos="fade-up" data-aos-delay="200">
+                                <div class="tag">-- <span>HOUR OPERATION</span></div>
+                                <h3>Logistics Case 1 Placeholder</h3>
+                                <p>
+                                    Logistics case content placeholder — replace with a real
+                                    mission title, description and photo once provided.
+                                </p>
+                                <div class="location-tag">Location, Taiwan</div>
+                            </div>
+                        </div>
+                        <div class="mission-item" data-mission-index="1">
+                            <div class="main-image" data-aos="fade-up" data-aos-delay="100">
+                                <img src="./assets/images/case/placeholder-logistics-2.svg" alt="pic">
+                            </div>
+                            <div class="mission-details" data-aos="fade-up" data-aos-delay="200">
+                                <div class="tag">-- <span>HOUR</span></div>
+                                <h3>Logistics Case 2 Placeholder</h3>
+                                <p>
+                                    Logistics case content placeholder — replace with a real
+                                    mission title, description and photo once provided.
+                                </p>
+                                <div class="location-tag">Location, Taiwan</div>
+                            </div>
+                        </div>
+                        <div class="mission-item" data-mission-index="2">
+                            <div class="main-image" data-aos="fade-up" data-aos-delay="100">
+                                <img src="./assets/images/case/placeholder-logistics-3.svg" alt="pic">
+                            </div>
+                            <div class="mission-details" data-aos="fade-up" data-aos-delay="200">
+                                <div class="tag">-- <span>ROBOTS DEPLOYED</span></div>
+                                <h3>Logistics Case 3 Placeholder</h3>
+                                <p>
+                                    Logistics case content placeholder — replace with a real
+                                    mission title, description and photo once provided.
+                                </p>
+                                <div class="location-tag">Location, Taiwan</div>
+                            </div>
+                        </div>
+                        <div class="mission-item" data-mission-index="3">
+                            <div class="main-image" data-aos="fade-up" data-aos-delay="100">
+                                <img src="./assets/images/case/placeholder-logistics-4.svg" alt="pic">
+                            </div>
+                            <div class="mission-details" data-aos="fade-up" data-aos-delay="200">
+                                <div class="tag">-- <span>ON-TIME RATE</span></div>
+                                <h3>Logistics Case 4 Placeholder</h3>
+                                <p>
+                                    Logistics case content placeholder — replace with a real
+                                    mission title, description and photo once provided.
+                                </p>
+                                <div class="location-tag">Location, Taiwan</div>
+                            </div>
+                        </div>
+                        <div class="mission-item" data-mission-index="4">
+                            <div class="main-image" data-aos="fade-up" data-aos-delay="100">
+                                <img src="./assets/images/case/placeholder-logistics-5.svg" alt="pic">
+                            </div>
+                            <div class="mission-details" data-aos="fade-up" data-aos-delay="200">
+                                <div class="tag">-- <span>PERSONNEL</span></div>
+                                <h3>Logistics Case 5 Placeholder</h3>
+                                <p>
+                                    Logistics case content placeholder — replace with a real
+                                    mission title, description and photo once provided.
+                                </p>
+                                <div class="location-tag">Location, Taiwan</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -299,7 +666,7 @@
                         </p>
                     </div>
                     <div class="cta-action">
-                        <a href="solutions.html" class="btn btn--red">Explore Solutions →</a>
+                        <a href="solutions.html" class="btn btn--red">Explore Solutions <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
                     </div>
                 </div>
             </div>

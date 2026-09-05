@@ -141,6 +141,13 @@ img.is-loading {
   background-color: rgba(10, 11, 46, 0.06);
 }
 
+.material-symbols-outlined {
+  display: inline-flex;
+  vertical-align: middle;
+  font-size: inherit;
+  line-height: 1;
+}
+
 .site-header {
   position: fixed;
   top: 1.0416666667vw;
@@ -935,10 +942,8 @@ img.is-loading {
   right: 0;
   width: 100%;
   height: 100%;
-  -o-object-position: left bottom;
-     object-position: left bottom;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-position: left bottom;
+  object-fit: cover;
 }
 @media (max-width: 1023px) {
   #home #banner .item .pic {
@@ -946,8 +951,7 @@ img.is-loading {
     width: 100%;
     height: 50dvh;
     max-width: unset;
-    -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
   }
 }
 #home #banner .swiper-pagination {
@@ -1394,8 +1398,7 @@ img.is-loading {
 #home #solutions .tab-content .content-item img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 #home #solutions .tab-content .content-item .info-overlay {
   position: absolute;
@@ -1501,6 +1504,18 @@ img.is-loading {
   position: relative;
   padding-bottom: 3.125vw;
 }
+@media (min-width: 1024px) {
+  #home #core-capabilities .cards-wrapper {
+    /* 桌機版把整列高度鎖死,滑動切換哪張卡片變高時只在這個固定高度的框裡
+       變化,不會讓 .cards-wrapper 本身跟著變高/變矮,進而推動下方 PROVEN
+       區塊跟著位移。數值 = 高亮卡片實際需要的高度:
+       卡片自己的 padding size(60)*2 + icon size(200) + icon 下方間距
+       size(30) + 標題行高 size(32)*1.3 + 標題下方間距 size(16) + 內文
+       3 行行高 size(20)*1.6*3,再加上 .cards-wrapper 自己的
+       padding-bottom size(60)(border-box,height 已含 padding)。 */
+    height: 29.3541666667vw;
+  }
+}
 @media (max-width: 1023px) {
   #home #core-capabilities .cards-wrapper {
     flex-direction: column;
@@ -1516,6 +1531,13 @@ img.is-loading {
   position: relative;
   box-sizing: border-box;
 }
+@media (min-width: 1024px) {
+  #home #core-capabilities .cards-wrapper .card {
+    /* 桌機版滑到哪張卡片,哪張就變高變色(見下方 :has() 規則),
+       這裡統一放 transition,讓尺寸/圓角變化也是漸變而非瞬間切換 */
+    transition: height 0.4s ease, padding 0.4s ease, margin 0.4s ease, border-top-left-radius 0.4s ease, border-top-right-radius 0.4s ease;
+  }
+}
 @media (max-width: 1023px) {
   #home #core-capabilities .cards-wrapper .card {
     padding: 8vw 5.3333333333vw;
@@ -1527,6 +1549,11 @@ img.is-loading {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+}
+@media (min-width: 1024px) {
+  #home #core-capabilities .cards-wrapper .card .icon {
+    transition: height 0.4s ease;
+  }
 }
 @media (max-width: 1023px) {
   #home #core-capabilities .cards-wrapper .card .icon {
@@ -1545,6 +1572,11 @@ img.is-loading {
   line-height: 1.3;
   color: #fff;
   white-space: nowrap; /* 設計稿標題不斷行 */
+}
+@media (min-width: 1024px) {
+  #home #core-capabilities .cards-wrapper .card h3 {
+    transition: font-size 0.4s ease;
+  }
 }
 @media (max-width: 1023px) {
   #home #core-capabilities .cards-wrapper .card h3 {
@@ -1595,6 +1627,32 @@ img.is-loading {
 }
 #home #core-capabilities .cards-wrapper .card.dark:hover::before {
   transform: scaleY(1);
+}
+@media (max-width: 1023px) {
+  #home #core-capabilities .cards-wrapper .card.dark {
+    /* 手機版統一改成由下往上變紅,呼應全站其他卡片(solutions/case 用
+       card-rise-mask 預設值 bottom)的滑過方向;桌機維持由上往下不變 */
+  }
+  #home #core-capabilities .cards-wrapper .card.dark::before {
+    transform-origin: bottom;
+  }
+}
+#home #core-capabilities .cards-wrapper {
+  /* 用 order 固定視覺排列為「左、中(highlight)、右」,不依賴 HTML 原始
+     順序。PHP(Blade)版是後台資料 foreach 產生三張卡片,順序取決於後台
+     項目排序,不保證是 left-card/highlight/right-card 這樣的順序;沒有
+     這組 order,一旦後台排序不同,上面/下面兩段 hover 效果與角落圓角邏輯
+     (誰是最左/最右)就會跟畫面實際位置對不上。靜態版 HTML 順序本來就對,
+     這裡加上只是保險,視覺不會有變化。 */
+}
+#home #core-capabilities .cards-wrapper .card.dark.left-card {
+  order: 1;
+}
+#home #core-capabilities .cards-wrapper .card.highlight {
+  order: 2;
+}
+#home #core-capabilities .cards-wrapper .card.dark.right-card {
+  order: 3;
 }
 #home #core-capabilities .cards-wrapper {
   /* 處理左右兩側卡片與中間卡片貼合處為直角
@@ -1682,6 +1740,53 @@ img.is-loading {
 #home #core-capabilities .cards-wrapper:has(.card.dark:hover) .card.highlight::before {
   transform: scaleY(1);
 }
+#home #core-capabilities .cards-wrapper {
+  /* 桌機版:滑到哪張卡片,哪張就變高(套用中間卡片原本的尺寸與圓角),
+     中間卡片同時縮回側邊卡片的矮尺寸;放開滑鼠後中間卡片恢復預設的高亮狀態。
+     顏色切換仍沿用上面 card-rise-mask 的 ::before 遮罩,這裡只處理尺寸/圓角。 */
+}
+@media (min-width: 1024px) {
+  #home #core-capabilities .cards-wrapper:has(.left-card:hover) .card.highlight, #home #core-capabilities .cards-wrapper:has(.right-card:hover) .card.highlight {
+    height: 19.53125vw;
+    padding: 2.0833333333vw 1.8229166667vw;
+    margin: 0;
+    z-index: 1;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  #home #core-capabilities .cards-wrapper:has(.left-card:hover) .card.highlight .icon, #home #core-capabilities .cards-wrapper:has(.right-card:hover) .card.highlight .icon {
+    height: 4.6875vw;
+  }
+  #home #core-capabilities .cards-wrapper:has(.left-card:hover) .card.highlight h3, #home #core-capabilities .cards-wrapper:has(.right-card:hover) .card.highlight h3 {
+    font-size: 1.4583333333vw;
+  }
+  #home #core-capabilities .cards-wrapper:has(.left-card:hover) .left-card {
+    height: auto;
+    padding: 3.125vw 2.6041666667vw;
+    margin-right: -0.0520833333vw; /* 呼應中間卡片原本的負邊距,避免出現細微縫隙 */
+    z-index: 2;
+    border-top-right-radius: 1.5625vw; /* 貼合中間卡片的邊改為和外側一致的圓角 */
+  }
+  #home #core-capabilities .cards-wrapper:has(.left-card:hover) .left-card .icon {
+    height: 10.4166666667vw;
+  }
+  #home #core-capabilities .cards-wrapper:has(.left-card:hover) .left-card h3 {
+    font-size: 1.6666666667vw;
+  }
+  #home #core-capabilities .cards-wrapper:has(.right-card:hover) .right-card {
+    height: auto;
+    padding: 3.125vw 2.6041666667vw;
+    margin-left: -0.0520833333vw;
+    z-index: 2;
+    border-top-left-radius: 1.5625vw;
+  }
+  #home #core-capabilities .cards-wrapper:has(.right-card:hover) .right-card .icon {
+    height: 10.4166666667vw;
+  }
+  #home #core-capabilities .cards-wrapper:has(.right-card:hover) .right-card h3 {
+    font-size: 1.6666666667vw;
+  }
+}
 #home #proven-section {
   background-color: #05051a; /* 延續整體的極深藍背景 */
   padding: 6.25vw 0;
@@ -1732,8 +1837,7 @@ img.is-loading {
 #home #proven-section .image-wrapper img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   display: block;
 }
 #home #proven-section .content-wrapper {
@@ -2246,8 +2350,7 @@ img.is-loading {
 #solutions .solutions-systems .system-card .card-image img {
   max-width: 100%;
   max-height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   transition: transform 0.4s ease;
 }
 
@@ -2311,8 +2414,7 @@ img.is-loading {
   height: 10.4166666667vw;
   width: auto;
   max-width: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 @media (max-width: 1023px) {
   #products .products-categories .category-card .img-box img {
@@ -2350,19 +2452,14 @@ img.is-loading {
     border-radius: 1.6vw;
   }
 }
-#products .products-categories .category-card .arrow-btn svg {
-  width: 0.8333333333vw;
-  height: auto;
+#products .products-categories .category-card .arrow-btn .material-symbols-outlined {
+  font-size: 1.0416666667vw;
   transition: transform 0.3s ease;
 }
-#products .products-categories .category-card .arrow-btn svg path,
-#products .products-categories .category-card .arrow-btn svg polyline,
-#products .products-categories .category-card .arrow-btn svg line {
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.81px;
+@media (max-width: 1023px) {
+  #products .products-categories .category-card .arrow-btn .material-symbols-outlined {
+    font-size: 4.2666666667vw;
+  }
 }
 #products .products-categories .category-card.active, #products .products-categories .category-card:hover {
   background-color: #183eeb;
@@ -2396,20 +2493,9 @@ img.is-loading {
 #products .products-categories .swiper-button-next::after {
   content: none;
 }
-#products .products-categories .swiper-button-prev svg,
-#products .products-categories .swiper-button-next svg {
-  width: 0.8333333333vw;
-  height: auto;
-}
-#products .products-categories .swiper-button-prev svg path, #products .products-categories .swiper-button-prev svg polyline, #products .products-categories .swiper-button-prev svg line,
-#products .products-categories .swiper-button-next svg path,
-#products .products-categories .swiper-button-next svg polyline,
-#products .products-categories .swiper-button-next svg line {
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.81px;
+#products .products-categories .swiper-button-prev .material-symbols-outlined,
+#products .products-categories .swiper-button-next .material-symbols-outlined {
+  font-size: 1.0416666667vw;
 }
 #products .products-categories .swiper-button-prev:hover,
 #products .products-categories .swiper-button-next:hover {
@@ -2429,15 +2515,15 @@ img.is-loading {
     height: 9.6vw;
     border-width: 1px;
   }
-  #products .products-categories .swiper-button-prev svg,
-  #products .products-categories .swiper-button-next svg {
-    width: 2.9333333333vw;
+  #products .products-categories .swiper-button-prev .material-symbols-outlined,
+  #products .products-categories .swiper-button-next .material-symbols-outlined {
+    font-size: 3.7333333333vw;
   }
 }
 #products .products-categories .swiper-button-prev {
   left: -2.9166666667vw;
 }
-#products .products-categories .swiper-button-prev svg {
+#products .products-categories .swiper-button-prev .material-symbols-outlined {
   transform: rotate(180deg);
 }
 @media (max-width: 1023px) {
@@ -2561,11 +2647,8 @@ img.is-loading {
 #products .products-lineup .lineup-header .lineup-tabs .tab-nav .nav-btn:hover {
   color: #ea0044;
 }
-#products .products-lineup .lineup-header .lineup-tabs .tab-nav .nav-btn svg {
-  height: 20px;
-}
-#products .products-lineup .lineup-header .lineup-tabs .tab-nav .nav-btn svg .cls-1 {
-  fill: currentColor;
+#products .products-lineup .lineup-header .lineup-tabs .tab-nav .nav-btn .material-symbols-outlined {
+  font-size: 1.0416666667vw;
 }
 #products .products-lineup .lineup-grid {
   display: grid;
@@ -2761,8 +2844,7 @@ img.is-loading {
 .product-card .card-body .pic img {
   max-width: 100%;
   max-height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   transition: transform 0.4s ease;
 }
 .product-card.highlight {
@@ -2783,7 +2865,7 @@ img.is-loading {
   color: #fff;
 }
 .product-card.highlight .card-body .pic .bg-shape {
-  background-color: rgb(80.3235059761, 109.0581673307, 239.8764940239);
+  background-color: rgb(31.4994141083%, 42.7679087571%, 94.0692133427%);
 }
 
 /* =========================================
@@ -2891,6 +2973,7 @@ img.is-loading {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 3.125vw;
   padding: 3.125vw;
   background-color: #dadee7;
 }
@@ -2899,6 +2982,7 @@ img.is-loading {
     width: 100%;
     padding: 10.6666666667vw 6.4vw;
     flex-direction: column;
+    gap: 0;
   }
 }
 #product-detail .detail-hero .hero-right .main-image {
@@ -2919,8 +3003,7 @@ img.is-loading {
 #product-detail .detail-hero .hero-right .main-image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   display: block;
   transition: transform 0.3s ease;
 }
@@ -2928,10 +3011,7 @@ img.is-loading {
   transform: scale(2);
 }
 #product-detail .detail-hero .hero-right .thumbnails {
-  position: absolute;
-  right: 3.125vw;
-  top: 50%;
-  transform: translateY(-50%);
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2939,10 +3019,6 @@ img.is-loading {
 }
 @media (max-width: 1023px) {
   #product-detail .detail-hero .hero-right .thumbnails {
-    position: relative;
-    right: 0;
-    top: 0;
-    transform: none;
     flex-direction: row;
     width: 100%;
     gap: 3.2vw;
@@ -3014,8 +3090,7 @@ img.is-loading {
 #product-detail .detail-hero .hero-right .thumb img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 #product-detail .detail-hero .color-bar {
   position: absolute;
@@ -3176,6 +3251,31 @@ img.is-loading {
     font-size: 3.7333333333vw;
   }
 }
+#product-detail .detail-specs .specs-table .tr.tr--media .col-media {
+  grid-column: 1/-1;
+}
+#product-detail .detail-specs .specs-table .tr.tr--media .video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background-color: #f2f2f2;
+}
+#product-detail .detail-specs .specs-table .tr.tr--media .video-frame iframe {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border: 0 !important;
+}
+#product-detail .detail-specs .specs-editor-html iframe {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16/9 !important;
+  max-width: 100%;
+  border: 0 !important;
+}
 #product-detail .detail-related {
   padding-bottom: 6.25vw;
   background-color: #fff;
@@ -3230,20 +3330,9 @@ img.is-loading {
 #product-detail .detail-related .swiper-button-next::after {
   content: none;
 }
-#product-detail .detail-related .swiper-button-prev svg,
-#product-detail .detail-related .swiper-button-next svg {
-  width: 0.8333333333vw;
-  height: auto;
-}
-#product-detail .detail-related .swiper-button-prev svg path, #product-detail .detail-related .swiper-button-prev svg polyline, #product-detail .detail-related .swiper-button-prev svg line,
-#product-detail .detail-related .swiper-button-next svg path,
-#product-detail .detail-related .swiper-button-next svg polyline,
-#product-detail .detail-related .swiper-button-next svg line {
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.81px;
+#product-detail .detail-related .swiper-button-prev .material-symbols-outlined,
+#product-detail .detail-related .swiper-button-next .material-symbols-outlined {
+  font-size: 1.0416666667vw;
 }
 #product-detail .detail-related .swiper-button-prev:hover,
 #product-detail .detail-related .swiper-button-next:hover {
@@ -3263,15 +3352,15 @@ img.is-loading {
     height: 9.6vw;
     border-width: 1px;
   }
-  #product-detail .detail-related .swiper-button-prev svg,
-  #product-detail .detail-related .swiper-button-next svg {
-    width: 2.9333333333vw;
+  #product-detail .detail-related .swiper-button-prev .material-symbols-outlined,
+  #product-detail .detail-related .swiper-button-next .material-symbols-outlined {
+    font-size: 3.7333333333vw;
   }
 }
 #product-detail .detail-related .swiper-button-prev {
   left: -2.9166666667vw;
 }
-#product-detail .detail-related .swiper-button-prev svg {
+#product-detail .detail-related .swiper-button-prev .material-symbols-outlined {
   transform: rotate(180deg);
 }
 @media (max-width: 1023px) {
@@ -3303,6 +3392,8 @@ img.is-loading {
   text-decoration: none;
   font-size: 0.9375vw;
   font-weight: 600;
+  align-items: center;
+  gap: 0.4166666667vw;
   position: relative;
   z-index: 0;
   overflow: hidden;
@@ -3334,6 +3425,7 @@ img.is-loading {
     padding: 3.7333333333vw 10.6666666667vw;
     border-radius: 2.6666666667vw;
     font-size: 4.2666666667vw;
+    gap: 1.6vw;
   }
 }
 #product-detail .detail-related .action-wrap .btn--red {
@@ -3542,20 +3634,9 @@ img.is-loading {
 #case .case-categories .swiper-button-next::after {
   content: none;
 }
-#case .case-categories .swiper-button-prev svg,
-#case .case-categories .swiper-button-next svg {
-  width: 0.8333333333vw;
-  height: auto;
-}
-#case .case-categories .swiper-button-prev svg path, #case .case-categories .swiper-button-prev svg polyline, #case .case-categories .swiper-button-prev svg line,
-#case .case-categories .swiper-button-next svg path,
-#case .case-categories .swiper-button-next svg polyline,
-#case .case-categories .swiper-button-next svg line {
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.81px;
+#case .case-categories .swiper-button-prev .material-symbols-outlined,
+#case .case-categories .swiper-button-next .material-symbols-outlined {
+  font-size: 1.0416666667vw;
 }
 #case .case-categories .swiper-button-prev:hover,
 #case .case-categories .swiper-button-next:hover {
@@ -3575,15 +3656,15 @@ img.is-loading {
     height: 9.6vw;
     border-width: 1px;
   }
-  #case .case-categories .swiper-button-prev svg,
-  #case .case-categories .swiper-button-next svg {
-    width: 2.9333333333vw;
+  #case .case-categories .swiper-button-prev .material-symbols-outlined,
+  #case .case-categories .swiper-button-next .material-symbols-outlined {
+    font-size: 3.7333333333vw;
   }
 }
 #case .case-categories .swiper-button-prev {
   left: -2.9166666667vw;
 }
-#case .case-categories .swiper-button-prev svg {
+#case .case-categories .swiper-button-prev .material-symbols-outlined {
   transform: rotate(180deg);
 }
 @media (max-width: 1023px) {
@@ -3676,6 +3757,18 @@ img.is-loading {
   gap: 1.5625vw;
   align-items: stretch;
 }
+#case .featured-missions .mission-showcase .mission-set {
+  display: none;
+}
+#case .featured-missions .mission-showcase .mission-set.active {
+  display: contents;
+}
+#case .featured-missions .mission-showcase .mission-item {
+  display: none;
+}
+#case .featured-missions .mission-showcase .mission-item.active {
+  display: contents;
+}
 @media (max-width: 1023px) {
   #case .featured-missions .mission-showcase {
     flex-direction: column;
@@ -3703,6 +3796,7 @@ img.is-loading {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   position: relative;
   z-index: 0;
   overflow: hidden;
@@ -3729,14 +3823,17 @@ img.is-loading {
 #case .featured-missions .mission-showcase .stats-grid .stat-card.span-full {
   grid-column: span 1;
 }
-#case .featured-missions .mission-showcase .stats-grid .stat-card:hover .num {
+#case .featured-missions .mission-showcase .stats-grid .stat-card:hover .num, #case .featured-missions .mission-showcase .stats-grid .stat-card.active .num {
   color: #fff;
 }
-#case .featured-missions .mission-showcase .stats-grid .stat-card:hover .label {
+#case .featured-missions .mission-showcase .stats-grid .stat-card:hover .label, #case .featured-missions .mission-showcase .stats-grid .stat-card.active .label {
   color: #BABABA;
 }
-#case .featured-missions .mission-showcase .stats-grid .stat-card:hover img {
+#case .featured-missions .mission-showcase .stats-grid .stat-card:hover img, #case .featured-missions .mission-showcase .stats-grid .stat-card.active img {
   filter: brightness(0) invert(1);
+}
+#case .featured-missions .mission-showcase .stats-grid .stat-card.active::before {
+  transform: scaleY(1);
 }
 #case .featured-missions .mission-showcase .stats-grid .stat-card img {
   width: 2.8645833333vw;
@@ -3785,8 +3882,7 @@ img.is-loading {
 #case .featured-missions .mission-showcase .main-image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   display: block;
 }
 #case .featured-missions .mission-showcase .mission-details {
@@ -4013,8 +4109,7 @@ img.is-loading {
 #about-page .motion-redefined .card-box .card-image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 #about-page {
   /* --- 3. Built on Experience Section --- */
@@ -4220,8 +4315,7 @@ img.is-loading {
 #about-page .looking-ahead .card-box .cell-image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   display: block;
 }
 #about-page .looking-ahead .card-box .cell-title {
@@ -4454,18 +4548,17 @@ img.is-loading {
 #news-page .news-list-section .news-intro .filter-group {
   display: inline-flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 0.4166666667vw;
   background-color: #f3f4f6;
   border-radius: 0.5208333333vw;
-  width: 37.5vw;
-  height: 4.6875vw;
+  padding: 0.78125vw;
 }
 @media (max-width: 1023px) {
   #news-page .news-list-section .news-intro .filter-group {
     width: 100%;
-    height: 12.8vw;
-    padding: 0 1.0666666667vw;
-    justify-content: space-between;
+    gap: 1.0666666667vw;
+    padding: 1.0666666667vw;
   }
 }
 #news-page .news-list-section .news-intro .filter-group .filter-btn {
@@ -4477,13 +4570,15 @@ img.is-loading {
   border-radius: 0.5208333333vw;
   cursor: pointer;
   transition: all 0.3s ease;
-  width: 11.4583333333vw;
+  padding: 0 1.6666666667vw;
   height: 3.125vw;
+  white-space: nowrap;
 }
 @media (max-width: 1023px) {
   #news-page .news-list-section .news-intro .filter-group .filter-btn {
     font-size: 3.7333333333vw;
     height: 10.6666666667vw;
+    padding: 0 2.6666666667vw;
     flex: 1;
   }
 }
@@ -4519,6 +4614,11 @@ img.is-loading {
   border-radius: 1.25vw;
   overflow: hidden;
   box-shadow: 0 0.5208333333vw 1.5625vw rgba(0, 0, 0, 0.06);
+}
+#news-page .news-list-section .news-card.is-hidden {
+  display: none;
+}
+#news-page .news-list-section .news-card {
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -4545,8 +4645,7 @@ img.is-loading {
 #news-page .news-list-section .news-card .card-img img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   transition: transform 0.5s ease;
 }
 #news-page .news-list-section .news-card:hover .card-img img {
@@ -4735,10 +4834,14 @@ img.is-loading {
 }
 #news-page .news-list-section .pagination .page-nav {
   font-size: 0.7291666667vw;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2083333333vw;
 }
 @media (max-width: 1023px) {
   #news-page .news-list-section .pagination .page-nav {
     font-size: 3.4666666667vw;
+    gap: 1.0666666667vw;
   }
 }
 #news-page .news-list-section .pagination .page-nav:hover {
@@ -5022,8 +5125,7 @@ img.is-loading {
 #news-detail .article-related .related-card__img img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   transition: transform 0.5s ease;
 }
 #news-detail .article-related .related-card__body {
@@ -5427,9 +5529,6 @@ img.is-loading {
     border-radius: 1.6vw;
   }
 }
-#contact-page .contact-section .form-card .contact-form .form-group input::-moz-placeholder, #contact-page .contact-section .form-card .contact-form .form-group select::-moz-placeholder, #contact-page .contact-section .form-card .contact-form .form-group textarea::-moz-placeholder {
-  color: #a0a0a0;
-}
 #contact-page .contact-section .form-card .contact-form .form-group input::placeholder, #contact-page .contact-section .form-card .contact-form .form-group select::placeholder, #contact-page .contact-section .form-card .contact-form .form-group textarea::placeholder {
   color: #a0a0a0;
 }
@@ -5457,8 +5556,7 @@ img.is-loading {
   position: relative;
 }
 #contact-page .contact-section .form-card .contact-form .form-group .select-wrapper select {
-  -moz-appearance: none;
-       appearance: none;
+  appearance: none;
   -webkit-appearance: none;
   padding-right: 2.0833333333vw;
   cursor: pointer;
@@ -5500,7 +5598,7 @@ img.is-loading {
   }
 }
 #contact-page .contact-section .form-card .contact-form .submit-btn:hover {
-  background-color: rgb(16.5737051793, 48.0637450199, 191.4262948207);
+  background-color: rgb(6.4994922272%, 18.8485274588%, 75.0691352238%);
 }
 
 .hero {
@@ -5625,8 +5723,7 @@ img.is-loading {
 .hero .hero-image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-bottom-left-radius: 10.4166666667vw;
 }
 @media (max-width: 1023px) {
@@ -5785,6 +5882,8 @@ img.is-loading {
   text-decoration: none;
   font-size: 0.9375vw;
   font-weight: 600;
+  align-items: center;
+  gap: 0.4166666667vw;
   position: relative;
   z-index: 0;
   overflow: hidden;
@@ -5816,6 +5915,7 @@ img.is-loading {
     padding: 4.2666666667vw 8.5333333333vw;
     border-radius: 2.6666666667vw;
     font-size: 4.2666666667vw;
+    gap: 1.6vw;
   }
 }
 .cta .cta-action .btn--red {
@@ -5826,4 +5926,6 @@ img.is-loading {
     width: 100%;
     justify-content: center;
   }
-}/*# sourceMappingURL=main.css.map */
+}
+
+/*# sourceMappingURL=main.css.map */

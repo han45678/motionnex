@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+    <!-- Google Material Symbols：全站箭頭圖示統一來源，取代各自的手繪 SVG / unicode 符號，
+         避免不同裝置系統字型渲染箭頭字元的樣式跑掉 -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=block" rel="stylesheet">
     <link rel="stylesheet" href="./assets/vendor/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="./assets/vendor/aos/aos.css">
     <link rel="stylesheet" href="./css/main.css">
@@ -159,7 +162,7 @@
                     </div>
                 </div>
                 <div class="thumbnails">
-                    <button class="thumbs-swiper__nav thumbs-swiper__nav--next" aria-label="Next thumbnail">⭡</button>
+                    <button class="thumbs-swiper__nav thumbs-swiper__nav--next" aria-label="Next thumbnail"><span class="material-symbols-outlined" aria-hidden="true">arrow_upward</span></button>
 
                     <!-- 縮圖清單 -->
                     <div class="thumbs-swiper swiper">
@@ -177,7 +180,7 @@
                         </div>
                     </div>
 
-                    <button class="thumbs-swiper__nav thumbs-swiper__nav--next" aria-label="Next thumbnail">↓</button>
+                    <button class="thumbs-swiper__nav thumbs-swiper__nav--next" aria-label="Next thumbnail"><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span></button>
                 </div>
             </div>
             <div class="color-bar"></div>
@@ -289,6 +292,21 @@
                                 </ul>
                             </div>
                         </div>
+                        <!-- 影片列：這一列只有一個 td，滿版整列（不分 col-model/col-spec/col-value），
+                             放一支影片，不需要文字說明。使用者會直接貼上 YouTube「分享→內嵌」給的
+                             完整 iframe（含 width/height 屬性），CSS 用 .video-frame iframe 強制覆蓋，
+                             讓影片維持 16:9 並吃滿容器寬度 -->
+                        <div class="tr tr--media">
+                            <div class="td col-media">
+                                <div class="video-frame">
+                                    <iframe width="560" height="315"
+                                        src="https://www.youtube.com/embed/m_dhMSvUCIc?si=ZjoM3rOzMybyPT4j"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
         </section>
@@ -302,7 +320,7 @@
                         <a href="products_page.html" class="swiper-slide product-card" data-category="firefighting">
                             <div class="card-head">
                                 <span class="category">Firefighting Robots</span>
-                                <span class="link-icon"><span class="arrow">↗</span></span>
+                                <span class="link-icon"><span class="arrow material-symbols-outlined" aria-hidden="true">arrow_outward</span></span>
                             </div>
                             <div class="card-body">
                                 <div class="info">
@@ -318,7 +336,7 @@
                         <a href="products_page.html" class="swiper-slide product-card" data-category="firefighting">
                             <div class="card-head">
                                 <span class="category">Firefighting Robots</span>
-                                <span class="link-icon"><span class="arrow">↗</span></span>
+                                <span class="link-icon"><span class="arrow material-symbols-outlined" aria-hidden="true">arrow_outward</span></span>
                             </div>
                             <div class="card-body">
                                 <div class="info">
@@ -334,7 +352,7 @@
                         <a href="products_page.html" class="swiper-slide product-card" data-category="firefighting">
                             <div class="card-head">
                                 <span class="category">Firefighting Robots</span>
-                                <span class="link-icon"><span class="arrow">↗</span></span>
+                                <span class="link-icon"><span class="arrow material-symbols-outlined" aria-hidden="true">arrow_outward</span></span>
                             </div>
                             <div class="card-body">
                                 <div class="info">
@@ -350,25 +368,11 @@
                     </div>
                 </div>
                 <!-- 左右控制箭頭（放在 swiper 外，避免被裁切；樣式沿用 products.html 產品分類輪播區塊） -->
-                <div class="swiper-button-prev"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.08 15.32">
-                        <g>
-                            <g>
-                                <line x1="0.91" y1="7.66" x2="27.17" y2="7.66" />
-                                <polyline points="20.42 0.91 27.17 7.66 20.42 14.41" />
-                            </g>
-                        </g>
-                    </svg></div>
-                <div class="swiper-button-next"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.08 15.32">
-                        <g>
-                            <g>
-                                <line x1="0.91" y1="7.66" x2="27.17" y2="7.66" />
-                                <polyline points="20.42 0.91 27.17 7.66 20.42 14.41" />
-                            </g>
-                        </g>
-                    </svg></div>
+                <div class="swiper-button-prev"><span class="material-symbols-outlined" aria-hidden="true">arrow_right_alt</span></div>
+                <div class="swiper-button-next"><span class="material-symbols-outlined" aria-hidden="true">arrow_right_alt</span></div>
 
                 <div class="action-wrap" data-aos="fade-up">
-                    <a href="products.html" class="btn btn--red">Back →</a>
+                    <a href="products.html" class="btn btn--red">Back <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
                 </div>
             </div>
         </section>

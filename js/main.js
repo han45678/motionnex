@@ -8,6 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initSolutionsTabs();
 
+  initCaseMissionSelect();
+
+  initNewsFilter();
+
   initCountUpStats();
 
   initCountUpStatsAbout();
@@ -414,4 +418,72 @@ function initSolutionsTabs() {
   // 監聽斷點切換（例如轉橫向、縮放視窗），確保內容區塊隨版面重新歸位
   mobileQuery.addEventListener('change', positionTabContent);
   positionTabContent();
+}
+
+// news.html 專用：篩選列（All / CASE / Events / Technology）點選 →
+// 顯示/隱藏對應分類的新聞卡片。刻意只動 .filter-btn 跟 .news-card，
+// 完全不去碰上面的 .news-hero，橫幅圖片跟文字維持固定、不隨篩選切換而變動。
+function initNewsFilter() {
+  const filterGroup = document.querySelector('.news-list-section .filter-group');
+  const cards = document.querySelectorAll('.news-list-section .news-card[data-category]');
+  if (!filterGroup || cards.length === 0) return;
+
+  // 事件委派在整個篩選列上，之後要加減按鈕也不用重新綁定
+  filterGroup.addEventListener('click', (e) => {
+    const clickedBtn = e.target.closest('.filter-btn');
+    if (!clickedBtn || clickedBtn.classList.contains('active')) return;
+
+    filterGroup.querySelector('.filter-btn.active')?.classList.remove('active');
+    clickedBtn.classList.add('active');
+
+    const filter = clickedBtn.dataset.filter;
+    cards.forEach((card) => {
+      const matches = filter === 'all' || card.dataset.category === filter;
+      card.classList.toggle('is-hidden', !matches);
+    });
+  });
+}
+
+// case.html 專用：Mission Categories 卡片點選 → 切換下方 Featured Missions 的內容。
+// 卡片同時也是 category-swiper 的 swiper-slide，Swiper 預設會在真的拖曳滑動時
+// 自動吃掉隨後的 click（preventClicks），所以這裡不用額外分辨點擊/滑動。
+function initCaseMissionSelect() {
+  const categoriesSection = document.querySelector('.case-categories');
+  const featuredSection = document.querySelector('.featured-missions');
+  if (!categoriesSection || !featuredSection) return;
+
+  const cards = categoriesSection.querySelectorAll('.category-card[data-target]');
+  const missionSets = featuredSection.querySelectorAll('.mission-set[data-mission]');
+  if (cards.length === 0 || missionSets.length === 0) return;
+
+  // 事件委派在整個分類區塊上，卡片是動態的 swiper-slide 也不用擔心綁不到
+  categoriesSection.addEventListener('click', (e) => {
+    const card = e.target.closest('.category-card[data-target]');
+    if (!card || card.classList.contains('active')) return;
+
+    categoriesSection.querySelector('.category-card.active')?.classList.remove('active');
+    card.classList.add('active');
+
+    const target = card.dataset.target;
+    featuredSection.querySelector('.mission-set.active')?.classList.remove('active');
+    featuredSection.querySelector(`.mission-set[data-mission="${target}"]`)?.classList.add('active');
+  });
+
+  // .stats-grid 的 5 張 .stat-card 各自代表一個不同案例（見 case.html 的
+  // .mission-item），點了只切換「目前 active 的那組 .mission-set」內部的
+  // 圖片/說明，每個分類各自記自己選到第幾張，彼此不影響
+  featuredSection.addEventListener('click', (e) => {
+    const statCard = e.target.closest('.stat-card[data-mission-index]');
+    if (!statCard || statCard.classList.contains('active')) return;
+
+    const missionSet = statCard.closest('.mission-set');
+    if (!missionSet) return;
+
+    missionSet.querySelector('.stat-card.active')?.classList.remove('active');
+    statCard.classList.add('active');
+
+    const index = statCard.dataset.missionIndex;
+    missionSet.querySelector('.mission-item.active')?.classList.remove('active');
+    missionSet.querySelector(`.mission-item[data-mission-index="${index}"]`)?.classList.add('active');
+  });
 }

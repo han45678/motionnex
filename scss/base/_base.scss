@@ -68,3 +68,14 @@ h4 { font-size: size(22); }
 img.is-loading {
   background-color: rgba(10, 11, 46, 0.06);
 }
+
+// Google Material Symbols 圖示：全站箭頭按鈕（swiper 導覽、卡片連結箭頭、
+// CTA 按鈕箭頭…）統一改用這套圖示字型，取代原本各自的手繪 SVG / unicode 箭頭符號
+// （↗ ⭡ 等符號在不同裝置的系統字型渲染出來的粗細、造型不一致，手機版常常跑掉）。
+// 圖示大小、顏色沿用外層容器既有的 font-size / color 設定，這裡只補齊對齊用的樣式。
+.material-symbols-outlined {
+  display: inline-flex;
+  vertical-align: middle;
+  font-size: inherit;
+  line-height: 1;
+}

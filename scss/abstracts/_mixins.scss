@@ -131,16 +131,10 @@
 
     &::after { content: none; }
 
-    svg {
-      width: size(16);
-      height: auto;
-      path, polyline, line {
-        fill: none;
-        stroke: currentColor;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        stroke-width: 1.81px;
-      }
+    // 圖示改用 Google Material Symbols（見 base/_base.scss 的 .material-symbols-outlined），
+    // 大小直接用 font-size 控制，取代原本手繪 SVG 的 width/stroke 設定
+    .material-symbols-outlined {
+      font-size: size(20);
     }
 
     &:hover {
@@ -159,13 +153,13 @@
       height: size-m(36);
       border-width: 1px;
 
-      svg { width: size-m(11); }
+      .material-symbols-outlined { font-size: size-m(14); }
     }
   }
 
   .swiper-button-prev {
     left: size(-56);
-    svg { transform: rotate(180deg); }
+    .material-symbols-outlined { transform: rotate(180deg); }
 
     @include mq(mobile) {
       left: 0;
@@ -194,12 +188,15 @@
   text-decoration: none;
   font-size: size(18);
   font-weight: 600;
+  align-items: center; // 跟按鈕文字後面的 Material Symbols 箭頭圖示垂直對齊
+  gap: size(8);
   @include btn-slide-hover;
 
   @include mq(mobile) {
     padding: $mobile-padding;
     border-radius: size-m(10);
     font-size: size-m(16);
+    gap: size-m(6);
   }
 }
 
